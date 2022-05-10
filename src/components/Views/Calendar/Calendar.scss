@@ -1,0 +1,109 @@
+.rbc-calendar {
+  height: 85vh !important;
+  width: 94% !important;
+  margin: auto;
+}
+
+.rbc-toolbar-label {
+  font-size: 20px !important;
+}
+.rbc-btn-group {
+  button {
+    color: #eeeeee !important;
+    border: 1px solid var(--hoverLiDark) !important;
+    &:hover {
+      background-color: var(--hoverLiDark) !important;
+    }
+  }
+  .rbc-active {
+    color: #ff7b43 !important;
+    background-color: var(--hoverLiDark) !important;
+  }
+}
+
+.rbc-month-view {
+  border: 1px solid #1f2733;
+
+  .rbc-header {
+    border-bottom: 1px solid #1f2733 !important;
+    span {
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-weight: 400 !important;
+    }
+  }
+  .rbc-header + .rbc-header {
+    border-left: 1px solid #1f2733;
+  }
+
+  .rbc-month-row {
+    border: 1px solid #1f2733;
+
+    .rbc-off-range-bg {
+      background-color: #1f2733;
+    }
+    .rbc-day-bg {
+      border: 1px solid #1f2733;
+    }
+    .rbc-today {
+      background-color: #1f2733;
+    }
+
+    .rbc-row-content {
+      .rbc-date-cell {
+        font-size: 14px;
+        padding-right: 10px !important;
+      }
+      .rbc-current a {
+        color: #ff7b43 !important;
+        font-weight: 400 !important;
+      }
+    }
+  }
+}
+
+.rbc-addons-dnd-resize-ew-anchor {
+  top: 6px !important;
+}
+.rbc-event-content {
+  padding-left: 8px !important;
+  font-size: 14px;
+}
+
+.rbc-time-view {
+  border: 1px solid #1f2733;
+
+  .rbc-time-header.rbc-overflowing {
+    border-right: 1px solid #1f2733;
+  }
+
+  .rbc-time-header-content {
+    background-color: #1a202c !important;
+    border-left: 1px solid #1f2733;
+    .rbc-day-bg {
+      background-color: #1a202c !important;
+    }
+  }
+  .rbc-time-content > * + * > * {
+    border-left: 1px solid #1f2733;
+  }
+  .rbc-time-content {
+    background-color: #1a202c !important;
+    border-top: 2px solid #1f2733;
+    .rbc-timeslot-group {
+      border-bottom: 1px solid #1f2733;
+      min-height: 50px !important;
+      .rbc-time-slot {
+        // border-top: 1px solid #1f2733;
+        border: 1px solid transparent;
+        .rbc-label {
+          font-size: 14px !important;
+          padding: 0px 12px;
+          color: rgba(255, 255, 255, 0.6) !important;
+        }
+      }
+    }
+    .rbc-day-slot {
+      background-color: #1a202c !important;
+    }
+  }
+}

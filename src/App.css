@@ -1,0 +1,103 @@
+/* DO NOT REMOVE - ESTE EL UNICO FONT PARA DESCARGAR */
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap');
+
+
+body {
+  /* DO NOT REMOVE - CODE FOR REAVIZ CHART STYLES */
+  --color-background: rgb(51, 51, 51);
+  --color-on-background: #fff;
+
+  --color-tooltip: rgba(0, 5, 11, 0.9);
+  --color-on-tooltip: #fff;
+
+  --color-handle-fill: #2c343a;
+  --color-handle-stroke: #67c2e4;
+  --color-handle-drag-fill: transparent;
+  --color-handle-dots: #67c2e4;
+  --color-handle-line: #67c2e4;
+}
+
+ul {
+  list-style-type: none;
+}
+
+:root {
+  --high: #fa2323;
+  --medium: #ffbd5a;
+  --low: #2041b7;
+  --none: #7c7b7b;
+
+  --hoverLiDark: #1F2733;
+  /* --hoverLiDark: #222a31; */
+  --hoverLiLight: #e9ecef;
+
+  --yesterday: #FF6370;
+  --tomorrow: #16CFF7;
+  /* --tomorrow: #00A4FF; */
+
+  --hover-background: #383D5B;
+
+  --gray-100: #EDF2F7;
+  --gray-700: #1f2733;
+
+  --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* background: #888; */
+  background: rgba(255, 255, 255, .15);
+  /* visibility: hidden; */
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* visibility: visible; */
+}
+
+.placeholder {
+  position: absolute;
+  background-color: transparent;
+  border-radius: 3px;
+  border: dashed 1px #00B8D9 !important;
+  background-color: transparent;
+}
+
+.split {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+.gutter {
+  /* background-color: #e5e7eb; */
+  background-color: transparent !important;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
+  cursor: col-resize;
+  width: 2px !important;
+  height: 100%;
+}
+
+.gutter.gutter-vertical {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
+  cursor: row-resize;
+}

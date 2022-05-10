@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Open+Sans&family=Roboto:wght@300;400;500;700;900&display=swap");
+
+.loginPage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  font-family: "Hind", sans-serif !important;
+}
+
+.form {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafdfe;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  background-color: #2e85ec;
+  color: white;
+  padding-top: 10px;
+  height: 43px;
+  font-weight: 400 !important;
+  padding-bottom: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1b64bb;
+  }
+}
+
+@media (max-width: 850px) {
+  .form {
+    width: 100%;
+  }
+}

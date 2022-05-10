@@ -1,0 +1,27 @@
+.emoji-picker-react {
+  background-color: #282e3e !important;
+  box-shadow: none !important;
+  border: none !important;
+  height: 450px !important;
+  width: 100% !important;
+}
+
+.emoji-categories {
+  visibility: hidden !important;
+}
+.active-category-indicator-wrapper {
+  visibility: hidden !important;
+}
+
+input.emoji-search {
+  background-color: transparent !important;
+  border: 1px solid gray;
+}
+
+.emoji-group:before {
+  content: "" !important;
+}
+
+.skin-tones-list {
+  visibility: hidden !important;
+}

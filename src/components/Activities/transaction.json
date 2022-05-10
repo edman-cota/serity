@@ -1,0 +1,16 @@
+[
+    {
+        "transactionType": "PURCHASE",
+        "customerId": "12345",
+        "amount": "7.53",
+        "currency": "USD",
+        "vendor": "Bestbuy"
+    },
+        {
+        "transactionType": "PURCHASE",
+        "customerId": "54321",
+        "amount": "8.00",
+        "currency": "USD",
+        "vendor": "Bestbuy"
+    }
+]

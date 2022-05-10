@@ -1,0 +1,114 @@
+.divForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  width: 400px;
+  padding: 25px;
+  border-radius: 7px;
+
+  p {
+    color: #bf1650;
+  }
+
+  p::before {
+    display: inline;
+    content: "⚠ ";
+  }
+}
+
+.input {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f0f2f6;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid transparent;
+  padding: 7px 15px;
+  height: 43px;
+  margin-top: 17px;
+  font-size: 0.9rem;
+  caret-color: #2175e2 !important;
+
+  &:active {
+    border: 1px solid #2175e2 !important;
+  }
+  &:focus {
+    border: 1px solid #2175e2 !important;
+  }
+}
+
+.submit {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  background-color: #2e85ec;
+  color: white;
+  padding-top: 10px;
+  height: 43px;
+  font-weight: 400 !important;
+  padding-bottom: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1b64bb;
+  }
+}
+.register {
+  color: #1f50cc;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #0c2e83;
+  }
+}
+
+.socialRegister {
+  width: 400px;
+
+  .socialLoginTitle {
+    color: rgba(0, 0, 0, 0.24);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+  }
+
+  ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+
+    li {
+      display: block;
+      border: 1px solid #f0f0f0;
+      border-radius: 20px;
+      box-sizing: border-box;
+
+      button {
+        color: rgba(0, 0, 0, 0.54);
+        width: 100%;
+        border: none;
+        background-color: white;
+        padding: 8px 0px;
+        border-radius: 20px;
+      }
+    }
+  }
+}
+
+.noaccount {
+  width: 400px;
+  padding: 0px 25px;
+}
