@@ -36,11 +36,14 @@ const NavLink = ({ text, icon }) => (
     display="flex"
     px="10px"
     h="38px"
+    w="100%"
     justifyContent="start"
     color="rgba(255, 255, 255, 0.6)"
     borderRadius="base"
     bg="transparent"
     _hover={{ backgroundColor: "gray.800" }}
+    _active={{ backgroundColor: "gray.800" }}
+    _focus={{ outline: "none" }}
   >
     <Text as="span" w="30px">
       {icon}

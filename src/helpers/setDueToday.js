@@ -6,7 +6,7 @@ export function setDueToday(user, task, workingProject) {
   const status = { success: "success", error: "error" };
 
   database
-    .ref(`${user?.uid}/tasks/${task?.at(0).id}`)
+    .ref(`${user?.uid}/tasks/${task.id}`)
     .update({ due: new Date().toISOString() })
     .then(() => {
       const activityRef = database.ref(`${user?.uid}/activities`);
@@ -15,9 +15,9 @@ export function setDueToday(user, task, workingProject) {
         .set({
           id: newActivityRef.key,
           username: user?.displayName,
-          content: task?.at(0).content,
+          content: task.content,
           due: new Date().toISOString(),
-          taskId: task?.at(0).id,
+          taskId: task.id,
           projectId: workingProject.id,
           createdBy: user?.uid,
           createdAt: new Date().toISOString(),

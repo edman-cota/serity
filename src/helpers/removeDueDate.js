@@ -6,19 +6,17 @@ export function removeDueDate(user, task, workingProject) {
   const status = { success: "success", error: "error" };
 
   database
-    .ref(`${user?.uid}/tasks/${task?.at(0).id}`)
+    .ref(`${user?.uid}/tasks/${task.id}`)
     .update({ due: null })
     .then(() => {
-      // setValue(null);
-      //   onClose();
       const activityRef = database.ref(`${user?.uid}/activities`);
       const newActivityRef = activityRef.push();
       newActivityRef.set({
         id: newActivityRef.key,
         username: user?.displayName,
-        content: task?.at(0).content,
+        content: task.content,
         due: null,
-        taskId: task?.at(0).id,
+        taskId: task.id,
         projectId: workingProject.id,
         createdBy: user?.uid,
         createdAt: new Date().toISOString(),

@@ -42,7 +42,7 @@ export const messages = {
     today: "Today",
     tomorrow: "Tomorrow",
     yesterday: "Yesterdar",
-    remove_date: "Remove data",
+    remove_date: "Remove date",
     // Priorities
     high: "High",
     medium: "Medium",

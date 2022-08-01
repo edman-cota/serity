@@ -70,17 +70,32 @@ const TopOptions = ({ task, onClose, workingProject }) => {
   return (
     <Flex mt="20px" mb="10px" px="16px" gap="5px">
       {task && task?.due !== undefined ? (
-        <Button h="1.875rem" fontSize="14px" onClick={handleRemoveDueDate}>
+        <Button
+          h="1.875rem"
+          fontSize="14px"
+          onClick={handleRemoveDueDate}
+          _focus={{ outline: "none" }}
+        >
           <FormattedMessage id="remove_date" />
         </Button>
       ) : null}
       {isToday ? null : (
-        <Button h="1.875rem" fontSize="14px" onClick={handleSetToday}>
+        <Button
+          h="1.875rem"
+          fontSize="14px"
+          onClick={handleSetToday}
+          _focus={{ outline: "none" }}
+        >
           <FormattedMessage id="today" />
         </Button>
       )}
       {isTomorrow ? null : (
-        <Button h="1.875rem" fontSize="14px" onClick={handleSetTomorrow}>
+        <Button
+          h="1.875rem"
+          fontSize="14px"
+          onClick={handleSetTomorrow}
+          _focus={{ outline: "none" }}
+        >
           <FormattedMessage id="tomorrow" />
         </Button>
       )}

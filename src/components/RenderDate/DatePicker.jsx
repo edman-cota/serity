@@ -64,7 +64,7 @@ const DatePicker = () => {
             )}
 
             {task?.at(0)?.due === undefined ? (
-              <Text as="span" pr="10px" lineHeight="20px">
+              <Text as="span" lineHeight="20px">
                 <CalendarIcon />
               </Text>
             ) : null}

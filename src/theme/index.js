@@ -1,8 +1,9 @@
-/* eslint-disable comma-dangle */
 import { extendTheme, cssVar, withDefaultColorScheme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 import { globalStyles } from "./styles";
-import { buttonStyles } from "./components/button";
+import buttonStyles from "./components/button";
+import menuStyles from "./components/menu";
+import linkStyles from "./components/link";
 import { textareaStyles } from "./components/textarea";
 
 const config = {
@@ -37,25 +38,7 @@ const components = {
       },
     },
   },
-  Menu: {
-    parts: ["list", "item"],
-    baseStyle: {
-      list: {
-        bg: "black",
-        border: "0px",
-      },
-      item: {
-        h: "38px",
-        w: "90%",
-        mx: "auto",
-        color: "white",
-        borderRadius: "base",
-        _hover: {
-          bg: "gray.700",
-        },
-      },
-    },
-  },
+
   Input: {
     variants: {
       filled: {
@@ -93,11 +76,11 @@ const components = {
 
 const theme = extendTheme(
   { config, breakpoints, components },
-
   globalStyles,
   buttonStyles,
+  menuStyles,
+  linkStyles,
   textareaStyles,
-  // inputStyles
   withDefaultColorScheme({
     colorScheme: "brand",
     components: ["Checkbox"],

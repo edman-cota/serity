@@ -43,7 +43,7 @@ const ItemTitle = ({ task, index }) => {
 };
 
 ItemTitle.propTypes = {
-  task: PropTypes.shape({}),
+  task: PropTypes.shape({ id: PropTypes.string, content: PropTypes.string }),
   index: PropTypes.number,
 };
 

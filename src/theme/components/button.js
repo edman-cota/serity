@@ -1,9 +1,12 @@
-/* eslint-disable import/prefer-default-export */
-export const buttonStyles = {
+const buttonStyles = {
   components: {
     Button: {
       baseStyle: {
         fontWeight: 400,
+        _focusVisible: {
+          boxShadow:
+            "0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)",
+        },
       },
       variants: {
         ghost: ({ colorMode }) => ({
@@ -18,23 +21,9 @@ export const buttonStyles = {
             boxShadow: "none",
           },
         }),
-        custom: {
-          display: "flex",
-          borderRadius: "none",
-          justifyContent: "start",
-          _hover: {
-            bg: "rgb(51, 59, 70)",
-          },
-        },
-        customItem: {
-          color: "rgb(66, 72, 85)",
-          h: "38px",
-          w: "90px",
-          mx: "auto",
-          borderRadius: "base",
-          _hover: { bg: "rgb(244, 246, 248)" },
-        },
       },
     },
   },
 };
+
+export default buttonStyles;
