@@ -8,7 +8,6 @@ import {
   Avatar,
   Button,
   Portal,
-  Link,
 } from "@chakra-ui/react";
 import { NavLink as RouteLink } from "react-router-dom";
 import { FormattedMessage } from "react-intl";

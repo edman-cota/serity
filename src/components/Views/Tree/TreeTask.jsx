@@ -40,7 +40,7 @@ const TreeTrask = () => {
         <VStack>
           <NavbarTreeTask />
           {isTaskActivityVisible ? (
-            <Flex px="16px">
+            <Flex px="16px" w="100%">
               <Activities />
             </Flex>
           ) : (

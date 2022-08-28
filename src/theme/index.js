@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import { extendTheme, cssVar, withDefaultColorScheme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 import { globalStyles } from "./styles";

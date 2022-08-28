@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import React from "react";
 import { Flex } from "@chakra-ui/react";
 import Activity from "./Activity.tsx";
@@ -19,8 +20,8 @@ const Activities = () => {
     >
       <div className="timeline">
         <div className="timeline-body">
-          {activities
-            && activities
+          {activities &&
+            activities
               .slice(0)
               .reverse()
               .map((data) => (

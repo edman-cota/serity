@@ -1,15 +1,17 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-empty */
 /* eslint-disable object-curly-newline */
 /* eslint-disable quotes */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from "react";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { Flex, VStack, Text, Link, Input, Button } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { VStack, Text, Input, Button } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
 import SocialLogin from "./SocialLogin";
+import Footer from "./Footer";
 import { useGetActiveProject } from "../../hooks/useGetActiveProject";
 
 import Header from "./Header";
@@ -98,14 +100,7 @@ const LoginForm = () => {
         </form>
       </VStack>
 
-      <Flex w="440px" px="25px">
-        <Text>
-          <FormattedMessage id="dont_have_an_account_yet" />
-          <Link color="teal.500" as={RouterLink} to="/register">
-            <FormattedMessage id="register" />
-          </Link>
-        </Text>
-      </Flex>
+      <Footer textId="dont_have_an_account_yet" whereTo="register" />
     </VStack>
   );
 };

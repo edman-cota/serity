@@ -7,10 +7,10 @@ import { useForm } from "react-hook-form";
 import { FormattedMessage } from "react-intl";
 // eslint-disable-next-line object-curly-newline
 import { Input, VStack, Text, Flex, Link, Checkbox } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
 import SocialLogin from "../Login/SocialLogin";
 import { registerWithEmailAndPassword } from "../../firebase";
 import Header from "../Login/Header";
+import Footer from "../Login/Footer";
 
 const RegisterForm = () => {
   const {
@@ -108,14 +108,7 @@ const RegisterForm = () => {
         </form>
       </VStack>
 
-      <Flex w="440px" px="25px">
-        <Text>
-          <FormattedMessage id="already_have_an_account" />{" "}
-          <Link color="teal.500" as={RouterLink} to="/login">
-            <FormattedMessage id="login" />
-          </Link>
-        </Text>
-      </Flex>
+      <Footer textId="already_have_an_account" whereTo="login" />
     </VStack>
   );
 };
