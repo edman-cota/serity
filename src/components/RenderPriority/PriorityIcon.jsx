@@ -50,10 +50,12 @@ const PriorityIcon = (props) => {
                   <Button
                     variant="custom"
                     key={priority}
+                    justifyContent="start"
                     onClick={() => {
                       updateTaskPriority(length - (index + 1));
                       onClose();
                     }}
+                    _hover={{ background: "gray.700" }}
                   >
                     <Text as="span" w="30px">
                       <BsFlag color={colors[index]} fontSize="14px" />

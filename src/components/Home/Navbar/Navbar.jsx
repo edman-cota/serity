@@ -95,14 +95,14 @@ const Navbar = () => {
               boxShadow: "0 6px 20px rgb(0 118 255 / 23%)",
             }}
             _active={{
-              bg: "#0070f3",
+              bgGradient: "linear(105.23deg, #01A4FF 33.35%, #01FFC2 115.77%)",
               boxShadow: "0 2px 6px 0 rgb(0 118 255 / 39%)",
             }}
             _focus={{
               boxShadow: "none",
             }}
           >
-            Go to Worskpace
+            Go to Workspace
           </Button>
         ) : (
           <Button

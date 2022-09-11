@@ -56,15 +56,18 @@ ul {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  /* background: #888; */
   background: rgba(255, 255, 255, .15);
   /* visibility: hidden; */
   border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgba(255, 255, 255, .30);
+  /* width: 20px; */
   /* visibility: visible; */
 }
 

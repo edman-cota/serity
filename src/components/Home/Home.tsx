@@ -13,9 +13,6 @@ export const Main = (): JSX.Element => {
         <div className="gradient__bg">
           <Navbar />
           <Header />
-          {/* <Features /> */}
-          {/* <Download />
-          <CTA /> */}
         </div>
         <Footer />
         <CookieConsent

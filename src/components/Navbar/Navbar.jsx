@@ -12,6 +12,7 @@ import ToggleSidebarVisibility from "./ToggleSidebarVisibility";
 // import NotificationsItem from "./NotificationsItem.tsx";
 import NavItemAddTask from "./NavItemAddTask";
 import SortItem from "./SortItemSwitcher";
+import ProjectName from "./ProjectName";
 import { auth } from "../../firebase";
 // import SearchModal from "../Modals/SearchModal.js";
 import ShortcutsModal from "../Modals/ShortcutsModal";
@@ -88,6 +89,7 @@ const Navbar = () => {
           <ToggleSidebarVisibility />
           {/* <ViewSwitcher /> */}
           <SortItem />
+          <ProjectName />
         </Flex>
         <Flex>
           <List display="flex" alignItems="center">
