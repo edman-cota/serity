@@ -5,7 +5,13 @@ import { AiFillPlayCircle } from "react-icons/ai";
 
 const Header = (): JSX.Element => {
   return (
-    <Flex px="73px" py="42px" bg="#1f2733">
+    <Flex
+      px="73px"
+      py="42px"
+      bg="#1f2733"
+      margin="auto"
+      justifyContent="center"
+    >
       <HStack
         px={{ base: "1.5rem", sm: "3rem", lg: "4rem", xl: "4rem" }}
         // py="2rem"
@@ -13,19 +19,27 @@ const Header = (): JSX.Element => {
         // bg="white"
         // mt="90px"
       >
-        <VStack pt="60px" w="100%" justifyContent="start">
+        <VStack
+          pt={{ base: "0px", sm: "60px" }}
+          w="100%"
+          justifyContent="start"
+        >
           <Text
+            as="span"
             w="100%"
             fontWeight="extrabold"
             bgGradient="linear(90deg, #007CF0, #00DFD8)"
             bgClip="text"
-            // color="white"
-            lineHeight={{ base: "40px", sm: "48px", lg: "60px" }}
-            fontSize={{ base: "26px", sm: "36px", md: "40px", lg: "60px" }}
+            lineHeight={{ base: "34px", sm: "48px", lg: "60px" }}
+            fontSize={{ base: "32px", sm: "36px", md: "40px", lg: "60px" }}
           >
             Simple.Fast.Delightful
             <br />
-            <Text as="span" color="white" lineHeight="100px">
+            <Text
+              as="span"
+              color="white"
+              lineHeight={{ base: "80px", sm: "100px" }}
+            >
               to-do list
             </Text>
           </Text>
