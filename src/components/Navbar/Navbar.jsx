@@ -81,17 +81,16 @@ const Navbar = () => {
       borderRadius="16px"
       alignItems="center"
       w="98%"
-      // w="98%"
       mx="auto"
     >
-      <Flex w="95%" mx="auto" maxW={1000}>
+      <Flex w="95%" mx="auto" maxW="1000px !important">
         <Flex flex="1" alignItems="center" gap="18px">
           <ToggleSidebarVisibility />
           {/* <ViewSwitcher /> */}
           {/* <SortItem /> */}
           <ProjectName />
         </Flex>
-        <Flex>
+        <Flex flex="1" justifyContent="flex-end">
           <List display="flex" alignItems="center">
             {project !== "today" ? (
               <ListItem mr="10px">
