@@ -62,12 +62,10 @@ const AchievementCard = () => {
           </VStack>
           <HStack justifyContent="space-between" w="100%" h="30px">
             <Text fontSize="14px">
-              <b>{completedTasks.length}</b>
-              <FormattedMessage id="done" />
+              <b>{completedTasks.length}</b> <FormattedMessage id="done" />
             </Text>
             <Text fontSize="14px">
-              <b>{tasks.length}</b>
-              <FormattedMessage id="pending" />
+              <b>{tasks.length}</b> <FormattedMessage id="pending" />
             </Text>
             <Text fontSize="14px">
               <b>{tasks.length + completedTasks.length}</b>{" "}

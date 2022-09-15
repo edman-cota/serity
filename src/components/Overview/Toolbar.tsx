@@ -22,7 +22,11 @@ const Toolbar = () => {
       <Heading size="md">
         <FormattedMessage id="overview" />
       </Heading>
-      <Button onClick={() => navigate(-1)}>
+      <Button
+        onClick={() => navigate(-1)}
+        _active={{ boxShadow: "none" }}
+        _focus={{ boxShadow: "none" }}
+      >
         <AiOutlineClose />
       </Button>
     </Flex>
