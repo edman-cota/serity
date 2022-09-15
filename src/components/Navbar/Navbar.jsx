@@ -87,7 +87,7 @@ const Navbar = () => {
         <Flex flex="1" alignItems="center" gap="18px">
           <ToggleSidebarVisibility />
           {/* <ViewSwitcher /> */}
-          {/* <SortItem /> */}
+          <SortItem />
           <ProjectName />
         </Flex>
         <Flex flex="1" justifyContent="flex-end">
