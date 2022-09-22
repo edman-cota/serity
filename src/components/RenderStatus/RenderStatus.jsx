@@ -72,7 +72,7 @@ const RenderStatus = ({ task }) => {
         <Tooltip label="Completed">
           <Text as="span">
             <BsCheckSquare
-              color="#4AA433"
+              color="#54b399"
               fontSize={14}
               onClick={() => markStatusAsUncomplete(task)}
             />

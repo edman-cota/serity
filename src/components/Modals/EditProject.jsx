@@ -16,14 +16,18 @@ import {
 } from "@chakra-ui/react";
 import FocusLock from "react-focus-lock";
 import { FormattedMessage } from "react-intl";
+import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { FiEdit } from "react-icons/fi";
 import { useAuthState } from "react-firebase-hooks/auth";
 import ChooseIconModal from "./ChooseIconModal";
 import database, { auth } from "../../firebase";
+import { setEmoji } from "../../features/counter/EmojiSlice";
 
 const EditProject = ({ name, id, emoji }) => {
   const [user] = useAuthState(auth);
+  const dispatch = useDispatch();
+  const savedEmoji = useSelector((state) => state.emoji.value);
   // eslint-disable-next-line no-unused-vars
   const [title, setTitle] = useState(name);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -41,8 +45,9 @@ const EditProject = ({ name, id, emoji }) => {
   const onSubmit = (data) => {
     database
       .ref(`${user?.uid}/projects/${id}`)
-      .update({ name: data.name })
+      .update({ name: data.name, emoji: savedEmoji })
       .then(() => onClose());
+    dispatch(setEmoji(""));
   };
 
   return (
@@ -111,7 +116,7 @@ const EditProject = ({ name, id, emoji }) => {
                   bg="#2e85ec"
                   w="100px"
                   _hover={{ bg: "#2e85ec" }}
-                  disabled={!isDirty || !isValid}
+                  // disabled={!isDirty || !isValid}
                 >
                   <FormattedMessage id="save" />
                 </Button>

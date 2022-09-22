@@ -10,23 +10,23 @@ import {
   Flex,
   useColorModeValue,
 } from "@chakra-ui/react";
-// import Picker from "emoji-picker-react";
+import EmojiPicker, { Theme } from "emoji-picker-react";
 import { FormattedMessage } from "react-intl";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { BiChevronRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
-// import { setEmoji } from "../../features/counter/EmojiSlice";
+import { setEmoji } from "../../features/counter/EmojiSlice";
 
 const ChooseIconModal = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const emoji = useSelector((state) => state.emoji.value);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const background = useColorModeValue("white", "#282e3e");
 
-  // const onEmojiClick = (event, emojiObject) => {
-  //   dispatch(setEmoji(emojiObject.emoji));
-  //   onClose();
-  // };
+  const onEmojiClick = (emojiData) => {
+    dispatch(setEmoji(emojiData.emoji));
+    onClose();
+  };
 
   return (
     <>
@@ -65,7 +65,12 @@ const ChooseIconModal = () => {
                 <AiOutlineClose />
               </Button>
             </Flex>
-            {/* <Picker onEmojiClick={onEmojiClick} /> */}
+            <EmojiPicker
+              onEmojiClick={onEmojiClick}
+              theme={Theme.AUTO}
+              skinTonesDisabled
+              groupVisibility={{ flags: false }}
+            />
           </ModalBody>
         </ModalContent>
       </Modal>
