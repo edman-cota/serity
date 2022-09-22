@@ -61,7 +61,7 @@ const RenderStatus = ({ task }) => {
           <Text as="span">
             <BiSquareRounded
               color="#a0aec0"
-              fontSize={15}
+              fontSize={17}
               onClick={() => markStatusAsComplete(task)}
             />
           </Text>

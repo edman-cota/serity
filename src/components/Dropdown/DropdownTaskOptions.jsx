@@ -7,6 +7,7 @@ import {
   MenuButton,
   useToast,
 } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 import { CopyIcon } from "@chakra-ui/icons";
 import { AiOutlineDelete } from "react-icons/ai";
 import { RiMoreLine } from "react-icons/ri";
@@ -17,9 +18,12 @@ import { auth } from "../../firebase";
 import { useGetProject } from "../../hooks/useGetProject";
 import { duplicateTask } from "../../helpers/duplicateTask";
 import { deleteTask } from "../../helpers/deleteTask";
+import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
+import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 
 const DropdownTaskOptions = () => {
   const toast = useToast();
+  const dispatch = useDispatch();
   const { task } = useGetTask();
   const [user] = useAuthState(auth);
   const { project } = useGetProject();
@@ -45,6 +49,9 @@ const DropdownTaskOptions = () => {
 
   const handleDeleteTask = () => {
     const status = deleteTask(task?.at(0), project?.at(0), user);
+    localStorage.setItem("split-sizes", JSON.stringify([100, 0]));
+    dispatch(setSelectedTaskId(""));
+    dispatch(setActiveIndex(""));
 
     if (status === "success") {
       toast({

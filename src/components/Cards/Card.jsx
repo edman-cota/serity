@@ -43,8 +43,8 @@ const Card = ({ task, index, columnId, columnTitle }) => {
             snapshot.isDragging,
             provided.draggableProps.style
           )}
-          isDragging={snapshot.isDragging}
-          isDark={isDark}
+          // isDragging={snapshot.isDragging}
+          // isDark={isDark}
         >
           <CardBody
             task={task}

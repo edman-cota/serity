@@ -31,12 +31,7 @@ const EditProject = ({ name, id, emoji }) => {
   // eslint-disable-next-line no-unused-vars
   const [title, setTitle] = useState(name);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const {
-    register,
-    resetField,
-    handleSubmit,
-    formState: { isDirty, isValid },
-  } = useForm({
+  const { register, resetField, handleSubmit } = useForm({
     defaultValues: {
       name: title,
     },

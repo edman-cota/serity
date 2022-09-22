@@ -30,7 +30,7 @@ const TreeList = () => {
             {tasks.length <= 0 && !showAddTask ? (
               <EmptyEditor />
             ) : (
-              <List width="95%" m="auto" maxWidth={1000}>
+              <List width="95%" m="auto" maxWidth={1000} pb="70px">
                 {tasks.map((data, index) => (
                   <Item key={data.id} index={index} task={data} />
                 ))}
@@ -43,7 +43,7 @@ const TreeList = () => {
             {todayTasks.length <= 0 && !showAddTask ? (
               <NoTaskEditor />
             ) : (
-              <List width="95%" m="auto" maxWidth={1000}>
+              <List width="95%" m="auto" maxWidth={1000} pb="70px">
                 {todayTasks.map((data, index) => (
                   <Item key={data.id} index={index} task={data} />
                 ))}
