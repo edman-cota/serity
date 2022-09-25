@@ -11,6 +11,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { FiChevronsRight } from "react-icons/fi";
 import { MdOutlineHistoryToggleOff } from "react-icons/md";
+import { CgArrowsExpandLeft } from "react-icons/cg";
 
 import { setSelectedTaskId } from "../../../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../../../features/counter/ActiveIndexSlice";
@@ -57,6 +58,13 @@ const Navbar = () => {
         />
       </Button>
       <List display="flex" alignItems="center" gap="20px">
+        <ListItem>
+          <Tooltip label="Expand screen">
+            <Button variant="ghost">
+              <CgArrowsExpandLeft />
+            </Button>
+          </Tooltip>
+        </ListItem>
         <ListItem>
           <Tooltip label="Toggle task activity">
             <Button variant="ghost" onClick={toggleTaskActivityVisibility}>

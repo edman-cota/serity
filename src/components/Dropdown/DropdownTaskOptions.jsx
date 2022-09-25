@@ -15,6 +15,7 @@ import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useGetTask } from "../../hooks/useGetTask";
 import { auth } from "../../firebase";
+import { SUCCESS, ERROR, TOAST } from "../../constants";
 import { useGetProject } from "../../hooks/useGetProject";
 import { duplicateTask } from "../../helpers/duplicateTask";
 import { deleteTask } from "../../helpers/deleteTask";
@@ -31,17 +32,13 @@ const DropdownTaskOptions = () => {
   const handleDuplicateTask = () => {
     const status = duplicateTask(task?.at(0), project?.at(0), user);
 
-    if (status === "success") {
-      toast({
-        description: "Task duplicated successfully",
-        status: "success",
-        isClosable: true,
-      });
+    if (status === SUCCESS) {
+      toast(TOAST.status.success);
     }
-    if (status === "error") {
+    if (status === ERROR) {
       toast({
-        description: "Failed to duplicated task",
-        status: "error",
+        description: TOAST.status.error.description,
+        status: ERROR,
         isClosable: true,
       });
     }
@@ -56,14 +53,14 @@ const DropdownTaskOptions = () => {
     if (status === "success") {
       toast({
         description: "Task deleted successfully",
-        status: "success",
+        status: SUCCESS,
         isClosable: true,
       });
     }
     if (status === "error") {
       toast({
         description: "Failed to delete task",
-        status: "error",
+        status: ERROR,
         isClosable: true,
       });
     }
