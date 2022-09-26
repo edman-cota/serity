@@ -22,7 +22,7 @@ const ItemTitle = ({ task, index }) => {
 
     localStorage.setItem("split-sizes", JSON.stringify(sizes));
 
-    if (width <= 1050) {
+    if (width <= 1210) {
       dispatch(setSidebarVisibility(false));
       localStorage.setItem("show-sidebar", "false");
     }
@@ -35,7 +35,7 @@ const ItemTitle = ({ task, index }) => {
       alignItems="center"
       onClick={() => onSelectItem(task.id, index)}
     >
-      <Text color={color} isTruncated>
+      <Text noOfLines={1} color={color} isTruncated>
         {task.content}
       </Text>
     </Flex>

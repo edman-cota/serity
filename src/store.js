@@ -10,6 +10,7 @@ import OrderByReducer from "./features/counter/OrderBySlice";
 import EmojiReducer from "./features/counter/EmojiSlice";
 import workingProjectReducer from "./features/counter/workingProjectSlice";
 import taskActivityReducer from "./features/counter/taskActivitySlice";
+import ExpandedSliceReducer from "./features/counter/ExpandedSlice";
 
 export default configureStore({
   reducer: {
@@ -23,5 +24,6 @@ export default configureStore({
     emoji: EmojiReducer,
     workingProject: workingProjectReducer,
     isTaskActivityVisible: taskActivityReducer,
+    isExpanded: ExpandedSliceReducer,
   },
 });

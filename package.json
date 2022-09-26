@@ -20,6 +20,7 @@
     "@editorjs/header": "^2.6.2",
     "@emailjs/browser": "^3.5.0",
     "@reduxjs/toolkit": "^1.8.0",
+    "@tabler/icons": "^1.100.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^27.4.0",

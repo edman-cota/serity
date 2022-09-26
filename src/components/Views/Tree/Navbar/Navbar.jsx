@@ -11,25 +11,33 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { FiChevronsRight } from "react-icons/fi";
 import { MdOutlineHistoryToggleOff } from "react-icons/md";
-import { CgArrowsExpandLeft } from "react-icons/cg";
+import { CgArrowsExpandLeft, CgMinimizeAlt } from "react-icons/cg";
+import { useWindowSize } from "react-use";
 
 import { setSelectedTaskId } from "../../../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../../../features/counter/ActiveIndexSlice";
 import DropdownTaskOptions from "../../../Dropdown/DropdownTaskOptions";
 import "./Navbar.scss";
 import { setTaskActivityVisibility } from "../../../../features/counter/taskActivitySlice";
+import { setIsExpanded } from "../../../../features/counter/ExpandedSlice";
 
 const Navbar = () => {
+  const { width } = useWindowSize();
   const iconColor = useColorModeValue("#94959B", "#88898D");
   const dispatch = useDispatch();
   const isTaskActivityVisible = useSelector(
     (state) => state.isTaskActivityVisible.value
   );
+  const isExpanded = useSelector((state) => state.isExpanded.value);
+  const label = isExpanded ? "Contract" : "Expand";
 
   const closeView = () => {
-    localStorage.setItem("split-sizes", JSON.stringify([100, 0]));
     dispatch(setSelectedTaskId(""));
     dispatch(setActiveIndex(""));
+  };
+
+  const expandScreen = () => {
+    dispatch(setIsExpanded(!isExpanded));
   };
 
   const toggleTaskActivityVisibility = () => {
@@ -58,13 +66,15 @@ const Navbar = () => {
         />
       </Button>
       <List display="flex" alignItems="center" gap="20px">
-        <ListItem>
-          <Tooltip label="Expand screen">
-            <Button variant="ghost">
-              <CgArrowsExpandLeft />
-            </Button>
-          </Tooltip>
-        </ListItem>
+        {width >= 770 ? (
+          <ListItem>
+            <Tooltip label={label}>
+              <Button variant="ghost" onClick={expandScreen}>
+                {isExpanded ? <CgMinimizeAlt /> : <CgArrowsExpandLeft />}
+              </Button>
+            </Tooltip>
+          </ListItem>
+        ) : null}
         <ListItem>
           <Tooltip label="Toggle task activity">
             <Button variant="ghost" onClick={toggleTaskActivityVisibility}>

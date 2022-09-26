@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Flex, List, ListItem, useColorModeValue } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useWindowSize } from "react-use";
 
 import ProfileItem from "./ProfileItem";
 import ToggleSidebarVisibility from "./ToggleSidebarVisibility";
@@ -19,6 +20,7 @@ import ShortcutsModal from "../Modals/ShortcutsModal";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { width } = useWindowSize();
   const [user, loading] = useAuthState(auth);
   const [scrolled, setScrolled] = useState(false);
   const [isFixed] = useState(true);
@@ -97,10 +99,12 @@ const Navbar = () => {
                 <NavItemAddTask />
               </ListItem>
             ) : null}
-            <ListItem mr="10px">
-              <ShortcutsModal />
-              {/* <SearchModal /> */}
-            </ListItem>
+            {width >= 770 ? (
+              <ListItem mr="10px">
+                <ShortcutsModal />
+                {/* <SearchModal /> */}
+              </ListItem>
+            ) : null}
             <ListItem mr="10px">
               {/* <ColorModeSwitcher /> */}
               {/* <NotificationsItem /> */}
