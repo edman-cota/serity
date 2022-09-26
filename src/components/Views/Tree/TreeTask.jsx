@@ -3,7 +3,6 @@ import React from "react";
 import { Flex, useColorMode, VStack } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
-import { useWindowSize } from "react-use";
 
 import DetailTab from "../../Cards/DetailTab";
 import NavbarTreeTask from "./Navbar/Navbar";
@@ -12,7 +11,6 @@ import Activities from "../../Activities/Activities";
 import { useSplitSizes } from "../../../hooks/useSplitSizes";
 
 const TreeTrask = () => {
-  const { width } = useWindowSize();
   const { colorMode } = useColorMode();
   const task = useSelector((state) => state.task.value);
   const selectedTaskId = useSelector((state) => state.selectedTaskId.value);
