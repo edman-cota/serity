@@ -6,18 +6,18 @@ export const useSplitSizes = () => {
   const { width } = useWindowSize();
 
   const [sizes, setSizes] = useState([]);
-  const [minSize, setMinSize] = useState([]);
+  const [paneDisplay, setPaneDisplay] = useState([]);
 
   useEffect(() => {
     if (width <= 770) {
-      setSizes([0, 100]);
-      setMinSize([0, 0]);
+      setSizes([0, 100]); // in %
+      setPaneDisplay(["none", "flex"]);
     }
     if (width > 770) {
       setSizes([68, 32]); // in %
-      setMinSize([100, 0]); // in pixel
+      setPaneDisplay(["flex", "flex"]);
     }
   }, [width]);
 
-  return { sizes, minSize };
+  return { sizes, paneDisplay };
 };

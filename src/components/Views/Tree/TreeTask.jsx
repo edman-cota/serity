@@ -3,27 +3,30 @@ import React from "react";
 import { Flex, useColorMode, VStack } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
+import { useWindowSize } from "react-use";
 
 import DetailTab from "../../Cards/DetailTab";
 import NavbarTreeTask from "./Navbar/Navbar";
 import Activities from "../../Activities/Activities";
 
+import { useSplitSizes } from "../../../hooks/useSplitSizes";
+
 const TreeTrask = () => {
-  const task = useSelector((state) => state.task.value);
+  const { width } = useWindowSize();
   const { colorMode } = useColorMode();
+  const task = useSelector((state) => state.task.value);
   const selectedTaskId = useSelector((state) => state.selectedTaskId.value);
   const isTaskActivityVisible = useSelector(
     (state) => state.isTaskActivityVisible.value
   );
 
+  const { sizes, paneDisplay } = useSplitSizes();
+
   const styles = {
     flexDirection: "column",
-    // position: "fixed",
-    right: 0,
-    top: 0,
-    bottom: 0,
     height: "100vh",
-    display: selectedTaskId !== "" ? "flex" : "none",
+    display: selectedTaskId !== "" ? paneDisplay.at(1) : paneDisplay.at(0),
+    width: selectedTaskId !== "" ? `${sizes.at(1)}%` : "0%",
     backgroundColor:
       colorMode === "dark" ? "var(--gray-700)" : "var(--gray-100)",
   };

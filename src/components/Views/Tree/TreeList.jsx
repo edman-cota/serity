@@ -13,16 +13,21 @@ import { useGetTasks } from "../../../hooks/useGetTasks";
 import { useGetTodayTasks } from "../../../hooks/useGetTodayTasks";
 
 import Navbar from "../../Navbar/Navbar";
+import { useSplitSizes } from "../../../hooks/useSplitSizes";
 
 const TreeList = () => {
   const { project } = useParams();
+  const { sizes, paneDisplay } = useSplitSizes();
   const { tasks, completedTasks, isLoading } = useGetTasks();
   const { todayTasks } = useGetTodayTasks();
+  const selectedTaskId = useSelector((state) => state.selectedTaskId.value);
   const showAddTask = useSelector((state) => state.showAddTask.value);
   const showCompleted = useSelector((state) => state.showCompleted.value);
+  const display = selectedTaskId !== "" ? paneDisplay.at(0) : paneDisplay.at(1);
+  const widths = selectedTaskId !== "" ? `${sizes.at(0)}%` : "100%";
 
   return !isLoading ? (
-    <VStack h="100vh">
+    <VStack h="100vh" w={widths} display={display}>
       <Navbar />
       <VStack w="98%" mx="auto" h="calc(100vh - 90px)" overflowY="auto">
         {project !== "today" ? (
