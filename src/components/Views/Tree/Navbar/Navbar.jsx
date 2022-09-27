@@ -34,6 +34,7 @@ const Navbar = () => {
   const closeView = () => {
     dispatch(setSelectedTaskId(""));
     dispatch(setActiveIndex(""));
+    dispatch(setIsExpanded(false));
   };
 
   const expandScreen = () => {
