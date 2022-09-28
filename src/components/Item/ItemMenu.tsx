@@ -14,9 +14,8 @@ const ItemMenu = ({ task }: { task: any }) => {
       <Flex flex={1} alignItems="center" justifyContent="center">
         {task?.due !== undefined ? (
           <RenderDateText due={task.due} />
-        ) : (
-          <CalendarIcon due={task.due} />
-        )}
+        ) : null // <CalendarIcon due={task.due} />
+        }
       </Flex>
       <Flex flex={1} justifyContent="center">
         {task.priority === 0 ? (

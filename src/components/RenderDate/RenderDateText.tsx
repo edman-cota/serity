@@ -17,6 +17,7 @@ const RenderDateText = ({ due }: { due: string }) => {
         color="var(--yesterday)"
         fontSize="14px"
         fontWeight={400}
+        pt="4px"
         visibility="visible"
       >
         <FormattedDate
