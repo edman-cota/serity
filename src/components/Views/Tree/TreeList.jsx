@@ -31,11 +31,11 @@ const TreeList = () => {
       <Navbar />
       <VStack w="98%" mx="auto" h="calc(100vh - 90px)" overflowY="auto">
         {project !== "today" ? (
-          <VStack w="100%">
+          <VStack w="100%" pb="40px">
             {tasks.length <= 0 && !showAddTask ? (
               <EmptyEditor />
             ) : (
-              <List width="95%" m="auto" maxWidth={1000} pb="70px">
+              <List width="95%" m="auto" maxWidth={1000}>
                 {tasks.map((data, index) => (
                   <Item key={data.id} index={index} task={data} />
                 ))}
@@ -44,11 +44,11 @@ const TreeList = () => {
             {showAddTask ? <AddTask /> : null}
           </VStack>
         ) : (
-          <VStack w="100%">
+          <VStack w="100%" border="1px">
             {todayTasks.length <= 0 && !showAddTask ? (
               <NoTaskEditor />
             ) : (
-              <List width="95%" m="auto" maxWidth={1000} pb="70px">
+              <List width="95%" m="auto" maxWidth={1000}>
                 {todayTasks.map((data, index) => (
                   <Item key={data.id} index={index} task={data} />
                 ))}

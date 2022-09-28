@@ -131,6 +131,7 @@ const AddTask = () => {
       maxWidth="1000px"
       borderRadius="base"
       alignItems="center"
+      mb="40px"
     >
       <Flex>
         <BiSquareRounded color="#a0aec0" fontSize={15} />

@@ -16,7 +16,7 @@ import Calendar from "react-calendar";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
 import { useGetTask } from "../../hooks/useGetTask";
-import "react-calendar/dist/Calendar.css";
+import "react-calendar/dist/Calendar.css"; // more from DetailTab.scss
 import RenderDateText from "./RenderDateText.tsx";
 import CalendarIcon from "../Icons/CalendarIcon.tsx";
 import PriorityIcon from "../RenderPriority/PriorityIcon";
