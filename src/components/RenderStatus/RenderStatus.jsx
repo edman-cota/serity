@@ -25,7 +25,6 @@ const RenderStatus = ({ task }) => {
     const result = markStatus(user, workingProject, project, taskToUpdate);
     if (result === "success") {
       // close task detail sidebar
-      localStorage.setItem("split-sizes", JSON.stringify([100, 0]));
       dispatch(setSelectedTaskId(""));
       dispatch(setActiveIndex(""));
 

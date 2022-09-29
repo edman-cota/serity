@@ -44,7 +44,7 @@ const TreeList = () => {
             {showAddTask ? <AddTask /> : null}
           </VStack>
         ) : (
-          <VStack w="100%" border="1px">
+          <VStack w="100%">
             {todayTasks.length <= 0 && !showAddTask ? (
               <NoTaskEditor />
             ) : (
