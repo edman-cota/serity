@@ -43,14 +43,7 @@ const Workspace = () => {
   };
 
   return (
-    <VStack w="100%" h="calc(100vh - 246px)">
-      <VStack w="90%" mx="auto" px="16px">
-        <HStack h="40px" w="100%" justifyContent="space-between">
-          <Text fontSize="12px">PROJECTS</Text>
-          <CreateProject />
-        </HStack>
-      </VStack>
-
+    <VStack w="100%" h="calc(100vh - 160px)" pt="30px">
       <VStack alignItems="center" position="relative" w="100%">
         <nav style={{ width: "100%" }}>
           <ul style={{ margin: "auto", width: "90%" }}>

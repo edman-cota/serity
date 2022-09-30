@@ -1,13 +1,13 @@
 import React from "react";
-import { VStack } from "@chakra-ui/react";
-import { BsCheck2Square } from "react-icons/bs";
+import { Flex, Image, Text } from "@chakra-ui/react";
+import Logo from "../../assets/img/logo.svg";
 
 const Header = (): JSX.Element => {
   return (
-    <VStack mt="40px" mb="40px">
-      <BsCheck2Square fontSize={26} color="#1E77E4" />
-      <p>C o t a</p>
-    </VStack>
+    <Flex w="100%" h="80px" gap="30px" alignItems="center" justifyContent="center">
+        <Image src={Logo} alt="Logo" boxSize="24px" />
+        <Text>S e r i t y</Text>
+    </Flex>
   );
 };
 

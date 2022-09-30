@@ -2,10 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 // eslint-disable-next-line object-curly-newline
 import { useColorModeValue, VStack, Flex, Text, Image } from "@chakra-ui/react";
-import SmartFolders from "../SmartFolders/SmartFolders";
 import Workspace from "../Workspace/Workspace";
-import Logo from "../../assets/img/logo.svg";
-import Bottom from "./Bottom";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const Sidebar = () => {
   const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value);
@@ -25,19 +24,9 @@ const Sidebar = () => {
       background={sidebarBackground}
       style={{ display }}
     >
-      <Flex
-        w="100%"
-        h="80px"
-        gap="30px"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Image src={Logo} alt="Logo" boxSize="24px" />
-        <Text>S e r i t y</Text>
-      </Flex>
-      <SmartFolders />
+      <Header />
       <Workspace />
-      <Bottom />
+      <Footer />
     </VStack>
   );
 };

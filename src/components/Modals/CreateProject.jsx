@@ -22,7 +22,7 @@ import { useForm } from "react-hook-form";
 import ChooseIconModal from "./ChooseIconModal";
 import database, { auth } from "../../firebase";
 
-const ProjectTitle = () => {
+const CreateProject = () => {
   const [user] = useAuthState(auth);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const emoji = useSelector((state) => state.emoji.value);
@@ -229,4 +229,4 @@ const ProjectTitle = () => {
   );
 };
 
-export default ProjectTitle;
+export default CreateProject;

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { Tooltip, useToast, Text } from "@chakra-ui/react";
 import { BiSquareRounded } from "react-icons/bi";
-import { BsCheckSquare } from "react-icons/bs";
+import { BsFillCheckSquareFill } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useGetProject } from "../../hooks/useGetProject";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
@@ -70,8 +70,9 @@ const RenderStatus = ({ task }) => {
       return (
         <Tooltip label="Completed">
           <Text as="span">
-            <BsCheckSquare
-              color="#54b399"
+            <BsFillCheckSquareFill
+              stroke="white"
+              color="rgb(35, 135, 251)"
               fontSize={14}
               onClick={() => markStatusAsUncomplete(task)}
             />
@@ -82,8 +83,8 @@ const RenderStatus = ({ task }) => {
       return (
         <Tooltip label="Complete">
           <Text as="span">
-            <BiSquareRounded
-              color="#a0aec0"
+            <BsFillCheckSquareFill
+              color="rgb(35, 135, 251)"
               onClick={() => markStatusAsComplete(task)}
             />
           </Text>

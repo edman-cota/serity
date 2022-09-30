@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { NavLink as RouteLink } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
+import { useDispatch } from "react-redux";
 import { MdOutlineLogout } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoMdHelp } from "react-icons/io";
@@ -18,10 +19,20 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { BsShieldCheck } from "react-icons/bs";
 import { RiBarChartHorizontalLine } from "react-icons/ri";
 import { logout, auth } from "../../firebase";
+import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
+import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
+import { setIsExpanded } from "../../features/counter/ExpandedSlice";
 
 const ProfileItem = () => {
+  const dispatch = useDispatch();
   const [user] = useAuthState(auth);
   const username = user?.email.split("@")[0];
+
+  const clearOpenTask = () => {
+    dispatch(setSelectedTaskId(""));
+    dispatch(setActiveIndex(""));
+    dispatch(setIsExpanded(false));
+  }
 
   return (
     <Menu autoSelect={false}>
@@ -46,7 +57,7 @@ const ProfileItem = () => {
           <RouteLink to="/dev/">
             <NavLink text="premium" icon={<BsShieldCheck />} />
           </RouteLink>
-          <MenuItem icon={<MdOutlineLogout />} fontSize="14px" onClick={logout}>
+          <MenuItem icon={<MdOutlineLogout />} fontSize="14px" onClick={ () => {logout(); clearOpenTask()}}>
             <FormattedMessage id="logout" />
           </MenuItem>
         </MenuList>
