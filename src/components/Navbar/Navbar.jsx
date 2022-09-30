@@ -16,6 +16,7 @@ import SortItem from "./SortItemSwitcher";
 import ProjectName from "./ProjectName";
 import { auth } from "../../firebase";
 // import SearchModal from "../Modals/SearchModal.js";
+import ColorModeSwitcher from "./ColorModeSwitcher";
 import ShortcutsModal from "../Modals/ShortcutsModal";
 
 const Navbar = () => {
@@ -106,7 +107,7 @@ const Navbar = () => {
               </ListItem>
             ) : null}
             <ListItem mr="10px">
-              {/* <ColorModeSwitcher /> */}
+              <ColorModeSwitcher />
               {/* <NotificationsItem /> */}
             </ListItem>
             <ListItem mr="10px">

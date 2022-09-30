@@ -10,7 +10,7 @@ const Sidebar = () => {
   const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value);
   const display = isSidebarOpen ? "flex" : "none";
 
-  const sidebarBackground = useColorModeValue("white", "gray.700");
+  const sidebarBackground = useColorModeValue("gray.100", "gray.700");
 
   return (
     <VStack
@@ -19,8 +19,8 @@ const Sidebar = () => {
       pos="fixed"
       top={0}
       left={0}
-      borderRight="1px"
-      borderRightColor="#1f2733"
+      // borderRight="1px"
+      // borderRightColor="#1f2733"
       background={sidebarBackground}
       style={{ display }}
     >

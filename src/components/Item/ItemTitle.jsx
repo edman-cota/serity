@@ -5,22 +5,18 @@ import { useWindowSize } from "react-use";
 import { useDispatch } from "react-redux";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
-import { useSplitSizes } from "../../hooks/useSplitSizes";
 import { setTask } from "../../features/counter/TaskSlice";
 import { setSidebarVisibility } from "../../features/counter/SidebarVisibilitySlice";
 
 const ItemTitle = ({ task, index }) => {
-  const { sizes } = useSplitSizes();
   const { width } = useWindowSize();
   const dispatch = useDispatch();
-  const color = useColorModeValue("#3c3b7b", "#dcddde");
+  const color = useColorModeValue("#000", "#dcddde");
 
   const onSelectItem = (id, itemIndex) => {
     dispatch(setSelectedTaskId(id));
     dispatch(setTask(task));
     dispatch(setActiveIndex(itemIndex));
-
-    localStorage.setItem("split-sizes", JSON.stringify(sizes));
 
     if (width <= 1210) {
       dispatch(setSidebarVisibility(false));
