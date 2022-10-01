@@ -19,6 +19,7 @@ import { FormattedMessage } from "react-intl";
 import FocusLock from "react-focus-lock";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import {AiOutlinePlus} from "react-icons/ai";
 import ChooseIconModal from "./ChooseIconModal";
 import database, { auth } from "../../firebase";
 
@@ -157,7 +158,7 @@ const CreateProject = () => {
     <>
       <Tooltip label="Create project">
         <Button variant="ghost" onClick={onOpen}>
-          +
+          <AiOutlinePlus />
         </Button>
       </Tooltip>
 

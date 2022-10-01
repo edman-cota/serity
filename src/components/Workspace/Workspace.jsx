@@ -66,7 +66,7 @@ const Workspace = () => {
                     {project?.name}
                   </Text>
                   <Text className="active-task-count">
-                    {project?.activeCount}
+                    {/* {project?.activeCount} */}
                   </Text>
                   <ProjectMoreIcon
                     name={project?.name}

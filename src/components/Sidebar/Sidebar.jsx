@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 // eslint-disable-next-line object-curly-newline
-import { useColorModeValue, VStack, Flex, Text, Image } from "@chakra-ui/react";
+import { useColorModeValue, VStack} from "@chakra-ui/react";
 import Workspace from "../Workspace/Workspace";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -14,13 +14,11 @@ const Sidebar = () => {
 
   return (
     <VStack
-      w="320px"
+      w="300px"
       h="100vh"
       pos="fixed"
       top={0}
       left={0}
-      // borderRight="1px"
-      // borderRightColor="#1f2733"
       background={sidebarBackground}
       style={{ display }}
     >

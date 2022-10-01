@@ -12,7 +12,7 @@ const Content = () => {
   const view = searchParams.get("view");
   const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value);
 
-  const margin = isSidebarOpen ? "320px" : "0px";
+  const margin = isSidebarOpen ? "300px" : "0px";
 
   return (
     <Flex flex={1} ml={margin}>
