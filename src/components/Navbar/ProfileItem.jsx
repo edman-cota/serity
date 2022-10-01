@@ -32,7 +32,7 @@ const ProfileItem = () => {
     dispatch(setSelectedTaskId(""));
     dispatch(setActiveIndex(""));
     dispatch(setIsExpanded(false));
-  }
+  };
 
   return (
     <Menu autoSelect={false}>
@@ -57,7 +57,14 @@ const ProfileItem = () => {
           <RouteLink to="/dev/">
             <NavLink text="premium" icon={<BsShieldCheck />} />
           </RouteLink>
-          <MenuItem icon={<MdOutlineLogout />} fontSize="14px" onClick={ () => {logout(); clearOpenTask()}}>
+          <MenuItem
+            icon={<MdOutlineLogout />}
+            fontSize="14px"
+            onClick={() => {
+              logout();
+              clearOpenTask();
+            }}
+          >
             <FormattedMessage id="logout" />
           </MenuItem>
         </MenuList>

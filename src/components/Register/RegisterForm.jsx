@@ -9,14 +9,14 @@ import { FormattedMessage } from "react-intl";
 import { Input, VStack, Text, Flex, Link, Checkbox } from "@chakra-ui/react";
 import SocialLogin from "../Login/SocialLogin";
 import { registerWithEmailAndPassword } from "../../firebase";
-import Header from "../Login/Header";
-import Footer from "../Login/Footer";
+import Header from "../Login/Header.tsx";
+import Footer from "../Login/Footer.tsx";
 
 const RegisterForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
+    formState: { errors },
   } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
@@ -103,7 +103,7 @@ const RegisterForm = () => {
             bg="#2e85ec"
             mt="20px"
             value="Sign up with email"
-            disabled={!isDirty || !isValid}
+            _hover={{ bg: "#0071dc" }}
           />
         </form>
       </VStack>

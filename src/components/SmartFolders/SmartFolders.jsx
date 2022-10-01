@@ -18,10 +18,6 @@ const SmartFolders = () => {
 
   const today = "today";
 
-  const navigateTo = () => {
-    ``
-  }
-
   return (
     <VStack w="100%" my="50px">
       <RouteLink

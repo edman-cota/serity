@@ -3,8 +3,9 @@ import { Flex, Text, Image } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/logo.svg";
 
-const Header = () => {
+const Header = (): JSX.Element => {
   const navigate = useNavigate();
+
   return (
     <Flex
       direction="column"

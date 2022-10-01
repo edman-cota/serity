@@ -2,14 +2,13 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-confusing-arrow */
 import React from "react";
-import { Text, VStack, HStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { setWorkingProject } from "../../features/counter/workingProjectSlice";
 
 import ProjectMoreIcon from "./ProjectMoreIcon";
-import CreateProject from "../Modals/CreateProject";
 import { useGetProjects } from "../../hooks/useGetProjects";
 import { auth } from "../../firebase";
 import "./Workspace.scss";

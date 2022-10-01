@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import React from "react";
 import {
   Modal,
@@ -22,6 +23,10 @@ const ChooseIconModal = () => {
   const emoji = useSelector((state) => state.emoji.value);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const background = useColorModeValue("white", "#282e3e");
+  const buttonBg = useColorModeValue(
+    "rgba(0, 0, 0, 0.01)",
+    "rgba(255, 255, 255, 0.06)"
+  );
 
   const onEmojiClick = (emojiData) => {
     dispatch(setEmoji(emojiData.emoji));
@@ -32,7 +37,7 @@ const ChooseIconModal = () => {
     <>
       <Button
         onClick={onOpen}
-        bg="rgba(255, 255, 255, 0.06)"
+        bg={buttonBg}
         w="100%"
         display="flex"
         justifyContent="space-between"

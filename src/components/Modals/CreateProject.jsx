@@ -13,13 +13,14 @@ import {
   Input,
   Tooltip,
   HStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import FocusLock from "react-focus-lock";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import {AiOutlinePlus} from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
 import ChooseIconModal from "./ChooseIconModal";
 import database, { auth } from "../../firebase";
 
@@ -27,12 +28,7 @@ const CreateProject = () => {
   const [user] = useAuthState(auth);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const emoji = useSelector((state) => state.emoji.value);
-  const {
-    register,
-    resetField,
-    handleSubmit,
-    formState: { isDirty, isValid },
-  } = useForm({ mode: "onChange" });
+  const { register, resetField, handleSubmit } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
     const currentDate = new Date();
@@ -154,6 +150,8 @@ const CreateProject = () => {
       });
   };
 
+  const modalBg = useColorModeValue("white", "#1c2333");
+
   return (
     <>
       <Tooltip label="Create project">
@@ -172,16 +170,10 @@ const CreateProject = () => {
         <ModalContent
           maxW="450px"
           minH="360px"
-          bg="#1c2333"
+          bg={modalBg}
           boxShadow="inset 0 1px 0 0 rgb(255 255 255 / 5%)"
         >
-          <ModalHeader
-            mt="4px"
-            mb="10px"
-            fontWeight={500}
-            fontSize="17px"
-            color="white"
-          >
+          <ModalHeader mt="4px" mb="10px" fontWeight={500} fontSize="17px">
             <FormattedMessage id="create_project" />
           </ModalHeader>
 
@@ -213,10 +205,10 @@ const CreateProject = () => {
                   <Button
                     type="submit"
                     variant="ghost"
+                    color="white"
                     bg="#2e85ec"
                     w="100px"
-                    _hover={{ bg: "#2e85ec" }}
-                    disabled={!isDirty || !isValid}
+                    _hover={{ bg: "#0071dc" }}
                   >
                     <FormattedMessage id="create" />
                   </Button>

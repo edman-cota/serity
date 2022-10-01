@@ -11,10 +11,9 @@ import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
 import SocialLogin from "./SocialLogin";
-import Footer from "./Footer";
+import Footer from "./Footer.tsx";
 import { useGetActiveProject } from "../../hooks/useGetActiveProject";
-
-import Header from "./Header";
+import Header from "./Header.tsx";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -30,7 +29,7 @@ const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
+    formState: { errors },
   } = useForm({ mode: "onChange" });
 
   useEffect(() => {
@@ -95,7 +94,7 @@ const LoginForm = () => {
             type="submit"
             bg="#2e85ec"
             value="Log in"
-            disabled={!isDirty || !isValid}
+            _hover={{ bg: "#0071dc" }}
           />
         </form>
       </VStack>
