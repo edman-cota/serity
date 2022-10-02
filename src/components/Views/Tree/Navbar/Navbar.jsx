@@ -54,18 +54,20 @@ const Navbar = () => {
       my="10px"
       alignItems="center"
     >
-      <Button
-        variant="ghost"
-        className="button-chevrons-right"
-        px="0px"
-        onClick={() => closeView()}
-      >
-        <FiChevronsRight
-          className="fi-chevrons-right"
-          size={19}
-          color={iconColor}
-        />
-      </Button>
+      <Tooltip label="Hide detail panel">
+        <Button
+          variant="ghost"
+          className="button-chevrons-right"
+          px="0px"
+          onClick={() => closeView()}
+        >
+          <FiChevronsRight
+            className="fi-chevrons-right"
+            size={19}
+            color={iconColor}
+          />
+        </Button>
+      </Tooltip>
       <List display="flex" alignItems="center" gap="20px">
         {width >= 770 ? (
           <ListItem>

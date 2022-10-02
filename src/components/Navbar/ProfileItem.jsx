@@ -45,13 +45,13 @@ const ProfileItem = () => {
       </MenuButton>
       <Portal>
         <MenuList>
-          <RouteLink to={`/web/${username}/settings`}>
+          <RouteLink to={`/${username}/settings`}>
             <NavLink text="settings" icon={<IoSettingsOutline />} />
           </RouteLink>
           <RouteLink to="/dev/">
             <NavLink text="help" icon={<IoMdHelp />} />
           </RouteLink>
-          <RouteLink to={`/web/${username}/overview`}>
+          <RouteLink to={`/${username}/overview`}>
             <NavLink text="statistics" icon={<RiBarChartHorizontalLine />} />
           </RouteLink>
           <RouteLink to="/dev/">

@@ -9,6 +9,7 @@ import {
   Button,
   Flex,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
@@ -21,6 +22,7 @@ import { changeTaskPriority } from "../../helpers/changeTaskPriority";
 import { priorities, colors } from "./data";
 
 const PriorityIcon = (props) => {
+  const toast = useToast();
   const { task } = useGetTask();
   const [user] = useAuthState(auth);
   const workingProject = useSelector((state) => state.workingProject.value);
@@ -30,7 +32,14 @@ const PriorityIcon = (props) => {
       return;
     }
 
-    changeTaskPriority(user, workingProject, task, priority);
+    const result = changeTaskPriority(user, workingProject, task, priority);
+    if (result !== "success") {
+      toast({
+        description: "Failed to update priority",
+        status: "error",
+        isClosable: true,
+      });
+    }
   };
 
   return (
@@ -51,6 +60,7 @@ const PriorityIcon = (props) => {
                     variant="custom"
                     key={priority}
                     justifyContent="start"
+                    color="white"
                     onClick={() => {
                       updateTaskPriority(length - (index + 1));
                       onClose();

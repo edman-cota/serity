@@ -17,7 +17,7 @@ import { setOrderBy } from "../../features/counter/OrderBySlice";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setShowCompleted } from "../../features/counter/ShowCompletedSlice";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useLocalStorage } from "../../hooks/useLocalStorage.ts";
 
 const SortItem = () => {
   const dispatch = useDispatch();

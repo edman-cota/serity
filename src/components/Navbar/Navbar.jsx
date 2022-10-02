@@ -90,7 +90,7 @@ const Navbar = () => {
         <Flex flex="1" alignItems="center" gap="18px">
           <ToggleSidebarVisibility />
           {/* <ViewSwitcher /> */}
-          <SortItem />
+          {/* <SortItem /> */}
           <ProjectName />
         </Flex>
         <Flex flex="1" justifyContent="flex-end">
@@ -102,7 +102,7 @@ const Navbar = () => {
             ) : null}
             {width >= 770 ? (
               <ListItem mr="10px">
-                <ShortcutsModal />
+                {/* <ShortcutsModal /> */}
                 {/* <SearchModal /> */}
               </ListItem>
             ) : null}

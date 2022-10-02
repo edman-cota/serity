@@ -20,6 +20,9 @@ const buttonStyles = {
             bg: "transparent",
             boxShadow: "none",
           },
+          _active: {
+            bg: colorMode === "dark" ? "rgba(50, 78, 132, .4)" : "gray.100",
+          },
         }),
       },
     },

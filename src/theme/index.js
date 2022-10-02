@@ -75,11 +75,12 @@ const components = {
   },
   Tooltip: {
     baseStyle: {
-      bg: "rgba(0, 5, 11, 0.9)",
-      color: "rgba(255, 255, 255, 1)",
       px: "4",
       py: "2",
       borderRadius: "lg",
+      fontWeight: "normal",
+      bg: "rgba(0, 5, 11, 0.9)",
+      color: "rgba(255, 255, 255, 1)",
     },
   },
 };

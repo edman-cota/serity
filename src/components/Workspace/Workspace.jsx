@@ -16,13 +16,15 @@ import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 import { setShowAddTask } from "../../features/counter/ShowAddTaskSlice";
 import "../Sidebar/Sidebar.scss";
+import { beautifyUrl } from "../../helpers/beautifyUrl.ts";
+import { beautifyUsername } from "../../helpers/beautifyUsername.ts";
 
 const Workspace = () => {
   const dispatch = useDispatch();
   const [user] = useAuthState(auth);
   const { projects } = useGetProjects();
 
-  const username = user?.email.split("@")[0];
+  const username = beautifyUsername(user?.email);
 
   let view = localStorage.getItem("view");
   if (!view) {
@@ -35,7 +37,6 @@ const Workspace = () => {
     localStorage.setItem("project", project.name);
 
     // close task detail sidebar
-    localStorage.setItem("split-sizes", JSON.stringify([100, 0]));
     dispatch(setSelectedTaskId(""));
     dispatch(setActiveIndex(""));
     dispatch(setShowAddTask(false));
@@ -50,7 +51,7 @@ const Workspace = () => {
               <li key={project.id}>
                 <NavLink
                   key={project.id}
-                  to={`/web/${username}/p/${project?.name}?view=${view}`}
+                  to={`/${username}/${beautifyUrl(project?.name)}?view=${view}`}
                   className={({ isActive }) =>
                     isActive ? "i-active" : "i-link"
                   }

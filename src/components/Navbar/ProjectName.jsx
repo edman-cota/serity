@@ -7,7 +7,7 @@ const ProjectName = () => {
   const workingProject = useSelector((state) => state.workingProject.value);
 
   return (
-    <Text bg="transparent" as="b" fontSize="17px" pt="4px">
+    <Text bg="transparent" as="b" fontSize="18px" pt="4px">
       {workingProject.name}
     </Text>
   );

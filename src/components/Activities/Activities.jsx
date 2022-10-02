@@ -1,6 +1,6 @@
 /* eslint-disable operator-linebreak */
 import React from "react";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import Activity from "./Activity.tsx";
 import "./Activities.scss";
 import useGetActivities from "../../hooks/useGetActivities";
@@ -14,10 +14,14 @@ const Activities = () => {
       h="calc(100vh - 108.55px)"
       direction="column"
       mx="0px"
-      mt="30px"
       mb="20px"
       overflowY="auto"
     >
+      <Flex mb="20px">
+        <Text fontSize="18px" pl="8px" fontWeight={600}>
+          Task activities
+        </Text>
+      </Flex>
       <div className="timeline">
         <div className="timeline-body">
           {activities &&

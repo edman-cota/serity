@@ -4,14 +4,11 @@
 
   .timeline-body {
     position: relative;
-    // background-color: #282e3e;
-    background-color: transparent !important;
     margin-left: 20px;
     padding: 5px 0;
 
     .timeline-item {
       position: relative;
-      background-color: #1f2733;
       border-radius: 10px;
 
       &::after {
@@ -29,10 +26,9 @@
         left: -15px;
         top: 1px;
         font-size: 13px;
-        z-index: 1000;
-        // background-color: #4772fa;
+        z-index: 1;
         border-radius: 50%;
-        padding: 4px;
+        padding: 5px;
         font-size: 14px !important;
         color: white !important;
       }
@@ -71,6 +67,12 @@
           font-weight: 500;
           margin-bottom: 15px;
         }
+      }
+    }
+
+    .timeline-item:last-of-type {
+      &::after {
+        width: 0px !important;
       }
     }
 

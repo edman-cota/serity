@@ -14,14 +14,14 @@ const Bottom = () => {
   return (
     <VStack w="100%" h="120px">
       <RouteLink
-        to={`/web/${username}/updates`}
+        to={`/${username}/updates`}
         style={{ width: "90%" }}
         className={(navData) => (navData.isActive ? "active" : "")}
       >
         <NavLink text="Updates" icon={<FcFlashOn />} />
       </RouteLink>
       <RouteLink
-        to={`/web/${username}/feedback`}
+        to={`/${username}/feedback`}
         style={{ width: "90%" }}
         className={(navData) => (navData.isActive ? "active" : "")}
       >

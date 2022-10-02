@@ -38,7 +38,7 @@ const LoginForm = () => {
     }
     if (user) {
       const username = user?.email.split("@")[0];
-      navigate(`/web/${username}/p/today/?view=tree`);
+      navigate(`/${username}/today/?view=tree`);
     }
   }, [user, loading, navigate, activeProject]);
 

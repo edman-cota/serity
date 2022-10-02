@@ -6,7 +6,6 @@ import { BiFlag } from "react-icons/bi";
 import { HiOutlineCalendar } from "react-icons/hi";
 import { BsCheck2 } from "react-icons/bs";
 import { AiOutlineEdit } from "react-icons/ai";
-import { MdOutlineDescription } from "react-icons/md";
 import "./Activities.scss";
 
 interface IconProps {
@@ -60,7 +59,7 @@ const Icon = ({ type }: IconProps): JSX.Element => {
     case 8:
       return (
         <Text className="time" bg="#FF8B00">
-          <MdOutlineDescription />
+          <AiOutlineEdit />
         </Text>
       );
 

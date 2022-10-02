@@ -39,14 +39,14 @@ const Routing = ({ currentLocale, handleChange }: Props): JSX.Element => {
       <Route path="/dev/" element={<Dev />} />
       <Route path="/help-center/" element={<HelpCenter />} />
 
-      <Route path="/web/:username/overview/" element={<Overview />} />
-      <Route path="/web/:username/updates/" element={<Updates />} />
-      <Route path="/web/:username/p" element={<Web />}>
+      <Route path="/:username/overview/" element={<Overview />} />
+      <Route path="/:username/updates/" element={<Updates />} />
+      <Route path="/:username/" element={<Web />}>
         <Route path=":project" element={<TreeList />} />
       </Route>
 
       <Route
-        path="/web/:username/settings"
+        path="/:username/settings"
         element={
           <Settings currentLocale={currentLocale} handleChange={handleChange} />
         }

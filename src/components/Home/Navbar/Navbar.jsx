@@ -19,7 +19,7 @@ const Navbar = () => {
   let navbarPosition = "relative";
 
   const navigateTo = () => {
-    navigate(`web/${username}/p/today/?view=tree`);
+    navigate(`${username}/today/?view=tree`);
   };
 
   useEffect(() => {

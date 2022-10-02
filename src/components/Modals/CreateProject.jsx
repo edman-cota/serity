@@ -14,6 +14,7 @@ import {
   Tooltip,
   HStack,
   useColorModeValue,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
@@ -26,6 +27,7 @@ import database, { auth } from "../../firebase";
 
 const CreateProject = () => {
   const [user] = useAuthState(auth);
+  const { colorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const emoji = useSelector((state) => state.emoji.value);
   const { register, resetField, handleSubmit } = useForm({ mode: "onChange" });
@@ -155,7 +157,14 @@ const CreateProject = () => {
   return (
     <>
       <Tooltip label="Create project">
-        <Button variant="ghost" onClick={onOpen}>
+        <Button
+          variant="ghost"
+          onClick={onOpen}
+          _hover={{
+            color: "rgb(35, 135, 251)",
+            bg: colorMode === "dark" ? "gray.500" : "gray.100",
+          }}
+        >
           <AiOutlinePlus />
         </Button>
       </Tooltip>
