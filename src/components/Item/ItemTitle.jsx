@@ -11,7 +11,7 @@ import { setSidebarVisibility } from "../../features/counter/SidebarVisibilitySl
 const ItemTitle = ({ task, index }) => {
   const { width } = useWindowSize();
   const dispatch = useDispatch();
-  const color = useColorModeValue("#000", "#dcddde");
+  const color = useColorModeValue("#000", "rgba(255, 255, 255, 0.9)");
 
   const onSelectItem = (id, itemIndex) => {
     dispatch(setSelectedTaskId(id));
@@ -31,7 +31,7 @@ const ItemTitle = ({ task, index }) => {
       alignItems="center"
       onClick={() => onSelectItem(task.id, index)}
     >
-      <Text noOfLines={1} color={color} isTruncated>
+      <Text noOfLines={1} color={color} isTruncated fontSize="15px">
         {task.content}
       </Text>
     </Flex>

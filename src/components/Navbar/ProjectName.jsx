@@ -1,15 +1,37 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-indent */
-import React from "react";
-import { Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Input } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { useAuthState } from "react-firebase-hooks/auth";
+import database, { auth } from "../../firebase";
 
 const ProjectName = () => {
+  const [user] = useAuthState(auth);
   const workingProject = useSelector((state) => state.workingProject.value);
+  const [title, setTitle] = useState(workingProject.name);
+
+  const handleOnChange = (e) => {
+    setTitle(e.target.value);
+    database
+      .ref(`${user?.uid}/projects/${workingProject.id}`)
+      .update({ name: e.target.value });
+  };
 
   return (
-    <Text bg="transparent" as="b" fontSize="18px" pt="4px">
-      {workingProject.name}
-    </Text>
+    <Input
+      value={title}
+      fontSize="18px"
+      p="0px"
+      border="0px"
+      spellCheck={false}
+      maxLength={25}
+      minLength={1}
+      fontWeight={700}
+      placeholder="Give me a title"
+      onChange={(e) => handleOnChange(e)}
+      _focus={{ outline: "none" }}
+    />
   );
 };
 export default ProjectName;

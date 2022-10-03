@@ -35,7 +35,7 @@ export const globalStyles = {
       body: {
         // bg: mode("gray.50", "gray.800")(props),
         bg: mode("white", "gray.800")(props), // 1
-        fontFamily: "Hind, Open Sans, Roboto, Helvetica, sans-serif",
+        fontFamily: "Segoe UI, Hind, Open Sans, Roboto, Helvetica, sans-serif",
       },
     }),
   },
