@@ -9,7 +9,7 @@ import database, { auth } from "../../firebase";
 const ProjectName = () => {
   const [user] = useAuthState(auth);
   const workingProject = useSelector((state) => state.workingProject.value);
-  const [title, setTitle] = useState(workingProject.name);
+  const [title, setTitle] = useState(window.localStorage.getItem("project"));
 
   const handleOnChange = (e) => {
     setTitle(e.target.value);

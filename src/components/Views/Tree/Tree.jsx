@@ -6,14 +6,12 @@ import { HotKeys } from "react-hotkeys";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
-// import { useLocalStorage } from "../../../hooks/useLocalStorage.ts";
 import TreeTask from "./TreeTask";
 import "../../Web/web.css";
 import { setSidebarVisibility } from "../../../features/counter/SidebarVisibilitySlice";
 
 const Tree = () => {
   const dispatch = useDispatch();
-  // const [isOpen, setOpen] = useLocalStorage("show-sidebar", false);
   const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value);
 
   const keyMap = {

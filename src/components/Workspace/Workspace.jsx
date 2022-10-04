@@ -35,7 +35,7 @@ const Workspace = () => {
     // Guarda localmente
     dispatch(setWorkingProject(project));
     localStorage.setItem("project", project.name);
-
+    localStorage.setItem("working-project", project.id);
     // close task detail sidebar
     dispatch(setSelectedTaskId(""));
     dispatch(setActiveIndex(""));

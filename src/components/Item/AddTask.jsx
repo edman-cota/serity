@@ -26,7 +26,7 @@ const AddTask = () => {
   const { onOpen, onClose } = useDisclosure();
   const dispatch = useDispatch();
   const showAddTask = useSelector((state) => state.showAddTask.value);
-  const workingProject = useSelector((state) => state.workingProject.value);
+  const workingProjectId = window.localStorage.getItem("working-project");
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -64,7 +64,7 @@ const AddTask = () => {
             content: title,
             completed: 0,
             priority: 0,
-            projectId: workingProject.id,
+            projectId: workingProjectId,
             createdBy: user?.uid,
             createdAt: new Date().toISOString(),
           })
@@ -74,11 +74,11 @@ const AddTask = () => {
             setTitle("");
 
             database
-              .ref(`${user?.uid}/projects/${workingProject.id}`)
+              .ref(`${user?.uid}/projects/${workingProjectId}`)
               .update({ activeCount: project?.[0].activeCount + 1 });
 
             database
-              .ref(`${user?.uid}/projects/${workingProject.id}`)
+              .ref(`${user?.uid}/projects/${workingProjectId}`)
               .update({ taskCount: project?.[0].taskCount + 1 });
 
             // Add new created to To-do column
@@ -101,7 +101,7 @@ const AddTask = () => {
               content: title,
               taskId: newCardRef.key,
               username: user?.displayName,
-              projectId: workingProject.id,
+              projectId: workingProjectId,
               createdBy: user?.uid,
               createdAt: new Date().toISOString(),
               type: ADD_TASK_ACTIVITY_TYPE,

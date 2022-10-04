@@ -16,10 +16,7 @@ import Notifications from "../components/Notifications/Notifications";
 import Subscription from "../components/Subscriptions/Subscription";
 import Updates from "../components/Updates/Updates";
 import TreeList from "../components/Views/Tree/TreeList";
-
-const HelpCenter = React.lazy(() =>
-  import("../containers/HelpCenter/HelpCenter")
-);
+import HelpCenter from "../containers/HelpCenter/HelpCenter";
 
 interface Props {
   currentLocale: string;
