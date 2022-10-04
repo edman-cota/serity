@@ -7,6 +7,7 @@ import { Button, Flex, HStack, Image } from "@chakra-ui/react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import logo from "../../../assets/img/logo.svg";
 import { auth } from "../../../firebase";
+import { beautifyUrl } from "../../../helpers/beautifyUrl.ts";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -15,11 +16,12 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [isFixed, setIsFixed] = useState(true);
+  const project = window.localStorage.getItem("project");
 
   let navbarPosition = "relative";
 
   const navigateTo = () => {
-    navigate(`${username}/today/?view=tree`);
+    navigate(`${username}/${beautifyUrl(project)}/?view=tree`);
   };
 
   useEffect(() => {

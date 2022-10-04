@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-indent */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -10,6 +10,10 @@ const ProjectName = () => {
   const [user] = useAuthState(auth);
   const workingProject = useSelector((state) => state.workingProject.value);
   const [title, setTitle] = useState(window.localStorage.getItem("project"));
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
 
   const handleOnChange = (e) => {
     setTitle(e.target.value);

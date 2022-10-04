@@ -14,11 +14,13 @@ import SocialLogin from "./SocialLogin";
 import Footer from "./Footer.tsx";
 import { useGetActiveProject } from "../../hooks/useGetActiveProject";
 import Header from "./Header.tsx";
+import { beautifyUrl } from "../../helpers/beautifyUrl.ts";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { activeProject } = useGetActiveProject();
   const [user, loading] = useAuthState(auth);
+  const { activeProject } = useGetActiveProject();
+  const project = window.localStorage.getItem("project");
 
   const signInWithEmailAndPassword = async (email, password) => {
     try {
@@ -38,7 +40,7 @@ const LoginForm = () => {
     }
     if (user) {
       const username = user?.email.split("@")[0];
-      navigate(`/${username}/today/?view=tree`);
+      navigate(`/${username}/${beautifyUrl(project)}/?view=tree`);
     }
   }, [user, loading, navigate, activeProject]);
 
