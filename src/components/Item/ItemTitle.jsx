@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import { useWindowSize } from "react-use";
 import { useDispatch } from "react-redux";
+import "../Activities/Activity.scss";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setTask } from "../../features/counter/TaskSlice";
@@ -11,7 +12,7 @@ import { setSidebarVisibility } from "../../features/counter/SidebarVisibilitySl
 const ItemTitle = ({ task, index }) => {
   const { width } = useWindowSize();
   const dispatch = useDispatch();
-  const color = useColorModeValue("#000", "rgba(255, 255, 255, 0.9)");
+  const color = useColorModeValue("blackAlpha.900", "whiteAlpha.900");
 
   const onSelectItem = (id, itemIndex) => {
     dispatch(setSelectedTaskId(id));
@@ -31,7 +32,7 @@ const ItemTitle = ({ task, index }) => {
       alignItems="center"
       onClick={() => onSelectItem(task.id, index)}
     >
-      <Text noOfLines={1} color={color} isTruncated fontSize="15px">
+      <Text className="text-item" color={color} fontSize="15px">
         {task.content}
       </Text>
     </Flex>

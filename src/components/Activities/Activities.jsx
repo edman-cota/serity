@@ -4,9 +4,10 @@ import { Flex, Text } from "@chakra-ui/react";
 import Activity from "./Activity.tsx";
 import "./Activities.scss";
 import useGetActivities from "../../hooks/useGetActivities";
+import EmptyEditor from "../EmptyEditor/EmptyEditor.tsx";
 
 const Activities = () => {
-  const { activities } = useGetActivities();
+  const { activities, isLoading } = useGetActivities();
 
   return (
     <Flex
@@ -22,26 +23,30 @@ const Activities = () => {
           Task activities
         </Text>
       </Flex>
-      <div className="timeline">
-        <div className="timeline-body">
-          {activities &&
-            activities
-              .slice(0)
-              .reverse()
-              .map((data) => (
-                <Activity
-                  key={data.id}
-                  username={data.username}
-                  content={data.content}
-                  description={data.description}
-                  type={data.type}
-                  priority={data.priority}
-                  due={data.due}
-                  createdAt={data.createdAt}
-                />
-              ))}
+      {!isLoading ? (
+        <div className="timeline">
+          <div className="timeline-body">
+            {activities &&
+              activities
+                .slice(0)
+                .reverse()
+                .map((data) => (
+                  <Activity
+                    key={data.id}
+                    username={data.username}
+                    content={data.content}
+                    description={data.description}
+                    type={data.type}
+                    priority={data.priority}
+                    due={data.due}
+                    createdAt={data.createdAt}
+                  />
+                ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <EmptyEditor />
+      )}
     </Flex>
   );
 };

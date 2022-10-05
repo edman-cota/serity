@@ -1,13 +1,7 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
 import React from "react";
-import {
-  Flex,
-  List,
-  ListItem,
-  useColorModeValue,
-  Button,
-  Tooltip,
-} from "@chakra-ui/react";
+import { Flex, List, ListItem, Button, Tooltip } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { FiChevronsRight } from "react-icons/fi";
 import { MdOutlineHistoryToggleOff } from "react-icons/md";
@@ -23,7 +17,6 @@ import { setIsExpanded } from "../../../../features/counter/ExpandedSlice";
 
 const Navbar = () => {
   const { width } = useWindowSize();
-  const iconColor = useColorModeValue("#94959B", "#88898D");
   const dispatch = useDispatch();
   const isTaskActivityVisible = useSelector(
     (state) => state.isTaskActivityVisible.value
@@ -55,17 +48,8 @@ const Navbar = () => {
       alignItems="center"
     >
       <Tooltip label="Hide detail panel">
-        <Button
-          variant="ghost"
-          className="button-chevrons-right"
-          px="0px"
-          onClick={() => closeView()}
-        >
-          <FiChevronsRight
-            className="fi-chevrons-right"
-            size={19}
-            color={iconColor}
-          />
+        <Button variant="ghost" px="0px" onClick={() => closeView()}>
+          <FiChevronsRight className="fi-chevrons-right" size={19} />
         </Button>
       </Tooltip>
       <List display="flex" alignItems="center" gap="20px">

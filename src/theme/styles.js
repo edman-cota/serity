@@ -9,7 +9,7 @@ export const globalStyles = {
     gray: {
       50: "#f7fafc",
       100: "#EDF2F7",
-      200: "#e9ecef",
+      200: "#88898D", // secondary icon colorScheme
       500: "rgba(255, 255, 255, 0.08)", // hover bg secondary
       600: "#383D5B", // hover bg primary
       700: "#1f2733", // main

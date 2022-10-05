@@ -35,8 +35,6 @@ const InputTemaTitle = ({ title, id, projectId }) => {
     }
   };
 
-  // const color = useColorModeValue("#181d25", "#eeeeee");
-
   return (
     <Editable
       defaultValue={title}

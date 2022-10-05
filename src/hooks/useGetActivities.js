@@ -6,11 +6,13 @@ import database, { auth } from "../firebase";
 const useGetActivities = () => {
   const [activities, setActivities] = useState([]);
   const [user] = useAuthState(auth);
+  const [isLoading, setIsLoading] = useState(true);
   const task = useSelector((state) => state.task.value);
 
   // RETRIEVE ACTIVITIES
   useEffect(() => {
     database.ref(`${user?.uid}/activities`).on("value", (snapshot) => {
+      setIsLoading(true);
       const list = [];
       snapshot.forEach((snap) => {
         if (snap.val().taskId === task.id) {
@@ -20,9 +22,10 @@ const useGetActivities = () => {
 
       setActivities(list);
     });
+    setIsLoading(false);
   }, [user?.uid, task.id]);
 
-  return { activities };
+  return { activities, isLoading };
 };
 
 export default useGetActivities;

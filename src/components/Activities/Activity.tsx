@@ -1,11 +1,12 @@
 import React from "react";
-import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Text, useColorModeValue, VStack } from "@chakra-ui/react";
 import Icon from "./Icon";
 import Verbose from "./Verbose";
 import Priority from "./Priority";
 import DueDate from "./DueDate";
 import "./Activities.scss";
 import { timeDifference } from "../../helpers/timeDifference";
+import { formatAMPM } from "../../helpers/formatAMPM";
 
 interface ActivityProps {
   username: string;
@@ -33,25 +34,9 @@ const Activity = ({
     "rgba(255, 255, 255, 0.5)"
   );
 
-  const humanDate = new Date(date.getTime());
-
-  const formatAMPM = (date: any) => {
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    const ampm = hours >= 12 ? "pm" : "am";
-
-    hours %= 12;
-    hours = hours || 12;
-    minutes = minutes < 10 ? `0${minutes}` : minutes;
-
-    const strTime = `${hours}:${minutes} ${ampm}`;
-
-    return strTime;
-  };
-
   return (
     <div className="timeline-item">
-      <Flex alignItems="center" w="100%">
+      <Flex>
         <Icon type={type} />
 
         <Flex
@@ -82,7 +67,8 @@ const Activity = ({
           >
             {timeDifference(date.getTime(), "en")}
             <Text as="span">
-              {humanDate.toLocaleDateString("en-US")} - {formatAMPM(humanDate)}
+              {new Date(date.getTime()).toLocaleDateString("en-US")} -{" "}
+              {formatAMPM(new Date(date.getTime()))}
             </Text>
           </Text>
         </Flex>

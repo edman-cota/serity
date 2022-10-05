@@ -13,8 +13,10 @@ const buttonStyles = {
           borderRadius: "base",
           h: "1.875rem",
           px: "0.5rem",
+          color: colorMode === "dark" ? "gray.400" : "#94959B",
           _hover: {
             bg: colorMode === "dark" ? "gray.500" : "gray.100",
+            color: colorMode === "dark" ? "white" : "black",
           },
           _focus: {
             bg: "transparent",
