@@ -110,9 +110,9 @@ const Navbar = () => {
               {/* <ColorModeSwitcher /> */}
               {/* <NotificationsItem /> */}
             </ListItem>
-            <ListItem mr="10px">
+            {/* <ListItem mr="10px">
               <ProfileItem />
-            </ListItem>
+            </ListItem> */}
           </List>
         </Flex>
       </Flex>

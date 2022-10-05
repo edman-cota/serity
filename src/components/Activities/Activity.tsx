@@ -28,16 +28,39 @@ const Activity = ({
 }: ActivityProps): JSX.Element => {
   var date = new Date(createdAt);
 
-  console.log(username);
+  const color = useColorModeValue(
+    "rgba(24, 29, 37, 0.6)",
+    "rgba(255, 255, 255, 0.5)"
+  );
 
-  const color = useColorModeValue("rgba(24, 29, 37, 0.6)", "#eeeeee");
+  const humanDate = new Date(date.getTime());
+
+  const formatAMPM = (date: any) => {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "pm" : "am";
+
+    hours %= 12;
+    hours = hours || 12;
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+
+    const strTime = `${hours}:${minutes} ${ampm}`;
+
+    return strTime;
+  };
 
   return (
     <div className="timeline-item">
       <Flex alignItems="center" w="100%">
         <Icon type={type} />
 
-        <div className="content">
+        <Flex
+          className="content"
+          direction="column"
+          w="100%"
+          mb="20px"
+          ml="20px"
+        >
           <Text pr="7px" className="text" fontSize="15px">
             <Text as="span" color="#4772fa" pr="7px">
               {username}
@@ -49,10 +72,20 @@ const Activity = ({
             {type === 2 ? <Priority priority={priority} /> : null}
             {type === 3 ? <DueDate due={due} /> : null}
           </Text>
-          <Text color={color} fontSize="14px" mt="4px">
+          <Text
+            color={color}
+            fontSize="14px"
+            mt="4px"
+            display="flex"
+            justifyContent="space-between"
+            pr="20px"
+          >
             {timeDifference(date.getTime(), "en")}
+            <Text as="span">
+              {humanDate.toLocaleDateString("en-US")} - {formatAMPM(humanDate)}
+            </Text>
           </Text>
-        </div>
+        </Flex>
       </Flex>
     </div>
   );

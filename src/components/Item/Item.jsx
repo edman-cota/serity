@@ -21,7 +21,7 @@ const Item = ({ task, index }) => {
       role="group"
     >
       <HStack h="40px">
-        <Flex px="10px">
+        <Flex px="8px">
           <RenderStatus task={task} />
         </Flex>
         <Flex flex={1} alignItems="center" height="100%">
