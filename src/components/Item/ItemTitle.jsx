@@ -8,6 +8,7 @@ import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setTask } from "../../features/counter/TaskSlice";
 import { setSidebarVisibility } from "../../features/counter/SidebarVisibilitySlice";
+import { setTaskActivityVisibility } from "../../features/counter/taskActivitySlice";
 
 const ItemTitle = ({ task, index }) => {
   const { width } = useWindowSize();
@@ -18,6 +19,7 @@ const ItemTitle = ({ task, index }) => {
     dispatch(setSelectedTaskId(id));
     dispatch(setTask(task));
     dispatch(setActiveIndex(itemIndex));
+    dispatch(setTaskActivityVisibility(false));
 
     if (width <= 1210) {
       dispatch(setSidebarVisibility(false));

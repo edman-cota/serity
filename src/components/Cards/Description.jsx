@@ -36,6 +36,7 @@ const Description = ({ description, title, id, projectId }) => {
       defaultValue={description}
       placeholder="Add description"
       onSubmit={handleSubmit}
+      color="gray.400"
       w="100%"
       minH="30px"
       maxH="200px"

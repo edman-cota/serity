@@ -30,7 +30,7 @@ const TreeList = () => {
     <VStack h="100vh" w={widths} display={display}>
       <Navbar />
       {!isLoading ? (
-        <VStack w="98%" mx="auto" h="calc(100vh - 90px)" overflowY="auto">
+        <VStack w="98%" mx="auto" h="calc(100vh - 76px)" overflowY="auto">
           {project !== "today" ? (
             <VStack w="100%" pb="40px">
               {tasks.length <= 0 && !showAddTask ? (

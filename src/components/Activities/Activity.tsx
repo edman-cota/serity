@@ -3,6 +3,7 @@ import { Flex, Text, useColorModeValue, VStack } from "@chakra-ui/react";
 import Icon from "./Icon";
 import Verbose from "./Verbose";
 import Priority from "./Priority";
+import ActivityContent from "./ActivityContent";
 import DueDate from "./DueDate";
 import "./Activities.scss";
 import { timeDifference } from "../../helpers/timeDifference";
@@ -48,11 +49,16 @@ const Activity = ({
         >
           <Text pr="7px" className="text" fontSize="15px">
             <Text as="span" color="#4772fa" pr="7px">
-              {username}
+              {/* {username} */}
+              Edman Cota
             </Text>
             <Verbose type={type} />
-            <Text as="span" color="#4772fa" pr="7px">
-              {type === 8 ? description : content}
+            <Text as="span" color="#4772fa">
+              <ActivityContent
+                type={type}
+                content={content}
+                description={description}
+              />
             </Text>
             {type === 2 ? <Priority priority={priority} /> : null}
             {type === 3 ? <DueDate due={due} /> : null}
