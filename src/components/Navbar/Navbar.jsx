@@ -7,6 +7,8 @@ import { Flex, List, ListItem, useColorModeValue } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useWindowSize } from "react-use";
+// import { Button } from "react-loading-arleth";
+// import "react-loading-arleth/dist/index.css";
 
 import ProfileItem from "./ProfileItem";
 import ToggleSidebarVisibility from "./ToggleSidebarVisibility";
@@ -43,10 +45,11 @@ const Navbar = () => {
   window.addEventListener("scroll", changeNavbar);
 
   return (
-    <Flex h="76px !important" w="98%">
+    <Flex h={{ base: "45px", sm: "76px" }} w="98%">
       <Flex w="95%" mx="auto" pt="4px" maxW="1000px !important">
         <Flex flex="1" alignItems="center" gap="18px">
           <ToggleSidebarVisibility />
+          {/* <Button label="Arleth" /> */}
           {/* <ViewSwitcher /> */}
           {/* <SortItem /> */}
           <ProjectName />

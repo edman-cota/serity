@@ -15,7 +15,7 @@ import Profile from "../components/Profile/Profile";
 import Notifications from "../components/Notifications/Notifications";
 import Subscription from "../components/Subscriptions/Subscription";
 import Updates from "../components/Updates/Updates";
-import TreeList from "../components/Views/Tree/TreeList";
+import MainPanel from "../components/Views/Tree/MainPanel";
 import HelpCenter from "../containers/HelpCenter/HelpCenter";
 
 interface Props {
@@ -39,7 +39,7 @@ const Routing = ({ currentLocale, handleChange }: Props): JSX.Element => {
       <Route path="/:username/overview/" element={<Overview />} />
       <Route path="/:username/updates/" element={<Updates />} />
       <Route path="/:username/" element={<Web />}>
-        <Route path=":project" element={<TreeList />} />
+        <Route path=":project" element={<MainPanel />} />
       </Route>
 
       <Route

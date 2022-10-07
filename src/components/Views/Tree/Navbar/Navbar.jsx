@@ -11,7 +11,6 @@ import { useWindowSize } from "react-use";
 import { setSelectedTaskId } from "../../../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../../../features/counter/ActiveIndexSlice";
 import DropdownTaskOptions from "../../../Dropdown/DropdownTaskOptions";
-import "./Navbar.scss";
 import { setTaskActivityVisibility } from "../../../../features/counter/taskActivitySlice";
 import { setIsExpanded } from "../../../../features/counter/ExpandedSlice";
 
@@ -49,7 +48,7 @@ const Navbar = () => {
     >
       <Tooltip label="Hide detail panel">
         <Button variant="ghost" px="0px" onClick={() => closeView()}>
-          <FiChevronsRight className="fi-chevrons-right" size={19} />
+          <FiChevronsRight size={19} />
         </Button>
       </Tooltip>
       <List display="flex" alignItems="center" gap="20px">

@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import React from "react";
 import {
   Button,
@@ -21,6 +22,7 @@ import { duplicateTask } from "../../helpers/duplicateTask";
 import { deleteTask } from "../../helpers/deleteTask";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
+import CopyToClipboardMenuItem from "./CopyToClipboardMenuItem.tsx";
 
 const DropdownTaskOptions = () => {
   const toast = useToast();
@@ -75,6 +77,10 @@ const DropdownTaskOptions = () => {
         <MenuItem icon={<CopyIcon />} onClick={() => handleDuplicateTask()}>
           <FormattedMessage id="duplicate_task" />
         </MenuItem>
+        <MenuItem icon={<CopyIcon />} onClick={() => handleDuplicateTask()}>
+          <FormattedMessage id="Move to" />
+        </MenuItem>
+        <CopyToClipboardMenuItem />
         <MenuItem icon={<AiOutlineDelete />} onClick={() => handleDeleteTask()}>
           <FormattedMessage id="delete" />
         </MenuItem>

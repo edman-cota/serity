@@ -15,7 +15,7 @@ import { useGetTodayTasks } from "../../../hooks/useGetTodayTasks";
 import Navbar from "../../Navbar/Navbar";
 import { useSplitSizes } from "../../../hooks/useSplitSizes";
 
-const TreeList = () => {
+const MainPanel = () => {
   const { project } = useParams();
   const { sizes, paneDisplay } = useSplitSizes();
   const { tasks, completedTasks, isLoading } = useGetTasks();
@@ -87,4 +87,4 @@ const TreeList = () => {
   );
 };
 
-export default TreeList;
+export default MainPanel;

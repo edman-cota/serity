@@ -10,7 +10,7 @@ import Activities from "../../Activities/Activities";
 
 import { useSplitSizes } from "../../../hooks/useSplitSizes";
 
-const TreeTrask = () => {
+const DetailPanel = () => {
   const { colorMode } = useColorMode();
   const task = useSelector((state) => state.task.value);
   const selectedTaskId = useSelector((state) => state.selectedTaskId.value);
@@ -61,4 +61,4 @@ const TreeTrask = () => {
   );
 };
 
-export default TreeTrask;
+export default DetailPanel;
