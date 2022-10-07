@@ -17,7 +17,7 @@ const CopyToClipboardMenuItem = () => {
 
   return (
     <MenuItem icon={<BsLink45Deg />} onClick={() => copyToClipboard()}>
-      <FormattedMessage id="Copy link" />
+      <FormattedMessage id="copy_link" />
     </MenuItem>
   );
 };

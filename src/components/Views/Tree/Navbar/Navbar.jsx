@@ -5,7 +5,8 @@ import { Flex, List, ListItem, Button, Tooltip } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { FiChevronsRight } from "react-icons/fi";
 import { MdOutlineHistoryToggleOff } from "react-icons/md";
-import { CgArrowsExpandLeft, CgMinimizeAlt } from "react-icons/cg";
+import { CgMinimizeAlt } from "react-icons/cg";
+import { AiOutlineExpandAlt } from "react-icons/ai";
 import { useWindowSize } from "react-use";
 
 import { setSelectedTaskId } from "../../../../features/counter/SelectedTaskIdSlice";
@@ -56,7 +57,7 @@ const Navbar = () => {
           <ListItem>
             <Tooltip label={label}>
               <Button variant="ghost" onClick={expandScreen}>
-                {isExpanded ? <CgMinimizeAlt /> : <CgArrowsExpandLeft />}
+                {isExpanded ? <CgMinimizeAlt /> : <AiOutlineExpandAlt />}
               </Button>
             </Tooltip>
           </ListItem>

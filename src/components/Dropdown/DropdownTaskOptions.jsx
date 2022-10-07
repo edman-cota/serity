@@ -77,9 +77,6 @@ const DropdownTaskOptions = () => {
         <MenuItem icon={<CopyIcon />} onClick={() => handleDuplicateTask()}>
           <FormattedMessage id="duplicate_task" />
         </MenuItem>
-        <MenuItem icon={<CopyIcon />} onClick={() => handleDuplicateTask()}>
-          <FormattedMessage id="Move to" />
-        </MenuItem>
         <CopyToClipboardMenuItem />
         <MenuItem icon={<AiOutlineDelete />} onClick={() => handleDeleteTask()}>
           <FormattedMessage id="delete" />
