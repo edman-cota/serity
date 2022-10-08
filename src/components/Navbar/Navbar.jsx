@@ -68,7 +68,7 @@ const Navbar = () => {
               </ListItem>
             ) : null}
             <ListItem mr="10px">
-              {/* <ColorModeSwitcher /> */}
+              <ColorModeSwitcher />
               {/* <NotificationsItem /> */}
             </ListItem>
             {/* <ListItem mr="10px">

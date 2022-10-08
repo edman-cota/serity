@@ -12,8 +12,9 @@ export const globalStyles = {
       200: "#88898D", // secondary icon colorScheme
       500: "rgba(255, 255, 255, 0.08)", // hover bg secondary
       600: "#383D5B", // hover bg primary
-      700: "#1f2733", // main
+      // 700: "#1f2733", // main
       800: "#1A202C",
+      // 800: "rgb(22, 24, 28)",
       900: "#171923",
     },
     brand: {
