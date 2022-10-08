@@ -37,7 +37,7 @@ const Activity = ({
 
   return (
     <div className="timeline-item">
-      <Flex>
+      <Flex _hover={{ bg: "rgba(35, 131, 226, 0.28)" }} borderRadius="10px">
         <Icon type={type} />
 
         <Flex
@@ -53,7 +53,7 @@ const Activity = ({
               Edman Cota
             </Text>
             <Verbose type={type} />
-            <Text as="span" color="#4772fa">
+            <Text as="span">
               <ActivityContent
                 type={type}
                 content={content}
@@ -71,7 +71,7 @@ const Activity = ({
             justifyContent="space-between"
             pr="20px"
           >
-            {timeDifference(date.getTime(), "en")}
+            {/* {timeDifference(date.getTime(), "en")} */}
             <Text as="span">
               {new Date(date.getTime()).toLocaleDateString("en-US")} -{" "}
               {formatAMPM(new Date(date.getTime()))}

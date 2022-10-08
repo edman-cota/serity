@@ -22,7 +22,7 @@ const Icon = ({ type }: IconProps): JSX.Element => {
       );
     case 2:
       return (
-        <Text className="time" bg="#ffbd5a">
+        <Text className="time" bg="#C9C43F">
           <BiFlag />
         </Text>
       );

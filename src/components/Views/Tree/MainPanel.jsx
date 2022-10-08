@@ -30,13 +30,13 @@ const MainPanel = () => {
     <VStack h="100vh" w={widths} display={display}>
       <Navbar />
       {!isLoading ? (
-        <VStack w="98%" mx="auto" h="calc(100vh - 76px)" overflowY="auto">
+        <VStack w="98%" h="calc(100vh - 76px)" overflowY="auto">
           {project !== "today" ? (
             <VStack w="100%" pb="40px">
               {tasks.length <= 0 && !showAddTask ? (
                 <EmptyEditor />
               ) : (
-                <List width="95%" m="auto" maxWidth={1000}>
+                <List width="95%" m="auto" maxWidth={900}>
                   {tasks.map((data, index) => (
                     <Item key={data.id} index={index} task={data} />
                   ))}

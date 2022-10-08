@@ -23,6 +23,7 @@ import { deleteTask } from "../../helpers/deleteTask";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 import CopyToClipboardMenuItem from "./CopyToClipboardMenuItem.tsx";
+import MoveToMenuItemModal from "../Modals/MoveToMenuItemModal";
 
 const DropdownTaskOptions = () => {
   const toast = useToast();
@@ -78,6 +79,7 @@ const DropdownTaskOptions = () => {
           <FormattedMessage id="duplicate_task" />
         </MenuItem>
         <CopyToClipboardMenuItem />
+        <MoveToMenuItemModal />
         <MenuItem icon={<AiOutlineDelete />} onClick={() => handleDeleteTask()}>
           <FormattedMessage id="delete" />
         </MenuItem>
