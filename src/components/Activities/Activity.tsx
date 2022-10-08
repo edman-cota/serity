@@ -30,14 +30,20 @@ const Activity = ({
 }: ActivityProps): JSX.Element => {
   var date = new Date(createdAt);
 
+  // 4772fa
+
   const color = useColorModeValue(
-    "rgba(24, 29, 37, 0.6)",
+    "rgba(255, 255, 255, .15)",
     "rgba(255, 255, 255, 0.5)"
   );
 
   return (
     <div className="timeline-item">
-      <Flex _hover={{ bg: "rgba(35, 131, 226, 0.28)" }} borderRadius="10px">
+      <Flex
+        _hover={{ bg: "rgba(35, 131, 226, 0.28)" }}
+        borderRadius="10px"
+        py="10px"
+      >
         <Icon type={type} />
 
         <Flex
@@ -45,15 +51,21 @@ const Activity = ({
           direction="column"
           w="100%"
           mb="20px"
-          ml="20px"
+          mx="20px"
         >
-          <Text pr="7px" className="text" fontSize="15px">
-            <Text as="span" color="#4772fa" pr="7px">
+          <Text className="text" fontSize="15px">
+            <Text as="span" color="white" pr="30px" fontWeight={700}>
               {/* {username} */}
               Edman Cota
             </Text>
+            <Text as="span" color={color}>
+              {new Date(date.getTime()).toLocaleDateString("en-US")} -{" "}
+              {formatAMPM(new Date(date.getTime()))}
+            </Text>
+          </Text>
+          <Text className="text" pt="6px">
             <Verbose type={type} />
-            <Text as="span">
+            <Text as="span" color={color}>
               <ActivityContent
                 type={type}
                 content={content}
@@ -72,10 +84,10 @@ const Activity = ({
             pr="20px"
           >
             {/* {timeDifference(date.getTime(), "en")} */}
-            <Text as="span">
+            {/* <Text as="span">
               {new Date(date.getTime()).toLocaleDateString("en-US")} -{" "}
               {formatAMPM(new Date(date.getTime()))}
-            </Text>
+            </Text> */}
           </Text>
         </Flex>
       </Flex>
