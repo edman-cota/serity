@@ -2,8 +2,8 @@ import { Flex, Text, VStack } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import updates from "./data";
 import Update from "./Update";
-import "../Activities/Activities.scss";
-import "../Activities/Activity.scss";
+import "../Timeline/Activities.scss";
+import "../Timeline/Activity.scss";
 
 const Content = () => {
   const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value);

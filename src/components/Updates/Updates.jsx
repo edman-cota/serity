@@ -1,7 +1,5 @@
 import React from "react";
 import { Flex } from "@chakra-ui/react";
-import "../Activities/Activities.scss";
-import "../Activities/Activity.scss";
 import Content from "./Content";
 import Sidebar from "../Sidebar/Sidebar";
 

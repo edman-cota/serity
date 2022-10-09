@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/jsx-filename-extension */
 import DetailTab from "./DetailTab";
-import Activities from "../Activities/Activities";
+import Activities from "../Timeline/Timeline";
 
 export const allIngredients = [
   { icon: "🍅", label: "Detail", component: <DetailTab /> },

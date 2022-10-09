@@ -1,13 +1,15 @@
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable comma-dangle */
 /* eslint-disable no-unsafe-optional-chaining */
 import React, { useState } from "react";
 import {
   Flex,
-  useDisclosure,
   useColorModeValue,
   Textarea,
+  chakra,
+  shouldForwardProp,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { motion, isValidMotionProp } from "framer-motion";
 import ReactFocusLock from "react-focus-lock";
 import { useDispatch, useSelector } from "react-redux";
 import { BiSquareRounded } from "react-icons/bi";
@@ -17,45 +19,30 @@ import database, { auth } from "../../firebase";
 import { useGetProject } from "../../hooks/useGetProject";
 import { setShowAddTask } from "../../features/counter/ShowAddTaskSlice";
 
-const MotionFlex = motion(Flex);
+const MotionFlex = chakra(motion.div, {
+  /**
+   ** Allow motion props and non-chakra props to be forwarded.
+   */
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
 
 const AddTask = () => {
   const [user] = useAuthState(auth);
   const { project } = useGetProject();
   const [title, setTitle] = useState("");
-  const { onOpen, onClose } = useDisclosure();
   const dispatch = useDispatch();
   const showAddTask = useSelector((state) => state.showAddTask.value);
   const workingProjectId = window.localStorage.getItem("working-project");
 
-  const handleChange = (e) => {
-    e.preventDefault();
-
-    if (e.target.value[e.target.value.length - 2] === "!") {
-      if (e.keyCode === 32) {
-        onClose();
-      }
-    }
-    setTitle(e.target.value);
-  };
-
   const handleKeyDown = (event) => {
-    if (event.keyCode === 49) {
-      onOpen();
-    }
-
-    if (event.target.value[event.target.value.length - 1] === "!") {
-      if (event.keyCode === 32) {
-        onClose();
-      }
-    }
-
     const keyCode = event.which || event.keyCode;
 
     if (keyCode === 13 && !event.shiftKey) {
       event.preventDefault();
 
       if (title !== "") {
+        dispatch(setShowAddTask(!showAddTask));
         const cardRef = database.ref(`${user?.uid}/tasks`);
         const newCardRef = cardRef.push();
         newCardRef
@@ -70,7 +57,6 @@ const AddTask = () => {
           })
           .then(() => {
             // Close add task Textarea
-            dispatch(setShowAddTask(!showAddTask));
             setTitle("");
 
             database
@@ -119,16 +105,17 @@ const AddTask = () => {
     <MotionFlex
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{
-        type: "spring",
-        ease: "linear",
-        duration: 1,
-      }}
+      // transition={{
+      //   type: "spring",
+      //   ease: "linear",
+      //   duration: 1,
+      // }}
+      display="flex"
       bg={background}
       margin="10px auto"
       px="10px"
       w="95%"
-      maxWidth="1000px"
+      maxWidth="880px"
       borderRadius="base"
       alignItems="center"
       mb="40px"
@@ -145,7 +132,7 @@ const AddTask = () => {
           rows="1"
           cols="200"
           w="full"
-          onChange={handleChange}
+          onChange={(e) => setTitle(e.target.value)}
           onKeyDown={handleKeyDown}
           value={title}
         />

@@ -1,5 +1,6 @@
 import React from "react";
 import { Flex, Text, useColorModeValue, VStack } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import Icon from "./Icon";
 import Verbose from "./Verbose";
 import Priority from "./Priority";
@@ -38,8 +39,30 @@ const Activity = ({
     "rgba(255, 255, 255, 0.5)"
   );
 
+  const variants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1000, velocity: -100 },
+      },
+    },
+    closed: {
+      y: 50,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
+  };
+
   return (
-    <div className="timeline-item">
+    <motion.li
+      variants={variants}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      className="timeline-item"
+    >
       <Flex
         _hover={{ bg: "rgba(35, 131, 226, 0.28)" }}
         borderRadius="10px"
@@ -83,16 +106,10 @@ const Activity = ({
             display="flex"
             justifyContent="space-between"
             pr="20px"
-          >
-            {/* {timeDifference(date.getTime(), "en")} */}
-            {/* <Text as="span">
-              {new Date(date.getTime()).toLocaleDateString("en-US")} -{" "}
-              {formatAMPM(new Date(date.getTime()))}
-            </Text> */}
-          </Text>
+          ></Text>
         </Flex>
       </Flex>
-    </div>
+    </motion.li>
   );
 };
 

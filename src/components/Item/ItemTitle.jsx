@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import { useWindowSize } from "react-use";
 import { useDispatch } from "react-redux";
-import "../Activities/Activity.scss";
+// import "../Timeline/Activity.scss";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setTask } from "../../features/counter/TaskSlice";

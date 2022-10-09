@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import Item from "../../Item/Item";
 import AddTask from "../../Item/AddTask";
 import NoTaskEditor from "../../EmptyEditor/NoTaskEditor.tsx";
-import EmptyEditor from "../../EmptyEditor/EmptyEditor.tsx";
+import LoadingScreen from "../../EmptyEditor/LoadingScreen.tsx";
 import { useGetTasks } from "../../../hooks/useGetTasks";
 import { useGetTodayTasks } from "../../../hooks/useGetTodayTasks";
 
@@ -34,7 +34,7 @@ const MainPanel = () => {
           {project !== "today" ? (
             <VStack w="100%" pb="40px">
               {tasks.length <= 0 && !showAddTask ? (
-                <EmptyEditor />
+                <LoadingScreen />
               ) : (
                 <List width="95%" m="auto" maxWidth={880}>
                   {tasks.map((data, index) => (
@@ -60,8 +60,8 @@ const MainPanel = () => {
           )}
 
           {showCompleted && completedTasks.length > 0 ? (
-            <VStack w="100%">
-              <Flex width="95%" mx="auto" mt="30px" maxWidth={1000}>
+            <VStack w="100%" pb="40px">
+              <Flex width="95%" mx="auto" mt="30px" maxWidth={880}>
                 <Text pl="12px">
                   Completed
                   <Text as="span" pl="12px" color="rgba(255, 255, 255, 0.7)">
@@ -70,7 +70,7 @@ const MainPanel = () => {
                 </Text>
               </Flex>
 
-              <List width="95%" m="auto" maxWidth={1000}>
+              <List width="95%" m="auto" maxWidth={880}>
                 {completedTasks.map((data, index) => (
                   <Item key={data.id} index={index} task={data} />
                 ))}
@@ -80,7 +80,7 @@ const MainPanel = () => {
         </VStack>
       ) : (
         <VStack w="98%" mx="auto" h="calc(100vh - 90px)">
-          <EmptyEditor />
+          <LoadingScreen />
         </VStack>
       )}
     </VStack>
