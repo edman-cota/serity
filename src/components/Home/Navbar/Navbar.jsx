@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable no-useless-return */
 /* eslint-disable no-unused-vars */
 /* eslint-disable object-curly-newline */
@@ -8,6 +9,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import logo from "../../../assets/img/logo.svg";
 import { auth } from "../../../firebase";
 import { beautifyUrl } from "../../../helpers/beautifyUrl.ts";
+import { getProjectFromLocalStorage } from "../../../helpers/getProjectFromLocalStorage.ts";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -16,12 +18,13 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [isFixed, setIsFixed] = useState(true);
-  const project = window.localStorage.getItem("project");
 
   let navbarPosition = "relative";
 
   const navigateTo = () => {
-    navigate(`${username}/${beautifyUrl(project)}/?view=tree`);
+    navigate(
+      `${username}/${beautifyUrl(getProjectFromLocalStorage())}/?view=tree`
+    );
   };
 
   useEffect(() => {

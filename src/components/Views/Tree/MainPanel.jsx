@@ -36,7 +36,7 @@ const MainPanel = () => {
               {tasks.length <= 0 && !showAddTask ? (
                 <EmptyEditor />
               ) : (
-                <List width="95%" m="auto" maxWidth={900}>
+                <List width="95%" m="auto" maxWidth={880}>
                   {tasks.map((data, index) => (
                     <Item key={data.id} index={index} task={data} />
                   ))}

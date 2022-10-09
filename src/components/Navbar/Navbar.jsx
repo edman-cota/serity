@@ -20,6 +20,8 @@ import { auth } from "../../firebase";
 // import SearchModal from "../Modals/SearchModal.js";
 import ColorModeSwitcher from "./ColorModeSwitcher";
 import ShortcutsModal from "../Modals/ShortcutsModal";
+import DropdownTaskOptions from "../Dropdown/DropdownTaskOptions";
+import DropdownProjectOptions from "../Dropdown/DropdownProjectOptions";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -46,7 +48,7 @@ const Navbar = () => {
 
   return (
     <Flex h={{ base: "45px", sm: "76px" }} w="98%">
-      <Flex w="95%" mx="auto" pt="4px" maxW="1000px !important">
+      <Flex w="95%" mx="auto" pt="4px" maxW="950px !important">
         <Flex flex="1" alignItems="center" gap="18px">
           <ToggleSidebarVisibility />
           {/* <Button label="Arleth" /> */}
@@ -67,9 +69,11 @@ const Navbar = () => {
                 {/* <SearchModal /> */}
               </ListItem>
             ) : null}
-            <ListItem mr="10px">
+            {/* <ListItem mr="10px">
               <ColorModeSwitcher />
-              {/* <NotificationsItem /> */}
+            </ListItem> */}
+            <ListItem>
+              <DropdownProjectOptions />
             </ListItem>
             {/* <ListItem mr="10px">
               <ProfileItem />

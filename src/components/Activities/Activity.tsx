@@ -33,7 +33,8 @@ const Activity = ({
   // 4772fa
 
   const color = useColorModeValue(
-    "rgba(255, 255, 255, .15)",
+    // "rgba(255, 255, 255, .15)",
+    "gray",
     "rgba(255, 255, 255, 0.5)"
   );
 
@@ -58,7 +59,7 @@ const Activity = ({
               {/* {username} */}
               Edman Cota
             </Text>
-            <Text as="span" color={color}>
+            <Text as="span" color="gray">
               {new Date(date.getTime()).toLocaleDateString("en-US")} -{" "}
               {formatAMPM(new Date(date.getTime()))}
             </Text>

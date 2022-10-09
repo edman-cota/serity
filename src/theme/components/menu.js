@@ -1,21 +1,27 @@
 const menuStyles = {
   components: {
     Menu: {
-      parts: ["list", "item"],
+      parts: ["list", "item", "divider"],
       baseStyle: {
         list: {
           bg: "black",
           border: "0px",
         },
         item: {
-          h: "38px",
-          w: "90%",
+          h: "40px",
+          w: "100%",
           mx: "auto",
-          color: "white",
+          color: "hsla(0,0%,100%,.87)",
           borderRadius: "base",
           _hover: {
             bg: "gray.700",
+            color: "white",
           },
+        },
+        divider: {
+          w: "90%",
+          mx: "auto",
+          color: "whiteAlpha.400",
         },
       },
     },

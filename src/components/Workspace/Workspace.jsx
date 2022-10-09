@@ -48,7 +48,7 @@ const Workspace = () => {
         <nav style={{ width: "100%" }}>
           <ul style={{ margin: "auto", width: "90%" }}>
             {projects?.map((project) => (
-              <li key={project.id}>
+              <li key={project.id} style={{ color: "hsla(0,0%,100%,.87)" }}>
                 <NavLink
                   key={project.id}
                   to={`/${username}/${beautifyUrl(project?.name)}?view=${view}`}

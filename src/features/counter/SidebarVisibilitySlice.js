@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const SidebarVisibilitySlice = createSlice({
   name: "isSidebarOpen",
   initialState: {
-    value: false,
+    value: true,
   },
   reducers: {
     setSidebarVisibility: (state, action) => {

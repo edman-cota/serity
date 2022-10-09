@@ -10,6 +10,7 @@ import {
   ModalBody,
   Flex,
   Select,
+  Text,
 } from "@chakra-ui/react";
 import { MdOutlineDriveFileMove } from "react-icons/md";
 import { FormattedMessage } from "react-intl";
@@ -19,7 +20,10 @@ const MoveToMenuItemModal = () => {
 
   return (
     <>
-      <MenuItem onClick={onOpen} icon={<MdOutlineDriveFileMove />}>
+      <MenuItem onClick={onOpen}>
+        <Text as="span" pr="10px">
+          <MdOutlineDriveFileMove />
+        </Text>
         <FormattedMessage id="move_to" />
       </MenuItem>
       <Modal
