@@ -19,7 +19,8 @@ import RenderPriority from "./RenderPriority.tsx";
 import { auth } from "../../firebase";
 import { useGetTask } from "../../hooks/useGetTask";
 import { changeTaskPriority } from "../../helpers/changeTaskPriority";
-import { priorities, colors } from "./data";
+import { priorities } from "../../helpers/priorities.ts";
+import { colors } from "../../helpers/colors.ts";
 
 const PriorityIcon = (props) => {
   const toast = useToast();
@@ -57,10 +58,8 @@ const PriorityIcon = (props) => {
               <Flex direction="column">
                 {priorities.map((priority, index, { length }) => (
                   <Button
-                    variant="custom"
                     key={priority}
                     justifyContent="start"
-                    color="white"
                     onClick={() => {
                       updateTaskPriority(length - (index + 1));
                       onClose();
@@ -70,7 +69,7 @@ const PriorityIcon = (props) => {
                     <Text as="span" w="30px">
                       <BsFlag color={colors[index]} fontSize="14px" />
                     </Text>
-                    <Text as="span" fontSize="14px">
+                    <Text as="span">
                       <FormattedMessage id={priority} />
                     </Text>
                   </Button>

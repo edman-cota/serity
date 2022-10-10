@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable comma-dangle */
 import React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
@@ -14,6 +15,7 @@ import { auth } from "../../firebase";
 
 import { markStatus } from "../../helpers/markStatus";
 import { markStatusToUncomplete } from "../../helpers/maskStatusToUncomplete";
+import { getPriorityColor } from "../../helpers/getPriorityColor.ts";
 
 const RenderStatus = ({ task }) => {
   const toast = useToast();
@@ -68,11 +70,6 @@ const RenderStatus = ({ task }) => {
       return (
         <Tooltip label="Complete">
           <Text as="span" w="20px" height="20px">
-            {/* <BiSquareRounded
-              color="#a0aec0"
-              fontSize={17}
-              onClick={() => markStatusAsComplete(task)}
-            /> */}
             <svg
               width="100%"
               height="100%"
@@ -85,7 +82,7 @@ const RenderStatus = ({ task }) => {
               <motion.path
                 fill={clicked ? "#2175e2" : "none"}
                 strokeWidth="2"
-                stroke={clicked ? "#2175e2" : "#a0aec0"}
+                stroke={clicked ? "#2175e2" : getPriorityColor(task.priority)}
                 d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
                 style={{ translateX: 5, translateY: 5 }}
               />

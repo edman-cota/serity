@@ -1,13 +1,10 @@
 import React from "react";
-// eslint-disable-next-line object-curly-newline
 import { List, VStack } from "@chakra-ui/react";
-
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import Item from "../../Item/Item";
 import AddTask from "../../Item/AddTask";
-import NoTaskEditor from "../../EmptyEditor/NoTaskEditor.tsx";
 import LoadingScreen from "../../EmptyEditor/LoadingScreen.tsx";
 import { useGetTasks } from "../../../hooks/useGetTasks";
 import { useGetTodayTasks } from "../../../hooks/useGetTodayTasks";
@@ -34,28 +31,20 @@ const MainPanel = () => {
         <VStack w="98%" h="calc(100vh - 76px)" overflowY="auto">
           {project !== "today" ? (
             <VStack w="100%" pb="40px">
-              {tasks.length <= 0 && !showAddTask ? (
-                <LoadingScreen />
-              ) : (
-                <List width="95%" m="auto" maxWidth={880}>
-                  {tasks.map((data, index) => (
-                    <Item key={data.id} index={index} task={data} />
-                  ))}
-                </List>
-              )}
+              <List width="95%" m="auto" maxWidth={880}>
+                {tasks.map((data, index) => (
+                  <Item key={data.id} index={index} task={data} />
+                ))}
+              </List>
               {showAddTask ? <AddTask /> : null}
             </VStack>
           ) : (
             <VStack w="100%">
-              {todayTasks.length <= 0 && !showAddTask ? (
-                <NoTaskEditor />
-              ) : (
-                <List width="95%" m="auto" maxWidth={1000}>
-                  {todayTasks.map((data, index) => (
-                    <Item key={data.id} index={index} task={data} />
-                  ))}
-                </List>
-              )}
+              <List width="95%" m="auto" maxWidth={1000}>
+                {todayTasks.map((data, index) => (
+                  <Item key={data.id} index={index} task={data} />
+                ))}
+              </List>
               {showAddTask ? <AddTask /> : null}
             </VStack>
           )}
@@ -63,7 +52,6 @@ const MainPanel = () => {
           {showCompleted && completedTasks.length > 0 ? (
             <VStack w="100%" pb="40px">
               <ListHeader count={completedTasks.length} />
-
               <List width="95%" m="auto" maxWidth={880}>
                 {completedTasks.map((data, index) => (
                   <Item key={data.id} index={index} task={data} />
@@ -73,9 +61,7 @@ const MainPanel = () => {
           ) : null}
         </VStack>
       ) : (
-        <VStack w="98%" mx="auto" h="calc(100vh - 90px)">
-          <LoadingScreen />
-        </VStack>
+        <LoadingScreen />
       )}
     </VStack>
   );
