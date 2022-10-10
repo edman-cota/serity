@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Tooltip } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { BsLayoutSidebarReverse, BsLayoutSidebar } from "react-icons/bs";
+import { FormattedMessage } from "react-intl";
 
 import { setSidebarVisibility } from "../../features/counter/SidebarVisibilitySlice";
 
@@ -14,7 +15,7 @@ const ToggleSidebarVisibility = () => {
   };
 
   return (
-    <Tooltip label="Toggle sidebar &#183; Ctrl + B">
+    <Tooltip label={<FormattedMessage id="toggle_sidebar" />}>
       <Button variant="ghost" onClick={toggleSidebarVisibility}>
         {isSidebarOpen ? <BsLayoutSidebarReverse /> : <BsLayoutSidebar />}
       </Button>

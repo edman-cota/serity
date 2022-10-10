@@ -1,6 +1,6 @@
 import React from "react";
 // eslint-disable-next-line object-curly-newline
-import { Flex, List, VStack, Text } from "@chakra-ui/react";
+import { List, VStack } from "@chakra-ui/react";
 
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -13,6 +13,7 @@ import { useGetTasks } from "../../../hooks/useGetTasks";
 import { useGetTodayTasks } from "../../../hooks/useGetTodayTasks";
 
 import Navbar from "../../Navbar/Navbar";
+import ListHeader from "./ListHeader.tsx";
 import { useSplitSizes } from "../../../hooks/useSplitSizes";
 
 const MainPanel = () => {
@@ -61,14 +62,7 @@ const MainPanel = () => {
 
           {showCompleted && completedTasks.length > 0 ? (
             <VStack w="100%" pb="40px">
-              <Flex width="95%" mx="auto" mt="30px" maxWidth={880}>
-                <Text pl="12px">
-                  Completed
-                  <Text as="span" pl="12px" color="rgba(255, 255, 255, 0.7)">
-                    {completedTasks.length}
-                  </Text>
-                </Text>
-              </Flex>
+              <ListHeader count={completedTasks.length} />
 
               <List width="95%" m="auto" maxWidth={880}>
                 {completedTasks.map((data, index) => (

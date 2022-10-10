@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const showCompletedSlice = createSlice({
   name: "showCompleted",
   initialState: {
-    value: false,
+    value: true,
   },
   reducers: {
     setShowCompleted: (state, action) => {

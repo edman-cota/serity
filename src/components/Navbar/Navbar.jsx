@@ -63,12 +63,12 @@ const Navbar = () => {
                 <NavItemAddTask />
               </ListItem>
             ) : null}
-            {width >= 770 ? (
+            {/* {width >= 770 ? (
               <ListItem mr="10px">
-                {/* <ShortcutsModal /> */}
-                {/* <SearchModal /> */}
+                <ShortcutsModal />
+                 <SearchModal />
               </ListItem>
-            ) : null}
+            ) : null} */}
             {/* <ListItem mr="10px">
               <ColorModeSwitcher />
             </ListItem> */}

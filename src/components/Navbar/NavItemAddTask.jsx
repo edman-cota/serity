@@ -2,6 +2,7 @@ import React from "react";
 import { useColorMode, Button, Tooltip } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { HiOutlinePlus } from "react-icons/hi";
+import { FormattedMessage } from "react-intl";
 import { setShowAddTask } from "../../features/counter/ShowAddTaskSlice";
 
 const NavItemAddTask = () => {
@@ -14,7 +15,7 @@ const NavItemAddTask = () => {
   };
 
   return (
-    <Tooltip label="Create new task &#183; Ctrl + N" openDelay={700}>
+    <Tooltip label={<FormattedMessage id="create_new_task" />} openDelay={700}>
       <Button
         variant="ghost"
         onClick={showAddTaskFunction}

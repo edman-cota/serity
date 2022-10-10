@@ -8,6 +8,7 @@ import { MdOutlineHistoryToggleOff } from "react-icons/md";
 import { CgMinimizeAlt } from "react-icons/cg";
 import { AiOutlineExpandAlt } from "react-icons/ai";
 import { useWindowSize } from "react-use";
+import { FormattedMessage } from "react-intl";
 
 import { setSelectedTaskId } from "../../../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../../../features/counter/ActiveIndexSlice";
@@ -22,7 +23,11 @@ const Navbar = () => {
     (state) => state.isTaskActivityVisible.value
   );
   const isExpanded = useSelector((state) => state.isExpanded.value);
-  const label = isExpanded ? "Contract" : "Expand";
+  const label = isExpanded ? (
+    <FormattedMessage id="contract" />
+  ) : (
+    <FormattedMessage id="expand" />
+  );
 
   const closeView = () => {
     dispatch(setSelectedTaskId(""));
@@ -47,7 +52,7 @@ const Navbar = () => {
       my="10px"
       alignItems="center"
     >
-      <Tooltip label="Hide detail panel">
+      <Tooltip label={<FormattedMessage id="hide_detail_panel" />}>
         <Button variant="ghost" px="0px" onClick={() => closeView()}>
           <FiChevronsRight size={19} />
         </Button>
@@ -63,7 +68,7 @@ const Navbar = () => {
           </ListItem>
         ) : null}
         <ListItem>
-          <Tooltip label="Toggle task activity">
+          <Tooltip label={<FormattedMessage id="toggle_task_activity" />}>
             <Button variant="ghost" onClick={toggleTaskActivityVisibility}>
               <MdOutlineHistoryToggleOff />
             </Button>

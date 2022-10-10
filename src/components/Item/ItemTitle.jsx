@@ -34,7 +34,14 @@ const ItemTitle = ({ task, index }) => {
       alignItems="center"
       onClick={() => onSelectItem(task.id, index)}
     >
-      <Text className="text-item" color={color} fontSize="15px">
+      <Text
+        className="text-item"
+        color={color}
+        fontSize="15px"
+        // textDecorationLine="line-through"
+        // textDecorationThickness={1}
+        // textDecorationColor="#2175e2"
+      >
         {task.content}
       </Text>
     </Flex>
