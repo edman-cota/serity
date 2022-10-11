@@ -1,7 +1,11 @@
 import React from "react";
 import { BsCalendar2 } from "react-icons/bs";
 
-const CalendarIcon = ({ due }: { due: string }) => {
+interface Props {
+  due: string;
+}
+
+const CalendarIcon = ({ due }: Props) => {
   let dueDate: number = new Date(due).getTime();
 
   let todayDate = new Date().setHours(0, 0, 0, 0);

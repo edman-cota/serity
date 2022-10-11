@@ -6,8 +6,8 @@ import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { removeDueDate } from "../../helpers/removeDueDate";
 import { auth } from "../../firebase";
-import { setDueToday } from "../../helpers/setDueToday";
 import { setDueTomorrow } from "../../helpers/setDueTomorrow";
+import TodayButton from "./TodayButton";
 
 const TopOptions = ({ task, onClose, workingProject }) => {
   const [user] = useAuthState(auth);
@@ -40,19 +40,6 @@ const TopOptions = ({ task, onClose, workingProject }) => {
     if (status === "success") onClose();
   };
 
-  const handleSetToday = () => {
-    const due = new Date(task?.due).toString().slice(0, 15);
-    const newDue = new Date().toString().slice(0, 15);
-
-    if (due === newDue) {
-      onClose();
-      return;
-    }
-
-    const status = setDueToday(user, task, workingProject);
-    if (status === "success") onClose();
-  };
-
   const handleSetTomorrow = () => {
     const now = new Date();
     const tomorrow = new Date(now.setDate(now.getDate() + 1)).toString();
@@ -80,14 +67,13 @@ const TopOptions = ({ task, onClose, workingProject }) => {
         </Button>
       ) : null}
       {isToday ? null : (
-        <Button
-          h="1.875rem"
-          fontSize="14px"
-          onClick={handleSetToday}
-          _focus={{ outline: "none" }}
-        >
-          <FormattedMessage id="today" />
-        </Button>
+        <TodayButton
+          onClose={onClose}
+          dueDate={task?.due}
+          user={user}
+          task={task}
+          workingProject={workingProject}
+        />
       )}
       {isTomorrow ? null : (
         <Button

@@ -2,6 +2,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import Activity from "./Activity";
 
+interface DataProps {
+  id: string;
+  username: string;
+  content: string;
+  description: string;
+  type: number;
+  priority: number;
+  due: string;
+  createdAt: string;
+}
+
 const TimelineBody = ({ activities }: any) => {
   const variants = {
     open: {
@@ -19,7 +30,7 @@ const TimelineBody = ({ activities }: any) => {
           activities
             .slice(0)
             .reverse()
-            .map((data: any) => (
+            .map((data: DataProps) => (
               <Activity
                 key={data.id}
                 username={data.username}

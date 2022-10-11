@@ -70,9 +70,9 @@ const DatePicker = () => {
             ) : null}
           </Button>
         </PopoverTrigger>
-        <PopoverContent w="350px" bg="#0e1525">
+        <PopoverContent w="330px" bg="#0e1525">
           <PopoverArrow />
-          <PopoverBody p="0px">
+          <PopoverBody p="0px" mx="auto">
             <TopOptions
               task={task?.at(0)}
               onClose={onClose}

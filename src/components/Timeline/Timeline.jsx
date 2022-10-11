@@ -1,4 +1,3 @@
-/* eslint-disable operator-linebreak */
 import React from "react";
 import { Flex } from "@chakra-ui/react";
 import "./Activities.scss";
@@ -15,7 +14,6 @@ const Activities = () => {
       w="100%"
       h="calc(100vh - 108.55px)"
       direction="column"
-      mx="0px"
       mb="20px"
       overflowY="auto"
     >

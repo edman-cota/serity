@@ -1,62 +1,63 @@
 import React from "react";
+import { Text } from "@chakra-ui/react";
 import { FormattedMessage } from "react-intl";
 
-interface TypeProps {
+interface Props {
   type: number;
 }
 
-const Verbose = ({ type }: TypeProps): JSX.Element => {
+const Verbose = ({ type }: Props): JSX.Element => {
   switch (type) {
     case 1:
       return (
-        <span style={{ paddingRight: "7px" }}>
+        <Text as="span" pr="7px">
           <FormattedMessage id="added" />
-        </span>
+        </Text>
       );
     case 2:
       return (
-        <span style={{ paddingRight: "7px" }}>
+        <Text as="span" pr="7px">
           <FormattedMessage id="set_the_priority_of" />
-        </span>
+        </Text>
       );
     case 3:
       return (
-        <span style={{ paddingRight: "7px" }}>
+        <Text as="span" pr="7px">
           <FormattedMessage id="set_the_due_date_of" />
-        </span>
+        </Text>
       );
     case 4:
       return (
-        <span style={{ paddingRight: "7px" }}>
+        <Text as="span" pr="7px">
           <FormattedMessage id="unset_the_due_date_of" />
-        </span>
+        </Text>
       );
     case 5:
       return (
-        <span style={{ paddingRight: "7px" }}>
+        <Text as="span" pr="7px">
           <FormattedMessage id="completed" />
-        </span>
+        </Text>
       );
     case 6:
       return (
-        <span style={{ paddingRight: "7px" }}>
+        <Text as="span" pr="7px">
           <FormattedMessage id="reopen" />
-        </span>
+        </Text>
       );
     case 7:
       return (
-        <span style={{ paddingRight: "7px" }}>
+        <Text as="span" pr="7px">
           <FormattedMessage id="rename_the_task_to" />
-        </span>
+        </Text>
       );
     case 8:
       return (
-        <span style={{ paddingRight: "7px" }}>
+        <Text as="span" pr="7px">
           <FormattedMessage id="edit_description" />
-        </span>
+        </Text>
       );
     default:
-      return <span>default</span>;
+      return <Text as="span" pr="7px"></Text>;
   }
 };
 
