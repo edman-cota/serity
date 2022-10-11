@@ -5,22 +5,23 @@ import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
-import { setDueToday } from "../../helpers/setDueToday";
+import { setDueTomorrow } from "../../helpers/setDueTomorrow";
 
-const TodayButton = ({ onClose, dueDate, task }) => {
+const TomorrowButton = ({ onClose, task }) => {
   const [user] = useAuthState(auth);
   const workingProject = useSelector((state) => state.workingProject.value);
 
-  const handleSetToday = () => {
-    const currentDue = new Date(dueDate).toString().slice(0, 15);
-    const newDue = new Date().toString().slice(0, 15);
+  const handleSetTomorrow = () => {
+    const now = new Date();
+    const tomorrow = new Date(now.setDate(now.getDate() + 1)).toString();
+    const savedDate = new Date(task?.due).toString().slice(0, 15);
 
-    if (currentDue === newDue) {
+    if (tomorrow.slice(0, 15) === savedDate) {
       onClose();
       return;
     }
 
-    const status = setDueToday(user, task, workingProject);
+    const status = setDueTomorrow(user, task, workingProject);
     if (status === "success") onClose();
   };
 
@@ -28,12 +29,12 @@ const TodayButton = ({ onClose, dueDate, task }) => {
     <Button
       h="1.875rem"
       fontSize="14px"
-      onClick={handleSetToday}
+      onClick={handleSetTomorrow}
       _focus={{ outline: "none" }}
     >
-      <FormattedMessage id="today" />
+      <FormattedMessage id="tomorrow" />
     </Button>
   );
 };
 
-export default TodayButton;
+export default TomorrowButton;

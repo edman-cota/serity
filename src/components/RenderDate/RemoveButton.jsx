@@ -5,22 +5,19 @@ import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
-import { setDueToday } from "../../helpers/setDueToday";
+import { removeDueDate } from "../../helpers/removeDueDate";
 
-const TodayButton = ({ onClose, dueDate, task }) => {
+const RemoveButton = ({ onClose, task }) => {
   const [user] = useAuthState(auth);
   const workingProject = useSelector((state) => state.workingProject.value);
 
-  const handleSetToday = () => {
-    const currentDue = new Date(dueDate).toString().slice(0, 15);
-    const newDue = new Date().toString().slice(0, 15);
-
-    if (currentDue === newDue) {
+  const handleRemoveDueDate = () => {
+    if (task.due === undefined) {
       onClose();
       return;
     }
 
-    const status = setDueToday(user, task, workingProject);
+    const status = removeDueDate(user, task, workingProject);
     if (status === "success") onClose();
   };
 
@@ -28,12 +25,12 @@ const TodayButton = ({ onClose, dueDate, task }) => {
     <Button
       h="1.875rem"
       fontSize="14px"
-      onClick={handleSetToday}
+      onClick={handleRemoveDueDate}
       _focus={{ outline: "none" }}
     >
-      <FormattedMessage id="today" />
+      <FormattedMessage id="remove_date" />
     </Button>
   );
 };
 
-export default TodayButton;
+export default RemoveButton;
