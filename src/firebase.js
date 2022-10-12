@@ -7,14 +7,14 @@ import firebase from "firebase";
 import "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBwpJJZ8Gt0DO0kvL5FujtZaI85iB-oNnQ",
-  authDomain: "buxuptechnology.firebaseapp.com",
-  databaseURL: "https://buxuptechnology-default-rtdb.firebaseio.com",
-  projectId: "buxuptechnology",
-  storageBucket: "buxuptechnology.appspot.com",
-  messagingSenderId: "755792078362",
-  appId: "1:755792078362:web:76669ae66299779dfb93a3",
-  measurementId: "G-8N11Y2SCW9",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_DATABASE_URL,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGE_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
+  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 };
 const app = firebase.initializeApp(firebaseConfig);
 const auth = app.auth();

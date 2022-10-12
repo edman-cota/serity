@@ -10,9 +10,8 @@ import {
   MenuDivider,
 } from "@chakra-ui/react";
 import { RiMoreLine } from "react-icons/ri";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineCheckCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { VscFilter } from "react-icons/vsc";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { FormattedMessage } from "react-intl";
 import { setShowCompleted } from "../../features/counter/ShowCompletedSlice";
@@ -57,7 +56,7 @@ const DropdownProjectOptions = () => {
         </MenuItem>
         <MenuItem onClick={() => handleShowCompletedTasks()}>
           <Text as="span" pr="10px">
-            <VscFilter />
+            <AiOutlineCheckCircle />
           </Text>
           {showCompleted ? (
             <Text>
