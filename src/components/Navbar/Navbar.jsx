@@ -18,9 +18,9 @@ import SortItem from "./SortItemSwitcher";
 import ProjectName from "./ProjectName";
 import { auth } from "../../firebase";
 // import SearchModal from "../Modals/SearchModal.js";
-import ColorModeSwitcher from "./ColorModeSwitcher";
-import ShortcutsModal from "../Modals/ShortcutsModal";
-import DropdownTaskOptions from "../Dropdown/DropdownTaskOptions";
+// import ColorModeSwitcher from "./ColorModeSwitcher";
+// import ShortcutsModal from "../Modals/ShortcutsModal";
+// import DropdownTaskOptions from "../Dropdown/DropdownTaskOptions";
 import DropdownProjectOptions from "../Dropdown/DropdownProjectOptions";
 
 const Navbar = () => {
