@@ -1,8 +1,9 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-curly-newline */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-confusing-arrow */
-import React from "react";
-import { Text, VStack } from "@chakra-ui/react";
+import React, { memo } from "react";
+import { List, Text, ListItem, VStack } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -46,9 +47,9 @@ const Workspace = () => {
     <VStack w="100%" h="calc(100vh - 160px)" pt="30px">
       <VStack alignItems="center" position="relative" w="100%">
         <nav style={{ width: "100%" }}>
-          <ul style={{ margin: "auto", width: "90%" }}>
+          <List w="90%" mx="auto">
             {projects?.map((project) => (
-              <li key={project.id} style={{ color: "hsla(0,0%,100%,.87)" }}>
+              <ListItem key={project.id} color="hsla(0,0%,100%,.87)">
                 <NavLink
                   key={project.id}
                   to={`/${username}/${beautifyUrl(project?.name)}?view=${view}`}
@@ -74,13 +75,13 @@ const Workspace = () => {
                     id={project?.id}
                   />
                 </NavLink>
-              </li>
+              </ListItem>
             ))}
-          </ul>
+          </List>
         </nav>
       </VStack>
     </VStack>
   );
 };
 
-export default Workspace;
+export default memo(Workspace);

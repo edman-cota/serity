@@ -16,6 +16,7 @@ import Notifications from "../components/Notifications/Notifications";
 import Subscription from "../components/Subscriptions/Subscription";
 import Updates from "../components/Updates/Updates";
 import MainPanel from "../components/Views/Tree/MainPanel";
+import TreeList from "../components/Views/Tree/TreeList";
 import HelpCenter from "../containers/HelpCenter/HelpCenter";
 
 interface Props {

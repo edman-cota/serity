@@ -39,7 +39,7 @@ const RenderStatus = ({ task }) => {
         toast({
           description: "Task completed successfully",
           status: "success",
-          isClosable: true,
+          variant: "subtle",
         });
       }
     }, 300);
@@ -60,7 +60,7 @@ const RenderStatus = ({ task }) => {
       toast({
         description: "Task restored successfully",
         status: "success",
-        isClosable: true,
+        variant: "subtle",
       });
     }
   };

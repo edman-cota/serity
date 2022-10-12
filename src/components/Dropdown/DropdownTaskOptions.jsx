@@ -60,6 +60,7 @@ const DropdownTaskOptions = () => {
         description: "Task deleted successfully",
         status: SUCCESS,
         isClosable: true,
+        variant: "subtle",
       });
     }
     if (status === "error") {
@@ -67,6 +68,7 @@ const DropdownTaskOptions = () => {
         description: "Failed to delete task",
         status: ERROR,
         isClosable: true,
+        variant: "subtle",
       });
     }
   };

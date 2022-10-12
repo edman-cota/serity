@@ -1,7 +1,7 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable no-unused-vars */
 /* eslint-disable consistent-return */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 // eslint-disable-next-line object-curly-newline
 import { Flex, List, ListItem, useColorModeValue } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -47,8 +47,8 @@ const Navbar = () => {
   window.addEventListener("scroll", changeNavbar);
 
   return (
-    <Flex h={{ base: "45px", sm: "76px" }} w="98%">
-      <Flex w="95%" mx="auto" pt="4px" maxW="950px !important">
+    <Flex w="100%" mt="20px">
+      <Flex w="95%" mx="auto" maxW="950px">
         <Flex flex="1" alignItems="center" gap="18px">
           <ToggleSidebarVisibility />
           {/* <Button label="Arleth" /> */}
@@ -85,4 +85,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);
