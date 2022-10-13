@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable comma-dangle */
 /* eslint-disable no-useless-return */
 /* eslint-disable no-unused-vars */
@@ -10,6 +11,7 @@ import logo from "../../../assets/img/logo.svg";
 import { auth } from "../../../firebase";
 import { beautifyUrl } from "../../../helpers/beautifyUrl.ts";
 import { getProjectFromLocalStorage } from "../../../helpers/getProjectFromLocalStorage.ts";
+import "../home.scss";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -48,90 +50,33 @@ const Navbar = () => {
   window.addEventListener("scroll", changeNavbar);
 
   return (
-    <HStack
-      justifyContent="space-between"
-      h="85px"
-      w="100%"
-      backdropFilter="blur(12px)"
-      position="fixed"
-      top={0}
-      zIndex={9999}
-      px={{ base: "1.5rem", sm: "3rem", lg: "4rem", xl: "10rem" }}
-    >
-      <Flex>
-        <Image src={logo} alt="logo" boxSize="40px" />
-      </Flex>
-      <Flex gap={{ base: "20px", xl: "50px" }}>
-        {!user && (
-          <Button
-            color="white"
-            border="1px"
-            background="transparent"
-            borderColor="hsla(0, 0%, 100%, 0.6)"
-            onClick={() => navigate("/login")}
-            px="30px"
-            _hover={{
-              background: "#fff",
-              borderColor: "#fff",
-              color: "rgba(0, 0, 0, 0.9)",
-              boxShadow: "0 6px 20px rgb(0 118 255 / 23%)",
-            }}
-            _active={{
-              background: "#fff",
-              borderColor: "#fff",
-              color: "rgba(0, 0, 0, 0.9)",
-              boxShadow: "0 6px 20px rgb(0 118 255 / 23%)",
-            }}
-            _focus={{
-              boxShadow: "none",
-            }}
-          >
-            Sign in
-          </Button>
-        )}
-        {user ? (
-          <Button
-            // bg="#0070f3"
-            bgGradient="linear(105.23deg, #01A4FF 33.35%, #01FFC2 115.77%)"
-            boxShadow="0 2px 6px 0 rgb(0 118 255 / 39%)"
-            onClick={navigateTo}
-            _hover={{
-              bgGradient: "linear(105.23deg, #01A4FF 33.35%, #01FFC2 115.77%)",
-              boxShadow: "0 6px 20px rgb(0 118 255 / 23%)",
-            }}
-            _active={{
-              bgGradient: "linear(105.23deg, #01A4FF 33.35%, #01FFC2 115.77%)",
-              boxShadow: "0 2px 6px 0 rgb(0 118 255 / 39%)",
-            }}
-            _focus={{
-              boxShadow: "none",
-            }}
-          >
-            Go to Workspace
-          </Button>
-        ) : (
-          <Button
-            px="30px"
-            bgGradient="linear(105.23deg, #01A4FF 33.35%, #01FFC2 115.77%)"
-            display={{ base: "none", sm: "flex" }}
-            _hover={{
-              bgGradient: "linear(105.23deg, #01A4FF 33.35%, #01FFC2 115.77%)",
-              boxShadow: "0 6px 20px rgb(0 118 255 / 23%)",
-            }}
-            _active={{
-              bgGradient: "linear(105.23deg, #01A4FF 33.35%, #01FFC2 115.77%)",
-              boxShadow: "0 2px 6px 0 rgb(0 118 255 / 39%)",
-            }}
-            _focus={{
-              boxShadow: "none",
-            }}
-            onClick={() => navigate("/register")}
-          >
-            Sign up
-          </Button>
-        )}
-      </Flex>
-    </HStack>
+    <header style={{ position: "relative", zIndex: "20" }}>
+      <div className="header-child"></div>
+      <div className="header-child-child">
+        <div className="header-inside">
+          <div className="header-inside-inside">
+            <div className="header-logo">
+              <a href="/">
+                <img src={logo} alt="Serity logo" />
+              </a>
+            </div>
+            <div className="header-options">
+              <a href="/pricing">Pricing</a>
+              <a href="/pricing">Pricing</a>
+              <a href="/pricing">Pricing</a>
+            </div>
+            <div className="header-login">
+              <div className="header-login-inside">
+                <a href="/login">Login</a>
+                <a href="/login" className="go-to-workspace">
+                  Register
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 };
 
