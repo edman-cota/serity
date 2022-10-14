@@ -40,7 +40,7 @@ const LoginForm = () => {
     }
     if (user) {
       const username = user?.email.split("@")[0];
-      navigate(`/${username}/${beautifyUrl(project)}/?view=tree`);
+      navigate(`/${username}/${beautifyUrl(project)}`);
     }
   }, [user, loading, navigate, activeProject]);
 

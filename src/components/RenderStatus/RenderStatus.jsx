@@ -68,7 +68,7 @@ const RenderStatus = ({ task }) => {
   switch (task.completed) {
     case 0:
       return (
-        <Tooltip label="Complete">
+        <Tooltip label="Complete" openDelay={700}>
           <Text as="span" w="20px" height="20px">
             <svg
               width="100%"

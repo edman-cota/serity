@@ -8,7 +8,7 @@ import linkStyles from "./components/link";
 import { textareaStyles } from "./components/textarea";
 
 const config = {
-  initialColorMode: "dark",
+  initialColorMode: "light",
   useSystemColorMode: false,
 };
 
@@ -77,7 +77,7 @@ const components = {
     baseStyle: {
       px: "4",
       py: "2",
-      borderRadius: "lg",
+      borderRadius: "base",
       fontWeight: "normal",
       bg: "rgba(0, 5, 11, 0.9)",
       color: "rgba(255, 255, 255, 1)",

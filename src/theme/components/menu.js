@@ -5,7 +5,8 @@ const menuStyles = {
       baseStyle: {
         list: {
           bg: "black",
-          border: "0px",
+          // border: "0px",
+          borderColor: "black",
         },
         item: {
           h: "40px",

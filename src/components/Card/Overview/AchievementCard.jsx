@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable operator-linebreak */
 import React from "react";
 import {
   Flex,
@@ -11,17 +10,11 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { FormattedMessage } from "react-intl";
 import { useGetAchievement } from "../../../hooks/useGetAchievement";
+import { calculatePercentage } from "../../../helpers/calculatePercentage.ts";
 
 const AchievementCard = () => {
   const { tasks, completedTasks } = useGetAchievement();
   const cardBackground = useColorModeValue("white", "gray.700");
-
-  function getNum(val) {
-    if (Number.isNaN(val)) {
-      return 0;
-    }
-    return val;
-  }
 
   return (
     <AnimatePresence>
@@ -43,17 +36,7 @@ const AchievementCard = () => {
         >
           <VStack alignItems="start" h="180">
             <Text fontSize="28px">
-              <b>
-                {getNum(
-                  Math.round(
-                    (completedTasks.length /
-                      (completedTasks.length + tasks.length)) *
-                      // eslint-disable-next-line comma-dangle
-                      100
-                    // eslint-disable-next-line comma-dangle
-                  )
-                )}
-              </b>
+              <b>{calculatePercentage(completedTasks.length, tasks.length)}</b>
               <small> %</small>
             </Text>
             <Text>

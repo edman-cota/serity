@@ -36,6 +36,7 @@ const DeleteProjectModal = ({ name, id }) => {
         icon={<AiOutlineDelete />}
         h="40px"
         _hover={{ background: "rgb(51, 59, 70)" }}
+        _focus={{ background: "rgb(51, 59, 70)" }}
         onClick={onOpen}
       >
         <FormattedMessage id="delete" />

@@ -52,7 +52,10 @@ const Navbar = () => {
       my="10px"
       alignItems="center"
     >
-      <Tooltip label={<FormattedMessage id="hide_detail_panel" />}>
+      <Tooltip
+        label={<FormattedMessage id="hide_detail_panel" />}
+        placement="left"
+      >
         <Button variant="ghost" px="0px" onClick={() => closeView()}>
           <FiChevronsRight size={19} />
         </Button>

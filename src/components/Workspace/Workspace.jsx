@@ -8,8 +8,6 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { setWorkingProject } from "../../features/counter/workingProjectSlice";
-
-import ProjectMoreIcon from "./ProjectMoreIcon";
 import { useGetProjects } from "../../hooks/useGetProjects";
 import { auth } from "../../firebase";
 import "./Workspace.scss";
@@ -26,11 +24,6 @@ const Workspace = () => {
   const { projects } = useGetProjects();
 
   const username = beautifyUsername(user?.email);
-
-  let view = localStorage.getItem("view");
-  if (!view) {
-    view = "tree";
-  }
 
   const navigateTo = (project) => {
     // Guarda localmente
@@ -52,7 +45,7 @@ const Workspace = () => {
               <ListItem key={project.id} color="hsla(0,0%,100%,.87)">
                 <NavLink
                   key={project.id}
-                  to={`/${username}/${beautifyUrl(project?.name)}?view=${view}`}
+                  to={`/${username}/${beautifyUrl(project?.name)}`}
                   className={({ isActive }) =>
                     isActive ? "i-active" : "i-link"
                   }
@@ -66,14 +59,14 @@ const Workspace = () => {
                   >
                     {project?.name}
                   </Text>
-                  <Text className="active-task-count">
-                    {/* {project?.activeCount} */}
-                  </Text>
-                  <ProjectMoreIcon
+                  {/* <Text className="active-task-count">
+                    {project?.activeCount}
+                  </Text> */}
+                  {/* <ProjectMoreIcon
                     name={project?.name}
                     emoji={project?.emoji}
                     id={project?.id}
-                  />
+                  /> */}
                 </NavLink>
               </ListItem>
             ))}

@@ -18,7 +18,7 @@ const SocialLogin = () => {
     }
     if (user) {
       const username = user?.email.split("@")[0];
-      navigate(`/${username}/today/?view=tree`);
+      navigate(`/${username}/today/`);
     }
   }, [user, loading, navigate]);
 

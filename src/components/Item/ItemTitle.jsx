@@ -13,7 +13,7 @@ import { setTaskActivityVisibility } from "../../features/counter/taskActivitySl
 const ItemTitle = ({ task, index }) => {
   const { width } = useWindowSize();
   const dispatch = useDispatch();
-  const color = useColorModeValue("blackAlpha.900", "whiteAlpha.900");
+  const color = useColorModeValue("#181d25", "whiteAlpha.900");
 
   const onSelectItem = (id, itemIndex) => {
     dispatch(setSelectedTaskId(id));

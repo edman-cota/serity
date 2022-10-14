@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 // eslint-disable-next-line object-curly-newline
-import { Text, Menu, MenuList, MenuItem, MenuButton } from "@chakra-ui/react";
-import { FiMoreHorizontal } from "react-icons/fi";
+import { Menu, MenuList, MenuItem, MenuButton, Button } from "@chakra-ui/react";
+import { RiMoreLine } from "react-icons/ri";
 import { AiOutlineExport, AiOutlineShareAlt } from "react-icons/ai";
 import { FormattedMessage } from "react-intl";
 import DeleteProjectItemModal from "../Modals/DeleteProjectModal";
@@ -11,20 +11,9 @@ import MenuItemEdit from "../Modals/EditProject";
 import "./ProjectMore.scss";
 
 const ProjectMore = ({ name, id, emoji }) => (
-  <Menu>
-    <MenuButton
-      className="menu-botton-more-icon"
-      borderRadius={4}
-      _active={{ background: "rgba(255, 255, 255, 0.24)" }}
-    >
-      <Text
-        zIndex={1000}
-        px="4px"
-        py="2px"
-        _hover={{ background: "rgba(255, 255, 255, 0.24)" }}
-      >
-        <FiMoreHorizontal />
-      </Text>
+  <Menu autoSelect={false}>
+    <MenuButton variant="ghost" as={Button} h="1.7rem">
+      <RiMoreLine size={20} />
     </MenuButton>
     <MenuList className="menu-list-4">
       <MenuItemEdit name={name} id={id} emoji={emoji} />
@@ -33,6 +22,7 @@ const ProjectMore = ({ name, id, emoji }) => (
         icon={<AiOutlineShareAlt />}
         h="40px"
         _hover={{ background: "rgb(51, 59, 70)" }}
+        _focus={{ background: "rgb(51, 59, 70)" }}
       >
         <FormattedMessage id="share" />
       </MenuItem>
@@ -40,6 +30,7 @@ const ProjectMore = ({ name, id, emoji }) => (
         icon={<AiOutlineExport />}
         h="40px"
         _hover={{ background: "rgb(51, 59, 70)" }}
+        _focus={{ background: "rgb(51, 59, 70)" }}
       >
         <FormattedMessage id="export" />
       </MenuItem>

@@ -2,7 +2,7 @@ import { LOCALES } from "./locales";
 
 export const messages = {
   [LOCALES.ENGLISH]: {
-      // Login / Register
+    // Login / Register
     continue_with_google: "Continue with Google",
     dont_have_an_account_yet: "Don't have an account yet?",
     already_have_an_account: "Already have an account?",
@@ -70,7 +70,7 @@ export const messages = {
     reopen: "reopened the task",
     rename_the_task_to: "rename the task to",
     edit_description: "edited the description to",
-    hide_detail_panel: "Hide the detail panel",
+    hide_detail_panel: "Hide detail panel",
     expand: "Expand",
     contract: "Contract",
     toggle_task_activity: "Toggle task activity",
@@ -97,7 +97,7 @@ export const messages = {
     priority: "Priority",
     content: "Content",
 
-    // Overview 
+    // Overview
     recent_completion_curve: "Recent Completion Curve",
     done: "Done",
     pending: "Pending",
@@ -106,7 +106,7 @@ export const messages = {
     month: "Month",
     // Modals
     invite: "Invitar",
-    generate_a_join_link: "Generate a join link"
+    generate_a_join_link: "Generate a join link",
   },
   [LOCALES.SPANISH]: {
     // Login / Register
@@ -159,7 +159,7 @@ export const messages = {
     to: "a",
     //Task detail
     duplicate_task: "Duplicar tarea",
-    task_completed_successfully: "Tarea completada con éxito",    
+    task_completed_successfully: "Tarea completada con éxito",
     delete: "Eliminar",
     copy_link: "Copiar enlace",
     move_to: "Mover a",
@@ -205,7 +205,7 @@ export const messages = {
     priority: "Prioridad",
     content: "Contenido",
 
-    // Overview 
+    // Overview
     recent_completion_curve: "Curva de terminación reciente",
     complete: "Completados",
     done: "Hechos",
@@ -216,6 +216,6 @@ export const messages = {
 
     // Modals
     invite: "Invitar",
-    generate_a_join_link: "Generar un enlace de unión"
+    generate_a_join_link: "Generar un enlace de unión",
   },
 };

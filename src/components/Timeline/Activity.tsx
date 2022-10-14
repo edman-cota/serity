@@ -7,16 +7,7 @@ import ActivityContent from "./ActivityContent";
 import "./Activities.scss";
 import Time from "./Time";
 import Last from "./Last";
-
-interface ActivityProps {
-  username: string;
-  content: string;
-  description: string;
-  type: number;
-  priority: number;
-  createdAt: string;
-  due: string;
-}
+import { ActivityProps } from "models/activity.model";
 
 const Activity = ({
   username,
