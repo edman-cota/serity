@@ -24,7 +24,7 @@ import emailjs from "@emailjs/browser";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { FiLink, FiUser } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 
 const InviteMembersModal = ({ projectName }) => {
   const form = useRef();

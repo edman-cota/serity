@@ -18,7 +18,7 @@ import { IoMdHelp } from "react-icons/io";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { BsShieldCheck } from "react-icons/bs";
 import { RiBarChartHorizontalLine } from "react-icons/ri";
-import { logout, auth } from "../../firebase";
+import { logout, auth } from "../../firebase.ts";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 import { setIsExpanded } from "../../features/counter/ExpandedSlice";

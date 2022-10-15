@@ -18,7 +18,7 @@ import { BsPlus } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { ADD_TASK_ACTIVITY_TYPE } from "constants";
 import { useGetProject } from "../../hooks/useGetProject";
-import database, { auth } from "../../firebase";
+import database, { auth } from "../../firebase.ts";
 import { Span } from "../Column/styles";
 
 const AddCard = ({ columnId }) => {

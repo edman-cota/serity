@@ -4,7 +4,7 @@ import { VStack, Text } from "@chakra-ui/react";
 import { NavLink as RouteLink } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 import "./SmartFolders.scss";
 
 const SmartFolders = () => {

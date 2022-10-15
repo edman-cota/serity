@@ -1,7 +1,7 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable import/prefer-default-export */
 import { REOPEN_TASK_ACTIVITY_TYPE } from "../constants";
-import database from "../firebase";
+import database from "../firebase.ts";
 
 export function markStatusToUncomplete(user, workingProject, project, task) {
   const status = { success: "success", error: "error" };

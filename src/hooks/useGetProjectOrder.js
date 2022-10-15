@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../firebase";
+import database, { auth } from "../firebase.ts";
 
 export const useGetProjectOrder = () => {
   const [projectOrder, setProjectOrder] = useState([]);

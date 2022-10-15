@@ -16,7 +16,7 @@ import ToggleSidebarVisibility from "./ToggleSidebarVisibility";
 import NavItemAddTask from "./NavItemAddTask";
 import SortItem from "./SortItemSwitcher";
 import ProjectName from "./ProjectName";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 // import SearchModal from "../Modals/SearchModal.js";
 import ColorModeSwitcher from "./ColorModeSwitcher";
 // import ShortcutsModal from "../Modals/ShortcutsModal";

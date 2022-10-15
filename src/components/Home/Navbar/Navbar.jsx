@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Flex, HStack, Image } from "@chakra-ui/react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import logo from "../../../assets/img/logo.svg";
-import { auth } from "../../../firebase";
+import { auth } from "../../../firebase.ts";
 import { beautifyUrl } from "../../../helpers/beautifyUrl.ts";
 import { getProjectFromLocalStorage } from "../../../helpers/getProjectFromLocalStorage.ts";
 import "../home.scss";

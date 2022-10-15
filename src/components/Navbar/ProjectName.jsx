@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Input } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../../firebase";
+import database, { auth } from "../../firebase.ts";
 
 const ProjectName = () => {
   const [user] = useAuthState(auth);

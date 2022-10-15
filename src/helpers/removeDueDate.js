@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { REMOVE_DUE_DATE_ACTIVITY_TYPE } from "../constants";
-import database from "../firebase";
+import database from "../firebase.ts";
 
 export function removeDueDate(user, task, workingProject) {
   const status = { success: "success", error: "error" };

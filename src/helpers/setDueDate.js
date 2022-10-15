@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { CHANGE_DUE_DATE_ACTIVITY_TYPE } from "../constants";
-import database from "../firebase";
+import database from "../firebase.ts";
 
 export function setDueDate(user, task, e, workingProject) {
   const status = { success: "success", error: "error" };

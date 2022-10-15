@@ -9,7 +9,7 @@ import { VStack, Text, Input, Button } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 import SocialLogin from "./SocialLogin";
 import Footer from "./Footer.tsx";
 import { useGetActiveProject } from "../../hooks/useGetActiveProject";

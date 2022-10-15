@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { setWorkingProject } from "../../features/counter/workingProjectSlice";
 import { useGetProjects } from "../../hooks/useGetProjects";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 import "./Workspace.scss";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";

@@ -1,6 +1,6 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import { COMPLETE_TASK_ACTIVITY_TYPE } from "../constants";
-import database from "../firebase";
+import database from "../firebase.ts";
 
 // eslint-disable-next-line import/prefer-default-export
 export function markStatus(user, workingProject, project, task) {

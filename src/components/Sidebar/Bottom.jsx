@@ -5,7 +5,7 @@ import { NavLink as RouteLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { FcFlashOn } from "react-icons/fc";
 import { IoMdHelp } from "react-icons/io";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 
 const Bottom = () => {
   const [user] = useAuthState(auth);

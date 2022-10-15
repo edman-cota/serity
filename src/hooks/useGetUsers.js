@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable import/prefer-default-export */
 import { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { db } from "../firebase.ts";
 
 export const useGetUsers = () => {
   const [users, setUsers] = useState([]);

@@ -14,7 +14,7 @@ import { FormattedMessage } from "react-intl";
 import { AiOutlineCamera } from "react-icons/ai";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { LOCALES } from "../../i18n/locales.ts";
-import { auth, storage } from "../../firebase";
+import { auth, storage } from "../../firebase.ts";
 
 const Content = ({ handleChange, currentLocale }) => {
   const [user, loading] = useAuthState(auth);

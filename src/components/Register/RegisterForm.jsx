@@ -8,7 +8,7 @@ import { FormattedMessage } from "react-intl";
 // eslint-disable-next-line object-curly-newline
 import { Input, VStack, Text, Flex, Link, Checkbox } from "@chakra-ui/react";
 import SocialLogin from "../Login/SocialLogin";
-import { registerWithEmailAndPassword } from "../../firebase";
+import { registerWithEmailAndPassword } from "../../firebase.ts";
 import Header from "../Login/Header.tsx";
 import Footer from "../Login/Footer.tsx";
 

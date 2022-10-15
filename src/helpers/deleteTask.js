@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import database from "../firebase";
+import database from "../firebase.ts";
 
 export function deleteTask(task, project, user) {
   const status = { success: "success", error: "error" };

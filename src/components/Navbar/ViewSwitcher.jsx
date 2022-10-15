@@ -19,7 +19,7 @@ import { HiViewBoards } from "react-icons/hi";
 import { FiCheck } from "react-icons/fi";
 
 import View from "./View.tsx";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 

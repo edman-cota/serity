@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { ADD_TASK_ACTIVITY_TYPE } from "../constants";
-import database from "../firebase";
+import database from "../firebase.ts";
 
 export function duplicateTask(task, project, user) {
   const status = { success: "success", error: "error" };

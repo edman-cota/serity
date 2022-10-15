@@ -13,7 +13,7 @@ import {
 import { useSelector } from "react-redux";
 import Calendar from "react-calendar";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 import "react-calendar/dist/Calendar.css"; // more from DetailTab.scss
 import { setDueDate } from "../../helpers/setDueDate";
 import TopOptions from "./TopOptions";

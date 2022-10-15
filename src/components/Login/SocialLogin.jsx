@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { Button, Flex, List, ListItem, Text } from "@chakra-ui/react";
 import { FormattedMessage } from "react-intl";
-import { auth, signInWithGoogle } from "../../firebase";
+import { auth, signInWithGoogle } from "../../firebase.ts";
 
 const SocialLogin = () => {
   const navigate = useNavigate();

@@ -21,7 +21,7 @@ import { useForm } from "react-hook-form";
 import { FiEdit } from "react-icons/fi";
 import { useAuthState } from "react-firebase-hooks/auth";
 import ChooseIconModal from "./ChooseIconModal";
-import database, { auth } from "../../firebase";
+import database, { auth } from "../../firebase.ts";
 import { setEmoji } from "../../features/counter/EmojiSlice";
 
 const EditProject = ({ name, id, emoji }) => {

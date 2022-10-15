@@ -28,36 +28,40 @@ const signInWithGoogle = async () => {
     const user = res.user;
     const query = await db
       .collection("users")
-      .where("uid", "==", user.uid)
+      .where("uid", "==", user?.uid)
       .get();
     if (query.docs.length === 0) {
       await db.collection("users").add({
-        uid: user.uid,
-        name: user.displayName,
+        uid: user?.uid,
+        name: user?.displayName,
         authProvider: "google",
-        email: user.email,
+        email: user?.email,
       });
     }
   } catch (err) {}
 };
-const signInWithEmailAndPassword = async (email, password) => {
+const signInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await auth.signInWithEmailAndPassword(email, password);
   } catch (err) {}
 };
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (
+  name: string,
+  email: string,
+  password: string
+) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     const user = res.user;
     await db.collection("users").add({
-      uid: user.uid,
+      uid: user?.uid,
       name,
       authProvider: "local",
       email,
     });
   } catch (err) {}
 };
-const sendPasswordResetEmail = async (email) => {
+const sendPasswordResetEmail = async (email: string) => {
   try {
     await auth.sendPasswordResetEmail(email);
   } catch (err) {}

@@ -1,4 +1,4 @@
-export interface ActivityProps {
+export type Activity = {
   id?: string;
   due: string;
   type: number;
@@ -9,4 +9,4 @@ export interface ActivityProps {
   createdAt: string;
   projectId?: string;
   description: string;
-}
+};

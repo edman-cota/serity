@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/function-component-definition */
 import React, { useContext, useState, useEffect } from "react";
-import { auth } from "../firebase";
+import { auth } from "../firebase.ts";
 
 const AuthContext = React.createContext();
 

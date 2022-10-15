@@ -16,9 +16,9 @@ import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { BsFlag } from "react-icons/bs";
 import RenderPriority from "./RenderPriority.tsx";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 import { useGetTask } from "../../hooks/useGetTask";
-import { changeTaskPriority } from "../../helpers/changeTaskPriority";
+import { changeTaskPriority } from "../../helpers/changeTaskPriority.ts";
 import { priorities } from "../../helpers/priorities.ts";
 import { colors } from "../../helpers/colors.ts";
 

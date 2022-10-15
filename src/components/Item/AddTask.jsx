@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BiSquareRounded } from "react-icons/bi";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { ADD_TASK_ACTIVITY_TYPE } from "../../constants";
-import database, { auth } from "../../firebase";
+import database, { auth } from "../../firebase.ts";
 import { useGetProject } from "../../hooks/useGetProject";
 import { setShowAddTask } from "../../features/counter/ShowAddTaskSlice";
 

@@ -23,7 +23,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useColorModeValue, HStack, LightMode } from "@chakra-ui/react";
 import { setShowAddTask } from "../../features/counter/ShowAddTaskSlice";
 import editorStyles from "./SimpleMentionEditor.module.css";
-import database, { auth } from "../../firebase";
+import database, { auth } from "../../firebase.ts";
 import { useGetUsers } from "../../hooks/useGetUsers";
 
 const TextInput = () => {

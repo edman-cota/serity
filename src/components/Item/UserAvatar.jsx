@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Flex, Text } from "@chakra-ui/react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 
 const UserAvatar = () => {
   const [user] = useAuthState(auth);

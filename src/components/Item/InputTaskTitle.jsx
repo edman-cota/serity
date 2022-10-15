@@ -6,7 +6,7 @@ import { Editable, EditableTextarea, EditablePreview } from "@chakra-ui/react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { RENAME_TASK_ACTIVITY_TYPE } from "../../constants";
 
-import database, { auth } from "../../firebase";
+import database, { auth } from "../../firebase.ts";
 
 const InputTemaTitle = ({ title, id, projectId }) => {
   const [user] = useAuthState(auth);

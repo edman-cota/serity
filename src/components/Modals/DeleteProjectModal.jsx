@@ -17,7 +17,7 @@ import {
 import { FormattedMessage } from "react-intl";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../../firebase";
+import database, { auth } from "../../firebase.ts";
 
 const DeleteProjectModal = ({ name, id }) => {
   const [user] = useAuthState(auth);

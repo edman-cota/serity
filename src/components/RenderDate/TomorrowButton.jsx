@@ -4,7 +4,7 @@ import { Button } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 import { setDueTomorrow } from "../../helpers/setDueTomorrow";
 
 const TomorrowButton = ({ onClose, task }) => {

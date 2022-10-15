@@ -1,10 +1,12 @@
-/* eslint-disable import/prefer-default-export */
-import { UPDATE_PRIORITY_ACTIVITY_TYPE } from "../constants";
 import database from "../firebase";
+import { ActivityType, Status } from "../enums/definitions";
 
-export function changeTaskPriority(user, workingProject, task, priority) {
-  const status = { success: "success", error: "error" };
-
+export function changeTaskPriority(
+  user: any,
+  workingProject: any,
+  task: any,
+  priority: any
+) {
   database
     .ref(`${user?.uid}/tasks/${task.at(0).id}`)
     .update({ priority })
@@ -20,10 +22,10 @@ export function changeTaskPriority(user, workingProject, task, priority) {
         projectId: workingProject.id,
         content: task.at(0).content,
         createdAt: new Date().toISOString(),
-        type: UPDATE_PRIORITY_ACTIVITY_TYPE,
+        type: ActivityType.UPDATE_PRIORITY_ACTIVITY_TYPE,
       });
     })
-    .catch(() => status.error);
+    .catch(() => Status.ERROR);
 
-  return status.success;
+  return Status.SUCCESS;
 }

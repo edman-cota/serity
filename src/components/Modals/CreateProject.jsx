@@ -23,7 +23,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { AiOutlinePlus } from "react-icons/ai";
 import ChooseIconModal from "./ChooseIconModal";
-import database, { auth } from "../../firebase";
+import database, { auth } from "../../firebase.ts";
 
 const CreateProject = () => {
   const [user] = useAuthState(auth);

@@ -11,7 +11,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useGetProject } from "../../hooks/useGetProject";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.ts";
 
 import { markStatus } from "../../helpers/markStatus";
 import { markStatusToUncomplete } from "../../helpers/maskStatusToUncomplete";

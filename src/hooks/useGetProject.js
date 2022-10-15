@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../firebase";
+import database, { auth } from "../firebase.ts";
 
 export const useGetProject = () => {
   const [user] = useAuthState(auth);
