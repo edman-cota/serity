@@ -37,8 +37,6 @@ const CompletionCurveChart = (): JSX.Element => {
   const [seventh, setSeventh] = useState(0);
   const [today, setToday] = useState("");
 
-  console.log(tasks);
-
   // seventh
   useEffect(() => {
     let completed = [];

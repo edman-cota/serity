@@ -13,7 +13,7 @@ import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 import { auth } from "../../firebase.ts";
 
-import { markStatus } from "../../helpers/markStatus";
+import { markStatusToCompleted } from "../../helpers/markStatusToCompleted.ts";
 import { markStatusToUncomplete } from "../../helpers/maskStatusToUncomplete";
 import { getPriorityColor } from "../../helpers/getPriorityColor.ts";
 
@@ -30,7 +30,12 @@ const RenderStatus = ({ task }) => {
 
   const markStatusAsComplete = (taskToUpdate) => {
     setTimeout(() => {
-      const result = markStatus(user, workingProject, project, taskToUpdate);
+      const result = markStatusToCompleted(
+        user,
+        workingProject,
+        project,
+        taskToUpdate
+      );
       if (result === "success") {
         // close task detail sidebar
         dispatch(setSelectedTaskId(""));

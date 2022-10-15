@@ -21,7 +21,7 @@ import { auth } from "../../firebase.ts";
 import { SUCCESS, ERROR, TOAST } from "../../constants";
 import { useGetProject } from "../../hooks/useGetProject";
 import { duplicateTask } from "../../helpers/duplicateTask";
-import { deleteTask } from "../../helpers/deleteTask";
+import { deleteSingleTask } from "../../helpers/deleteSingleTask.ts";
 import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 import CopyToClipboardMenuItem from "./CopyToClipboardMenuItem.tsx";
@@ -50,8 +50,7 @@ const DropdownTaskOptions = () => {
   };
 
   const handleDeleteTask = () => {
-    const status = deleteTask(task?.at(0), project?.at(0), user);
-    localStorage.setItem("split-sizes", JSON.stringify([100, 0]));
+    const status = deleteSingleTask(task?.at(0), project?.at(0), user);
     dispatch(setSelectedTaskId(""));
     dispatch(setActiveIndex(""));
 

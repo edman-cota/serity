@@ -1,5 +1,5 @@
 import database from "../firebase";
-import { ActivityType, Status } from "../enums/definitions";
+import { ActivityType, Status, DBRef } from "../enums/definitions";
 
 export function changeTaskPriority(
   user: any,
@@ -8,10 +8,10 @@ export function changeTaskPriority(
   priority: any
 ) {
   database
-    .ref(`${user?.uid}/tasks/${task.at(0).id}`)
+    .ref(`${user?.uid}/${DBRef.Tasks}/${task.at(0).id}`)
     .update({ priority })
     .then(() => {
-      const activityRef = database.ref(`${user?.uid}/activities`);
+      const activityRef = database.ref(`${user?.uid}/${DBRef.Activities}`);
       const newActivityRef = activityRef.push();
       newActivityRef.set({
         id: newActivityRef.key,

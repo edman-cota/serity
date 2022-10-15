@@ -105,11 +105,6 @@ const AddTask = () => {
     <MotionFlex
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      // transition={{
-      //   type: "spring",
-      //   ease: "linear",
-      //   duration: 1,
-      // }}
       display="flex"
       bg={background}
       margin="10px auto"
