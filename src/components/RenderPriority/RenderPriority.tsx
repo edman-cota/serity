@@ -1,4 +1,3 @@
-import React from "react";
 import { BsFlag } from "react-icons/bs";
 import { colors } from "../../helpers/colors";
 

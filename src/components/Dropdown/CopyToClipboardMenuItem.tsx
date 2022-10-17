@@ -1,5 +1,5 @@
 import React from "react";
-import { MenuItem, Text } from "@chakra-ui/react";
+import { MenuItem } from "@chakra-ui/react";
 import { BsLink45Deg } from "react-icons/bs";
 import { FormattedMessage } from "react-intl";
 
@@ -16,10 +16,7 @@ const CopyToClipboardMenuItem = () => {
   };
 
   return (
-    <MenuItem onClick={() => copyToClipboard()}>
-      <Text as="span" pr="10px">
-        <BsLink45Deg />
-      </Text>
+    <MenuItem icon={<BsLink45Deg />} onClick={() => copyToClipboard()}>
       <FormattedMessage id="copy_link" />
     </MenuItem>
   );

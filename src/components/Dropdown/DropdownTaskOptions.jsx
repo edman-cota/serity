@@ -1,14 +1,12 @@
 /* eslint-disable comma-dangle */
 import React from "react";
 import {
-  Text,
   Button,
   Menu,
   MenuList,
   MenuItem,
   MenuButton,
   useToast,
-  MenuDivider,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { CopyIcon } from "@chakra-ui/icons";
@@ -74,23 +72,16 @@ const DropdownTaskOptions = () => {
 
   return (
     <Menu autoSelect={false}>
-      <MenuButton variant="ghost" as={Button} h="1.7rem">
+      <MenuButton as={Button}>
         <RiMoreLine size={20} />
       </MenuButton>
       <MenuList>
-        <MenuItem onClick={() => handleDuplicateTask()}>
-          <Text as="span" pr="10px">
-            <CopyIcon />
-          </Text>
+        <MenuItem icon={<CopyIcon />} onClick={() => handleDuplicateTask()}>
           <FormattedMessage id="duplicate_task" />
         </MenuItem>
         <CopyToClipboardMenuItem />
         <MoveToMenuItemModal />
-        <MenuDivider />
-        <MenuItem onClick={() => handleDeleteTask()}>
-          <Text as="span" pr="10px">
-            <AiOutlineDelete />
-          </Text>
+        <MenuItem icon={<AiOutlineDelete />} onClick={() => handleDeleteTask()}>
           <FormattedMessage id="delete" />
         </MenuItem>
       </MenuList>

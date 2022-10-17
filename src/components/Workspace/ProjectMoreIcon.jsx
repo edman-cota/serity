@@ -11,27 +11,17 @@ import MenuItemEdit from "../Modals/EditProject";
 import "./ProjectMore.scss";
 
 const ProjectMore = ({ name, id, emoji }) => (
-  <Menu autoSelect={false}>
-    <MenuButton variant="ghost" as={Button} h="1.7rem">
+  <Menu autoSelect={false} placement="bottom">
+    <MenuButton as={Button}>
       <RiMoreLine size={20} />
     </MenuButton>
-    <MenuList className="menu-list-4">
+    <MenuList>
       <MenuItemEdit name={name} id={id} emoji={emoji} />
       <MembersMenuItem projectName={name} />
-      <MenuItem
-        icon={<AiOutlineShareAlt />}
-        h="40px"
-        _hover={{ background: "rgb(51, 59, 70)" }}
-        _focus={{ background: "rgb(51, 59, 70)" }}
-      >
+      <MenuItem icon={<AiOutlineShareAlt />}>
         <FormattedMessage id="share" />
       </MenuItem>
-      <MenuItem
-        icon={<AiOutlineExport />}
-        h="40px"
-        _hover={{ background: "rgb(51, 59, 70)" }}
-        _focus={{ background: "rgb(51, 59, 70)" }}
-      >
+      <MenuItem icon={<AiOutlineExport />}>
         <FormattedMessage id="export" />
       </MenuItem>
 

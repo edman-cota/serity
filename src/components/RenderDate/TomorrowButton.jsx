@@ -29,6 +29,7 @@ const TomorrowButton = ({ onClose, task }) => {
     <Button
       h="1.875rem"
       fontSize="14px"
+      variant="solid"
       onClick={handleSetTomorrow}
       _focus={{ outline: "none" }}
     >

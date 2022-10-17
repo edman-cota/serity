@@ -17,6 +17,7 @@ import {
   useToast,
   Tooltip,
   MenuItem,
+  DarkMode,
 } from "@chakra-ui/react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FormattedMessage } from "react-intl";
@@ -51,141 +52,137 @@ const InviteMembersModal = ({ projectName }) => {
 
   return (
     <>
-      <MenuItem
-        icon={<FiUser />}
-        h="40px"
-        _hover={{ background: "rgb(51, 59, 70)" }}
-        _focus={{ background: "rgb(51, 59, 70)" }}
-        onClick={onOpen}
-      >
+      <MenuItem icon={<FiUser />} onClick={onOpen}>
         <FormattedMessage id="members" />
       </MenuItem>
 
-      <Modal
-        onClose={onClose}
-        isOpen={isOpen}
-        motionPreset="slideInBottom"
-        size="xl"
-      >
-        <ModalOverlay bg="#0e1525A0" />
-        <ModalContent
-          maxW="580px"
-          // h="50%"
-          minH="490px"
-          bg="#1c2333"
-          p="32px"
-          boxShadow="inset 0 1px 0 0 rgb(255 255 255 / 5%)"
+      <DarkMode>
+        <Modal
+          onClose={onClose}
+          isOpen={isOpen}
+          motionPreset="slideInBottom"
+          size="xl"
         >
-          <ModalHeader
-            mt="4px"
-            mb="10px"
-            p="0px"
-            fontWeight={500}
-            fontSize="17px"
-            color="white"
+          <ModalOverlay bg="#0e1525A0" />
+          <ModalContent
+            maxW="580px"
+            // h="50%"
+            minH="490px"
+            bg="#1c2333"
+            p="32px"
+            boxShadow="inset 0 1px 0 0 rgb(255 255 255 / 5%)"
           >
-            <FormattedMessage id="invite" />
-          </ModalHeader>
+            <ModalHeader
+              mt="4px"
+              mb="10px"
+              p="0px"
+              fontWeight={500}
+              fontSize="17px"
+              color="white"
+            >
+              <FormattedMessage id="invite" />
+            </ModalHeader>
 
-          <ModalBody p="0px">
-            <Flex w="100%" direction="column">
-              <form
-                ref={form}
-                onSubmit={sendEmail}
-                style={{ display: "flex", gap: "10px", width: "100%" }}
-              >
-                <Input
-                  autoComplete="off"
-                  borderRadius="base"
-                  name="email"
-                  color="#f5f9fc"
-                  h="35px"
-                  fontSize="15px"
-                  fontWeight={400}
-                  placeholder="Search by username or invite by email"
-                  _focus={{
-                    borderColor: "#0079f2",
-                  }}
-                />
-                <Input name="project" value={projectName} display="none" />
-                <Input
-                  name="from_name"
-                  value={user?.displayName}
-                  display="none"
-                />
-                <Button type="submit" h="2rem">
-                  <FormattedMessage id="invite" />
-                </Button>
-              </form>
-            </Flex>
-          </ModalBody>
-          <ModalFooter p="0" flexDir="column">
-            {linked ? (
-              <HStack w="100%">
-                <Input
-                  value={value}
-                  fontWeight={400}
-                  borderRadius="base"
-                  h="35px"
-                  fontSize="15px"
-                  onFocus={(e) => e.target.select()}
-                  _focus={{
-                    borderColor: "#0079f2",
-                  }}
-                />
-                <CopyToClipboard
-                  text={value}
-                  onCopy={() => {
-                    toast({
-                      title: "Link copied",
-                      status: "success",
-                      duration: 5000,
-                      isClosable: true,
-                    });
-                  }}
+            <ModalBody p="0px">
+              <Flex w="100%" direction="column">
+                <form
+                  ref={form}
+                  onSubmit={sendEmail}
+                  style={{ display: "flex", gap: "10px", width: "100%" }}
                 >
-                  <IconButton
-                    _hover={{ bg: "#57abff" }}
-                    _focus={{ boxShadow: "none" }}
+                  <Input
+                    autoComplete="off"
+                    borderRadius="base"
+                    name="email"
+                    color="#f5f9fc"
+                    h="35px"
+                    fontSize="15px"
+                    fontWeight={400}
+                    placeholder="Search by username or invite by email"
+                    _focus={{
+                      borderColor: "#0079f2",
+                    }}
+                  />
+                  <Input name="project" value={projectName} display="none" />
+                  <Input
+                    name="from_name"
+                    value={user?.displayName}
+                    display="none"
+                  />
+                  <Button type="submit" h="2rem">
+                    <FormattedMessage id="invite" />
+                  </Button>
+                </form>
+              </Flex>
+            </ModalBody>
+            <ModalFooter p="0" flexDir="column">
+              {linked ? (
+                <HStack w="100%">
+                  <Input
+                    value={value}
+                    fontWeight={400}
+                    borderRadius="base"
+                    h="35px"
+                    fontSize="15px"
+                    onFocus={(e) => e.target.select()}
+                    _focus={{
+                      borderColor: "#0079f2",
+                    }}
+                  />
+                  <CopyToClipboard
+                    text={value}
+                    onCopy={() => {
+                      toast({
+                        title: "Link copied",
+                        status: "success",
+                        duration: 5000,
+                        isClosable: true,
+                      });
+                    }}
                   >
-                    <Tooltip label="Copy">
-                      <span
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <FiLink />
-                      </span>
-                    </Tooltip>
-                  </IconButton>
-                </CopyToClipboard>
-                <Tooltip label="Delete link">
-                  <IconButton
-                    onClick={() => setLinked(!linked)}
-                    _hover={{ bg: "#ff6666" }}
-                    _focus={{ boxShadow: "none" }}
-                  >
-                    <IoClose />
-                  </IconButton>
-                </Tooltip>
-              </HStack>
-            ) : (
-              <Button
-                bg="rgba(255, 255, 255, 0.08)"
-                w="100%"
-                mt="20px"
-                onClick={() => setLinked(!linked)}
-              >
-                <FormattedMessage id="generate_a_join_link" />
-              </Button>
-            )}
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+                    <IconButton
+                      _hover={{ bg: "#57abff" }}
+                      _focus={{ boxShadow: "none" }}
+                    >
+                      <Tooltip label="Copy">
+                        <span
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <FiLink />
+                        </span>
+                      </Tooltip>
+                    </IconButton>
+                  </CopyToClipboard>
+                  <Tooltip label="Delete link">
+                    <IconButton
+                      onClick={() => setLinked(!linked)}
+                      _hover={{ bg: "#ff6666" }}
+                      _focus={{ boxShadow: "none" }}
+                    >
+                      <IoClose />
+                    </IconButton>
+                  </Tooltip>
+                </HStack>
+              ) : (
+                <Button
+                  bg="rgba(255, 255, 255, 0.08)"
+                  w="100%"
+                  mt="20px"
+                  onClick={() => setLinked(!linked)}
+                >
+                  <FormattedMessage id="generate_a_join_link" />
+                </Button>
+              )}
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </DarkMode>
     </>
   );
 };

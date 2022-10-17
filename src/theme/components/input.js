@@ -3,14 +3,14 @@ export const inputStyles = {
   components: {
     Input: {
       variants: {
-        primary: {
+        filled: ({ colorMode }) => ({
           color: "white",
           opacity: "0.8",
           mt: "20px",
           h: "42px",
           border: "none",
-          bg: "rgba(255, 255, 255, 0.08)",
-        },
+          bg: colorMode === "dark" ? "whiteAlpha.200" : "whiteAlpha.700",
+        }),
       },
     },
   },

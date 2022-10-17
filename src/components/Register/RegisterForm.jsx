@@ -9,8 +9,9 @@ import { FormattedMessage } from "react-intl";
 import { Input, VStack, Text, Flex, Link, Checkbox } from "@chakra-ui/react";
 import SocialLogin from "../Login/SocialLogin";
 import { registerWithEmailAndPassword } from "../../firebase.ts";
-import Header from "../Login/Header.tsx";
+import Header from "../Login/LoginHeader.tsx";
 import Footer from "../Login/Footer.tsx";
+import "./index.scss";
 
 const RegisterForm = () => {
   const {
@@ -38,7 +39,7 @@ const RegisterForm = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <Input
-            variant="filled"
+            variant="pill"
             placeholder="Nombre de usuario"
             _placeholder={{ color: "#999" }}
             {...register("name", { required: true })}
@@ -51,7 +52,7 @@ const RegisterForm = () => {
           )}
 
           <Input
-            variant="filled"
+            variant="pill"
             placeholder="Correo electronico"
             _placeholder={{ color: "#999" }}
             {...register("email", { required: true })}
@@ -65,7 +66,7 @@ const RegisterForm = () => {
           )}
 
           <Input
-            variant="filled"
+            variant="pill"
             placeholder="Contraseña"
             _placeholder={{ color: "#999" }}
             {...register("password", { required: true, minLength: 8 })}
@@ -98,13 +99,31 @@ const RegisterForm = () => {
             </Checkbox>
           </Flex>
 
-          <Input
+          <button className="cssbuttons-io-button" type="submit">
+            Get started
+            <div className="icon">
+              <svg
+                height="24"
+                width="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </button>
+
+          {/* <Input
             type="submit"
             bg="#2e85ec"
             mt="20px"
-            value="Sign up with email"
+            value="Get started"
             _hover={{ bg: "#0071dc" }}
-          />
+          /> */}
         </form>
       </VStack>
 

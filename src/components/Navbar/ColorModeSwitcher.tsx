@@ -1,9 +1,9 @@
 import React from "react";
 import {
   Tooltip,
-  IconButton,
   useColorMode,
   useColorModeValue,
+  Button,
 } from "@chakra-ui/react";
 import { FaMoon, FaSun } from "react-icons/fa";
 
@@ -13,11 +13,9 @@ const ColorModeSwitcher = () => {
 
   return (
     <Tooltip label="Switch Theme">
-      <IconButton
-        variant="ghost"
-        onClick={toggleColorMode}
-        icon={<SwitchIcon />}
-      />
+      <Button onClick={toggleColorMode}>
+        <SwitchIcon />
+      </Button>
     </Tooltip>
   );
 };

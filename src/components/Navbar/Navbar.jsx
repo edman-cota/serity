@@ -15,7 +15,7 @@ import NavItemAddTask from "./NavItemAddTask";
 import ProjectName from "./ProjectName";
 import { auth } from "../../firebase.ts";
 // import SearchModal from "../Modals/SearchModal.js";
-import ColorModeSwitcher from "./ColorModeSwitcher";
+import ColorModeSwitcher from "./ColorModeSwitcher.tsx";
 // import ShortcutsModal from "../Modals/ShortcutsModal";
 // import DropdownTaskOptions from "../Dropdown/DropdownTaskOptions";
 import ProjectMore from "../Workspace/ProjectMoreIcon";

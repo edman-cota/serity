@@ -28,6 +28,7 @@ const TodayButton = ({ onClose, dueDate, task }) => {
     <Button
       h="1.875rem"
       fontSize="14px"
+      variant="solid"
       onClick={handleSetToday}
       _focus={{ outline: "none" }}
     >

@@ -23,6 +23,7 @@ const RemoveButton = ({ onClose, task }) => {
 
   return (
     <Button
+      variant="solid"
       h="1.875rem"
       fontSize="14px"
       onClick={handleRemoveDueDate}

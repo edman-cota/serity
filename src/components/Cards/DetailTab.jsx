@@ -3,7 +3,7 @@ import { VStack } from "@chakra-ui/react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSelector } from "react-redux";
 import InputTaskTitle from "../Item/InputTaskTitle";
-import QuickOptions from "../RenderDate/QuickOptions";
+import QuickOptions from "../RenderDate/QuickOptions.tsx";
 import Description from "./Description";
 
 import "./DetailTab.scss";
@@ -27,7 +27,7 @@ const DetailTab = () => {
         projectId={workingProject.id}
       />
       <br />
-      <QuickOptions />
+      <QuickOptions task={task} />
     </VStack>
   );
 };

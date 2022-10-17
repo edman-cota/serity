@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 import DetailTab from "../../Cards/DetailTab";
 import NavbarTreeTask from "./Navbar/Navbar";
-import Activities from "../../Timeline/Timeline";
+import Timeline from "../../Timeline/Timeline";
 
 import { useSplitSizes } from "../../../hooks/useSplitSizes";
 
@@ -25,8 +25,8 @@ const DetailPanel = () => {
     height: "100vh",
     display: selectedTaskId !== "" ? paneDisplay.at(1) : paneDisplay.at(0),
     width: selectedTaskId !== "" ? `${sizes.at(1)}%` : "0%",
-    backgroundColor:
-      colorMode === "dark" ? "var(--gray-700)" : "var(--gray-100)",
+    backgroundColor: colorMode === "dark" ? "var(--gray-700)" : "#FFFFFF",
+    borderLeft: colorMode === "dark" ? "none" : "1px solid rgba(0, 0, 0, 0.08)",
   };
 
   return (
@@ -42,7 +42,7 @@ const DetailPanel = () => {
         <NavbarTreeTask />
         {isTaskActivityVisible ? (
           <Flex px="16px" w="100%">
-            <Activities />
+            <Timeline />
           </Flex>
         ) : (
           <Flex w="100%" direction="column">

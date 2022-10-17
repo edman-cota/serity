@@ -13,7 +13,7 @@ import { auth } from "../../firebase.ts";
 import SocialLogin from "./SocialLogin";
 import Footer from "./Footer.tsx";
 import { useGetActiveProject } from "../../hooks/useGetActiveProject";
-import Header from "./Header.tsx";
+import LoginHeader from "./LoginHeader.tsx";
 import { beautifyUrl } from "../../helpers/beautifyUrl.ts";
 
 const LoginForm = () => {
@@ -54,7 +54,7 @@ const LoginForm = () => {
       justifyContent="center"
       width={{ base: "100%", xl: "100%" }}
     >
-      <Header />
+      <LoginHeader />
       <SocialLogin />
 
       <VStack>
@@ -94,9 +94,10 @@ const LoginForm = () => {
 
           <Input
             type="submit"
-            bg="#2e85ec"
+            bg="#0071dc"
+            color="white"
             value="Log in"
-            _hover={{ bg: "#0071dc" }}
+            _hover={{ bg: "#004484" }}
           />
         </form>
       </VStack>

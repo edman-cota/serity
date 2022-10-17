@@ -1,4 +1,5 @@
 import React from "react";
+import "../../components/Home/home.scss";
 
 const Header = (): JSX.Element => {
   return (
@@ -10,7 +11,11 @@ const Header = (): JSX.Element => {
               <section className="section-one">
                 <div className="section-one-div-one">
                   <div className="section-one-tite">
-                    <h1>Simple.Fast.Delightful to-do list</h1>
+                    <h1>
+                      <span>Simple and clean</span>
+                      <br />
+                      to-do list
+                    </h1>
                     <h2>
                       <span>
                         Complete blogging platform with Notion as your CMS.

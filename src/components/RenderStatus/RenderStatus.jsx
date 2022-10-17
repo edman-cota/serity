@@ -44,7 +44,6 @@ const RenderStatus = ({ task }) => {
         toast({
           description: "Task completed successfully",
           status: "success",
-          variant: "subtle",
         });
       }
     }, 300);

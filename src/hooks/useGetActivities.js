@@ -21,8 +21,8 @@ const useGetActivities = () => {
       });
 
       setActivities(list);
+      setIsLoading(false);
     });
-    setIsLoading(false);
   }, [user?.uid, task.id]);
 
   return { activities, isLoading };

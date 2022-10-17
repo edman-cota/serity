@@ -62,8 +62,6 @@ const Navbar = () => {
             </div>
             <div className="header-options">
               <a href="/pricing">Pricing</a>
-              <a href="/pricing">Pricing</a>
-              <a href="/pricing">Pricing</a>
             </div>
             <div className="header-login">
               <div className="header-login-inside">
