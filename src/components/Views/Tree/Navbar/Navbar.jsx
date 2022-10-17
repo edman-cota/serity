@@ -10,11 +10,11 @@ import { AiOutlineExpandAlt } from "react-icons/ai";
 import { useWindowSize } from "react-use";
 import { FormattedMessage } from "react-intl";
 
-import { setSelectedTaskId } from "../../../../features/counter/SelectedTaskIdSlice";
-import { setActiveIndex } from "../../../../features/counter/ActiveIndexSlice";
-import DropdownTaskOptions from "../../../Dropdown/DropdownTaskOptions";
-import { setTaskActivityVisibility } from "../../../../features/counter/taskActivitySlice";
-import { setIsExpanded } from "../../../../features/counter/ExpandedSlice";
+import { setSelectedTaskId } from "../../../../features/counter/selectedTaskIdSlice.ts";
+import { setActiveIndex } from "../../../../features/counter/activeIndexSlice.ts";
+import DropdownTaskOptions from "../../../Dropdown/DropdownTaskOptions.tsx";
+import { setTaskActivityVisibility } from "../../../../features/counter/taskActivitySlice.ts";
+import { setIsExpanded } from "../../../../features/counter/expandedSlice.ts";
 
 const Navbar = () => {
   const { width } = useWindowSize();

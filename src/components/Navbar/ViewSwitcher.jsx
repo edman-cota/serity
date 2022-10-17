@@ -20,8 +20,8 @@ import { FiCheck } from "react-icons/fi";
 
 import View from "./View.tsx";
 import { auth } from "../../firebase.ts";
-import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
-import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice.ts";
+import { setActiveIndex } from "../../features/counter/activeIndexSlice.ts";
 
 const ViewsItem = () => {
   const dispatch = useDispatch();

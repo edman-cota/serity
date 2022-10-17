@@ -3,12 +3,11 @@ import PropTypes from "prop-types";
 import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import { useWindowSize } from "react-use";
 import { useDispatch } from "react-redux";
-// import "../Timeline/Activity.scss";
-import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
-import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
-import { setTask } from "../../features/counter/TaskSlice";
-import { setSidebarVisibility } from "../../features/counter/SidebarVisibilitySlice";
-import { setTaskActivityVisibility } from "../../features/counter/taskActivitySlice";
+import { setActiveIndex } from "../../features/counter/activeIndexSlice.ts";
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice.ts";
+import { setTask } from "../../features/counter/taskSlice.ts";
+import { setSidebarVisibility } from "../../features/counter/sidebarVisibilitySlice.ts";
+import { setTaskActivityVisibility } from "../../features/counter/taskActivitySlice.ts";
 
 const ItemTitle = ({ task, index }) => {
   const { width } = useWindowSize();
@@ -34,14 +33,7 @@ const ItemTitle = ({ task, index }) => {
       alignItems="center"
       onClick={() => onSelectItem(task.id, index)}
     >
-      <Text
-        className="text-item"
-        color={color}
-        fontSize="15px"
-        // textDecorationLine="line-through"
-        // textDecorationThickness={1}
-        // textDecorationColor="#2175e2"
-      >
+      <Text className="text-item" color={color} fontSize="15px">
         {task.content}
       </Text>
     </Flex>

@@ -22,13 +22,20 @@ import { useForm } from "react-hook-form";
 import { FiEdit } from "react-icons/fi";
 import { useAuthState } from "react-firebase-hooks/auth";
 import ChooseIconModal from "./ChooseIconModal";
-import database, { auth } from "../../firebase.ts";
-import { setEmoji } from "../../features/counter/EmojiSlice";
+import database, { auth } from "../../firebase";
+import type { RootState } from "../../store";
+import { setEmoji } from "../../features/counter/emojiSlice";
 
-const EditProject = ({ name, id, emoji }) => {
+interface Props {
+  name: string;
+  id: string;
+  emoji: string;
+}
+
+const EditProject = ({ name, id, emoji }: Props) => {
   const [user] = useAuthState(auth);
   const dispatch = useDispatch();
-  const savedEmoji = useSelector((state) => state.emoji.value);
+  const savedEmoji = useSelector((state: RootState) => state.emoji.value);
   // eslint-disable-next-line no-unused-vars
   const [title, setTitle] = useState(name);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -38,7 +45,7 @@ const EditProject = ({ name, id, emoji }) => {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     database
       .ref(`${user?.uid}/projects/${id}`)
       .update({ name: data.name, emoji: savedEmoji })

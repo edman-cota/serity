@@ -1,13 +1,14 @@
-/* eslint-disable import/prefer-default-export */
 import { useEffect, useState } from "react";
 import { useWindowSize } from "react-use";
 import { useSelector } from "react-redux";
+import type { RootState } from "../store";
 
 export const useSplitSizes = () => {
   const { width } = useWindowSize();
-  const [sizes, setSizes] = useState([]);
-  const [paneDisplay, setPaneDisplay] = useState([]);
-  const isExpanded = useSelector((state) => state.isExpanded.value);
+  const [sizes, setSizes] = useState<number[]>([]);
+  const [paneDisplay, setPaneDisplay] = useState<string[]>([]);
+  const isExpanded = useSelector((state: RootState) => state.isExpanded.value);
+
   useEffect(() => {
     if (width <= 770) {
       setSizes([0, 100]); // in %

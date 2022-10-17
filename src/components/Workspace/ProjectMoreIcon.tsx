@@ -8,9 +8,14 @@ import { FormattedMessage } from "react-intl";
 import DeleteProjectItemModal from "../Modals/DeleteProjectModal";
 import MembersMenuItem from "../Modals/InviteMembersModal";
 import MenuItemEdit from "../Modals/EditProject";
-import "./ProjectMore.scss";
 
-const ProjectMore = ({ name, id, emoji }) => (
+interface Props {
+  name: string;
+  id: string;
+  emoji: string;
+}
+
+const ProjectMore = ({ name, id, emoji }: Props) => (
   <Menu autoSelect={false} placement="bottom">
     <MenuButton as={Button}>
       <RiMoreLine size={20} />
@@ -29,17 +34,5 @@ const ProjectMore = ({ name, id, emoji }) => (
     </MenuList>
   </Menu>
 );
-
-ProjectMore.propTypes = {
-  name: PropTypes.string,
-  id: PropTypes.string,
-  emoji: PropTypes.string,
-};
-
-ProjectMore.defaultProps = {
-  name: "",
-  id: "",
-  emoji: "",
-};
 
 export default ProjectMore;

@@ -8,7 +8,7 @@ import DetailTab from "../../Cards/DetailTab";
 import NavbarTreeTask from "./Navbar/Navbar";
 import Timeline from "../../Timeline/Timeline";
 
-import { useSplitSizes } from "../../../hooks/useSplitSizes";
+import { useSplitSizes } from "../../../hooks/useSplitSizes.ts";
 
 const DetailPanel = () => {
   const { colorMode } = useColorMode();

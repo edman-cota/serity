@@ -1,13 +1,19 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+
+export interface IndexState {
+  value: string;
+}
+
+const initialState = {
+  value: "",
+};
 
 export const activeIndexSlice = createSlice({
   name: "index",
-  initialState: {
-    value: "",
-  },
+  initialState,
   reducers: {
-    setActiveIndex: (state, action) => {
+    setActiveIndex: (state, action: PayloadAction<string>) => {
       state.value = action.payload;
     },
   },

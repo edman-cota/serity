@@ -10,24 +10,24 @@ import {
   MenuDivider,
 } from "@chakra-ui/react";
 import { RiMoreLine } from "react-icons/ri";
-import { AiOutlineDelete, AiOutlineCheckCircle } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
+import { AiOutlineDelete } from "react-icons/ai";
+// import { useDispatch, useSelector } from "react-redux";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { FormattedMessage } from "react-intl";
-import { setShowCompleted } from "../../features/counter/ShowCompletedSlice";
-import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
-import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
+// import { setShowCompleted } from "../../features/counter/ShowCompletedSlice";
+// import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
+// import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
 
 const DropdownProjectOptions = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const showCompleted = useSelector((state) => state.showCompleted.value);
+  // const showCompleted = useSelector((state) => state.showCompleted.value);
 
-  const handleShowCompletedTasks = () => {
-    dispatch(setShowCompleted(!showCompleted));
-    dispatch(setSelectedTaskId(""));
-    dispatch(setActiveIndex(""));
-  };
+  // const handleShowCompletedTasks = () => {
+  //   dispatch(setShowCompleted(!showCompleted));
+  //   dispatch(setSelectedTaskId(""));
+  //   dispatch(setActiveIndex(""));
+  // };
 
   return (
     <Menu>
@@ -54,7 +54,7 @@ const DropdownProjectOptions = () => {
           </Text>
           <FormattedMessage id="duplicate_project" />
         </MenuItem>
-        <MenuItem onClick={() => handleShowCompletedTasks()}>
+        {/* <MenuItem onClick={() => handleShowCompletedTasks()}>
           <Text as="span" pr="10px">
             <AiOutlineCheckCircle />
           </Text>
@@ -67,7 +67,7 @@ const DropdownProjectOptions = () => {
               <FormattedMessage id="show_completed" />
             </Text>
           )}
-        </MenuItem>
+        </MenuItem> */}
         <MenuDivider />
         <MenuItem>
           <Text as="span" pr="10px">

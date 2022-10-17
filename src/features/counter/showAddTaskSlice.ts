@@ -1,13 +1,19 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+
+export interface AddTaskState {
+  value: boolean;
+}
+
+const initialState: AddTaskState = {
+  value: false,
+};
 
 export const showAddTaskSlice = createSlice({
   name: "showAddTask",
-  initialState: {
-    value: false,
-  },
+  initialState,
   reducers: {
-    setShowAddTask: (state, action) => {
+    setShowAddTask: (state, action: PayloadAction<boolean>) => {
       state.value = action.payload;
     },
   },

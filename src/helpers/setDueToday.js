@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { CHANGE_DUE_DATE_ACTIVITY_TYPE } from "../constants";
+import { CHANGE_DUE_DATE_ACTIVITY_TYPE } from "../constants/index.ts";
 import database from "../firebase.ts";
 
 export function setDueToday(user, task, workingProject) {

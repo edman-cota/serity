@@ -3,7 +3,7 @@ import { IntlProvider } from "react-intl";
 import { ChakraProvider, Flex } from "@chakra-ui/react";
 import Routing from "./routes/index.tsx";
 
-import theme from "./theme/index";
+import theme from "./theme/index.ts";
 import { LOCALES } from "./i18n/locales.ts";
 import { messages } from "./i18n/messages.ts";
 import "./App.css";

@@ -13,8 +13,8 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import "./styles.css";
-import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
-import { setTask } from "../../features/counter/TaskSlice";
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice.ts";
+import { setTask } from "../../features/counter/taskSlice.ts";
 import { useGetTags } from "../../hooks/useGetTags";
 import ModalBody from "./Modal/Body";
 import { Content } from "./styles";

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Activity from "./Activity";
-import { ActivityProps } from "models/activity.model";
+import { Activity as Props } from "../../types/activity.model";
 
 const TimelineBody = ({ activities }: any) => {
   const variants = {
@@ -20,7 +20,7 @@ const TimelineBody = ({ activities }: any) => {
           activities
             .slice(0)
             .reverse()
-            .map((data: ActivityProps) => (
+            .map((data: Props) => (
               <Activity
                 key={data.id}
                 username={data.username}

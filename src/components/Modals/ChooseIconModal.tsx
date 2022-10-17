@@ -16,11 +16,12 @@ import { FormattedMessage } from "react-intl";
 import { useSelector, useDispatch } from "react-redux";
 import { BiChevronRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
-import { setEmoji } from "../../features/counter/EmojiSlice";
+import type { RootState } from "../../store";
+import { setEmoji } from "../../features/counter/emojiSlice";
 
 const ChooseIconModal = () => {
   const dispatch = useDispatch();
-  const emoji = useSelector((state) => state.emoji.value);
+  const emoji = useSelector((state: RootState) => state.emoji.value);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const background = useColorModeValue("white", "#282e3e");
   const buttonBg = useColorModeValue(
@@ -28,7 +29,7 @@ const ChooseIconModal = () => {
     "rgba(255, 255, 255, 0.06)"
   );
 
-  const onEmojiClick = (emojiData) => {
+  const onEmojiClick = (emojiData: any) => {
     dispatch(setEmoji(emojiData.emoji));
     onClose();
   };
@@ -74,7 +75,7 @@ const ChooseIconModal = () => {
               onEmojiClick={onEmojiClick}
               theme={Theme.AUTO}
               skinTonesDisabled
-              groupVisibility={{ flags: false }}
+              // groupVisibility={{ flags: false }}
             />
           </ModalBody>
         </ModalContent>

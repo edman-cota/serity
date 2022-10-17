@@ -25,9 +25,13 @@ import emailjs from "@emailjs/browser";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { FiLink, FiUser } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
-import { auth } from "../../firebase.ts";
+import { auth } from "../../firebase";
 
-const InviteMembersModal = ({ projectName }) => {
+interface Props {
+  projectName: string;
+}
+
+const InviteMembersModal = ({ projectName }: Props) => {
   const form = useRef();
   const [user] = useAuthState(auth);
   const toast = useToast();
@@ -38,17 +42,17 @@ const InviteMembersModal = ({ projectName }) => {
   );
   const [linked, setLinked] = useState(false);
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
 
-    emailjs.sendForm(
-      "service_pgr3jze",
-      "template_2pc1qq7",
-      form.current,
-      "85wU6JGUyhHS_Jnu-"
-    );
-    form.current.reset();
-  };
+  //   emailjs.sendForm(
+  //     "service_pgr3jze",
+  //     "template_2pc1qq7",
+  //     form.current,
+  //     "85wU6JGUyhHS_Jnu-"
+  //   );
+  //   form.current.reset();
+  // };
 
   return (
     <>
@@ -86,8 +90,8 @@ const InviteMembersModal = ({ projectName }) => {
             <ModalBody p="0px">
               <Flex w="100%" direction="column">
                 <form
-                  ref={form}
-                  onSubmit={sendEmail}
+                  // ref={form}
+                  // onSubmit={sendEmail}
                   style={{ display: "flex", gap: "10px", width: "100%" }}
                 >
                   <Input
@@ -106,7 +110,7 @@ const InviteMembersModal = ({ projectName }) => {
                   <Input name="project" value={projectName} display="none" />
                   <Input
                     name="from_name"
-                    value={user?.displayName}
+                    // value={user?.displayName}
                     display="none"
                   />
                   <Button type="submit" h="2rem">
@@ -141,6 +145,7 @@ const InviteMembersModal = ({ projectName }) => {
                     }}
                   >
                     <IconButton
+                      aria-label="Copy to clipboard"
                       _hover={{ bg: "#57abff" }}
                       _focus={{ boxShadow: "none" }}
                     >
@@ -161,6 +166,7 @@ const InviteMembersModal = ({ projectName }) => {
                   </CopyToClipboard>
                   <Tooltip label="Delete link">
                     <IconButton
+                      aria-label="CopyToClipboard"
                       onClick={() => setLinked(!linked)}
                       _hover={{ bg: "#ff6666" }}
                       _focus={{ boxShadow: "none" }}

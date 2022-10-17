@@ -15,14 +15,14 @@ import { RiMoreLine } from "react-icons/ri";
 import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useGetTask } from "../../hooks/useGetTask";
-import { auth } from "../../firebase.ts";
+import { auth } from "../../firebase";
 import { SUCCESS, ERROR, TOAST } from "../../constants";
 import { useGetProject } from "../../hooks/useGetProject";
 import { duplicateTask } from "../../helpers/duplicateTask";
-import { deleteSingleTask } from "../../helpers/deleteSingleTask.ts";
-import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
-import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
-import CopyToClipboardMenuItem from "./CopyToClipboardMenuItem.tsx";
+import { deleteSingleTask } from "../../helpers/deleteSingleTask";
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice";
+import { setActiveIndex } from "../../features/counter/activeIndexSlice";
+import CopyToClipboardMenuItem from "./CopyToClipboardMenuItem";
 import MoveToMenuItemModal from "../Modals/MoveToMenuItemModal";
 
 const DropdownTaskOptions = () => {
@@ -36,11 +36,15 @@ const DropdownTaskOptions = () => {
     const status = duplicateTask(task?.at(0), project?.at(0), user);
 
     if (status === SUCCESS) {
-      toast(TOAST.status.success);
+      toast({
+        description: "Success",
+        status: ERROR,
+        isClosable: true,
+      });
     }
     if (status === ERROR) {
       toast({
-        description: TOAST.status.error.description,
+        description: "Error",
         status: ERROR,
         isClosable: true,
       });

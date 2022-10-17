@@ -13,7 +13,7 @@ import { FiCheck, FiList } from "react-icons/fi";
 import { HiViewBoards } from "react-icons/hi";
 import { BsFillCalendarMinusFill } from "react-icons/bs";
 import { VscFilter, VscFilterFilled } from "react-icons/vsc";
-import { setOrderBy } from "../../features/counter/OrderBySlice";
+import { setOrderBy } from "../../features/counter/orderBySlice.ts";
 import { useLocalStorage } from "../../hooks/useLocalStorage.ts";
 
 const SortItem = () => {

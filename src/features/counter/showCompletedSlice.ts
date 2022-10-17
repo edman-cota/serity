@@ -1,13 +1,19 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+
+export interface ShowState {
+  value: boolean;
+}
+
+const initialState: ShowState = {
+  value: false,
+};
 
 export const showCompletedSlice = createSlice({
   name: "showCompleted",
-  initialState: {
-    value: false,
-  },
+  initialState,
   reducers: {
-    setShowCompleted: (state, action) => {
+    setShowCompleted: (state, action: PayloadAction<boolean>) => {
       state.value = action.payload;
     },
   },

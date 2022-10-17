@@ -8,13 +8,13 @@ import { Tooltip, useToast, Text } from "@chakra-ui/react";
 // import { BiSquareRounded } from "react-icons/bi";
 // import { BsFillCheckSquareFill } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useGetProject } from "../../hooks/useGetProject";
-import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
-import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
+import { useGetProject } from "../../hooks/useGetProject.ts";
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice.ts";
+import { setActiveIndex } from "../../features/counter/activeIndexSlice.ts";
 import { auth } from "../../firebase.ts";
 
 import { markStatusToCompleted } from "../../helpers/markStatusToCompleted.ts";
-import { markStatusToUncomplete } from "../../helpers/maskStatusToUncomplete";
+import { markStatusToUncomplete } from "../../helpers/markStatusToUncomplete";
 import { getPriorityColor } from "../../helpers/getPriorityColor.ts";
 
 const RenderStatus = ({ task }) => {

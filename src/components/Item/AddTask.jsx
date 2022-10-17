@@ -14,10 +14,10 @@ import ReactFocusLock from "react-focus-lock";
 import { useDispatch, useSelector } from "react-redux";
 import { BiSquareRounded } from "react-icons/bi";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { ADD_TASK_ACTIVITY_TYPE } from "../../constants";
+import { ADD_TASK_ACTIVITY_TYPE } from "../../constants/index.ts";
 import database, { auth } from "../../firebase.ts";
-import { useGetProject } from "../../hooks/useGetProject";
-import { setShowAddTask } from "../../features/counter/ShowAddTaskSlice";
+import { useGetProject } from "../../hooks/useGetProject.ts";
+import { setShowAddTask } from "../../features/counter/showAddTaskSlice.ts";
 
 const MotionFlex = chakra(motion.div, {
   /**

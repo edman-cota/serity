@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/prop-types */
 import React from "react";
 import {
   useDisclosure,
@@ -17,9 +15,14 @@ import {
 import { FormattedMessage } from "react-intl";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../../firebase.ts";
+import database, { auth } from "../../firebase";
 
-const DeleteProjectModal = ({ name, id }) => {
+interface Props {
+  name: string;
+  id: string;
+}
+
+const DeleteProjectModal = ({ name, id }: Props) => {
   const [user] = useAuthState(auth);
   const { isOpen, onOpen, onClose } = useDisclosure();
 

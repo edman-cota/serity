@@ -4,7 +4,7 @@
 import React from "react";
 import { Editable, EditableTextarea, EditablePreview } from "@chakra-ui/react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { RENAME_TASK_ACTIVITY_TYPE } from "../../constants";
+import { RENAME_TASK_ACTIVITY_TYPE } from "../../constants/index.ts";
 
 import database, { auth } from "../../firebase.ts";
 

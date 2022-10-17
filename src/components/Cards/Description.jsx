@@ -4,7 +4,7 @@ import React from "react";
 import { Editable, EditableTextarea, EditablePreview } from "@chakra-ui/react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import database, { auth } from "../../firebase.ts";
-import { UPDATE_DESCRIPTION_ACTIVITY_TYPE } from "../../constants";
+import { UPDATE_DESCRIPTION_ACTIVITY_TYPE } from "../../constants/index.ts";
 import "./DetailTab.scss";
 
 const Description = ({ description, title, id, projectId }) => {

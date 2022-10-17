@@ -1,3 +1,1 @@
-function useGetActivities(): any[];
-
-export default useGetActivities
+export function useGetActivities(): any[];

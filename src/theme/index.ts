@@ -1,14 +1,8 @@
-/* eslint-disable comma-dangle */
 import { extendTheme } from "@chakra-ui/react";
-// import { createBreakpoints } from "@chakra-ui/theme-tools";
-// import { styles } from "./styles";
-// import buttonStyles from "./components/button";
-// import linkStyles from "./components/link";
-// import { textareaStyles } from "./components/textarea";
-import { inputTheme } from "./components/input.ts";
-import { menuTheme } from "./components/menu.ts";
-import { tooltipTheme } from "./components/tooltip.ts";
-import { buttonTheme } from "./components/button.ts";
+import { inputTheme } from "./components/input";
+import { menuTheme } from "./components/menu";
+import { tooltipTheme } from "./components/tooltip";
+import { buttonTheme } from "./components/button";
 
 // const config = {
 //   initialColorMode: "light",
@@ -91,11 +85,6 @@ const theme = extendTheme({
   },
 
   // { config, breakpoints, components },
-  // globalStyles,
-  // buttonStyles,
-  // menuStyles,
-  // linkStyles,
-  // textareaStyles,
   // withDefaultColorScheme({
   //   colorScheme: "brand",
   //   components: ["Checkbox"],

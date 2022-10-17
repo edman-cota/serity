@@ -22,7 +22,7 @@ import FocusLock from "react-focus-lock";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { AiOutlinePlus } from "react-icons/ai";
-import ChooseIconModal from "./ChooseIconModal";
+import ChooseIconModal from "./ChooseIconModal.tsx";
 import database, { auth } from "../../firebase.ts";
 
 const CreateProject = () => {

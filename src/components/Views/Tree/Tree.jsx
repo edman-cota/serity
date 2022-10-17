@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import TreeTask from "./DetailPanel";
 import "../../Web/web.css";
-import { setSidebarVisibility } from "../../../features/counter/SidebarVisibilitySlice";
+import { setSidebarVisibility } from "../../../features/counter/sidebarVisibilitySlice.ts";
 
 const Tree = () => {
   const dispatch = useDispatch();

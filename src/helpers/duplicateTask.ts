@@ -1,8 +1,7 @@
-/* eslint-disable import/prefer-default-export */
-import { ADD_TASK_ACTIVITY_TYPE } from "../constants";
-import database from "../firebase.ts";
+import { ActivityType } from "../enums/definitions";
+import database from "../firebase";
 
-export function duplicateTask(task, project, user) {
+export function duplicateTask(task: any, project: any, user: any) {
   const status = { success: "success", error: "error" };
 
   const cardRef = database.ref(`${user?.uid}/tasks`);
@@ -39,7 +38,7 @@ export function duplicateTask(task, project, user) {
         projectId: task.projectId,
         createdBy: user?.uid,
         createdAt: new Date().toISOString(),
-        type: ADD_TASK_ACTIVITY_TYPE,
+        type: ActivityType.ADD_TASK_ACTIVITY_TYPE,
       });
     })
     .catch(() => status.error);

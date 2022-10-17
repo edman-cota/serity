@@ -18,9 +18,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { BsShieldCheck } from "react-icons/bs";
 import { RiBarChartHorizontalLine } from "react-icons/ri";
 import { logout, auth } from "../../firebase.ts";
-import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
-import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
-import { setIsExpanded } from "../../features/counter/ExpandedSlice";
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice.ts";
+import { setActiveIndex } from "../../features/counter/activeIndexSlice.ts";
+import { setIsExpanded } from "../../features/counter/expandedSlice.ts";
 
 const SettingsMenu = () => {
   const dispatch = useDispatch();

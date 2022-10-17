@@ -1,13 +1,19 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+
+export interface ActivityState {
+  value: boolean;
+}
+
+const initialState: ActivityState = {
+  value: false,
+};
 
 export const taskActivitySlice = createSlice({
   name: "taskActivityVisibility",
-  initialState: {
-    value: false,
-  },
+  initialState,
   reducers: {
-    setTaskActivityVisibility: (state, action) => {
+    setTaskActivityVisibility: (state, action: PayloadAction<boolean>) => {
       state.value = action.payload;
     },
   },
