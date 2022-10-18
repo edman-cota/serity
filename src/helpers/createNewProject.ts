@@ -15,30 +15,32 @@ export const createNewProject = (name: string) => {
   const projectRef = database.ref(`${user?.uid}/projects`);
   const newProjectRef = projectRef.push();
 
-  const project: ProjectProps = {
-    id: newProjectRef.key,
-    name: name.trim(),
-    emoji: emoji,
-    color: "white",
-    activeCount: 0,
-    taskCount: 0,
-    shared: false,
-    members: [],
-    columns: [],
-    columnsOrder: [],
-    createdAt: timestamp.toString(),
-    createdBy: user?.uid,
-    showCompleted: false,
-  };
+  if (newProjectRef.key !== null && user?.uid !== undefined) {
+    const project: ProjectProps = {
+      id: newProjectRef.key,
+      name: name.trim(),
+      emoji: emoji,
+      color: "white",
+      activeCount: 0,
+      taskCount: 0,
+      shared: false,
+      members: [],
+      columns: [],
+      columnsOrder: [],
+      createdAt: timestamp.toString(),
+      createdBy: user?.uid,
+      showCompleted: false,
+    };
 
-  newProjectRef
-    .set(project)
-    .then(() => {
-      return Status.SUCCESS;
-    })
-    .catch(() => Status.ERROR);
+    newProjectRef
+      .set(project)
+      .then(() => {
+        return Status.SUCCESS;
+      })
+      .catch(() => Status.ERROR);
 
-  return Status.SUCCESS;
+    return Status.SUCCESS;
+  }
 };
 
 // Add new project to projectOrder root

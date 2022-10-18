@@ -1,16 +1,11 @@
-/* eslint-disable no-empty */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable quotes */
-/* eslint-disable react/jsx-props-no-spreading */
-import React from "react";
 import { useForm } from "react-hook-form";
 import { FormattedMessage } from "react-intl";
 // eslint-disable-next-line object-curly-newline
 import { Input, VStack, Text, Flex, Link, Checkbox } from "@chakra-ui/react";
-import SocialLogin from "../Login/SocialLogin.tsx";
-import { registerWithEmailAndPassword } from "../../firebase.ts";
-import Header from "../Login/LoginHeader.tsx";
-import Footer from "../Login/Footer.tsx";
+import SocialLogin from "../Login/SocialLogin";
+import { registerWithEmailAndPassword } from "../../firebase";
+import Header from "../Login/LoginHeader";
+import Footer from "../Login/Footer";
 import "./index.scss";
 
 const RegisterForm = () => {
@@ -20,7 +15,7 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     if (data.password.localeCompare(data.cpassword)) {
       try {
         registerWithEmailAndPassword(data.name, data.email, data.password);
@@ -83,11 +78,11 @@ const RegisterForm = () => {
             <Checkbox spacing=".75rem">
               <Text fontSize="14px" color="blackAlpha.800">
                 I agree to the{" "}
-                <Link to="/terms" color="#09f">
+                <Link href="/terms" color="#09f">
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link to="/privacy" color="#09f">
+                <Link href="/privacy" color="#09f">
                   Privacy Statement
                 </Link>{" "}
               </Text>

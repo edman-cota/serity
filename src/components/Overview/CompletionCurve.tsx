@@ -7,16 +7,27 @@ import {
   TabPanels,
   Tabs,
   useColorModeValue,
+  shouldForwardProp,
+  chakra,
 } from "@chakra-ui/react";
+import { motion, isValidMotionProp } from "framer-motion";
 import CompletionCurveChartDay from "./CompletionCurveChartDay";
 import CompletionCurveChartMonth from "./CompletionCurveChartMonth";
 import { FormattedMessage } from "react-intl";
+
+const MotionFlex = chakra(motion.div, {
+  /**
+   ** Allow motion props and non-chakra props to be forwarded.
+   */
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
 
 const CompletionCurve = (): JSX.Element => {
   const cardBackground = useColorModeValue("white", "#1F2733");
 
   return (
-    <Flex
+    <MotionFlex
       w={{ base: "95%", sm: "85%", xl: "490px" }}
       mx={{ base: "auto", xl: "15px" }}
       mt={{ base: "16px", xl: "20px" }}
@@ -24,6 +35,10 @@ const CompletionCurve = (): JSX.Element => {
       h="284px"
       borderRadius="8px"
       bg={cardBackground}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -40 }}
+      // transition={{ duration: 0.25 }}
     >
       <Tabs variant="unstyled" w="100%" h="100%" align="center" pt="20px">
         <TabList>
@@ -71,7 +86,7 @@ const CompletionCurve = (): JSX.Element => {
           </TabPanel>
         </TabPanels>
       </Tabs>
-    </Flex>
+    </MotionFlex>
   );
 };
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Flex, Text } from "@chakra-ui/react";
 import { FormattedMessage } from "react-intl";
 import { HiOutlineChevronDown } from "react-icons/hi";
@@ -10,7 +9,7 @@ interface Props {
 const ListHeader = ({ count }: Props) => {
   return (
     <Flex width="95%" mx="auto" mt="30px" maxWidth={880}>
-      <Button variant="ghost" w="20px !important">
+      <Button w="20px !important">
         <HiOutlineChevronDown />
       </Button>
       <Text pl="2px" fontWeight={600} fontSize="18px">

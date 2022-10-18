@@ -16,11 +16,11 @@ export interface ProjectProps {
   /**
    * Current time when the project was created at.
    */
-  createdAt?: string;
+  createdAt: string;
   /**
    * Current user id who created the project.
    */
-  createdBy?: string;
+  createdBy: string;
   /**
    * An emoji that identifies the project.
    */
@@ -28,11 +28,11 @@ export interface ProjectProps {
   /**
    * Id of the project.
    */
-  id?: string | null;
+  id: string;
   /**
    * String name of the project.
    */
-  name?: string;
+  name: string;
   /**
    * If the project is shared with other members.
    */
@@ -48,3 +48,5 @@ export interface ProjectProps {
   members?: string[];
   columns?: [];
 }
+
+export interface ProjectBTO extends Partial<ProjectProps> {}

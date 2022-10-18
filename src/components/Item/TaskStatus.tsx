@@ -1,9 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import { HiOutlineViewBoards } from "react-icons/hi";
 
-const TaskStatus = ({ columnTitle }) => {
+interface Props {
+  columnTitle: string;
+}
+
+const TaskStatus = ({ columnTitle }: Props) => {
   const primaryColor = useColorModeValue("#202020", "#FFFFFF");
 
   return (
@@ -25,14 +27,6 @@ const TaskStatus = ({ columnTitle }) => {
       </Text>
     </Flex>
   );
-};
-
-TaskStatus.propTypes = {
-  columnTitle: PropTypes.string,
-};
-
-TaskStatus.defaultProps = {
-  columnTitle: "",
 };
 
 export default TaskStatus;
