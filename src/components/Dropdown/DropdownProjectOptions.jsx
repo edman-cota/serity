@@ -31,7 +31,7 @@ const DropdownProjectOptions = () => {
 
   return (
     <Menu>
-      <MenuButton variant="ghost" as={Button} h="1.7rem">
+      <MenuButton as={Button} h="1.7rem">
         <RiMoreLine size={20} />
       </MenuButton>
       <MenuList>

@@ -1,19 +1,22 @@
 /* eslint-disable comma-dangle */
-/* eslint-disable operator-linebreak */
 /* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable operator-linebreak */
 import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useSelector } from "react-redux";
-import database, { auth } from "../firebase.ts";
+import database, { auth } from "../firebase";
+import type { RootState } from "../store";
+import { TaskProps } from "../types/task.model";
 
 export const useGetTasks = () => {
   const [user] = useAuthState(auth);
   const [completedTasks, setCompletedTasks] = useState([]);
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<TaskProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const orderBy = useSelector((state) => state.orderBy.value);
-  const workingProject = useSelector((state) => state.workingProject.value);
+  const orderBy = useSelector((state: RootState) => state.orderBy.value);
+  const workingProject = useSelector(
+    (state: RootState) => state.workingProject.value
+  );
 
   useEffect(() => {
     database
@@ -21,8 +24,8 @@ export const useGetTasks = () => {
       .orderByChild(orderBy)
       .on("value", (snapshot) => {
         setIsLoading(true);
-        const taskList = [];
-        const completedTask = [];
+        const taskList: TaskProps[] = [];
+        const completedTask: TaskProps[] = [];
         snapshot.forEach((snap) => {
           if (
             snap.val().projectId ===
@@ -37,20 +40,15 @@ export const useGetTasks = () => {
           }
         });
 
-        if (orderBy === "priority") {
-          setTasks(taskList.sort((a, b) => b.priority - a.priority));
-        } else {
-          setTasks(taskList);
-        }
-
         // setCompletedTasks(completedTask);
-        setCompletedTasks(
-          completedTask.sort(
-            (a, b) =>
-              new Date(b.completedAt).getTime() -
-              new Date(a.completedAt).getTime()
-          )
-        );
+        // setCompletedTasks(
+        //   completedTask.sort(
+        //     (a, b) =>
+        //       new Date(b.completedAt).getTime() -
+        //       new Date(a.completedAt).getTime()
+        //   )
+        // );
+        setTasks(taskList);
         setIsLoading(false);
       });
   }, [user?.uid, workingProject.id, orderBy, isLoading]);

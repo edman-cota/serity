@@ -5,12 +5,23 @@ import { useSelector } from "react-redux";
 import { Flex, HStack, ListItem, useColorModeValue } from "@chakra-ui/react";
 import RenderStatus from "../RenderStatus/RenderStatus";
 import ItemTitle from "./ItemTitle";
-import ItemMenu from "./ItemMenu.tsx";
+import ItemMenu from "./ItemMenu";
 import "./Item.scss";
+import { TaskProps } from "../../types/task.model";
+import type { RootState } from "../../store";
 
-const Item = ({ task, index }) => {
-  const activeIndex = useSelector((state) => state.activeIndex.value);
+interface Props {
+  task: TaskProps;
+  index: number;
+}
+
+const Item = ({ task, index }: Props) => {
+  const activeIndex = useSelector(
+    (state: RootState) => state.activeIndex.value
+  );
   const hover = useColorModeValue("gray.200", "gray.700");
+
+  console.log(typeof index);
 
   return (
     <ListItem

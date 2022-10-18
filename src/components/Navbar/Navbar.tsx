@@ -10,7 +10,7 @@ import NavItemAddTask from "./NavItemAddTask";
 import ProjectName from "./ProjectName";
 import { auth } from "../../firebase";
 import ColorModeSwitcher from "./ColorModeSwitcher";
-import ProjectMore from "../Workspace/ProjectMoreIcon";
+import ProjectOptionsMenu from "../Menus/ProjectOptionsMenu";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const Navbar = () => {
               <ColorModeSwitcher />
             </ListItem>
             <ListItem>
-              <ProjectMore name="" id="" emoji="" />
+              <ProjectOptionsMenu name="" id="" emoji="" />
             </ListItem>
           </List>
         </Flex>

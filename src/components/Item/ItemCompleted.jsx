@@ -5,7 +5,7 @@ import React from "react";
 import "firebase/database";
 import "./item-completed.scss";
 
-import RenderStatus from "../RenderStatus/RenderStatus";
+import RenderStatus from "../RenderStatus/RenderStatus.tsx";
 
 const ItemCompleted = (props) => (
   <li className="tree-item-completed">

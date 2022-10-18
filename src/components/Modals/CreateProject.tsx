@@ -28,7 +28,7 @@ const CreateProject = () => {
 
   const onSubmit = (data: any) => {
     const status = createNewProject(data.name);
-    if (status === "success") {
+    if (status === Status.SUCCESS) {
       onClose();
       resetField("name");
     }
@@ -38,15 +38,8 @@ const CreateProject = () => {
 
   return (
     <>
-      <Tooltip label="Create project">
-        <Button
-          variant="ghost"
-          onClick={onOpen}
-          _hover={{
-            color: "rgb(35, 135, 251)",
-            bg: colorMode === "dark" ? "gray.500" : "gray.100",
-          }}
-        >
+      <Tooltip label={<FormattedMessage id="create_project" />}>
+        <Button onClick={onOpen}>
           <AiOutlinePlus />
         </Button>
       </Tooltip>

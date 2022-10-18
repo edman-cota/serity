@@ -2,18 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface IndexState {
-  value: string;
+  value: number;
 }
 
 const initialState = {
-  value: "",
+  value: -1,
 };
 
 export const activeIndexSlice = createSlice({
   name: "index",
   initialState,
   reducers: {
-    setActiveIndex: (state, action: PayloadAction<string>) => {
+    setActiveIndex: (state, action: PayloadAction<number>) => {
       state.value = action.payload;
     },
   },

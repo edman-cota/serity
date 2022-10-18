@@ -1,24 +1,23 @@
-/* eslint-disable import/prefer-default-export */
 import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../firebase.ts";
+import database, { auth } from "../firebase";
+import { ProjectProps } from "../types/project.model";
 
 export const useGetProjects = () => {
   const [user] = useAuthState(auth);
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState<ProjectProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  //   // RETRIEVE PROJECT
   useEffect(() => {
     database.ref(`${user?.uid}/projects`).on("value", (snapshot) => {
       setIsLoading(true);
-      // let list = {};
-      const list = [];
+      const currentList: ProjectProps[] = [];
+
       snapshot.forEach((snap) => {
-        // list[snap.val().id] = snap.val();
-        list.push(snap.val());
+        currentList.push(snap.val());
       });
-      setProjects(list);
+
+      setProjects(currentList);
       setIsLoading(false);
     });
   }, [user?.uid, isLoading]);

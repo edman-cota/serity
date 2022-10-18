@@ -1,5 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
 import {
   Menu,
   MenuButton,
@@ -17,15 +15,21 @@ import { IoMdHelp } from "react-icons/io";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { BsShieldCheck } from "react-icons/bs";
 import { RiBarChartHorizontalLine } from "react-icons/ri";
-import { logout, auth } from "../../firebase.ts";
-import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice.ts";
-import { setActiveIndex } from "../../features/counter/activeIndexSlice.ts";
-import { setIsExpanded } from "../../features/counter/expandedSlice.ts";
+import { logout, auth } from "../../firebase";
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice";
+import { setActiveIndex } from "../../features/counter/activeIndexSlice";
+import { setIsExpanded } from "../../features/counter/expandedSlice";
+import { beautifyUsername } from "../../helpers/beautifyUsername";
+
+interface NavProps {
+  text: string;
+  icon: JSX.Element;
+}
 
 const SettingsMenu = () => {
   const dispatch = useDispatch();
   const [user] = useAuthState(auth);
-  const username = user?.email.split("@")[0];
+  const username = beautifyUsername(user?.email);
 
   const clearOpenTask = () => {
     dispatch(setSelectedTaskId(""));
@@ -35,8 +39,8 @@ const SettingsMenu = () => {
 
   return (
     <Menu autoSelect={false}>
-      <Tooltip label="Settings">
-        <MenuButton as={Button} variant="ghost">
+      <Tooltip label={<FormattedMessage id="settings" />}>
+        <MenuButton as={Button}>
           <IoSettingsOutline />
         </MenuButton>
       </Tooltip>
@@ -68,20 +72,10 @@ const SettingsMenu = () => {
   );
 };
 
-const NavLink = ({ text, icon }) => (
+const NavLink = ({ text, icon }: NavProps) => (
   <MenuItem icon={icon} fontSize="14px">
     <FormattedMessage id={text} />
   </MenuItem>
 );
-
-NavLink.propTypes = {
-  text: PropTypes.string,
-  icon: PropTypes.element,
-};
-
-NavLink.defaultProps = {
-  text: "",
-  icon: "",
-};
 
 export default SettingsMenu;

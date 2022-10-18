@@ -3,19 +3,24 @@ import React from "react";
 import { VStack, List } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import ListHeader from "./ListHeader.tsx";
+import ListHeader from "./ListHeader";
 import { useGetTasks } from "../../../hooks/useGetTasks";
 import { useGetTodayTasks } from "../../../hooks/useGetTodayTasks";
 import Item from "../../Item/Item";
 import AddTask from "../../Item/AddTask";
-import LoadingScreen from "../../EmptyEditor/LoadingScreen.tsx";
+import type { RootState } from "../../../store";
+import LoadingScreen from "../../EmptyEditor/LoadingScreen";
 
 const TreeList = () => {
   const { project } = useParams();
   const { tasks, completedTasks, isLoading } = useGetTasks();
   const { todayTasks } = useGetTodayTasks();
-  const showAddTask = useSelector((state) => state.showAddTask.value);
-  const showCompleted = useSelector((state) => state.showCompleted.value);
+  const showAddTask = useSelector(
+    (state: RootState) => state.showAddTask.value
+  );
+  const showCompleted = useSelector(
+    (state: RootState) => state.showCompleted.value
+  );
 
   return (
     <>

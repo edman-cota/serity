@@ -1,7 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../firebase.ts";
+import database, { auth } from "../firebase";
+import { TaskProps } from "../types/task.model";
 
 export const useGetTodayTasks = () => {
   const [user] = useAuthState(auth);
@@ -9,7 +10,7 @@ export const useGetTodayTasks = () => {
 
   useEffect(() => {
     database.ref(`${user?.uid}/tasks`).on("value", (snapshot) => {
-      const taskList = [];
+      const taskList: TaskProps[] = [];
       snapshot.forEach((snap) => {
         if (snap.val().completed === 0) {
           if (snap.val().due !== undefined) {

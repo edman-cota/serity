@@ -1,13 +1,15 @@
-import React from "react";
 import { useSelector } from "react-redux";
-// eslint-disable-next-line object-curly-newline
 import { useColorModeValue, VStack } from "@chakra-ui/react";
+import Footer from "./Footer";
+import Header from "./Header";
+import type { RootState } from "../../store";
 import Workspace from "../Workspace/Workspace";
-import Footer from "./Footer.tsx";
-import Header from "./Header.tsx";
 
 const Sidebar = () => {
-  const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value);
+  const isSidebarOpen = useSelector(
+    (state: RootState) => state.isSidebarOpen.value
+  );
+
   const display = isSidebarOpen ? "flex" : "none";
 
   const sidebarBackground = useColorModeValue("gray.100", "gray.700");

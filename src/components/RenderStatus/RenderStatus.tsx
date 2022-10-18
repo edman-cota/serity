@@ -8,27 +8,35 @@ import { Tooltip, useToast, Text } from "@chakra-ui/react";
 // import { BiSquareRounded } from "react-icons/bi";
 // import { BsFillCheckSquareFill } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useGetProject } from "../../hooks/useGetProject.ts";
-import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice.ts";
-import { setActiveIndex } from "../../features/counter/activeIndexSlice.ts";
-import { auth } from "../../firebase.ts";
+import { useGetProject } from "../../hooks/useGetProject";
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice";
+import { setActiveIndex } from "../../features/counter/activeIndexSlice";
+import { auth } from "../../firebase";
 
-import { markStatusToCompleted } from "../../helpers/markStatusToCompleted.ts";
+import { markStatusToCompleted } from "../../helpers/markStatusToCompleted";
 import { markStatusToUncomplete } from "../../helpers/markStatusToUncomplete";
-import { getPriorityColor } from "../../helpers/getPriorityColor.ts";
+import { getPriorityColor } from "../../helpers/getPriorityColor";
+import { TaskProps } from "../../types/task.model";
+import type { RootState } from "../../store";
 
-const RenderStatus = ({ task }) => {
+interface Props {
+  task: TaskProps;
+}
+
+const RenderStatus = ({ task }: Props) => {
   const toast = useToast();
   const dispatch = useDispatch();
   const [user] = useAuthState(auth);
   const { project } = useGetProject();
-  const workingProject = useSelector((state) => state.workingProject.value);
+  const workingProject = useSelector(
+    (state: RootState) => state.workingProject.value
+  );
 
   const [clicked, setClicked] = React.useState(false);
   const x = useMotionValue(100);
   const x0 = useMotionValue(0);
 
-  const markStatusAsComplete = (taskToUpdate) => {
+  const markStatusAsComplete = (taskToUpdate: TaskProps) => {
     setTimeout(() => {
       const result = markStatusToCompleted(
         user,
@@ -39,7 +47,7 @@ const RenderStatus = ({ task }) => {
       if (result === "success") {
         // close task detail sidebar
         dispatch(setSelectedTaskId(""));
-        dispatch(setActiveIndex(""));
+        dispatch(setActiveIndex(-1));
 
         toast({
           description: "Task completed successfully",
@@ -52,7 +60,7 @@ const RenderStatus = ({ task }) => {
   const tickPath = useTransform(clicked ? x : x0, [10, 100], [0, 1]);
   const tickPathDone = useTransform(x, [10, 100], [0, 1]);
 
-  const markStatusAsUncomplete = (taskToUpdate) => {
+  const markStatusAsUncomplete = (taskToUpdate: TaskProps) => {
     const result = markStatusToUncomplete(
       user,
       workingProject,
@@ -86,7 +94,9 @@ const RenderStatus = ({ task }) => {
               <motion.path
                 fill={clicked ? "#2175e2" : "none"}
                 strokeWidth="2"
-                stroke={clicked ? "#2175e2" : getPriorityColor(task.priority)}
+                stroke={
+                  clicked ? "#2175e2" : getPriorityColor(task.priority || 0)
+                }
                 d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
                 style={{ translateX: 5, translateY: 5 }}
               />

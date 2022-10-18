@@ -7,16 +7,17 @@ import { List, Text, ListItem, VStack } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { setWorkingProject } from "../../features/counter/workingProjectSlice.ts";
+import { setWorkingProject } from "../../features/counter/workingProjectSlice";
 import { useGetProjects } from "../../hooks/useGetProjects";
-import { auth } from "../../firebase.ts";
+import { auth } from "../../firebase";
 import "./Workspace.scss";
-import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice.ts";
-import { setActiveIndex } from "../../features/counter/activeIndexSlice.ts";
-import { setShowAddTask } from "../../features/counter/showAddTaskSlice.ts";
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice";
+import { setActiveIndex } from "../../features/counter/activeIndexSlice";
+import { setShowAddTask } from "../../features/counter/showAddTaskSlice";
 import "../Sidebar/Sidebar.scss";
-import { beautifyUrl } from "../../helpers/beautifyUrl.ts";
-import { beautifyUsername } from "../../helpers/beautifyUsername.ts";
+import { beautifyUrl } from "../../helpers/beautifyUrl";
+import { beautifyUsername } from "../../helpers/beautifyUsername";
+import { ProjectProps } from "../../types/project.model";
 
 const Workspace = () => {
   const dispatch = useDispatch();
@@ -25,11 +26,11 @@ const Workspace = () => {
 
   const username = beautifyUsername(user?.email);
 
-  const navigateTo = (project) => {
+  const navigateTo = (project: ProjectProps) => {
     // Guarda localmente
     dispatch(setWorkingProject(project));
-    localStorage.setItem("project", project.name);
-    localStorage.setItem("working-project", project.id);
+    localStorage.setItem("project", project?.name || "today");
+    localStorage.setItem("working-project", project?.id || "today");
     // close task detail sidebar
     dispatch(setSelectedTaskId(""));
     dispatch(setActiveIndex(""));
@@ -45,7 +46,7 @@ const Workspace = () => {
               <ListItem key={project.id} color="hsla(0,0%,100%,.87)">
                 <NavLink
                   key={project.id}
-                  to={`/${username}/${beautifyUrl(project?.name)}`}
+                  to={`/${username}/${beautifyUrl(project?.name || "today")}`}
                   className={({ isActive }) =>
                     isActive ? "i-active" : "i-link"
                   }
@@ -59,14 +60,6 @@ const Workspace = () => {
                   >
                     {project?.name}
                   </Text>
-                  {/* <Text className="active-task-count">
-                    {project?.activeCount}
-                  </Text> */}
-                  {/* <ProjectMoreIcon
-                    name={project?.name}
-                    emoji={project?.emoji}
-                    id={project?.id}
-                  /> */}
                 </NavLink>
               </ListItem>
             ))}

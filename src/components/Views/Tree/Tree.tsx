@@ -1,18 +1,18 @@
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable func-names */
-import React from "react";
 import { Flex } from "@chakra-ui/react";
 import { HotKeys } from "react-hotkeys";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
-import TreeTask from "./DetailPanel.tsx";
+import TreeTask from "./DetailPanel";
 import "../../Web/web.css";
-import { setSidebarVisibility } from "../../../features/counter/sidebarVisibilitySlice.ts";
+import type { RootState } from "../../../store";
+import { setSidebarVisibility } from "../../../features/counter/sidebarVisibilitySlice";
 
 const Tree = () => {
   const dispatch = useDispatch();
-  const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value);
+  const isSidebarOpen = useSelector(
+    (state: RootState) => state.isSidebarOpen.value
+  );
 
   const keyMap = {
     DELETE_NODE: "Ctrl+b",

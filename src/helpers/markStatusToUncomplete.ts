@@ -1,9 +1,12 @@
-/* eslint-disable no-unsafe-optional-chaining */
-/* eslint-disable import/prefer-default-export */
-import { REOPEN_TASK_ACTIVITY_TYPE } from "../constants/index.ts";
-import database from "../firebase.ts";
+import { ActivityType } from "../enums/definitions";
+import database from "../firebase";
 
-export function markStatusToUncomplete(user, workingProject, project, task) {
+export function markStatusToUncomplete(
+  user: any,
+  workingProject: any,
+  project: any,
+  task: any
+) {
   const status = { success: "success", error: "error" };
 
   database
@@ -28,7 +31,7 @@ export function markStatusToUncomplete(user, workingProject, project, task) {
           projectId: workingProject.id,
           createdBy: user?.uid,
           createdAt: new Date().toISOString(),
-          type: REOPEN_TASK_ACTIVITY_TYPE,
+          type: ActivityType.REOPEN_TASK_ACTIVITY_TYPE,
         })
         .catch(() => status.error);
     });
