@@ -1,26 +1,27 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../firebase.ts";
+import database, { auth } from "../firebase";
+import type { RootState } from "../store";
+import { ActivityProps } from "../types/activity.model";
 
 const useGetActivities = () => {
-  const [activities, setActivities] = useState([]);
+  const [activities, setActivities] = useState<ActivityProps[]>([]);
   const [user] = useAuthState(auth);
   const [isLoading, setIsLoading] = useState(true);
-  const task = useSelector((state) => state.task.value);
+  const task = useSelector((state: RootState) => state.task.value);
 
-  // RETRIEVE ACTIVITIES
   useEffect(() => {
     database.ref(`${user?.uid}/activities`).on("value", (snapshot) => {
       setIsLoading(true);
-      const list = [];
+      const currentList: ActivityProps[] = [];
       snapshot.forEach((snap) => {
         if (snap.val().taskId === task.id) {
-          list.push(snap.val());
+          currentList.push(snap.val());
         }
       });
 
-      setActivities(list);
+      setActivities(currentList);
       setIsLoading(false);
     });
   }, [user?.uid, task.id]);

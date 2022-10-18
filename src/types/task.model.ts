@@ -1,9 +1,10 @@
-export interface Task {
-  content: string;
-  completed: number;
-  createdAt: string;
-  createdBy: string;
-  id: string;
-  priority: number;
-  projectId: string;
+export interface TaskProps {
+  id?: string;
+  content?: string;
+  completed?: number;
+  createdAt?: string;
+  createdBy?: string;
+  priority?: number;
+  projectId?: string;
+  description?: string;
 }

@@ -10,19 +10,20 @@ import { AiOutlineExpandAlt } from "react-icons/ai";
 import { useWindowSize } from "react-use";
 import { FormattedMessage } from "react-intl";
 
-import { setSelectedTaskId } from "../../../../features/counter/selectedTaskIdSlice.ts";
-import { setActiveIndex } from "../../../../features/counter/activeIndexSlice.ts";
-import DropdownTaskOptions from "../../../Dropdown/DropdownTaskOptions.tsx";
-import { setTaskActivityVisibility } from "../../../../features/counter/taskActivitySlice.ts";
-import { setIsExpanded } from "../../../../features/counter/expandedSlice.ts";
+import { setSelectedTaskId } from "../../../../features/counter/selectedTaskIdSlice";
+import { setActiveIndex } from "../../../../features/counter/activeIndexSlice";
+import DropdownTaskOptions from "../../../Dropdown/DropdownTaskOptions";
+import { setTaskActivityVisibility } from "../../../../features/counter/taskActivitySlice";
+import { setIsExpanded } from "../../../../features/counter/expandedSlice";
+import type { RootState } from "../../../../store";
 
 const Navbar = () => {
   const { width } = useWindowSize();
   const dispatch = useDispatch();
   const isTaskActivityVisible = useSelector(
-    (state) => state.isTaskActivityVisible.value
+    (state: RootState) => state.isTaskActivityVisible.value
   );
-  const isExpanded = useSelector((state) => state.isExpanded.value);
+  const isExpanded = useSelector((state: RootState) => state.isExpanded.value);
   const label = isExpanded ? (
     <FormattedMessage id="contract" />
   ) : (
@@ -56,7 +57,7 @@ const Navbar = () => {
         label={<FormattedMessage id="hide_detail_panel" />}
         placement="left"
       >
-        <Button variant="ghost" px="0px" onClick={() => closeView()}>
+        <Button px="0px" onClick={() => closeView()}>
           <FiChevronsRight size={19} />
         </Button>
       </Tooltip>
@@ -64,7 +65,7 @@ const Navbar = () => {
         {width >= 770 ? (
           <ListItem>
             <Tooltip label={label}>
-              <Button variant="ghost" onClick={expandScreen}>
+              <Button onClick={expandScreen}>
                 {isExpanded ? <CgMinimizeAlt /> : <AiOutlineExpandAlt />}
               </Button>
             </Tooltip>
@@ -72,7 +73,7 @@ const Navbar = () => {
         ) : null}
         <ListItem>
           <Tooltip label={<FormattedMessage id="toggle_task_activity" />}>
-            <Button variant="ghost" onClick={toggleTaskActivityVisibility}>
+            <Button onClick={toggleTaskActivityVisibility}>
               <MdOutlineHistoryToggleOff />
             </Button>
           </Tooltip>

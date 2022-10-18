@@ -1,4 +1,3 @@
-import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Icon from "./Icon";
@@ -7,7 +6,7 @@ import ActivityContent from "./ActivityContent";
 import "./Activities.scss";
 import Time from "./Time";
 import Last from "./Last";
-import { Activity as ActivityProps } from "../../types/activity.model";
+import { ActivityProps } from "../../types/activity.model";
 
 const Activity = ({
   username,

@@ -13,4 +13,26 @@ const pill = definePartsStyle({
   },
 });
 
-export const inputTheme = defineMultiStyleConfig({ variants: { pill } });
+const filled = definePartsStyle({
+  field: {
+    color: "black",
+    opacity: "0.8",
+    mt: "15px",
+    h: "42px",
+    border: "none",
+    bg: "gray.200",
+    _focus: {
+      zIndex: 1,
+      bg: "rgba(255, 255, 255, 0.08)",
+      borderColor: "#63b3ed",
+      boxShadow: "0 0 0 1px #63b3ed",
+    },
+  },
+});
+
+const variants = {
+  filled: filled,
+  custom: pill,
+};
+
+export const inputTheme = defineMultiStyleConfig({ variants });

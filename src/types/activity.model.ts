@@ -1,44 +1,48 @@
 import { PriorityType, ActivityType } from "../enums/definitions";
 
-export type Activity = {
+export interface ActivityProps {
   /**
-   * Unic Id of the activity
+   * Id of the activity.
    */
   id?: string;
   /**
-   * Optional due date of the activity. Depends on the activity type
+   * Due date of the activity. Depends on the activity type.
    */
   due: string;
   /**
-   * The actual task content/title
+   * The actual task content where the activity belongs to.
    */
   content: string;
   /**
-   * The task id where the activity was created at
+   * The task id where the activity belings to.
    */
   taskId?: string;
   /**
-   * The actual user username that triggered the activity
+   * Current user username that triggered the activity.
    */
-  username: string;
+  username?: string;
   /**
-   * Current time when the activity was created at
+   * Current time when the activity was created at.
    */
   createdAt: string;
   /**
-   * The project id where the task belongs to where the activity was created at
+   * Current user id who triggered the activity.
+   */
+  createdBy?: string;
+  /**
+   * The project id where the task belongs to where the activity was created at.
    */
   projectId?: string;
   /**
-   * The type of the activity
+   * The type of the activity.
    */
   type: ActivityType;
   /**
-   * The actual task description where the activity belongs to
+   * The actual task description where the activity belongs to.
    */
   description: string;
   /**
-   * The actual task priority where the activity belings to
+   * The actual task priority where the activity belings to.
    */
   priority: PriorityType;
-};
+}

@@ -1,13 +1,20 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { TaskProps } from "../../types/task.model";
+
+export interface Props {
+  value: TaskProps;
+}
+
+const initialState: Props = {
+  value: {},
+};
 
 export const taskSlice = createSlice({
   name: "task",
-  initialState: {
-    value: [],
-  },
+  initialState,
   reducers: {
-    setTask: (state, action) => {
+    setTask: (state, action: PayloadAction<TaskProps>) => {
       state.value = action.payload;
     },
   },

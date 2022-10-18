@@ -6,7 +6,7 @@ import { HotKeys } from "react-hotkeys";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
-import TreeTask from "./DetailPanel";
+import TreeTask from "./DetailPanel.tsx";
 import "../../Web/web.css";
 import { setSidebarVisibility } from "../../../features/counter/sidebarVisibilitySlice.ts";
 

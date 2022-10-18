@@ -1,19 +1,20 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { ProjectProps } from "../../types/project.model";
 
-interface Props {
-  value: any[];
+export interface Props {
+  value: ProjectProps;
 }
 
 const initialState: Props = {
-  value: [],
+  value: {},
 };
 
 export const workingProjectSlice = createSlice({
   name: "workingProject",
   initialState,
   reducers: {
-    setWorkingProject: (state, action) => {
+    setWorkingProject: (state, action: PayloadAction<ProjectProps>) => {
       state.value = action.payload;
     },
   },

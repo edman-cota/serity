@@ -7,15 +7,17 @@ import { motion } from "framer-motion";
 import DetailTab from "../../Cards/DetailTab";
 import NavbarTreeTask from "./Navbar/Navbar";
 import Timeline from "../../Timeline/Timeline";
-
-import { useSplitSizes } from "../../../hooks/useSplitSizes.ts";
+import { useSplitSizes } from "../../../hooks/useSplitSizes";
+import type { RootState } from "../../../store";
 
 const DetailPanel = () => {
   const { colorMode } = useColorMode();
-  const task = useSelector((state) => state.task.value);
-  const selectedTaskId = useSelector((state) => state.selectedTaskId.value);
+  const task = useSelector((state: RootState) => state.task.value);
+  const selectedTaskId = useSelector(
+    (state: RootState) => state.selectedTaskId.value
+  );
   const isTaskActivityVisible = useSelector(
-    (state) => state.isTaskActivityVisible.value
+    (state: RootState) => state.isTaskActivityVisible.value
   );
 
   const { sizes, paneDisplay } = useSplitSizes();
@@ -35,7 +37,6 @@ const DetailPanel = () => {
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1 }}
-      // exit={{ opacity: 0 }}
       style={styles}
     >
       <VStack>
@@ -46,13 +47,7 @@ const DetailPanel = () => {
           </Flex>
         ) : (
           <Flex w="100%" direction="column">
-            <DetailTab
-              key={task.id}
-              taskId={task.id}
-              dueDate={task.due}
-              priority={task.priority}
-              title={task.content}
-            />
+            <DetailTab />
           </Flex>
         )}
       </VStack>

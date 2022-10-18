@@ -1,4 +1,3 @@
-import React from "react";
 import Priority from "./Priority";
 import DueDate from "./DueDate";
 

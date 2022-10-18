@@ -1,21 +1,21 @@
-import React from "react";
 import { VStack } from "@chakra-ui/react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSelector } from "react-redux";
 import InputTaskTitle from "../Item/InputTaskTitle";
-import QuickOptions from "../RenderDate/QuickOptions.tsx";
+import QuickOptions from "../RenderDate/QuickOptions";
 import Description from "./Description";
-
-import "./DetailTab.scss";
+import type { RootState } from "../../store";
 
 const DetailTab = () => {
-  const task = useSelector((state) => state.task.value);
-  const workingProject = useSelector((state) => state.workingProject.value);
+  const task = useSelector((state: RootState) => state.task.value);
+  const workingProject = useSelector(
+    (state: RootState) => state.workingProject.value
+  );
 
   return (
     <VStack h="100%" px="20px">
       <InputTaskTitle
-        title={task.content}
+        content={task.content}
         id={task.id}
         projectId={workingProject.id}
       />

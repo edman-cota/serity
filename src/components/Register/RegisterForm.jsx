@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { FormattedMessage } from "react-intl";
 // eslint-disable-next-line object-curly-newline
 import { Input, VStack, Text, Flex, Link, Checkbox } from "@chakra-ui/react";
-import SocialLogin from "../Login/SocialLogin";
+import SocialLogin from "../Login/SocialLogin.tsx";
 import { registerWithEmailAndPassword } from "../../firebase.ts";
 import Header from "../Login/LoginHeader.tsx";
 import Footer from "../Login/Footer.tsx";
@@ -39,7 +39,7 @@ const RegisterForm = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <Input
-            variant="pill"
+            variant="filled"
             placeholder="Nombre de usuario"
             _placeholder={{ color: "#999" }}
             {...register("name", { required: true })}
@@ -52,7 +52,7 @@ const RegisterForm = () => {
           )}
 
           <Input
-            variant="pill"
+            variant="filled"
             placeholder="Correo electronico"
             _placeholder={{ color: "#999" }}
             {...register("email", { required: true })}
@@ -66,7 +66,7 @@ const RegisterForm = () => {
           )}
 
           <Input
-            variant="pill"
+            variant="filled"
             placeholder="Contraseña"
             _placeholder={{ color: "#999" }}
             {...register("password", { required: true, minLength: 8 })}
@@ -79,14 +79,9 @@ const RegisterForm = () => {
             </Text>
           )}
 
-          <Flex mt="20px">
-            <Checkbox
-              variant="filled"
-              iconColor="white"
-              iconSize={6}
-              spacing=".75rem"
-            >
-              <Text fontSize="14px">
+          <Flex my="20px">
+            <Checkbox spacing=".75rem">
+              <Text fontSize="14px" color="blackAlpha.800">
                 I agree to the{" "}
                 <Link to="/terms" color="#09f">
                   Terms of Service
@@ -116,14 +111,6 @@ const RegisterForm = () => {
               </svg>
             </div>
           </button>
-
-          {/* <Input
-            type="submit"
-            bg="#2e85ec"
-            mt="20px"
-            value="Get started"
-            _hover={{ bg: "#0071dc" }}
-          /> */}
         </form>
       </VStack>
 

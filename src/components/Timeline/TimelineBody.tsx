@@ -1,26 +1,20 @@
-import React from "react";
 import { motion } from "framer-motion";
 import Activity from "./Activity";
-import { Activity as Props } from "../../types/activity.model";
+import { ActivityProps } from "../../types/activity.model";
 
-const TimelineBody = ({ activities }: any) => {
-  const variants = {
-    open: {
-      transition: { staggerChildren: 0.07, delayChildren: 0.2 },
-    },
-    closed: {
-      transition: { staggerChildren: 0.05, staggerDirection: -1 },
-    },
-  };
+interface ActivitiesProps {
+  activities: ActivityProps[];
+}
 
+const TimelineBody = ({ activities }: ActivitiesProps) => {
   return (
     <div className="timeline">
-      <motion.ul variants={variants} className="timeline-body">
+      <motion.ul className="timeline-body">
         {activities &&
           activities
             .slice(0)
             .reverse()
-            .map((data: Props) => (
+            .map((data: ActivityProps) => (
               <Activity
                 key={data.id}
                 username={data.username}

@@ -1,11 +1,11 @@
-/* eslint-disable object-curly-newline */
 import React, { useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { Button, Flex, List, ListItem, Text } from "@chakra-ui/react";
 import { FormattedMessage } from "react-intl";
-import { auth, signInWithGoogle } from "../../firebase.ts";
+import { auth, signInWithGoogle } from "../../firebase";
+import { beautifyUsername } from "../../helpers/beautifyUsername";
 
 const SocialLogin = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const SocialLogin = () => {
       return;
     }
     if (user) {
-      const username = user?.email.split("@")[0];
+      const username = beautifyUsername(user?.email);
       navigate(`/${username}/today/`);
     }
   }, [user, loading, navigate]);
@@ -30,7 +30,9 @@ const SocialLogin = () => {
             onClick={signInWithGoogle}
             px="42px"
             w="100%"
-            _hover={{ bg: "#2e85ec", opacity: "0.8" }}
+            border="1px"
+            borderColor="gray.200"
+            _hover={{ bg: "gray.200" }}
           >
             <Text as="span">
               <FcGoogle fontSize="22px" />

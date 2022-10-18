@@ -1,28 +1,25 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-empty */
-/* eslint-disable object-curly-newline */
-/* eslint-disable quotes */
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { VStack, Text, Input, Button } from "@chakra-ui/react";
+import { VStack, Text, Input, Button, Flex, Checkbox } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase.ts";
+import { auth } from "../../firebase";
 import SocialLogin from "./SocialLogin";
-import Footer from "./Footer.tsx";
-import { useGetActiveProject } from "../../hooks/useGetActiveProject";
-import LoginHeader from "./LoginHeader.tsx";
-import { beautifyUrl } from "../../helpers/beautifyUrl.ts";
+import Footer from "./Footer";
+import LoginHeader from "./LoginHeader";
+import { beautifyUrl } from "../../helpers/beautifyUrl";
+import { beautifyUsername } from "../../helpers/beautifyUsername";
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
-  const { activeProject } = useGetActiveProject();
-  const project = window.localStorage.getItem("project");
+  const project = window.localStorage.getItem("project") ?? "today";
 
-  const signInWithEmailAndPassword = async (email, password) => {
+  const signInWithEmailAndPassword = async (
+    email: string,
+    password: string
+  ) => {
     try {
       await auth.signInWithEmailAndPassword(email, password);
     } catch (err) {}
@@ -39,12 +36,12 @@ const LoginForm = () => {
       return;
     }
     if (user) {
-      const username = user?.email.split("@")[0];
+      const username = beautifyUsername(user?.email);
       navigate(`/${username}/${beautifyUrl(project)}`);
     }
-  }, [user, loading, navigate, activeProject]);
+  }, [user, loading, navigate]);
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     signInWithEmailAndPassword(data.email, data.password);
   };
 
@@ -66,7 +63,6 @@ const LoginForm = () => {
             variant="filled"
             placeholder="Correo"
             _placeholder={{ color: "#999" }}
-            name="email"
             {...register("email", { required: true })}
           />
           {errors.email?.type === "required" && (
@@ -88,17 +84,32 @@ const LoginForm = () => {
             </Text>
           )}
 
-          <Button variant="link" my="20px" color="teal.500">
-            <FormattedMessage id="forgot_password" />
-          </Button>
+          <Flex justifyContent="space-between" my="15px">
+            <Checkbox defaultChecked spacing=".75rem" color="blackAlpha.800">
+              Remember me
+            </Checkbox>
+            <Button variant="link" my="20px" color="#0071dc">
+              <FormattedMessage id="forgot_password" />
+            </Button>
+          </Flex>
 
-          <Input
-            type="submit"
-            bg="#0071dc"
-            color="white"
-            value="Log in"
-            _hover={{ bg: "#004484" }}
-          />
+          <button className="cssbuttons-io-button" type="submit">
+            Log in
+            <div className="icon">
+              <svg
+                height="24"
+                width="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </button>
         </form>
       </VStack>
 
