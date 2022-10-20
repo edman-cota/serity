@@ -61,24 +61,31 @@ const Navbar = () => {
       my="10px"
       alignItems="center"
     >
-      <Tooltip
-        label={<FormattedMessage id="hide_detail_panel" />}
-        placement="left"
-      >
-        <Button px="0px" onClick={() => closeView()}>
-          <FiChevronsRight size={19} />
-        </Button>
-      </Tooltip>
-      <Tooltip label="Move up" command="K">
-        <Button>
-          <HiOutlineChevronUp />
-        </Button>
-      </Tooltip>
-      <Tooltip label="Move down" command="J">
-        <Button>
-          <HiOutlineChevronDown />
-        </Button>
-      </Tooltip>
+      <Flex>
+        <Tooltip
+          label={<FormattedMessage id="hide_detail_panel" />}
+          placement="left"
+          command="SPACE"
+        >
+          <Button px="0px" onClick={() => closeView()}>
+            <FiChevronsRight size={19} />
+          </Button>
+        </Tooltip>
+        {isExpanded ? (
+          <>
+            <Tooltip label="Move up" command="K">
+              <Button>
+                <HiOutlineChevronUp />
+              </Button>
+            </Tooltip>
+            <Tooltip label="Move down" command="J">
+              <Button>
+                <HiOutlineChevronDown />
+              </Button>
+            </Tooltip>
+          </>
+        ) : null}
+      </Flex>
       <List display="flex" alignItems="center" gap="20px">
         {width >= 770 ? (
           <ListItem>

@@ -75,7 +75,7 @@ export const messages = {
     contract: "Contract",
     toggle_task_activity: "Toggle task activity",
     // Navbar
-    toggle_sidebar: "Toggle sidebar · Ctrl + B",
+    toggle_sidebar: "Toggle sidebar",
     create_new_task: "Create new task · t",
     duplicate_project: "Duplicate project",
     delete_project: "Delete project",
@@ -183,7 +183,7 @@ export const messages = {
     contract: "Contraer",
     toggle_task_activity: "Actividad de la tarea",
     // Navbar
-    toggle_sidebar: "Alternar barra lateral · Ctrl + B",
+    toggle_sidebar: "Alternar barra lateral",
     create_new_task: "Crear nueva tarea · t",
     duplicate_project: "Duplicar proyecto",
     delete_project: "Eliminar proyecto",
