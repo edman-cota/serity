@@ -3,6 +3,7 @@ import { inputTheme } from "./components/input";
 import { menuTheme } from "./components/menu";
 import { tooltipTheme } from "./components/tooltip";
 import { buttonTheme } from "./components/button";
+import { textareaTheme } from "./components/textarea";
 
 // const config = {
 //   initialColorMode: "light",
@@ -82,6 +83,7 @@ const theme = extendTheme({
     Menu: menuTheme,
     Tooltip: tooltipTheme,
     Button: buttonTheme,
+    Textarea: textareaTheme,
   },
 
   // { config, breakpoints, components },

@@ -1,4 +1,3 @@
-import React from "react";
 import "../App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "../components/Home/Home";
@@ -18,6 +17,7 @@ import Updates from "../components/Updates/Updates";
 import MainPanel from "../components/Views/Tree/MainPanel";
 import TreeList from "../components/Views/Tree/TreeList";
 import HelpCenter from "../containers/HelpCenter/HelpCenter";
+import Onboarding from "../components/onboarding/Onboarding";
 
 interface Props {
   currentLocale: string;
@@ -32,6 +32,7 @@ const Routing = ({ currentLocale, handleChange }: Props): JSX.Element => {
       <Route path="/" element={<Home />} />
       <Route path="login/" element={<Login />} />
       <Route path="register/" element={<Register />} />
+      <Route path="onboarding/" element={<Onboarding />} />
 
       <Route path="/faq/" element={<FAQ />} />
       <Route path="/dev/" element={<Dev />} />

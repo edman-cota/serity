@@ -54,7 +54,7 @@ const DropdownTaskOptions = () => {
   const handleDeleteTask = () => {
     const status = deleteSingleTask(task?.at(0), project?.at(0), user);
     dispatch(setSelectedTaskId(""));
-    dispatch(setActiveIndex(""));
+    dispatch(setActiveIndex(-1));
 
     if (status === "success") {
       toast({

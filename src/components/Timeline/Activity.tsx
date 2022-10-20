@@ -35,8 +35,7 @@ const Activity = ({
         >
           <Text className="text" fontSize="15px">
             <Text as="span" color="white" pr="30px" fontWeight={700}>
-              {/* {username} */}
-              Edman Cota
+              {username}
             </Text>
             <Time createdAt={createdAt} />
           </Text>

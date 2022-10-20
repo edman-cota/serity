@@ -120,13 +120,13 @@ const AddTask = () => {
       </Flex>
       <ReactFocusLock>
         <Textarea
-          variant="ghost"
           spellCheck="false"
           autoComplete="off"
           name="w3review"
           rows="1"
           cols="200"
           w="full"
+          h="40px"
           onChange={(e) => setTitle(e.target.value)}
           onKeyDown={handleKeyDown}
           value={title}
