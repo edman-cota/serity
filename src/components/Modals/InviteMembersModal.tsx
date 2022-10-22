@@ -15,13 +15,12 @@ import {
   HStack,
   IconButton,
   useToast,
-  Tooltip,
   MenuItem,
   DarkMode,
 } from "@chakra-ui/react";
+import { Tooltip } from "custom-react-tooltip";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FormattedMessage } from "react-intl";
-import emailjs from "@emailjs/browser";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { FiLink, FiUser } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";

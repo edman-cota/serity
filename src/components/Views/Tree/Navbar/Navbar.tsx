@@ -1,13 +1,7 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
-import React from "react";
-import {
-  Flex,
-  List,
-  ListItem,
-  Button,
-  Tooltip as RTooltip,
-} from "@chakra-ui/react";
+import { Flex, List, ListItem, Button } from "@chakra-ui/react";
+import { Tooltip } from "custom-react-tooltip";
 import { useDispatch, useSelector } from "react-redux";
 import { FiChevronsRight } from "react-icons/fi";
 import { MdOutlineHistoryToggleOff } from "react-icons/md";
@@ -23,7 +17,6 @@ import DropdownTaskOptions from "../../../Dropdown/DropdownTaskOptions";
 import { setTaskActivityVisibility } from "../../../../features/counter/taskActivitySlice";
 import { setIsExpanded } from "../../../../features/counter/expandedSlice";
 import type { RootState } from "../../../../store";
-import Tooltip from "../../../Tooltip/Tooltip";
 
 const Navbar = () => {
   const { width } = useWindowSize();
@@ -89,19 +82,19 @@ const Navbar = () => {
       <List display="flex" alignItems="center" gap="20px">
         {width >= 770 ? (
           <ListItem>
-            <RTooltip label={label}>
+            <Tooltip label={label} command="⇧ + SPACE">
               <Button onClick={expandScreen}>
                 {isExpanded ? <CgMinimizeAlt /> : <AiOutlineExpandAlt />}
               </Button>
-            </RTooltip>
+            </Tooltip>
           </ListItem>
         ) : null}
         <ListItem>
-          <RTooltip label={<FormattedMessage id="toggle_task_activity" />}>
+          <Tooltip label={<FormattedMessage id="toggle_task_activity" />}>
             <Button onClick={toggleTaskActivityVisibility}>
               <MdOutlineHistoryToggleOff />
             </Button>
-          </RTooltip>
+          </Tooltip>
         </ListItem>
         <ListItem>
           <DropdownTaskOptions />

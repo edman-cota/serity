@@ -8,7 +8,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import Logo from "../../assets/img/logo.svg";
-import Tooltip from "../Tooltip/Tooltip";
+import { Tooltip } from "custom-react-tooltip";
 
 const Onboarding = () => {
   const themes: string[] = ["lightTheme", "darkTheme"];
