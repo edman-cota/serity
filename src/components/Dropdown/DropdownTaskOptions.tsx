@@ -24,6 +24,7 @@ import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/activeIndexSlice";
 import CopyToClipboardMenuItem from "./CopyToClipboardMenuItem";
 import MoveToMenuItemModal from "../Modals/MoveToMenuItemModal";
+import { setIsExpanded } from "../../features/counter/expandedSlice";
 
 const DropdownTaskOptions = () => {
   const toast = useToast();
@@ -52,26 +53,30 @@ const DropdownTaskOptions = () => {
   };
 
   const handleDeleteTask = () => {
-    const status = deleteSingleTask(task?.at(0), project?.at(0), user);
     dispatch(setSelectedTaskId(""));
     dispatch(setActiveIndex(-1));
+    dispatch(setIsExpanded(false));
 
-    if (status === "success") {
-      toast({
-        description: "Task deleted successfully",
-        status: SUCCESS,
-        isClosable: true,
-        variant: "subtle",
-      });
-    }
-    if (status === "error") {
-      toast({
-        description: "Failed to delete task",
-        status: ERROR,
-        isClosable: true,
-        variant: "subtle",
-      });
-    }
+    // const status = deleteSingleTask(task?.at(0), project?.at(0), user);
+
+    // console.log(status);
+
+    // if (status === "success") {
+    //   toast({
+    //     description: "Task deleted successfully",
+    //     status: SUCCESS,
+    //     isClosable: true,
+    //     variant: "subtle",
+    //   });
+    // }
+    // if (status === "error") {
+    //   toast({
+    //     description: "Failed to delete task",
+    //     status: ERROR,
+    //     isClosable: true,
+    //     variant: "subtle",
+    //   });
+    // }
   };
 
   return (

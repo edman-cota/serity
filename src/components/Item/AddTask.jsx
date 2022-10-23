@@ -3,7 +3,6 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import React, { useState } from "react";
 import {
-  Flex,
   useColorModeValue,
   Textarea,
   chakra,
@@ -18,6 +17,7 @@ import { ADD_TASK_ACTIVITY_TYPE } from "../../constants/index.ts";
 import database, { auth } from "../../firebase.ts";
 import { useGetProject } from "../../hooks/useGetProject.ts";
 import { setShowAddTask } from "../../features/counter/showAddTaskSlice.ts";
+import { scale } from "./item.transition.tsx";
 
 const MotionFlex = chakra(motion.div, {
   /**
@@ -98,13 +98,14 @@ const AddTask = () => {
       }
     }
   };
-
   const background = useColorModeValue("var(--gray-100)", "var(--gray-700)");
 
   return (
     <MotionFlex
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      variants={scale}
+      initial="exit"
+      animate="enter"
+      exit="exit"
       display="flex"
       bg={background}
       margin="10px auto"
@@ -115,9 +116,9 @@ const AddTask = () => {
       alignItems="center"
       mb="40px"
     >
-      <Flex>
+      <MotionFlex>
         <BiSquareRounded color="#a0aec0" fontSize={15} />
-      </Flex>
+      </MotionFlex>
       <ReactFocusLock>
         <Textarea
           spellCheck="false"

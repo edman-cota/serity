@@ -10,7 +10,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { setWorkingProject } from "../../features/counter/workingProjectSlice";
 import { useGetProjects } from "../../hooks/useGetProjects";
 import { auth } from "../../firebase";
-import "./Workspace.scss";
 import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice";
 import { setActiveIndex } from "../../features/counter/activeIndexSlice";
 import { setShowAddTask } from "../../features/counter/showAddTaskSlice";

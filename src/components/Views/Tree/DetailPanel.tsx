@@ -1,8 +1,7 @@
 /* eslint-disable comma-dangle */
-import React from "react";
 import { Flex, useColorMode, VStack } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import DetailTab from "../../Cards/DetailTab";
 import NavbarTreeTask from "./Navbar/Navbar";
@@ -22,6 +21,8 @@ const DetailPanel = () => {
 
   const { sizes, paneDisplay } = useSplitSizes();
 
+  console.log("selectedTaskId: ", selectedTaskId);
+
   const styles = {
     flexDirection: "column",
     height: "100vh",
@@ -32,7 +33,7 @@ const DetailPanel = () => {
   };
 
   return (
-    // <AnimatePresence exitBeforeEnter>
+    <AnimatePresence exitBeforeEnter>
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
