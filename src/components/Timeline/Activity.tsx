@@ -39,7 +39,7 @@ const Activity = ({
             </Text>
             <Time createdAt={createdAt} />
           </Flex>
-          <Text className="text" pt="7px">
+          <Text fontSize="15px" className="text" pt="7px">
             <Verbose type={type} />
             <ActivityContent
               type={type}

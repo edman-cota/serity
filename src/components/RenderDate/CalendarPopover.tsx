@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import {
   Popover,
@@ -13,27 +12,47 @@ import {
 import { useSelector } from "react-redux";
 import Calendar from "react-calendar";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase.ts";
-import "react-calendar/dist/Calendar.css"; // more from DetailTab.scss
-import { setDueDate } from "../../helpers/setDueDate";
-import TopOptions from "./TopOptions.tsx";
-import RenderDateText from "./RenderDateText.tsx";
-import CalendarIcon from "../Icons/CalendarIcon.tsx";
 
-const CalendarPopover = ({ task }) => {
+import { auth } from "../../firebase";
+import TopOptions from "./TopOptions";
+import "react-calendar/dist/Calendar.css"; // more from DetailTab.scss
+import type { RootState } from "../../store";
+import RenderDateText from "./RenderDateText";
+import { isToday } from "../../helpers/isToday";
+import CalendarIcon from "../Icons/CalendarIcon";
+import { isSameDay } from "../../helpers/isSameDay";
+import { isTomorrow } from "../../helpers/isTomorrow";
+import { setDueDate } from "../../helpers/setDueDate";
+
+interface Props {
+  task: any;
+}
+
+const CalendarPopover = ({ task }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const workingProject = useSelector((state) => state.workingProject.value);
-  const initRef = React.useRef();
+  const workingProject = useSelector((state: RootState) => state.workingProject.value);
   const [user] = useAuthState(auth);
   const [value, setValue] = useState(null);
 
-  const locale = localStorage.getItem("locale");
+  const locale = localStorage.getItem("locale") || "en-US";
 
   useEffect(() => {
     setValue(task?.due && new Date(task?.due));
   }, [task]);
 
-  const onChange = (e) => {
+  const onChange = (e: any) => {
+    if(isToday(task?.due) && isToday(new Date(e).toISOString())) {
+      return;
+    }
+
+    if(isTomorrow(task?.due) && isTomorrow(new Date(e).toISOString())) {
+      return;
+    }
+
+    if(isSameDay(task?.due, new Date(e).toISOString())) {
+      return;
+    }
+
     const status = setDueDate(user, task, e, workingProject);
     if (status === "success") onClose();
   };
@@ -43,7 +62,6 @@ const CalendarPopover = ({ task }) => {
       closeOnBlur
       onClose={onClose}
       isOpen={isOpen}
-      initialFocusRef={initRef}
     >
       <PopoverTrigger>
         <Button onClick={onOpen}>

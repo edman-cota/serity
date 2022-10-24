@@ -1,9 +1,8 @@
-/* eslint-disable import/prefer-default-export */
-import { CHANGE_DUE_DATE_ACTIVITY_TYPE } from "../constants/index.ts";
-import database from "../firebase.ts";
+import database from "../firebase";
+import { Status } from "../enums/definitions";
+import { ActivityType } from "../enums/definitions";
 
-export function setDueDate(user, task, e, workingProject) {
-  const status = { success: "success", error: "error" };
+export function setDueDate(user: any, task: any, e: any, workingProject: any) {
 
   database
     .ref(`${user?.uid}/tasks/${task?.id}`)
@@ -20,10 +19,10 @@ export function setDueDate(user, task, e, workingProject) {
         projectId: workingProject.id,
         createdBy: user?.uid,
         createdAt: new Date().toISOString(),
-        type: CHANGE_DUE_DATE_ACTIVITY_TYPE,
+        type: ActivityType.CHANGE_DUE_DATE_ACTIVITY_TYPE,
       });
     })
-    .catch(() => status.error);
+    .catch(() => Status.ERROR);
 
-  return status.success;
+  return Status.SUCCESS;
 }

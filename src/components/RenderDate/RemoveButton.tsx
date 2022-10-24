@@ -1,15 +1,21 @@
-/* eslint-disable react/prop-types */
-import React from "react";
 import { Button } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase.ts";
+
+import { auth } from "../../firebase";
+import type { RootState } from "../../store";
+import { Status } from "../../enums/definitions";
 import { removeDueDate } from "../../helpers/removeDueDate";
 
-const RemoveButton = ({ onClose, task }) => {
+interface Props {
+  onClose: any;
+  task: any;
+}
+
+const RemoveButton = ({ onClose, task }: Props) => {
   const [user] = useAuthState(auth);
-  const workingProject = useSelector((state) => state.workingProject.value);
+  const workingProject = useSelector((state: RootState) => state.workingProject.value);
 
   const handleRemoveDueDate = () => {
     if (task.due === undefined) {
@@ -18,17 +24,11 @@ const RemoveButton = ({ onClose, task }) => {
     }
 
     const status = removeDueDate(user, task, workingProject);
-    if (status === "success") onClose();
+    if (status === Status.SUCCESS) onClose();
   };
 
   return (
-    <Button
-      variant="solid"
-      h="1.875rem"
-      fontSize="14px"
-      onClick={handleRemoveDueDate}
-      _focus={{ outline: "none" }}
-    >
+    <Button h="1.875rem" variant="solid" onClick={handleRemoveDueDate} >
       <FormattedMessage id="remove_date" />
     </Button>
   );

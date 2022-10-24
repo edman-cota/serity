@@ -1,10 +1,7 @@
-/* eslint-disable import/prefer-default-export */
-import { REMOVE_DUE_DATE_ACTIVITY_TYPE } from "../constants/index.ts";
-import database from "../firebase.ts";
+import database from "../firebase";
+import { ActivityType, Status } from "../enums/definitions";
 
-export function removeDueDate(user, task, workingProject) {
-  const status = { success: "success", error: "error" };
-
+export function removeDueDate(user: any, task: any, workingProject: any) {
   database
     .ref(`${user?.uid}/tasks/${task.id}`)
     .update({ due: null })
@@ -20,10 +17,10 @@ export function removeDueDate(user, task, workingProject) {
         projectId: workingProject.id,
         createdBy: user?.uid,
         createdAt: new Date().toISOString(),
-        type: REMOVE_DUE_DATE_ACTIVITY_TYPE,
+        type: ActivityType.REMOVE_DUE_DATE_ACTIVITY_TYPE,
       });
     })
-    .catch(() => status.error);
+    .catch(() => Status.ERROR);
 
-  return status.success;
+  return Status.SUCCESS;
 }
