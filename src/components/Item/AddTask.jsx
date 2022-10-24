@@ -1,7 +1,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable comma-dangle */
 /* eslint-disable no-unsafe-optional-chaining */
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   useColorModeValue,
   Textarea,
@@ -34,6 +34,8 @@ const AddTask = () => {
   const dispatch = useDispatch();
   const showAddTask = useSelector((state) => state.showAddTask.value);
   const workingProjectId = window.localStorage.getItem("working-project");
+  const [height, setHeight] = useState(40);
+  const areaRef = useRef(null);
 
   const handleKeyDown = (event) => {
     const keyCode = event.which || event.keyCode;
@@ -98,8 +100,12 @@ const AddTask = () => {
       }
     }
   };
-  const background = useColorModeValue("var(--gray-100)", "var(--gray-700)");
 
+  const handleOnInput = () => {
+    setHeight(areaRef.current.scrollHeight);
+  };
+
+  const background = useColorModeValue("var(--gray-100)", "var(--gray-700)");
   return (
     <MotionFlex
       variants={scale}
@@ -113,10 +119,15 @@ const AddTask = () => {
       w="95%"
       maxWidth="880px"
       borderRadius="base"
-      alignItems="center"
       mb="40px"
     >
-      <MotionFlex>
+      <MotionFlex
+        display="flex"
+        width="38px"
+        height="40px"
+        justifyContent="center"
+        alignItems="center"
+      >
         <BiSquareRounded color="#a0aec0" fontSize={15} />
       </MotionFlex>
       <ReactFocusLock>
@@ -127,10 +138,12 @@ const AddTask = () => {
           rows="1"
           cols="200"
           w="full"
-          h="40px"
+          h={`${height}px`}
+          ref={areaRef}
           onChange={(e) => setTitle(e.target.value)}
           onKeyDown={handleKeyDown}
           value={title}
+          onInput={handleOnInput}
         />
       </ReactFocusLock>
     </MotionFlex>

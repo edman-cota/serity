@@ -1,4 +1,3 @@
-import React from "react";
 import { Text } from "@chakra-ui/react";
 import { formatAMPM } from "../../helpers/formatAMPM";
 
@@ -10,7 +9,7 @@ const Time = ({ createdAt }: Props) => {
   const date = new Date(createdAt);
 
   return (
-    <Text as="span" color="gray">
+    <Text as="span" fontSize="14px" color="whiteAlpha.700">
       {new Date(date.getTime()).toLocaleDateString("en-US")} -{" "}
       {formatAMPM(new Date(date.getTime()))}
     </Text>

@@ -15,7 +15,7 @@ const Icon = ({ type }: IconProps): JSX.Element => {
   switch (type) {
     case 1:
       return (
-        <Text className="time" bg="#4772fa">
+        <Text className="time" bg="#1890ff">
           <AiOutlinePlus />
         </Text>
       );

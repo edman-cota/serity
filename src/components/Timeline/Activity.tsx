@@ -20,9 +20,6 @@ const Activity = ({
   return (
     <motion.li className="timeline-item">
       <Flex
-        _hover={{ bg: "rgba(35, 131, 226, 0.28)" }}
-        borderRadius="10px"
-        py="10px"
       >
         <Icon type={type} />
 
@@ -31,15 +28,18 @@ const Activity = ({
           direction="column"
           w="100%"
           mb="20px"
-          mx="20px"
+          mx="30px"
         >
-          <Text className="text" fontSize="15px">
-            <Text as="span" color="white" pr="30px" fontWeight={700}>
+          <Flex pt="3px" w="100%" fontSize="15px" justifyContent="space-between">
+            <Text as="span"
+            color="rgba(255, 255, 255, 0.92)"
+            pr="30px"
+            fontWeight={600}>
               {username}
             </Text>
             <Time createdAt={createdAt} />
-          </Text>
-          <Text className="text" pt="6px">
+          </Flex>
+          <Text className="text" pt="7px">
             <Verbose type={type} />
             <ActivityContent
               type={type}

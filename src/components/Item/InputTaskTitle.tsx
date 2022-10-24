@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Editable, EditablePreview, EditableTextarea, Text } from "@chakra-ui/react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { RENAME_TASK_ACTIVITY_TYPE } from "../../constants/index";
 import database, { auth } from "../../firebase";
@@ -36,7 +36,20 @@ const InputTaskTitle = ({ content, id, projectId }: Props) => {
     }
   };
 
-  return <Text w="100%"> {content} </Text>;
+  return (
+    <Editable
+      defaultValue={content}
+      onSubmit={handleSubmit}
+      w="100%"
+      minH="30px"
+      maxH="120px"
+      fontSize="18px"
+      fontWeight={600}
+    >
+      <EditablePreview w="100%" />
+      <EditableTextarea w="100%" h="120px"   />
+    </Editable>
+  );
 };
 
 export default InputTaskTitle;
