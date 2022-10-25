@@ -6,7 +6,7 @@ export interface VisibilityState {
 }
 
 const initialState: VisibilityState = {
-  value: true,
+  value: false,
 };
 
 export const sidebarVisibilitySlice = createSlice({

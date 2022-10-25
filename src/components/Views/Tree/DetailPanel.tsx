@@ -21,8 +21,6 @@ const DetailPanel = () => {
 
   const { sizes, paneDisplay } = useSplitSizes();
 
-  console.log("selectedTaskId: ", selectedTaskId);
-
   const styles = {
     flexDirection: "column",
     height: "100vh",

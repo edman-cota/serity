@@ -4,20 +4,12 @@ import { menuTheme } from "./components/menu";
 import { tooltipTheme } from "./components/tooltip";
 import { buttonTheme } from "./components/button";
 import { textareaTheme } from "./components/textarea";
+import { breakpoints } from "./foundations/breakpoints";
 
-// const config = {
-//   initialColorMode: "light",
-//   useSystemColorMode: false,
-// };
-
-// const breakpoints = createBreakpoints({
-//   sm: "414px",
-//   md: "768px",
-//   lg: "960px",
-//   xl: "1050px",
-//   "2xl": "1200px",
-//   "3xl": "1536px",
-// });
+const config = {
+  initialColorMode: "dark",
+  useSystemColorMode: false,
+};
 
 // const $arrowBg = cssVar("popper-arrow-bg");
 // const $arrowShadowColor = cssVar("popper-arrow-shadow-color");
@@ -73,11 +65,13 @@ import { textareaTheme } from "./components/textarea";
 //   },
 
 const theme = extendTheme({
+  config,
   colors: {
     gray: {
       700: "#1f2733",
     },
   },
+  breakpoints,
   components: {
     Input: inputTheme,
     Menu: menuTheme,

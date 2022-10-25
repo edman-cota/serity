@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import { useWindowSize } from "react-use";
 import { useDispatch } from "react-redux";
@@ -20,7 +19,6 @@ const ItemTitle = ({ task, index }: Props) => {
   const color = useColorModeValue("#181d25", "whiteAlpha.900");
 
   const onSelectItem = (id: string, itemIndex: number) => {
-    console.log(itemIndex);
     dispatch(setSelectedTaskId(id));
     dispatch(setTask(task));
     dispatch(setActiveIndex(itemIndex));
@@ -28,7 +26,6 @@ const ItemTitle = ({ task, index }: Props) => {
 
     if (width <= 1210) {
       dispatch(setSidebarVisibility(false));
-      localStorage.setItem("show-sidebar", "false");
     }
   };
 
