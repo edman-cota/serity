@@ -23,7 +23,7 @@
     "@types/node": "^17.0.18",
     "axios": "^0.26.0",
     "cross-env": "^7.0.3",
-    "custom-react-tooltip": "^1.0.2",
+    "custom-react-tooltip": "^1.0.3",
     "dotenv": "^16.0.0",
     "draft-js": "^0.11.7",
     "emoji-picker-react": "^4.0.0-rc.27",

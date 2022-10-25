@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { TaskProps } from "../../types/task.model";
 
 export interface Props {
-  value: TaskProps;
+  value: Partial<TaskProps>;
 }
 
 const initialState: Props = {

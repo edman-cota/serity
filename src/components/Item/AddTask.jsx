@@ -138,6 +138,7 @@ const AddTask = () => {
           rows="1"
           cols="200"
           w="full"
+          border="none"
           h={`${height}px`}
           ref={areaRef}
           onChange={(e) => setTitle(e.target.value)}
