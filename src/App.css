@@ -45,11 +45,13 @@ ul {
 }
 
 ::-moz-selection {
-  background: rgba(35, 131, 226, 0.28);
+  /* background: rgba(35, 131, 226, 0.28); */
+  background: rgba(56, 139, 253, 0.4);
 }
 
 ::selection {
-  background: rgba(35, 131, 226, 0.28);
+  /* background: rgba(35, 131, 226, 0.28); */
+  background: rgba(56, 139, 253, 0.4);
 }
 
 /* width */
