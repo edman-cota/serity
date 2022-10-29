@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react"
 import useGetAllActivities from "../../hooks/useGetAllActivities"
-import LoadingScreen from "../EmptyEditor/LoadingScreen"
+import LoadingScreen from "../LoadingScreen/LoadingScreen"
 import TimelineHeader from "./TimelineHeader"
 import TimelineBody from "./TimelineBody"
 

@@ -11,12 +11,8 @@ import FAQ from "../pages/FAQ/FAQ"
 import Dev from "../pages/DevelopersAPI/Dev"
 
 import Profile from "../components/Profile/Profile"
-import Notifications from "../components/Notifications/Notifications"
-import Subscription from "../components/Subscriptions/Subscription"
 import Updates from "../components/Updates/Updates"
 import MainPanel from "../components/Views/Tree/MainPanel"
-import TreeList from "../components/Views/Tree/TreeList"
-import HelpCenter from "../containers/HelpCenter/HelpCenter"
 import Onboarding from "../components/onboarding/Onboarding"
 
 interface Props {
@@ -36,7 +32,6 @@ const Routing = ({ currentLocale, handleChange }: Props): JSX.Element => {
 
       <Route path="/faq/" element={<FAQ />} />
       <Route path="/dev/" element={<Dev />} />
-      <Route path="/help-center/" element={<HelpCenter />} />
 
       <Route path="/:username/overview/" element={<Overview />} />
       <Route path="/:username/updates/" element={<Updates />} />
@@ -51,8 +46,6 @@ const Routing = ({ currentLocale, handleChange }: Props): JSX.Element => {
         }
       >
         <Route path="profile" element={<Profile />} />
-        <Route path="notifications" element={<Notifications />} />
-        <Route path="subscription" element={<Subscription />} />
       </Route>
     </Routes>
   )

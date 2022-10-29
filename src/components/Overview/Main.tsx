@@ -2,7 +2,7 @@ import React from "react"
 import { Flex, VStack } from "@chakra-ui/react"
 
 // import CompletionRateChart from "./CompletionRate";
-import AchievementCard from "../Card/Overview/AchievementCard"
+import AchievementCard from "../Cards/AchievementCard"
 import CompletionCurveChart from "./CompletionCurve"
 import Toolbar from "./Toolbar"
 

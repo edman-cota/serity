@@ -9,7 +9,7 @@ import { useGetTodayTasks } from "../../../hooks/useGetTodayTasks"
 import Item from "../../Item/Item"
 import AddTask from "../../Item/AddTask"
 import type { RootState } from "../../../store"
-import LoadingScreen from "../../EmptyEditor/LoadingScreen"
+import LoadingScreen from "../../LoadingScreen/LoadingScreen"
 
 const TreeList = () => {
   const { project } = useParams()

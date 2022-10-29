@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom"
 import { createRoot } from "react-dom/client"
 import theme from "./theme/index.ts"
 import { store } from "./store.ts"
-import App from "./App"
+import App from "./App.tsx"
 
 const container = document.getElementById("root")
 const root = createRoot(container)
