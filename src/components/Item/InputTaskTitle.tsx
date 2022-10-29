@@ -14,7 +14,6 @@ const InputTaskTitle = ({ content, id, projectId }: Props) => {
 
   const handleKeyDown = (e: any) => {
     const keyCode =  e.which || e.keyCode;
-    // setTask(e.target.value)
 
     if (keyCode === 13) {
       e.preventDefault();
