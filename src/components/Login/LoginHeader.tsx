@@ -1,9 +1,9 @@
-import { Flex, Text, Image } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
-import Logo from "../../assets/img/logo.svg";
+import { Flex, Text, Image } from "@chakra-ui/react"
+import { useNavigate } from "react-router-dom"
+import Logo from "../../assets/img/logo.svg"
 
 const Header = (): JSX.Element => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <Flex
@@ -31,7 +31,7 @@ const Header = (): JSX.Element => {
         S e r i t y
       </Text>
     </Flex>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

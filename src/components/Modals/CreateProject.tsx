@@ -12,67 +12,63 @@ import {
   HStack,
   useColorModeValue,
   useColorMode,
-} from "@chakra-ui/react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useSelector } from "react-redux";
-import { FormattedMessage } from "react-intl";
-import FocusLock from "react-focus-lock";
-import { useForm } from "react-hook-form";
-import { AiOutlinePlus } from "react-icons/ai";
-import ChooseIconModal from "./ChooseIconModal";
-import { createNewProject } from "../../helpers/createNewProject";
-import { Status } from "../../enums/definitions";
-import database, { auth } from "../../firebase";
-import type { RootState } from "../../store";
-import { ProjectProps } from "../../types/project.model";
+} from "@chakra-ui/react"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { useSelector } from "react-redux"
+import { FormattedMessage } from "react-intl"
+import FocusLock from "react-focus-lock"
+import { useForm } from "react-hook-form"
+import { AiOutlinePlus } from "react-icons/ai"
+import ChooseIconModal from "./ChooseIconModal"
+import { createNewProject } from "../../helpers/createNewProject"
+import { Status } from "../../enums/definitions"
+import database, { auth } from "../../firebase"
+import type { RootState } from "../../store"
+import { ProjectProps } from "../../types/project.model"
 
 const CreateProject = () => {
-  const { colorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const { register, resetField, handleSubmit } = useForm({ mode: "onChange" });
+  const { colorMode } = useColorMode()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { register, resetField, handleSubmit } = useForm({ mode: "onChange" })
 
-    const [user] = useAuthState(auth);
-  const emoji = useSelector((state: RootState) => state.emoji.value);
-
-
+  const [user] = useAuthState(auth)
+  const emoji = useSelector((state: RootState) => state.emoji.value)
 
   const onSubmit = (data: any) => {
-      const currentDate = new Date();
-  const timestamp = currentDate.getTime(); // Milliseconds
+    const currentDate = new Date()
+    const timestamp = currentDate.getTime() // Milliseconds
 
-  const projectRef = database.ref(`${user?.uid}/projects`);
-  const newProjectRef = projectRef.push();
+    const projectRef = database.ref(`${user?.uid}/projects`)
+    const newProjectRef = projectRef.push()
 
-  if (newProjectRef.key !== null && user?.uid !== undefined) {
-    const project: ProjectProps = {
-      id: newProjectRef.key,
-      name: data.name.trim(),
-      emoji: emoji,
-      color: "white",
-      activeCount: 0,
-      taskCount: 0,
-      shared: false,
-      members: [],
-      columns: [],
-      columnsOrder: [],
-      createdAt: timestamp.toString(),
-      createdBy: user?.uid,
-      showCompleted: false,
-    };
+    if (newProjectRef.key !== null && user?.uid !== undefined) {
+      const project: ProjectProps = {
+        id: newProjectRef.key,
+        name: data.name.trim(),
+        emoji: emoji,
+        color: "white",
+        activeCount: 0,
+        taskCount: 0,
+        shared: false,
+        members: [],
+        columns: [],
+        columnsOrder: [],
+        createdAt: timestamp.toString(),
+        createdBy: user?.uid,
+        showCompleted: false,
+      }
 
-    newProjectRef
-      .set(project)
-      .then(() => {
-        onClose();
-      resetField("name");
-      })
-      .catch(() => Status.ERROR);
+      newProjectRef
+        .set(project)
+        .then(() => {
+          onClose()
+          resetField("name")
+        })
+        .catch(() => Status.ERROR)
+    }
   }
 
-     
-  };
-
-  const modalBg = useColorModeValue("white", "#1c2333");
+  const modalBg = useColorModeValue("white", "#1c2333")
 
   return (
     <>
@@ -118,8 +114,8 @@ const CreateProject = () => {
                     variant="ghost"
                     w="100px"
                     onClick={() => {
-                      onClose();
-                      resetField("name");
+                      onClose()
+                      resetField("name")
                     }}
                   >
                     <FormattedMessage id="cancel" />
@@ -140,7 +136,7 @@ const CreateProject = () => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default CreateProject;
+export default CreateProject

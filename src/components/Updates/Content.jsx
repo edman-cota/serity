@@ -1,14 +1,14 @@
-import { Flex, Text, VStack } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import updates from "./data";
-import Update from "./Update";
-import "../Timeline/Activities.scss";
-import "../Timeline/Activity.scss";
+import { Flex, Text, VStack } from "@chakra-ui/react"
+import { useSelector } from "react-redux"
+import updates from "./data"
+import Update from "./Update"
+import "../Timeline/Activities.scss"
+import "../Timeline/Activity.scss"
 
 const Content = () => {
-  const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value);
+  const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value)
 
-  const margin = isSidebarOpen ? "320px" : "0px";
+  const margin = isSidebarOpen ? "320px" : "0px"
 
   return (
     <VStack flex={1} ml={margin} w="100%">
@@ -35,7 +35,7 @@ const Content = () => {
         </div>
       </Flex>
     </VStack>
-  );
-};
+  )
+}
 
-export default Content;
+export default Content

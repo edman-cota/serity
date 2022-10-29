@@ -1,4 +1,4 @@
-import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle, defineStyleConfig } from "@chakra-ui/react"
 
 const baseStyle = defineStyle({
   fontWeight: 400,
@@ -6,7 +6,7 @@ const baseStyle = defineStyle({
   height: "auto",
   resize: "none",
   caretColor: "#2175e2",
-  
+
   _focusVisible: {
     boxShadow: "none",
     border: "none",
@@ -27,6 +27,6 @@ const baseStyle = defineStyle({
     border: "none",
     outline: "none",
   },
-});
+})
 
-export const textareaTheme = defineStyleConfig({ baseStyle });
+export const textareaTheme = defineStyleConfig({ baseStyle })

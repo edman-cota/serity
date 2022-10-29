@@ -1,6 +1,6 @@
-import React from "react";
-import { Flex, Text } from "@chakra-ui/react";
-import { FormattedMessage } from "react-intl";
+import React from "react"
+import { Flex, Text } from "@chakra-ui/react"
+import { FormattedMessage } from "react-intl"
 
 const ChartTitle = ({ title }: { title: string }): JSX.Element => {
   return (
@@ -9,7 +9,7 @@ const ChartTitle = ({ title }: { title: string }): JSX.Element => {
         <FormattedMessage id={title} />
       </Text>
     </Flex>
-  );
-};
+  )
+}
 
-export default ChartTitle;
+export default ChartTitle

@@ -6,75 +6,69 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, {
-  useCallback,
-  useMemo,
-  useRef,
-  useState,
-  useEffect,
-} from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { EditorState, convertToRaw } from "draft-js";
-import Editor from "@draft-js-plugins/editor";
+import React, { useCallback, useMemo, useRef, useState, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { EditorState, convertToRaw } from "draft-js"
+import Editor from "@draft-js-plugins/editor"
 import createMentionPlugin, {
   defaultSuggestionsFilter,
-} from "@draft-js-plugins/mention";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useColorModeValue, HStack, LightMode } from "@chakra-ui/react";
-import { setShowAddTask } from "../../features/counter/showAddTaskSlice.ts";
-import editorStyles from "./SimpleMentionEditor.module.css";
-import database, { auth } from "../../firebase.ts";
-import { useGetUsers } from "../../hooks/useGetUsers";
+} from "@draft-js-plugins/mention"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { useColorModeValue, HStack, LightMode } from "@chakra-ui/react"
+import { setShowAddTask } from "../../features/counter/showAddTaskSlice.ts"
+import editorStyles from "./SimpleMentionEditor.module.css"
+import database, { auth } from "../../firebase.ts"
+import { useGetUsers } from "../../hooks/useGetUsers"
 
 const TextInput = () => {
-  const [user] = useAuthState(auth);
-  const dispatch = useDispatch();
-  const { users } = useGetUsers();
-  const background = useColorModeValue("var(--gray-100)", "var(--gray-700)");
-  const showAddTask = useSelector((state) => state.showAddTask.value);
-  const workingProject = useSelector((state) => state.workingProject.value);
-  const ref = useRef(null);
+  const [user] = useAuthState(auth)
+  const dispatch = useDispatch()
+  const { users } = useGetUsers()
+  const background = useColorModeValue("var(--gray-100)", "var(--gray-700)")
+  const showAddTask = useSelector((state) => state.showAddTask.value)
+  const workingProject = useSelector((state) => state.workingProject.value)
+  const ref = useRef(null)
   const [editorState, setEditorState] = useState(() =>
-    EditorState.createEmpty()
-  );
-  const [open, setOpen] = useState(false);
-  const [suggestions, setSuggestions] = useState(users);
+    EditorState.createEmpty(),
+  )
+  const [open, setOpen] = useState(false)
+  const [suggestions, setSuggestions] = useState(users)
 
   useEffect(() => {
-    setSuggestions(users);
-  }, [suggestions, users]);
+    setSuggestions(users)
+  }, [suggestions, users])
 
   const { MentionSuggestions, plugins } = useMemo(() => {
-    const mentionPlugin = createMentionPlugin();
-    const { MentionSuggestions } = mentionPlugin;
-    const plugins = [mentionPlugin];
-    return { plugins, MentionSuggestions };
-  }, []);
+    const mentionPlugin = createMentionPlugin()
+    const { MentionSuggestions } = mentionPlugin
+    const plugins = [mentionPlugin]
+    return { plugins, MentionSuggestions }
+  }, [])
 
   const onOpenChange = useCallback((_open) => {
-    setOpen(_open);
-  }, []);
+    setOpen(_open)
+  }, [])
 
   const onSearchChange = useCallback(
     ({ value }) => {
-      setSuggestions(defaultSuggestionsFilter(value, users));
+      setSuggestions(defaultSuggestionsFilter(value, users))
     },
-    [users]
-  );
+    [users],
+  )
 
   const handleExtract = () => {
-    const contentState = editorState.getCurrentContent();
-    const raw = convertToRaw(contentState);
-    const mentionedUsers = [];
+    const contentState = editorState.getCurrentContent()
+    const raw = convertToRaw(contentState)
+    const mentionedUsers = []
     for (const key in raw.entityMap) {
-      const ent = raw.entityMap[key];
+      const ent = raw.entityMap[key]
       if (ent.type === "mention") {
-        mentionedUsers.push(ent.data.mention);
+        mentionedUsers.push(ent.data.mention)
       }
     }
 
-    const cardRef = database.ref(`${user?.uid}/tasks`);
-    const newCardRef = cardRef.push();
+    const cardRef = database.ref(`${user?.uid}/tasks`)
+    const newCardRef = cardRef.push()
     newCardRef
       .set({
         id: newCardRef.key,
@@ -86,9 +80,9 @@ const TextInput = () => {
         createdAt: new Date().toISOString(),
       })
       .then(() => {
-        dispatch(setShowAddTask(!showAddTask));
-      });
-  };
+        dispatch(setShowAddTask(!showAddTask))
+      })
+  }
 
   return (
     <HStack w="95%" maxW="1000px" bg={background} h="38px" borderRadius="base">
@@ -98,7 +92,7 @@ const TextInput = () => {
           role="button"
           tabIndex={0}
           onClick={() => {
-            ref.current.focus();
+            ref.current.focus()
           }}
         >
           <Editor
@@ -122,7 +116,7 @@ const TextInput = () => {
         </div>
       </LightMode>
     </HStack>
-  );
-};
+  )
+}
 
-export default TextInput;
+export default TextInput

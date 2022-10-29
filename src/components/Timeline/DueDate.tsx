@@ -1,8 +1,8 @@
-import React from "react";
-import { FormattedDate, FormattedMessage } from "react-intl";
+import React from "react"
+import { FormattedDate, FormattedMessage } from "react-intl"
 
 interface DueProps {
-  due: string;
+  due: string
 }
 
 const DueDate = ({ due }: DueProps): JSX.Element => {
@@ -15,7 +15,7 @@ const DueDate = ({ due }: DueProps): JSX.Element => {
         <FormattedDate value={due} month="short" day="2-digit" />
       </b>
     </span>
-  );
-};
+  )
+}
 
-export default DueDate;
+export default DueDate

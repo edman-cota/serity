@@ -1,8 +1,8 @@
-import React from "react";
-import { Flex, HStack } from "@chakra-ui/react";
+import React from "react"
+import { Flex, HStack } from "@chakra-ui/react"
 
-import PriorityIcon from "../RenderPriority/PriorityIcon";
-import CalendarPopover from "./CalendarPopover";
+import PriorityIcon from "../RenderPriority/PriorityIcon"
+import CalendarPopover from "./CalendarPopover"
 
 const QuickOptions = ({ task }: any) => (
   <HStack w="100%">
@@ -11,6 +11,6 @@ const QuickOptions = ({ task }: any) => (
       <PriorityIcon task={task} />
     </Flex>
   </HStack>
-);
+)
 
-export default QuickOptions;
+export default QuickOptions

@@ -1,6 +1,6 @@
 /* eslint-disable operator-linebreak */
-import PropTypes from "prop-types";
-import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types"
+import React, { useState, useEffect } from "react"
 import {
   Modal,
   ModalOverlay,
@@ -10,46 +10,46 @@ import {
   useColorMode,
   useColorModeValue,
   Text,
-} from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import "./styles.css";
-import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice.ts";
-import { setTask } from "../../features/counter/taskSlice.ts";
-import { useGetTags } from "../../hooks/useGetTags";
-import ModalBody from "./Modal/Body";
-import { Content } from "./styles";
+} from "@chakra-ui/react"
+import { useDispatch } from "react-redux"
+import "./styles.css"
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice.ts"
+import { setTask } from "../../features/counter/taskSlice.ts"
+import { useGetTags } from "../../hooks/useGetTags"
+import ModalBody from "./Modal/Body"
+import { Content } from "./styles"
 
 const Body = (props) => {
-  const { task } = props;
+  const { task } = props
   const {
     isOpen: isCardOpen,
     onOpen: onCardOpen,
     onClose: onCardClose,
-  } = useDisclosure();
-  const { tags } = useGetTags();
-  const dispatch = useDispatch();
-  const { colorMode } = useColorMode();
-  const [isDark, setIsDark] = useState(false);
+  } = useDisclosure()
+  const { tags } = useGetTags()
+  const dispatch = useDispatch()
+  const { colorMode } = useColorMode()
+  const [isDark, setIsDark] = useState(false)
 
-  const modalBg = useColorModeValue("white", "#282e3e");
-  const titleColor = useColorModeValue("#585D77", "rgba(255, 255, 255, 0.9)");
+  const modalBg = useColorModeValue("white", "#282e3e")
+  const titleColor = useColorModeValue("#585D77", "rgba(255, 255, 255, 0.9)")
 
   useEffect(() => {
-    setIsDark(colorMode === "dark");
-  }, [isDark, colorMode]);
+    setIsDark(colorMode === "dark")
+  }, [isDark, colorMode])
 
   const updateId = (t) => {
-    dispatch(setTask(t));
-    dispatch(setSelectedTaskId(t.id));
-  };
+    dispatch(setTask(t))
+    dispatch(setSelectedTaskId(t.id))
+  }
 
   return (
     <>
       <Content
         isDark={isDark}
         onClick={() => {
-          onCardOpen();
-          updateId(task);
+          onCardOpen()
+          updateId(task)
         }}
       >
         <Text
@@ -79,9 +79,9 @@ const Body = (props) => {
                   >
                     {tag.label}
                   </Text>
-                );
+                )
               }
-              return 0;
+              return 0
             })}
         </Flex>
       </Content>
@@ -109,15 +109,15 @@ const Body = (props) => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
 Body.propTypes = {
   task: PropTypes.element,
-};
+}
 
 Body.defaultProps = {
   task: {},
-};
+}
 
-export default Body;
+export default Body

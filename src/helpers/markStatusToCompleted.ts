@@ -1,11 +1,11 @@
-import { ActivityType, Status, DBRef } from "../enums/definitions";
-import database from "../firebase";
+import { ActivityType, Status, DBRef } from "../enums/definitions"
+import database from "../firebase"
 
 export function markStatusToCompleted(
   user: any,
   workingProject: any,
   project: any,
-  task: any
+  task: any,
 ) {
   database
     .ref(`${user?.uid}/${DBRef.Tasks}/`)
@@ -17,11 +17,11 @@ export function markStatusToCompleted(
         .ref(`${user?.uid}/${DBRef.Projects}/${workingProject.id}`)
         .update({
           activeCount: project?.[0].activeCount - 1,
-        });
+        })
 
       // Save the current operation activity
-      const activityRef = database.ref(`${user?.uid}/${DBRef.Activities}`);
-      const newActivityRef = activityRef.push();
+      const activityRef = database.ref(`${user?.uid}/${DBRef.Activities}`)
+      const newActivityRef = activityRef.push()
       newActivityRef.set({
         id: newActivityRef.key,
         username: user?.displayName,
@@ -31,9 +31,9 @@ export function markStatusToCompleted(
         createdBy: user?.uid,
         createdAt: new Date().toISOString(),
         type: ActivityType.COMPLETE_TASK_ACTIVITY_TYPE,
-      });
+      })
     })
-    .catch(() => Status.ERROR);
+    .catch(() => Status.ERROR)
 
-  return Status.SUCCESS;
+  return Status.SUCCESS
 }

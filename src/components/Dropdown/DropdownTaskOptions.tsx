@@ -1,5 +1,5 @@
 /* eslint-disable comma-dangle */
-import React from "react";
+import React from "react"
 import {
   Button,
   Menu,
@@ -7,55 +7,55 @@ import {
   MenuItem,
   MenuButton,
   useToast,
-} from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { CopyIcon } from "@chakra-ui/icons";
-import { AiOutlineDelete } from "react-icons/ai";
-import { RiMoreLine } from "react-icons/ri";
-import { FormattedMessage } from "react-intl";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useGetTask } from "../../hooks/useGetTask";
-import { auth } from "../../firebase";
-import { SUCCESS, ERROR, TOAST } from "../../constants";
-import { useGetProject } from "../../hooks/useGetProject";
-import { duplicateTask } from "../../helpers/duplicateTask";
-import { deleteSingleTask } from "../../helpers/deleteSingleTask";
-import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice";
-import { setActiveIndex } from "../../features/counter/activeIndexSlice";
-import CopyToClipboardMenuItem from "./CopyToClipboardMenuItem";
-import MoveToMenuItemModal from "../Modals/MoveToMenuItemModal";
-import { setIsExpanded } from "../../features/counter/expandedSlice";
+} from "@chakra-ui/react"
+import { useDispatch } from "react-redux"
+import { CopyIcon } from "@chakra-ui/icons"
+import { AiOutlineDelete } from "react-icons/ai"
+import { RiMoreLine } from "react-icons/ri"
+import { FormattedMessage } from "react-intl"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { useGetTask } from "../../hooks/useGetTask"
+import { auth } from "../../firebase"
+import { SUCCESS, ERROR, TOAST } from "../../constants"
+import { useGetProject } from "../../hooks/useGetProject"
+import { duplicateTask } from "../../helpers/duplicateTask"
+import { deleteSingleTask } from "../../helpers/deleteSingleTask"
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice"
+import { setActiveIndex } from "../../features/counter/activeIndexSlice"
+import CopyToClipboardMenuItem from "./CopyToClipboardMenuItem"
+import MoveToMenuItemModal from "../Modals/MoveToMenuItemModal"
+import { setIsExpanded } from "../../features/counter/expandedSlice"
 
 const DropdownTaskOptions = () => {
-  const toast = useToast();
-  const dispatch = useDispatch();
-  const { task } = useGetTask();
-  const [user] = useAuthState(auth);
-  const { project } = useGetProject();
+  const toast = useToast()
+  const dispatch = useDispatch()
+  const { task } = useGetTask()
+  const [user] = useAuthState(auth)
+  const { project } = useGetProject()
 
   const handleDuplicateTask = () => {
-    const status = duplicateTask(task?.at(0), project?.at(0), user);
+    const status = duplicateTask(task?.at(0), project?.at(0), user)
 
     if (status === SUCCESS) {
       toast({
         description: "Success",
         status: ERROR,
         isClosable: true,
-      });
+      })
     }
     if (status === ERROR) {
       toast({
         description: "Error",
         status: ERROR,
         isClosable: true,
-      });
+      })
     }
-  };
+  }
 
   const handleDeleteTask = () => {
-    dispatch(setSelectedTaskId(""));
-    dispatch(setActiveIndex(-1));
-    dispatch(setIsExpanded(false));
+    dispatch(setSelectedTaskId(""))
+    dispatch(setActiveIndex(-1))
+    dispatch(setIsExpanded(false))
 
     // const status = deleteSingleTask(task?.at(0), project?.at(0), user);
 
@@ -77,7 +77,7 @@ const DropdownTaskOptions = () => {
     //     variant: "subtle",
     //   });
     // }
-  };
+  }
 
   return (
     <Menu autoSelect={false}>
@@ -95,7 +95,7 @@ const DropdownTaskOptions = () => {
         </MenuItem>
       </MenuList>
     </Menu>
-  );
-};
+  )
+}
 
-export default DropdownTaskOptions;
+export default DropdownTaskOptions

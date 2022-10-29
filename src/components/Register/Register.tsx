@@ -1,5 +1,5 @@
-import { HStack, LightMode } from "@chakra-ui/react";
-import RegisterForm from "./RegisterForm";
+import { HStack, LightMode } from "@chakra-ui/react"
+import RegisterForm from "./RegisterForm"
 
 const Register = (): JSX.Element => (
   <LightMode>
@@ -7,6 +7,6 @@ const Register = (): JSX.Element => (
       <RegisterForm />
     </HStack>
   </LightMode>
-);
+)
 
-export default Register;
+export default Register

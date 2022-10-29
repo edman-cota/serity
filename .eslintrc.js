@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
-    semi: ["error", "always"],
+    semi: ["off", "always"],
     quotes: ["error", "double"],
     "react/react-in-jsx-scope": "off",
     "react/boolean-prop-naming": [
@@ -50,4 +50,4 @@ module.exports = {
       },
     ],
   },
-};
+}

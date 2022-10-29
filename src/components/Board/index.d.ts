@@ -1,3 +1,3 @@
-function index():JSX.Element;
+function index(): JSX.Element
 
-export default index;
+export default index

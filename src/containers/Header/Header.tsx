@@ -1,5 +1,5 @@
-import React from "react";
-import "../../components/Home/home.scss";
+import React from "react"
+import "../../components/Home/home.scss"
 
 const Header = (): JSX.Element => {
   return (
@@ -34,7 +34,7 @@ const Header = (): JSX.Element => {
         </div>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

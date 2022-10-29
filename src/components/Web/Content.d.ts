@@ -1,3 +1,3 @@
-function Content(): JSX.Element;
+function Content(): JSX.Element
 
-export default Content;
+export default Content

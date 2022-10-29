@@ -1,12 +1,12 @@
-import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
-import { HiOutlineViewBoards } from "react-icons/hi";
+import { Flex, Text, useColorModeValue } from "@chakra-ui/react"
+import { HiOutlineViewBoards } from "react-icons/hi"
 
 interface Props {
-  columnTitle: string;
+  columnTitle: string
 }
 
 const TaskStatus = ({ columnTitle }: Props) => {
-  const primaryColor = useColorModeValue("#202020", "#FFFFFF");
+  const primaryColor = useColorModeValue("#202020", "#FFFFFF")
 
   return (
     <Flex w="100%" alignItems="center">
@@ -26,7 +26,7 @@ const TaskStatus = ({ columnTitle }: Props) => {
         {columnTitle}
       </Text>
     </Flex>
-  );
-};
+  )
+}
 
-export default TaskStatus;
+export default TaskStatus

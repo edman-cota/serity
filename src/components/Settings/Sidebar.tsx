@@ -1,7 +1,7 @@
-import React from "react";
-import { Flex, VStack } from "@chakra-ui/react";
-import SidebarItem from "./SidebarItem";
-import ShortcutsModal from "../Modals/ShortcutsModal";
+import React from "react"
+import { Flex, VStack } from "@chakra-ui/react"
+import SidebarItem from "./SidebarItem"
+import ShortcutsModal from "../Modals/ShortcutsModal"
 
 const Sidebar = (): JSX.Element => {
   return (
@@ -13,7 +13,7 @@ const Sidebar = (): JSX.Element => {
         <ShortcutsModal />
       </VStack>
     </Flex>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

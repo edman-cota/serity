@@ -1,26 +1,26 @@
-import { Text } from "@chakra-ui/react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../../firebase";
-import { UPDATE_DESCRIPTION_ACTIVITY_TYPE } from "../../constants/index";
-import "./DetailTab.scss";
+import { Text } from "@chakra-ui/react"
+import { useAuthState } from "react-firebase-hooks/auth"
+import database, { auth } from "../../firebase"
+import { UPDATE_DESCRIPTION_ACTIVITY_TYPE } from "../../constants/index"
+import "./DetailTab.scss"
 
 interface Props {
-  description: string | undefined;
-  title: string | undefined;
-  id: string | undefined;
-  projectId: string | undefined;
+  description: string | undefined
+  title: string | undefined
+  id: string | undefined
+  projectId: string | undefined
 }
 
 const Description = ({ description, title, id, projectId }: Props) => {
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth)
 
   const handleSubmit = (e: any) => {
     database
       .ref(`${user?.uid}/tasks/${id}`)
       .update({ description: e.trim() })
       .then(() => {
-        const activityRef = database.ref(`${user?.uid}/activities`);
-        const newActivityRef = activityRef.push();
+        const activityRef = database.ref(`${user?.uid}/activities`)
+        const newActivityRef = activityRef.push()
         newActivityRef.set({
           id: newActivityRef.key,
           username: user?.displayName,
@@ -31,11 +31,11 @@ const Description = ({ description, title, id, projectId }: Props) => {
           createdBy: user?.uid,
           createdAt: new Date().toISOString(),
           type: UPDATE_DESCRIPTION_ACTIVITY_TYPE,
-        });
-      });
-  };
+        })
+      })
+  }
 
-  return <Text> {description} </Text>;
-};
+  return <Text> {description} </Text>
+}
 
-export default Description;
+export default Description

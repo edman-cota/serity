@@ -1,8 +1,8 @@
-import React from "react";
-import { Flex } from "@chakra-ui/react";
+import React from "react"
+import { Flex } from "@chakra-ui/react"
 
-import Board from "../../Board/index";
-import Navbar from "../../Navbar/Navbar";
+import Board from "../../Board/index"
+import Navbar from "../../Navbar/Navbar"
 
 const Kanban = (): JSX.Element => {
   return (
@@ -10,7 +10,7 @@ const Kanban = (): JSX.Element => {
       <Navbar />
       <Board />
     </Flex>
-  );
-};
+  )
+}
 
-export default Kanban;
+export default Kanban

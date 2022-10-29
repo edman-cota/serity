@@ -1,6 +1,6 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
-import { AiOutlinePlus } from "react-icons/ai";
-import { HiOutlineChevronDown } from "react-icons/hi";
+import { Button, Flex, Text } from "@chakra-ui/react"
+import { AiOutlinePlus } from "react-icons/ai"
+import { HiOutlineChevronDown } from "react-icons/hi"
 
 const Toolbar = () => {
   return (
@@ -17,7 +17,7 @@ const Toolbar = () => {
         </Button>
       </Flex>
     </Flex>
-  );
-};
+  )
+}
 
-export default Toolbar;
+export default Toolbar

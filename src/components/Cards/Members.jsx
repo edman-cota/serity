@@ -1,5 +1,5 @@
-import React from "react";
-import { Flex, Text } from "@chakra-ui/react";
+import React from "react"
+import { Flex, Text } from "@chakra-ui/react"
 
 const Members = () => (
   <Flex direction="column" mt="60px">
@@ -21,6 +21,6 @@ const Members = () => (
       +
     </Text>
   </Flex>
-);
+)
 
-export default Members;
+export default Members

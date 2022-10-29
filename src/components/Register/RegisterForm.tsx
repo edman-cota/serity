@@ -1,27 +1,27 @@
-import { useForm } from "react-hook-form";
-import { FormattedMessage } from "react-intl";
+import { useForm } from "react-hook-form"
+import { FormattedMessage } from "react-intl"
 // eslint-disable-next-line object-curly-newline
-import { Input, VStack, Text, Flex, Link, Checkbox } from "@chakra-ui/react";
-import SocialLogin from "../Login/SocialLogin";
-import { registerWithEmailAndPassword } from "../../firebase";
-import Header from "../Login/LoginHeader";
-import Footer from "../Login/Footer";
-import "./index.scss";
+import { Input, VStack, Text, Flex, Link, Checkbox } from "@chakra-ui/react"
+import SocialLogin from "../Login/SocialLogin"
+import { registerWithEmailAndPassword } from "../../firebase"
+import Header from "../Login/LoginHeader"
+import Footer from "../Login/Footer"
+import "./index.scss"
 
 const RegisterForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onChange" });
+  } = useForm({ mode: "onChange" })
 
   const onSubmit = (data: any) => {
     if (data.password.localeCompare(data.cpassword)) {
       try {
-        registerWithEmailAndPassword(data.name, data.email, data.password);
+        registerWithEmailAndPassword(data.name, data.email, data.password)
       } catch (e) {}
     }
-  };
+  }
 
   return (
     <VStack h="100%" justifyContent="center" width="100%">
@@ -111,7 +111,7 @@ const RegisterForm = () => {
 
       <Footer textId="already_have_an_account" whereTo="login" />
     </VStack>
-  );
-};
+  )
+}
 
-export default RegisterForm;
+export default RegisterForm

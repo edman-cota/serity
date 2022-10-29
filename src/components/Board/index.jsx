@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-const Index = () => <p>Hola mund</p>;
+const Index = () => <p>Hola mund</p>
 
-export default Index;
+export default Index
 
 // import { useSelector } from "react-redux";
 // import { useAuthState } from "react-firebase-hooks/auth";

@@ -1,22 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { VStack, Text } from "@chakra-ui/react";
-import { NavLink as RouteLink } from "react-router-dom";
-import { FormattedMessage } from "react-intl";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase.ts";
-import "./SmartFolders.scss";
+import React from "react"
+import PropTypes from "prop-types"
+import { VStack, Text } from "@chakra-ui/react"
+import { NavLink as RouteLink } from "react-router-dom"
+import { FormattedMessage } from "react-intl"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { auth } from "../../firebase.ts"
+import "./SmartFolders.scss"
 
 const SmartFolders = () => {
-  const [user] = useAuthState(auth);
-  const username = user?.email.split("@")[0];
-  let view = localStorage.getItem("view");
+  const [user] = useAuthState(auth)
+  const username = user?.email.split("@")[0]
+  let view = localStorage.getItem("view")
 
   if (!view) {
-    view = "tree";
+    view = "tree"
   }
 
-  const today = "today";
+  const today = "today"
 
   return (
     <VStack w="100%" my="50px">
@@ -28,8 +28,8 @@ const SmartFolders = () => {
         <NavLink text="today" icon="⭐" />
       </RouteLink>
     </VStack>
-  );
-};
+  )
+}
 
 const NavLink = ({ text, icon }) => (
   <Text
@@ -46,11 +46,11 @@ const NavLink = ({ text, icon }) => (
       <FormattedMessage id={text} />
     </span>
   </Text>
-);
+)
 
 NavLink.propTypes = {
   text: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
-};
+}
 
-export default SmartFolders;
+export default SmartFolders

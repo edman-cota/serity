@@ -1,3 +1,3 @@
-function Navbar():JSX.Element;
+function Navbar(): JSX.Element
 
-export default Navbar;
+export default Navbar

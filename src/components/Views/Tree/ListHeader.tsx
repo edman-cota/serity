@@ -1,9 +1,9 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
-import { FormattedMessage } from "react-intl";
-import { HiOutlineChevronDown } from "react-icons/hi";
+import { Button, Flex, Text } from "@chakra-ui/react"
+import { FormattedMessage } from "react-intl"
+import { HiOutlineChevronDown } from "react-icons/hi"
 
 interface Props {
-  count: number;
+  count: number
 }
 
 const ListHeader = ({ count }: Props) => {
@@ -19,7 +19,7 @@ const ListHeader = ({ count }: Props) => {
         </Text>
       </Text>
     </Flex>
-  );
-};
+  )
+}
 
-export default ListHeader;
+export default ListHeader

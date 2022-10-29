@@ -1,28 +1,28 @@
-import { Flex } from "@chakra-ui/react";
-import { HotKeys } from "react-hotkeys";
+import { Flex } from "@chakra-ui/react"
+import { HotKeys } from "react-hotkeys"
 
-import { useDispatch, useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
-import TreeTask from "./DetailPanel";
-import "../../Web/web.css";
-import type { RootState } from "../../../store";
-import { setSidebarVisibility } from "../../../features/counter/sidebarVisibilitySlice";
+import { useDispatch, useSelector } from "react-redux"
+import { Outlet } from "react-router-dom"
+import TreeTask from "./DetailPanel"
+import "../../Web/web.css"
+import type { RootState } from "../../../store"
+import { setSidebarVisibility } from "../../../features/counter/sidebarVisibilitySlice"
 
 const Tree = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const isSidebarOpen = useSelector(
-    (state: RootState) => state.isSidebarOpen.value
-  );
+    (state: RootState) => state.isSidebarOpen.value,
+  )
 
   const keyMap = {
     DELETE_NODE: "Ctrl+b",
-  };
+  }
 
   const handlers = {
     DELETE_NODE: () => {
-      dispatch(setSidebarVisibility(!isSidebarOpen));
+      dispatch(setSidebarVisibility(!isSidebarOpen))
     },
-  };
+  }
 
   return (
     <HotKeys
@@ -40,7 +40,7 @@ const Tree = () => {
         <TreeTask />
       </Flex>
     </HotKeys>
-  );
-};
+  )
+}
 
-export default Tree;
+export default Tree

@@ -1,4 +1,4 @@
-import "./style.scss";
+import "./style.scss"
 import {
   Button,
   Flex,
@@ -6,13 +6,13 @@ import {
   Image,
   VStack,
   useColorMode,
-} from "@chakra-ui/react";
-import Logo from "../../assets/img/logo.svg";
-import { Tooltip } from "custom-react-tooltip";
+} from "@chakra-ui/react"
+import Logo from "../../assets/img/logo.svg"
+import { Tooltip } from "custom-react-tooltip"
 
 const Onboarding = () => {
-  const themes: string[] = ["lightTheme", "darkTheme"];
-  const { toggleColorMode } = useColorMode();
+  const themes: string[] = ["lightTheme", "darkTheme"]
+  const { toggleColorMode } = useColorMode()
 
   return (
     <VStack style={{ height: "100vh", width: "100%" }}>
@@ -75,8 +75,8 @@ const Onboarding = () => {
         </Button> */}
       </Flex>
     </VStack>
-  );
-};
+  )
+}
 
 {
   /* <input
@@ -117,4 +117,4 @@ const Onboarding = () => {
       </label> */
 }
 
-export default Onboarding;
+export default Onboarding

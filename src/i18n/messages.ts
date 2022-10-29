@@ -1,4 +1,4 @@
-import { LOCALES } from "./locales";
+import { LOCALES } from "./locales"
 
 export const messages = {
   [LOCALES.ENGLISH]: {
@@ -218,4 +218,4 @@ export const messages = {
     invite: "Invitar",
     generate_a_join_link: "Generar un enlace de unión",
   },
-};
+}

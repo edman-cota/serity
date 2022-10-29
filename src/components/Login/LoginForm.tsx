@@ -1,49 +1,49 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { VStack, Text, Input, Button, Flex, Checkbox } from "@chakra-ui/react";
-import { useForm } from "react-hook-form";
-import { FormattedMessage } from "react-intl";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
-import SocialLogin from "./SocialLogin";
-import Footer from "./Footer";
-import LoginHeader from "./LoginHeader";
-import { beautifyUrl } from "../../helpers/beautifyUrl";
-import { beautifyUsername } from "../../helpers/beautifyUsername";
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { VStack, Text, Input, Button, Flex, Checkbox } from "@chakra-ui/react"
+import { useForm } from "react-hook-form"
+import { FormattedMessage } from "react-intl"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { auth } from "../../firebase"
+import SocialLogin from "./SocialLogin"
+import Footer from "./Footer"
+import LoginHeader from "./LoginHeader"
+import { beautifyUrl } from "../../helpers/beautifyUrl"
+import { beautifyUsername } from "../../helpers/beautifyUsername"
 
 const LoginForm = () => {
-  const navigate = useNavigate();
-  const [user, loading] = useAuthState(auth);
-  const project = window.localStorage.getItem("project") ?? "today";
+  const navigate = useNavigate()
+  const [user, loading] = useAuthState(auth)
+  const project = window.localStorage.getItem("project") ?? "today"
 
   const signInWithEmailAndPassword = async (
     email: string,
-    password: string
+    password: string,
   ) => {
     try {
-      await auth.signInWithEmailAndPassword(email, password);
+      await auth.signInWithEmailAndPassword(email, password)
     } catch (err) {}
-  };
+  }
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onChange" });
+  } = useForm({ mode: "onChange" })
 
   useEffect(() => {
     if (loading) {
-      return;
+      return
     }
     if (user) {
-      const username = beautifyUsername(user?.email);
-      navigate(`/${username}/${beautifyUrl(project)}`);
+      const username = beautifyUsername(user?.email)
+      navigate(`/${username}/${beautifyUrl(project)}`)
     }
-  }, [user, loading, navigate]);
+  }, [user, loading, navigate])
 
   const onSubmit = (data: any) => {
-    signInWithEmailAndPassword(data.email, data.password);
-  };
+    signInWithEmailAndPassword(data.email, data.password)
+  }
 
   return (
     <VStack
@@ -115,7 +115,7 @@ const LoginForm = () => {
 
       <Footer textId="dont_have_an_account_yet" whereTo="register" />
     </VStack>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

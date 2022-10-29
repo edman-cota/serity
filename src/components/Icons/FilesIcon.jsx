@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Modal,
   ModalOverlay,
@@ -11,18 +11,18 @@ import {
   Flex,
   useColorModeValue,
   Text,
-} from "@chakra-ui/react";
-import { MdOutlinePhotoSizeSelectActual } from "react-icons/md";
-import UploadImagesComponent from "../Uploads/UploadImages";
+} from "@chakra-ui/react"
+import { MdOutlinePhotoSizeSelectActual } from "react-icons/md"
+import UploadImagesComponent from "../Uploads/UploadImages"
 
 const FilesIcon = () => {
   const {
     isOpen: isUploadOpen,
     onOpen: onUploadOpen,
     onClose: onUploadClose,
-  } = useDisclosure();
+  } = useDisclosure()
 
-  const iconColor = useColorModeValue("#94959B", "#88898D");
+  const iconColor = useColorModeValue("#94959B", "#88898D")
 
   return (
     <>
@@ -56,7 +56,7 @@ const FilesIcon = () => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default FilesIcon;
+export default FilesIcon

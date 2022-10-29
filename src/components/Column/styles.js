@@ -1,6 +1,6 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-confusing-arrow */
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Column = styled.div`
   padding: 15px 15px 0 15px;
@@ -21,7 +21,7 @@ export const Column = styled.div`
     font-size: 14px;
     padding: 0 10px;
   }
-`;
+`
 
 export const TaskList = styled.div`
   padding-left: 6px;
@@ -32,7 +32,7 @@ export const TaskList = styled.div`
   // height: 71vh;
   overflow-y: scroll;
   white-space: nowrap;
-`;
+`
 
 export const Header = styled.header`
   display: flex;
@@ -42,7 +42,7 @@ export const Header = styled.header`
   align-items: center;
   margin-bottom: 12px;
   height: 42px;
-`;
+`
 
 export const Label = styled.p`
   color: white;
@@ -50,14 +50,14 @@ export const Label = styled.p`
   background: ${(props) => props.color};
   padding: 0px 10px;
   border-radius: 10px;
-`;
+`
 
 export const HeaderRight = styled.div`
   display: flex;
   flex: 1;
   justify-content: end;
   padding-right: 6px;
-`;
+`
 
 export const Span = styled.span`
   padding: 2px 4px;
@@ -65,4 +65,4 @@ export const Span = styled.span`
   border-radius: 4px;
   margin-right: 10px;
   z-index: 100;
-`;
+`

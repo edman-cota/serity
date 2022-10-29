@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
-import Activity from "./Activity";
-import { ActivityProps } from "../../types/activity.model";
+import { motion } from "framer-motion"
+import Activity from "./Activity"
+import { ActivityProps } from "../../types/activity.model"
 
 interface ActivitiesProps {
-  activities: ActivityProps[];
+  activities: ActivityProps[]
 }
 
 const TimelineBody = ({ activities }: ActivitiesProps) => {
@@ -28,7 +28,7 @@ const TimelineBody = ({ activities }: ActivitiesProps) => {
             ))}
       </motion.ul>
     </div>
-  );
-};
+  )
+}
 
-export default TimelineBody;
+export default TimelineBody

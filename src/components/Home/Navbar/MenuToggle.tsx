@@ -1,5 +1,5 @@
-import * as React from "react";
-import { motion } from "framer-motion";
+import * as React from "react"
+import { motion } from "framer-motion"
 
 const Path = (props: any) => (
   <motion.path
@@ -9,7 +9,7 @@ const Path = (props: any) => (
     strokeLinecap="round"
     {...props}
   />
-);
+)
 
 export const MenuToggle = ({ toggle }: { toggle: any }) => (
   <button onClick={toggle}>
@@ -36,4 +36,4 @@ export const MenuToggle = ({ toggle }: { toggle: any }) => (
       />
     </svg>
   </button>
-);
+)

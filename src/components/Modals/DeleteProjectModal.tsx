@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   useDisclosure,
   MenuItem,
@@ -11,27 +11,27 @@ import {
   Button,
   HStack,
   Text,
-} from "@chakra-ui/react";
-import { FormattedMessage } from "react-intl";
-import { AiOutlineDelete } from "react-icons/ai";
-import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../../firebase";
+} from "@chakra-ui/react"
+import { FormattedMessage } from "react-intl"
+import { AiOutlineDelete } from "react-icons/ai"
+import { useAuthState } from "react-firebase-hooks/auth"
+import database, { auth } from "../../firebase"
 
 interface Props {
-  name: string;
-  id: string;
+  name: string
+  id: string
 }
 
 const DeleteProjectModal = ({ name, id }: Props) => {
-  const [user] = useAuthState(auth);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [user] = useAuthState(auth)
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const handleDelete = () => {
     database
       .ref(`${user?.uid}/projects/${id}`)
       .set(null)
-      .then(() => onClose());
-  };
+      .then(() => onClose())
+  }
 
   return (
     <>
@@ -92,7 +92,7 @@ const DeleteProjectModal = ({ name, id }: Props) => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default DeleteProjectModal;
+export default DeleteProjectModal

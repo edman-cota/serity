@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from "react"
+import { motion } from "framer-motion"
 
 const MenuItem = ({ i }: { i: string }): JSX.Element => {
   const variants = {
@@ -17,7 +17,7 @@ const MenuItem = ({ i }: { i: string }): JSX.Element => {
         y: { stiffness: 1000 },
       },
     },
-  };
+  }
 
   return (
     <li style={{ color: "black" }}>
@@ -25,7 +25,7 @@ const MenuItem = ({ i }: { i: string }): JSX.Element => {
         {i}
       </a>
     </li>
-  );
-};
+  )
+}
 
-export default MenuItem;
+export default MenuItem

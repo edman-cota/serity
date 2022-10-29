@@ -1,10 +1,10 @@
 /* eslint-disable consistent-return */
 /* eslint-disable import/prefer-default-export */
-import { useEffect, useState } from "react";
-import { db } from "../firebase.ts";
+import { useEffect, useState } from "react"
+import { db } from "../firebase.ts"
 
 export const useGetUsers = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
     // console.log(db);
@@ -13,14 +13,14 @@ export const useGetUsers = () => {
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((query) => {
-            const data = query.data();
-            setUsers((arr) => [...arr, data]);
-          });
-        });
+            const data = query.data()
+            setUsers((arr) => [...arr, data])
+          })
+        })
     } catch (err) {
-      return err;
+      return err
     }
-  }, []);
+  }, [])
 
-  return { users };
-};
+  return { users }
+}

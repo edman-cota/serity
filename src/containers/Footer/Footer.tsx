@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"
 // import logo from "../../assets/img/logo.png";
-import "./Footer.scss";
+import "./Footer.scss"
 
 const Footer = (): JSX.Element => {
   return (
@@ -40,7 +40,7 @@ const Footer = (): JSX.Element => {
         <p>@2022 Cota Corporation. All rights reserved.</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,26 +1,24 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-import React from "react";
-import { VStack, List } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import ListHeader from "./ListHeader";
-import { useGetTasks } from "../../../hooks/useGetTasks";
-import { useGetTodayTasks } from "../../../hooks/useGetTodayTasks";
-import Item from "../../Item/Item";
-import AddTask from "../../Item/AddTask";
-import type { RootState } from "../../../store";
-import LoadingScreen from "../../EmptyEditor/LoadingScreen";
+import React from "react"
+import { VStack, List } from "@chakra-ui/react"
+import { useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
+import ListHeader from "./ListHeader"
+import { useGetTasks } from "../../../hooks/useGetTasks"
+import { useGetTodayTasks } from "../../../hooks/useGetTodayTasks"
+import Item from "../../Item/Item"
+import AddTask from "../../Item/AddTask"
+import type { RootState } from "../../../store"
+import LoadingScreen from "../../EmptyEditor/LoadingScreen"
 
 const TreeList = () => {
-  const { project } = useParams();
-  const { tasks, completedTasks, isLoading } = useGetTasks();
-  const { todayTasks } = useGetTodayTasks();
-  const showAddTask = useSelector(
-    (state: RootState) => state.showAddTask.value
-  );
+  const { project } = useParams()
+  const { tasks, completedTasks, isLoading } = useGetTasks()
+  const { todayTasks } = useGetTodayTasks()
+  const showAddTask = useSelector((state: RootState) => state.showAddTask.value)
   const showCompleted = useSelector(
-    (state: RootState) => state.showCompleted.value
-  );
+    (state: RootState) => state.showCompleted.value,
+  )
 
   return (
     <>
@@ -61,7 +59,7 @@ const TreeList = () => {
         <LoadingScreen />
       )}
     </>
-  );
-};
+  )
+}
 
-export default TreeList;
+export default TreeList

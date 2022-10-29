@@ -1,5 +1,5 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
-import Logo from "../../assets/img/logo.svg";
+import { Flex, Image, Text } from "@chakra-ui/react"
+import Logo from "../../assets/img/logo.svg"
 
 const Header = (): JSX.Element => {
   return (
@@ -13,7 +13,7 @@ const Header = (): JSX.Element => {
       <Image src={Logo} alt="Logo" boxSize="24px" />
       <Text>S e r i t y</Text>
     </Flex>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

@@ -1,23 +1,23 @@
 /* eslint-disable import/prefer-default-export */
-import { useState, useEffect } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../firebase.ts";
+import { useState, useEffect } from "react"
+import { useAuthState } from "react-firebase-hooks/auth"
+import database, { auth } from "../firebase.ts"
 
 export const useGetEvents = () => {
-  const [user] = useAuthState(auth);
-  const [tasks, setTasks] = useState([]);
+  const [user] = useAuthState(auth)
+  const [tasks, setTasks] = useState([])
 
   // RETRIEVE EVENTS
   useEffect(() => {
     database.ref(`${user?.uid}/events`).on("value", (snapshot) => {
-      const taskList = [];
+      const taskList = []
       snapshot.forEach((snap) => {
-        taskList.push(snap.val());
-      });
+        taskList.push(snap.val())
+      })
 
-      setTasks(taskList);
-    });
-  }, [user?.uid]);
+      setTasks(taskList)
+    })
+  }, [user?.uid])
 
-  return { tasks };
-};
+  return { tasks }
+}

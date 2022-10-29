@@ -1,6 +1,6 @@
 /* eslint-disable comma-dangle */
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect } from "react"
+import PropTypes from "prop-types"
 import {
   Flex,
   Text,
@@ -9,23 +9,23 @@ import {
   Select,
   Button,
   VStack,
-} from "@chakra-ui/react";
-import { FormattedMessage } from "react-intl";
-import { AiOutlineCamera } from "react-icons/ai";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { LOCALES } from "../../i18n/locales.ts";
-import { auth, storage } from "../../firebase.ts";
+} from "@chakra-ui/react"
+import { FormattedMessage } from "react-intl"
+import { AiOutlineCamera } from "react-icons/ai"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { LOCALES } from "../../i18n/locales.ts"
+import { auth, storage } from "../../firebase.ts"
 
 const Content = ({ handleChange, currentLocale }) => {
-  const [user, loading] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth)
 
   const languages = [
     { name: "English", code: LOCALES.ENGLISH },
     { name: "Spanish", code: LOCALES.SPANISH },
-  ];
+  ]
 
   const onChangeImage = (e) => {
-    if (e.target.files[0] == null) return;
+    if (e.target.files[0] == null) return
 
     storage
       .ref(`/users/${user?.uid}/profile/${e.target.files[0].name}`)
@@ -36,20 +36,20 @@ const Content = ({ handleChange, currentLocale }) => {
           .child(e.target.files[0].name)
           .getDownloadURL()
           .then((url) => {
-            user.updateProfile({ photoURL: url }).then(() => {});
-          });
-      });
-  };
+            user.updateProfile({ photoURL: url }).then(() => {})
+          })
+      })
+  }
 
   useEffect(() => {
     // eslint-disable-next-line no-useless-return
-    if (loading) return;
-  }, [loading]);
+    if (loading) return
+  }, [loading])
 
   const handleEditPicture = () => {
-    const fileInput = document.getElementById("imageInput");
-    fileInput.click();
-  };
+    const fileInput = document.getElementById("imageInput")
+    fileInput.click()
+  }
 
   return (
     <VStack w="100%" flex={1}>
@@ -129,17 +129,17 @@ const Content = ({ handleChange, currentLocale }) => {
         </Flex>
       </Flex>
     </VStack>
-  );
-};
+  )
+}
 
 Content.propTypes = {
   currentLocale: PropTypes.string,
   handleChange: PropTypes.func,
-};
+}
 
 Content.defaultProps = {
   currentLocale: "",
   handleChange: "",
-};
+}
 
-export default Content;
+export default Content

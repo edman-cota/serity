@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { IntlProvider } from "react-intl";
-import { ChakraProvider, Flex } from "@chakra-ui/react";
-import Routing from "./routes/index.tsx";
+import React, { useState } from "react"
+import { IntlProvider } from "react-intl"
+import { ChakraProvider, Flex } from "@chakra-ui/react"
+import Routing from "./routes/index.tsx"
 
-import theme from "./theme/index.ts";
-import { LOCALES } from "./i18n/locales.ts";
-import { messages } from "./i18n/messages.ts";
-import "./App.css";
+import theme from "./theme/index.ts"
+import { LOCALES } from "./i18n/locales.ts"
+import { messages } from "./i18n/messages.ts"
+import "./App.css"
 
 const App = () => {
   function getInitialLocal() {
-    const savedLocale = localStorage.getItem("locale");
-    return savedLocale || LOCALES.ENGLISH;
+    const savedLocale = localStorage.getItem("locale")
+    return savedLocale || LOCALES.ENGLISH
   }
 
-  const [currentLocale, setCurrentLocale] = useState(getInitialLocal());
+  const [currentLocale, setCurrentLocale] = useState(getInitialLocal())
 
   const handleChange = (e) => {
-    setCurrentLocale(e.target.value);
-    localStorage.setItem("locale", e.target.value);
-  };
+    setCurrentLocale(e.target.value)
+    localStorage.setItem("locale", e.target.value)
+  }
 
   return (
     <ChakraProvider theme={theme}>
@@ -33,7 +33,7 @@ const App = () => {
         </Flex>
       </IntlProvider>
     </ChakraProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

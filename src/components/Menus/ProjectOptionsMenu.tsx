@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 // eslint-disable-next-line object-curly-newline
-import { Menu, MenuList, MenuItem, MenuButton, Button } from "@chakra-ui/react";
-import { RiMoreLine } from "react-icons/ri";
-import { AiOutlineExport, AiOutlineShareAlt } from "react-icons/ai";
-import { FormattedMessage } from "react-intl";
-import DeleteProjectItemModal from "../Modals/DeleteProjectModal";
-import MembersMenuItem from "../Modals/InviteMembersModal";
-import MenuItemEdit from "../Modals/EditProject";
+import { Menu, MenuList, MenuItem, MenuButton, Button } from "@chakra-ui/react"
+import { RiMoreLine } from "react-icons/ri"
+import { AiOutlineExport, AiOutlineShareAlt } from "react-icons/ai"
+import { FormattedMessage } from "react-intl"
+import DeleteProjectItemModal from "../Modals/DeleteProjectModal"
+import MembersMenuItem from "../Modals/InviteMembersModal"
+import MenuItemEdit from "../Modals/EditProject"
 
 interface Props {
-  name: string;
-  id: string;
-  emoji: string;
+  name: string
+  id: string
+  emoji: string
 }
 
 const ProjectMore = ({ name, id, emoji }: Props) => (
@@ -33,6 +33,6 @@ const ProjectMore = ({ name, id, emoji }: Props) => (
       <DeleteProjectItemModal name={name} id={id} />
     </MenuList>
   </Menu>
-);
+)
 
-export default ProjectMore;
+export default ProjectMore

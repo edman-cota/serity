@@ -1,11 +1,11 @@
-import { ActivityType } from "../enums/definitions";
-import database from "../firebase";
+import { ActivityType } from "../enums/definitions"
+import database from "../firebase"
 
 export function duplicateTask(task: any, project: any, user: any) {
-  const status = { success: "success", error: "error" };
+  const status = { success: "success", error: "error" }
 
-  const cardRef = database.ref(`${user?.uid}/tasks`);
-  const newCardRef = cardRef.push();
+  const cardRef = database.ref(`${user?.uid}/tasks`)
+  const newCardRef = cardRef.push()
   newCardRef
     .set({
       id: newCardRef.key,
@@ -21,15 +21,15 @@ export function duplicateTask(task: any, project: any, user: any) {
     .then(() => {
       database
         .ref(`${user?.uid}/projects/${task.projectId}`)
-        .update({ activeCount: project.activeCount + 1 });
+        .update({ activeCount: project.activeCount + 1 })
 
       database
         .ref(`${user?.uid}/projects/${task.projectId}`)
-        .update({ taskCount: project.taskCount + 1 });
+        .update({ taskCount: project.taskCount + 1 })
 
       // Add task to activity database
-      const activityRef = database.ref(`${user?.uid}/activities`);
-      const newActivityRef = activityRef.push();
+      const activityRef = database.ref(`${user?.uid}/activities`)
+      const newActivityRef = activityRef.push()
       newActivityRef.set({
         id: newActivityRef.key,
         content: task.content,
@@ -39,9 +39,9 @@ export function duplicateTask(task: any, project: any, user: any) {
         createdBy: user?.uid,
         createdAt: new Date().toISOString(),
         type: ActivityType.ADD_TASK_ACTIVITY_TYPE,
-      });
+      })
     })
-    .catch(() => status.error);
+    .catch(() => status.error)
 
-  return status.success;
+  return status.success
 }

@@ -1,6 +1,6 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable react/prop-types */
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from "react"
 import {
   Modal,
   ModalOverlay,
@@ -17,29 +17,29 @@ import {
   useToast,
   MenuItem,
   DarkMode,
-} from "@chakra-ui/react";
-import { Tooltip } from "custom-react-tooltip";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { FormattedMessage } from "react-intl";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { FiLink, FiUser } from "react-icons/fi";
-import { IoClose } from "react-icons/io5";
-import { auth } from "../../firebase";
+} from "@chakra-ui/react"
+import { Tooltip } from "custom-react-tooltip"
+import { CopyToClipboard } from "react-copy-to-clipboard"
+import { FormattedMessage } from "react-intl"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { FiLink, FiUser } from "react-icons/fi"
+import { IoClose } from "react-icons/io5"
+import { auth } from "../../firebase"
 
 interface Props {
-  projectName: string;
+  projectName: string
 }
 
 const InviteMembersModal = ({ projectName }: Props) => {
-  const form = useRef();
-  const [user] = useAuthState(auth);
-  const toast = useToast();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const form = useRef()
+  const [user] = useAuthState(auth)
+  const toast = useToast()
+  const { isOpen, onOpen, onClose } = useDisclosure()
   // eslint-disable-next-line no-unused-vars
   const [value, setValue] = useState(
-    "https://replit.com/join/ptgjboqhtb-edmancota"
-  );
-  const [linked, setLinked] = useState(false);
+    "https://replit.com/join/ptgjboqhtb-edmancota",
+  )
+  const [linked, setLinked] = useState(false)
 
   // const sendEmail = (e) => {
   //   e.preventDefault();
@@ -140,7 +140,7 @@ const InviteMembersModal = ({ projectName }: Props) => {
                         status: "success",
                         duration: 5000,
                         isClosable: true,
-                      });
+                      })
                     }}
                   >
                     <IconButton
@@ -189,7 +189,7 @@ const InviteMembersModal = ({ projectName }: Props) => {
         </Modal>
       </DarkMode>
     </>
-  );
-};
+  )
+}
 
-export default InviteMembersModal;
+export default InviteMembersModal

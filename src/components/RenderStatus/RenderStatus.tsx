@@ -1,40 +1,40 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable comma-dangle */
-import React from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import PropTypes from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
-import { Tooltip, useToast, Text } from "@chakra-ui/react";
+import React from "react"
+import { motion, useMotionValue, useTransform } from "framer-motion"
+import PropTypes from "prop-types"
+import { useDispatch, useSelector } from "react-redux"
+import { Tooltip, useToast, Text } from "@chakra-ui/react"
 // import { BiSquareRounded } from "react-icons/bi";
 // import { BsFillCheckSquareFill } from "react-icons/bs";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useGetProject } from "../../hooks/useGetProject";
-import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice";
-import { setActiveIndex } from "../../features/counter/activeIndexSlice";
-import { auth } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth"
+import { useGetProject } from "../../hooks/useGetProject"
+import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice"
+import { setActiveIndex } from "../../features/counter/activeIndexSlice"
+import { auth } from "../../firebase"
 
-import { markStatusToCompleted } from "../../helpers/markStatusToCompleted";
-import { markStatusToUncomplete } from "../../helpers/markStatusToUncomplete";
-import { getPriorityColor } from "../../helpers/getPriorityColor";
-import { TaskProps } from "../../types/task.model";
-import type { RootState } from "../../store";
+import { markStatusToCompleted } from "../../helpers/markStatusToCompleted"
+import { markStatusToUncomplete } from "../../helpers/markStatusToUncomplete"
+import { getPriorityColor } from "../../helpers/getPriorityColor"
+import { TaskProps } from "../../types/task.model"
+import type { RootState } from "../../store"
 
 interface Props {
-  task: TaskProps;
+  task: TaskProps
 }
 
 const RenderStatus = ({ task }: Props) => {
-  const toast = useToast();
-  const dispatch = useDispatch();
-  const [user] = useAuthState(auth);
-  const { project } = useGetProject();
+  const toast = useToast()
+  const dispatch = useDispatch()
+  const [user] = useAuthState(auth)
+  const { project } = useGetProject()
   const workingProject = useSelector(
-    (state: RootState) => state.workingProject.value
-  );
+    (state: RootState) => state.workingProject.value,
+  )
 
-  const [clicked, setClicked] = React.useState(false);
-  const x = useMotionValue(100);
-  const x0 = useMotionValue(0);
+  const [clicked, setClicked] = React.useState(false)
+  const x = useMotionValue(100)
+  const x0 = useMotionValue(0)
 
   const markStatusAsComplete = (taskToUpdate: TaskProps) => {
     setTimeout(() => {
@@ -42,40 +42,40 @@ const RenderStatus = ({ task }: Props) => {
         user,
         workingProject,
         project,
-        taskToUpdate
-      );
+        taskToUpdate,
+      )
       if (result === "success") {
         // close task detail sidebar
-        dispatch(setSelectedTaskId(""));
-        dispatch(setActiveIndex(-1));
+        dispatch(setSelectedTaskId(""))
+        dispatch(setActiveIndex(-1))
 
         toast({
           description: "Task completed successfully",
           status: "success",
-        });
+        })
       }
-    }, 300);
-  };
+    }, 300)
+  }
 
-  const tickPath = useTransform(clicked ? x : x0, [10, 100], [0, 1]);
-  const tickPathDone = useTransform(x, [10, 100], [0, 1]);
+  const tickPath = useTransform(clicked ? x : x0, [10, 100], [0, 1])
+  const tickPathDone = useTransform(x, [10, 100], [0, 1])
 
   const markStatusAsUncomplete = (taskToUpdate: TaskProps) => {
     const result = markStatusToUncomplete(
       user,
       workingProject,
       project,
-      taskToUpdate
-    );
+      taskToUpdate,
+    )
 
     if (result === "success") {
       toast({
         description: "Task restored successfully",
         status: "success",
         variant: "subtle",
-      });
+      })
     }
-  };
+  }
 
   switch (task.completed) {
     case 0:
@@ -87,8 +87,8 @@ const RenderStatus = ({ task }: Props) => {
               height="100%"
               viewBox="0 0 50 50"
               onClick={() => {
-                setClicked(true);
-                markStatusAsComplete(task);
+                setClicked(true)
+                markStatusAsComplete(task)
               }}
             >
               <motion.path
@@ -112,7 +112,7 @@ const RenderStatus = ({ task }: Props) => {
             </svg>
           </Text>
         </Tooltip>
-      );
+      )
     case 1:
       return (
         <Tooltip label="Completed">
@@ -141,7 +141,7 @@ const RenderStatus = ({ task }: Props) => {
             </svg>
           </Text>
         </Tooltip>
-      );
+      )
     default:
       return (
         <Tooltip label="Completed">
@@ -165,12 +165,12 @@ const RenderStatus = ({ task }: Props) => {
             </svg>
           </Text>
         </Tooltip>
-      );
+      )
   }
-};
+}
 
 RenderStatus.propTypes = {
   task: PropTypes.shape({ completed: PropTypes.number }).isRequired,
-};
+}
 
-export default RenderStatus;
+export default RenderStatus

@@ -1,5 +1,5 @@
-import React from "react";
-import "./CTA.scss";
+import React from "react"
+import "./CTA.scss"
 
 const CTA = (): JSX.Element => {
   return (
@@ -12,7 +12,7 @@ const CTA = (): JSX.Element => {
         <button type="button">Get Started</button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CTA;
+export default CTA

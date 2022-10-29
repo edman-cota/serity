@@ -1,13 +1,13 @@
-import { Flex } from "@chakra-ui/react";
-import TodayButton from "./TodayButton";
-import TomorrowButton from "./TomorrowButton";
-import RemoveButton from "./RemoveButton";
-import { isTomorrow } from "../../helpers/isTomorrow";
-import { isToday } from "../../helpers/isToday";
+import { Flex } from "@chakra-ui/react"
+import TodayButton from "./TodayButton"
+import TomorrowButton from "./TomorrowButton"
+import RemoveButton from "./RemoveButton"
+import { isTomorrow } from "../../helpers/isTomorrow"
+import { isToday } from "../../helpers/isToday"
 
 interface Props {
-  task: any;
-  onClose(): void;
+  task: any
+  onClose(): void
 }
 
 const TopOptions = ({ task, onClose }: Props) => (
@@ -22,6 +22,6 @@ const TopOptions = ({ task, onClose }: Props) => (
       <TomorrowButton onClose={onClose} task={task} />
     )}
   </Flex>
-);
+)
 
-export default TopOptions;
+export default TopOptions

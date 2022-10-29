@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-const Column = () => <p>Column</p>;
+const Column = () => <p>Column</p>
 
-export default Column;
+export default Column
 // import React, { useState, useEffect } from "react";
 // import { useColorMode } from "@chakra-ui/react";
 // import { Container, Label, Header, HeaderRight } from "./styles";

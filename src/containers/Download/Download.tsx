@@ -1,5 +1,5 @@
-import React from "react";
-import { Flex, Heading, Img, Text, VStack } from "@chakra-ui/react";
+import React from "react"
+import { Flex, Heading, Img, Text, VStack } from "@chakra-ui/react"
 // import WindowsImg from "assets/img/windows.png";
 // import LinuxImg from "assets/img/linux.png";
 
@@ -26,7 +26,7 @@ const Download = () => {
         </Flex>
       </Flex> */}
     </VStack>
-  );
-};
+  )
+}
 
-export default Download;
+export default Download

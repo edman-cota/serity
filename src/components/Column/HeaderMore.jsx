@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable object-curly-newline */
-import React from "react";
-import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import React from "react"
+import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react"
 
-import { RiMoreLine } from "react-icons/ri";
-import { AiOutlineDelete } from "react-icons/ai";
+import { RiMoreLine } from "react-icons/ri"
+import { AiOutlineDelete } from "react-icons/ai"
 
-import { MdContentCopy } from "react-icons/md";
-import EditColumnItem from "./EditColumnItem";
+import { MdContentCopy } from "react-icons/md"
+import EditColumnItem from "./EditColumnItem"
 
 const HeaderMore = ({ name, id, color }) => (
   <Menu>
@@ -39,6 +39,6 @@ const HeaderMore = ({ name, id, color }) => (
       </MenuItem>
     </MenuList>
   </Menu>
-);
+)
 
-export default HeaderMore;
+export default HeaderMore

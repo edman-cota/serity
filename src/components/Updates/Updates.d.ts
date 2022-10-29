@@ -1,3 +1,3 @@
-function Updates(): JSX.Element;
+function Updates(): JSX.Element
 
-export default Updates;
+export default Updates

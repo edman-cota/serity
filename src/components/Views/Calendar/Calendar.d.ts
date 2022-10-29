@@ -1,3 +1,3 @@
-function Calendar(): JSX.Element;
+function Calendar(): JSX.Element
 
-export default Calendar;
+export default Calendar

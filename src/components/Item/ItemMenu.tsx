@@ -1,7 +1,7 @@
-import React from "react";
-import { Flex } from "@chakra-ui/react";
-import RenderDateText from "../RenderDate/RenderDateText";
-import TagIcon from "../Icons/TagIcon";
+import React from "react"
+import { Flex } from "@chakra-ui/react"
+import RenderDateText from "../RenderDate/RenderDateText"
+import TagIcon from "../Icons/TagIcon"
 
 const ItemMenu = ({ task }: { task: any }): JSX.Element => {
   return (
@@ -13,7 +13,7 @@ const ItemMenu = ({ task }: { task: any }): JSX.Element => {
         {task?.due !== undefined ? <RenderDateText due={task.due} /> : null}
       </Flex>
     </Flex>
-  );
-};
+  )
+}
 
-export default ItemMenu;
+export default ItemMenu

@@ -1,11 +1,11 @@
-import { Flex } from "@chakra-ui/react";
-import useGetAllActivities from "../../hooks/useGetAllActivities";
-import LoadingScreen from "../EmptyEditor/LoadingScreen";
-import TimelineHeader from "./TimelineHeader";
-import TimelineBody from "./TimelineBody";
+import { Flex } from "@chakra-ui/react"
+import useGetAllActivities from "../../hooks/useGetAllActivities"
+import LoadingScreen from "../EmptyEditor/LoadingScreen"
+import TimelineHeader from "./TimelineHeader"
+import TimelineBody from "./TimelineBody"
 
 const Activities = () => {
-  const { activities, isLoading } = useGetAllActivities();
+  const { activities, isLoading } = useGetAllActivities()
 
   return (
     <Flex
@@ -18,7 +18,7 @@ const Activities = () => {
       <TimelineHeader />
       {isLoading ? <LoadingScreen /> : <TimelineBody activities={activities} />}
     </Flex>
-  );
-};
+  )
+}
 
-export default Activities;
+export default Activities

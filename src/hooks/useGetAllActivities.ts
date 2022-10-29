@@ -1,32 +1,32 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useAuthState } from "react-firebase-hooks/auth";
-import database, { auth } from "../firebase";
-import type { RootState } from "../store";
-import { ActivityProps } from "../types/activity.model";
+import { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
+import { useAuthState } from "react-firebase-hooks/auth"
+import database, { auth } from "../firebase"
+import type { RootState } from "../store"
+import { ActivityProps } from "../types/activity.model"
 
 const useGetActivities = () => {
-  const [activities, setActivities] = useState<ActivityProps[]>([]);
-  const [user] = useAuthState(auth);
-  const [isLoading, setIsLoading] = useState(true);
-  const task = useSelector((state: RootState) => state.task.value);
+  const [activities, setActivities] = useState<ActivityProps[]>([])
+  const [user] = useAuthState(auth)
+  const [isLoading, setIsLoading] = useState(true)
+  const task = useSelector((state: RootState) => state.task.value)
 
   useEffect(() => {
     database.ref(`${user?.uid}/activities`).on("value", (snapshot) => {
-      setIsLoading(true);
-      const currentList: ActivityProps[] = [];
+      setIsLoading(true)
+      const currentList: ActivityProps[] = []
       snapshot.forEach((snap) => {
         if (snap.val().taskId === task.id) {
-          currentList.push(snap.val());
+          currentList.push(snap.val())
         }
-      });
+      })
 
-      setActivities(currentList);
-      setIsLoading(false);
-    });
-  }, [user?.uid, task.id]);
+      setActivities(currentList)
+      setIsLoading(false)
+    })
+  }, [user?.uid, task.id])
 
-  return { activities, isLoading };
-};
+  return { activities, isLoading }
+}
 
-export default useGetActivities;
+export default useGetActivities

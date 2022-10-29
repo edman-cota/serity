@@ -1,4 +1,4 @@
-import { defineStyle, defineStyleConfig } from "@chakra-ui/styled-system";
+import { defineStyle, defineStyleConfig } from "@chakra-ui/styled-system"
 
 const baseStyle = defineStyle(() => {
   return {
@@ -8,9 +8,9 @@ const baseStyle = defineStyle(() => {
     fontWeight: "normal",
     bg: "rgba(0, 5, 11, 0.9)",
     color: "rgba(255, 255, 255, 1)",
-  };
-});
+  }
+})
 
 export const tooltipTheme = defineStyleConfig({
   baseStyle,
-});
+})

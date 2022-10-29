@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Flex,
   Tab,
@@ -9,11 +9,11 @@ import {
   useColorModeValue,
   shouldForwardProp,
   chakra,
-} from "@chakra-ui/react";
-import { motion, isValidMotionProp } from "framer-motion";
-import CompletionCurveChartDay from "./CompletionCurveChartDay";
-import CompletionCurveChartMonth from "./CompletionCurveChartMonth";
-import { FormattedMessage } from "react-intl";
+} from "@chakra-ui/react"
+import { motion, isValidMotionProp } from "framer-motion"
+import CompletionCurveChartDay from "./CompletionCurveChartDay"
+import CompletionCurveChartMonth from "./CompletionCurveChartMonth"
+import { FormattedMessage } from "react-intl"
 
 const MotionFlex = chakra(motion.div, {
   /**
@@ -21,10 +21,10 @@ const MotionFlex = chakra(motion.div, {
    */
   shouldForwardProp: (prop) =>
     isValidMotionProp(prop) || shouldForwardProp(prop),
-});
+})
 
 const CompletionCurve = (): JSX.Element => {
-  const cardBackground = useColorModeValue("white", "#1F2733");
+  const cardBackground = useColorModeValue("white", "#1F2733")
 
   return (
     <MotionFlex
@@ -87,7 +87,7 @@ const CompletionCurve = (): JSX.Element => {
         </TabPanels>
       </Tabs>
     </MotionFlex>
-  );
-};
+  )
+}
 
-export default CompletionCurve;
+export default CompletionCurve

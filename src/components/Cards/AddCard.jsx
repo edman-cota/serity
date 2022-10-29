@@ -1,6 +1,6 @@
 /* eslint-disable no-unsafe-optional-chaining */
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react"
+import PropTypes from "prop-types"
 import {
   useColorMode,
   Modal,
@@ -12,32 +12,32 @@ import {
   useDisclosure,
   Button,
   Flex,
-} from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { BsPlus } from "react-icons/bs";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { ADD_TASK_ACTIVITY_TYPE } from "constants";
-import { useGetProject } from "../../hooks/useGetProject.ts";
-import database, { auth } from "../../firebase.ts";
-import { Span } from "../Column/styles";
+} from "@chakra-ui/react"
+import { useSelector } from "react-redux"
+import { BsPlus } from "react-icons/bs"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { ADD_TASK_ACTIVITY_TYPE } from "constants"
+import { useGetProject } from "../../hooks/useGetProject.ts"
+import database, { auth } from "../../firebase.ts"
+import { Span } from "../Column/styles"
 
 const AddCard = ({ columnId }) => {
-  const [user] = useAuthState(auth);
-  const [title, setTitle] = useState("");
-  const { colorMode } = useColorMode();
-  const [isDark, setIsDark] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const { project } = useGetProject();
-  const workingProject = useSelector((state) => state.workingProject.value);
+  const [user] = useAuthState(auth)
+  const [title, setTitle] = useState("")
+  const { colorMode } = useColorMode()
+  const [isDark, setIsDark] = useState(false)
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { project } = useGetProject()
+  const workingProject = useSelector((state) => state.workingProject.value)
 
   const handleChange = (e) => {
-    e.preventDefault();
-    setTitle(e.target.value);
-  };
+    e.preventDefault()
+    setTitle(e.target.value)
+  }
 
   const addCard = () => {
-    const cardRef = database.ref(`${user?.uid}/tasks`);
-    const newCardRef = cardRef.push();
+    const cardRef = database.ref(`${user?.uid}/tasks`)
+    const newCardRef = cardRef.push()
     newCardRef
       .set({
         id: newCardRef.key,
@@ -54,28 +54,28 @@ const AddCard = ({ columnId }) => {
         // UPDATE number of active task and total tasks
         database
           .ref(`${user?.uid}/projects/${workingProject.id}`)
-          .update({ activeCount: project?.[0].activeCount + 1 });
+          .update({ activeCount: project?.[0].activeCount + 1 })
 
         database
           .ref(`${user?.uid}/projects/${workingProject.id}`)
-          .update({ taskCount: project?.[0].taskCount + 1 });
+          .update({ taskCount: project?.[0].taskCount + 1 })
 
-        const newRef = database.ref(`${user?.uid}/columns/${columnId}/taskIds`);
+        const newRef = database.ref(`${user?.uid}/columns/${columnId}/taskIds`)
 
         // if null, create a new list with id, if not add newID to list
         newRef.transaction((currentArray) => {
           if (currentArray === null) {
-            setTitle("");
-            return { 0: newCardRef.key };
+            setTitle("")
+            return { 0: newCardRef.key }
           }
 
-          setTitle("");
-          currentArray.push(newCardRef.key);
-          return currentArray;
-        });
+          setTitle("")
+          currentArray.push(newCardRef.key)
+          return currentArray
+        })
 
-        const activityRef = database.ref(`${user?.uid}/activities`);
-        const newActivityRef = activityRef.push();
+        const activityRef = database.ref(`${user?.uid}/activities`)
+        const newActivityRef = activityRef.push()
         newActivityRef
           .set({
             id: newActivityRef.key,
@@ -88,25 +88,25 @@ const AddCard = ({ columnId }) => {
             type: ADD_TASK_ACTIVITY_TYPE,
           })
           .then(() => {
-            onClose();
-          });
-      });
-  };
+            onClose()
+          })
+      })
+  }
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      event.preventDefault();
+      event.preventDefault()
       if (title !== "") {
-        addCard();
+        addCard()
       } else {
-        onClose();
+        onClose()
       }
     }
-  };
+  }
 
   useEffect(() => {
-    setIsDark(colorMode === "dark");
-  }, [isDark, colorMode]);
+    setIsDark(colorMode === "dark")
+  }, [isDark, colorMode])
 
   return (
     <>
@@ -152,15 +152,15 @@ const AddCard = ({ columnId }) => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
 AddCard.propTypes = {
   columnId: PropTypes.number,
-};
+}
 
 AddCard.defaultProps = {
   columnId: 0,
-};
+}
 
-export default AddCard;
+export default AddCard

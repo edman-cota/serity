@@ -1,8 +1,8 @@
 interface Props {
-currentLocale: string,
-handleChange: any,
+  currentLocale: string
+  handleChange: any
 }
 
-function Settings({currentLocale, handleChange}: Props): JSX.Element;
+function Settings({ currentLocale, handleChange }: Props): JSX.Element
 
-export default Settings;
+export default Settings

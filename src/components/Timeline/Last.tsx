@@ -1,21 +1,21 @@
-import Priority from "./Priority";
-import DueDate from "./DueDate";
+import Priority from "./Priority"
+import DueDate from "./DueDate"
 
 interface Props {
-  type: number;
-  priority: number;
-  due: string;
+  type: number
+  priority: number
+  due: string
 }
 
 const Last = ({ type, priority, due }: Props) => {
   switch (type) {
     case 2:
-      return <Priority priority={priority} />;
+      return <Priority priority={priority} />
     case 3:
-      return <DueDate due={due} />;
+      return <DueDate due={due} />
     default:
-      return null;
+      return null
   }
-};
+}
 
-export default Last;
+export default Last

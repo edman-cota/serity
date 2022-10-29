@@ -1,10 +1,10 @@
-import React from "react";
-import { Flex, Button } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
-import { GrClose } from "react-icons/gr";
+import React from "react"
+import { Flex, Button } from "@chakra-ui/react"
+import { useNavigate } from "react-router-dom"
+import { GrClose } from "react-icons/gr"
 
 function Navbar() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <Flex
@@ -18,7 +18,7 @@ function Navbar() {
         <GrClose />
       </Button>
     </Flex>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

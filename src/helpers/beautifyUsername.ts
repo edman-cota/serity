@@ -1,3 +1,3 @@
 export const beautifyUsername = (input?: string | null) => {
-  return input?.split("@")[0];
-};
+  return input?.split("@")[0]
+}

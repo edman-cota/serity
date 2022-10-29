@@ -3,51 +3,51 @@
 /* eslint-disable no-useless-return */
 /* eslint-disable no-unused-vars */
 /* eslint-disable object-curly-newline */
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Button, Flex, HStack, Image } from "@chakra-ui/react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import logo from "../../../assets/img/logo.svg";
-import { auth } from "../../../firebase.ts";
-import { beautifyUrl } from "../../../helpers/beautifyUrl.ts";
-import { getProjectFromLocalStorage } from "../../../helpers/getProjectFromLocalStorage.ts";
-import "../home.scss";
+import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { Button, Flex, HStack, Image } from "@chakra-ui/react"
+import { useAuthState } from "react-firebase-hooks/auth"
+import logo from "../../../assets/img/logo.svg"
+import { auth } from "../../../firebase.ts"
+import { beautifyUrl } from "../../../helpers/beautifyUrl.ts"
+import { getProjectFromLocalStorage } from "../../../helpers/getProjectFromLocalStorage.ts"
+import "../home.scss"
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const [user, loading] = useAuthState(auth);
-  const username = user?.email.split("@")[0];
-  const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate()
+  const [user, loading] = useAuthState(auth)
+  const username = user?.email.split("@")[0]
+  const [scrolled, setScrolled] = useState(false)
   // eslint-disable-next-line no-unused-vars
-  const [isFixed, setIsFixed] = useState(true);
+  const [isFixed, setIsFixed] = useState(true)
 
-  let navbarPosition = "relative";
+  let navbarPosition = "relative"
 
   const navigateTo = () => {
     navigate(
-      `${username}/${beautifyUrl(getProjectFromLocalStorage())}/?view=tree`
-    );
-  };
+      `${username}/${beautifyUrl(getProjectFromLocalStorage())}/?view=tree`,
+    )
+  }
 
   useEffect(() => {
-    if (loading) return;
-  }, [user, loading]);
+    if (loading) return
+  }, [user, loading])
 
   if (isFixed) {
     if (scrolled) {
-      navbarPosition = "fixed";
+      navbarPosition = "fixed"
     }
   }
 
   const changeNavbar = () => {
     if (window.scrollY > 1) {
-      setScrolled(true);
+      setScrolled(true)
     } else {
-      setScrolled(false);
+      setScrolled(false)
     }
-  };
+  }
 
-  window.addEventListener("scroll", changeNavbar);
+  window.addEventListener("scroll", changeNavbar)
 
   return (
     <header style={{ position: "relative", zIndex: "20" }}>
@@ -75,7 +75,7 @@ const Navbar = () => {
         </div>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

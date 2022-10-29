@@ -1,9 +1,9 @@
-import React from "react";
-import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
-import { BarChart, Gridline, GridlineSeries, BarSeries } from "reaviz";
+import React from "react"
+import { Flex, Text, useColorModeValue } from "@chakra-ui/react"
+import { BarChart, Gridline, GridlineSeries, BarSeries } from "reaviz"
 
 const CompletionRate = (): JSX.Element => {
-  const cardBackground = useColorModeValue("white", "#1F2733");
+  const cardBackground = useColorModeValue("white", "#1F2733")
 
   return (
     <Flex
@@ -41,7 +41,7 @@ const CompletionRate = (): JSX.Element => {
         gridlines={<GridlineSeries line={<Gridline direction="y" />} />}
       /> */}
     </Flex>
-  );
-};
+  )
+}
 
-export default CompletionRate;
+export default CompletionRate

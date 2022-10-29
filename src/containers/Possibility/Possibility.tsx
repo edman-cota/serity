@@ -1,5 +1,5 @@
-import React from "react";
-import "./Possibility.scss";
+import React from "react"
+import "./Possibility.scss"
 
 const Possibility = (): JSX.Element => {
   return (
@@ -16,7 +16,7 @@ const Possibility = (): JSX.Element => {
         <h4>Request Early Access to Get Started</h4>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Possibility;
+export default Possibility

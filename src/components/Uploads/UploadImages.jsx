@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-const UploadImages = () => <p>UPlaod images</p>;
+const UploadImages = () => <p>UPlaod images</p>
 
-export default UploadImages;
+export default UploadImages
 
 // import { useState, useEffect, useMemo } from "react";
 // import { useAuthState } from "react-firebase-hooks/auth";

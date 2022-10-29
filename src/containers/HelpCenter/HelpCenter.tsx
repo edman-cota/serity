@@ -1,7 +1,7 @@
-import React from "react";
-import { Flex, HStack, VStack } from "@chakra-ui/react";
-import Navbar from "../../components/Home/Navbar/Navbar";
-import Sidebar from "./Sidebar";
+import React from "react"
+import { Flex, HStack, VStack } from "@chakra-ui/react"
+import Navbar from "../../components/Home/Navbar/Navbar"
+import Sidebar from "./Sidebar"
 
 const HelpCenter = () => {
   return (
@@ -12,7 +12,7 @@ const HelpCenter = () => {
         <Flex flex={1}>Main content</Flex>
       </HStack>
     </VStack>
-  );
-};
+  )
+}
 
-export default HelpCenter;
+export default HelpCenter

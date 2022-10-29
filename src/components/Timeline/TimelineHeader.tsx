@@ -1,6 +1,6 @@
-import React from "react";
-import { Flex, Text } from "@chakra-ui/react";
-import { FormattedMessage } from "react-intl";
+import React from "react"
+import { Flex, Text } from "@chakra-ui/react"
+import { FormattedMessage } from "react-intl"
 
 const TimelineHeader = () => {
   return (
@@ -9,7 +9,7 @@ const TimelineHeader = () => {
         <FormattedMessage id="task_activities" />
       </Text>
     </Flex>
-  );
-};
+  )
+}
 
-export default TimelineHeader;
+export default TimelineHeader

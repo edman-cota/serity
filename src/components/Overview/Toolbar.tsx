@@ -1,14 +1,14 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 import {
   Button,
   useColorModeValue,
   Heading,
   shouldForwardProp,
   chakra,
-} from "@chakra-ui/react";
-import { motion, isValidMotionProp } from "framer-motion";
-import { AiOutlineClose } from "react-icons/ai";
-import { FormattedMessage } from "react-intl";
+} from "@chakra-ui/react"
+import { motion, isValidMotionProp } from "framer-motion"
+import { AiOutlineClose } from "react-icons/ai"
+import { FormattedMessage } from "react-intl"
 
 const MotionFlex = chakra(motion.div, {
   /**
@@ -16,11 +16,11 @@ const MotionFlex = chakra(motion.div, {
    */
   shouldForwardProp: (prop) =>
     isValidMotionProp(prop) || shouldForwardProp(prop),
-});
+})
 
 const Toolbar = () => {
-  const navigate = useNavigate();
-  const cardBackground = useColorModeValue("white", "gray.700");
+  const navigate = useNavigate()
+  const cardBackground = useColorModeValue("white", "gray.700")
 
   return (
     <MotionFlex
@@ -45,7 +45,7 @@ const Toolbar = () => {
         <AiOutlineClose />
       </Button>
     </MotionFlex>
-  );
-};
+  )
+}
 
-export default Toolbar;
+export default Toolbar

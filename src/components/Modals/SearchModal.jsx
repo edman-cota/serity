@@ -1,5 +1,5 @@
 /* eslint-disable react/no-children-prop */
-import React from "react";
+import React from "react"
 import {
   useDisclosure,
   Modal,
@@ -12,13 +12,13 @@ import {
   Button,
   InputGroup,
   InputLeftElement,
-} from "@chakra-ui/react";
-import FocusLock from "react-focus-lock";
-import { FiSearch } from "react-icons/fi";
-import { AiOutlineClose } from "react-icons/ai";
+} from "@chakra-ui/react"
+import FocusLock from "react-focus-lock"
+import { FiSearch } from "react-icons/fi"
+import { AiOutlineClose } from "react-icons/ai"
 
 const SearchModal = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <>
@@ -88,7 +88,7 @@ const SearchModal = () => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default SearchModal;
+export default SearchModal

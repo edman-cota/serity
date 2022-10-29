@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-const Calendar = () => <p>Calendar</p>;
+const Calendar = () => <p>Calendar</p>
 
-export default Calendar;
+export default Calendar
 
 // import React, { Component } from "react";
 // import { Flex } from "@chakra-ui/react";

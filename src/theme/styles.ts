@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { mode } from "@chakra-ui/theme-tools";
-import type { StyleFunctionProps } from "@chakra-ui/styled-system";
+import { mode } from "@chakra-ui/theme-tools"
+import type { StyleFunctionProps } from "@chakra-ui/styled-system"
 
 export const styles = {
   // colors: {
@@ -24,4 +24,4 @@ export const styles = {
       },
     }),
   },
-};
+}

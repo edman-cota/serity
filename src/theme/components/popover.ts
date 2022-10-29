@@ -1,4 +1,4 @@
-import { defineStyle, defineStyleConfig } from "@chakra-ui/styled-system";
+import { defineStyle, defineStyleConfig } from "@chakra-ui/styled-system"
 
 export const popoverStyles = {
   Popover: {
@@ -10,4 +10,4 @@ export const popoverStyles = {
       },
     },
   },
-};
+}

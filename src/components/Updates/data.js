@@ -22,6 +22,6 @@ const updates = [
       "Minor bug fixes",
     ],
   },
-];
+]
 
-export default updates;
+export default updates

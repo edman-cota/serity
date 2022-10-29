@@ -1,10 +1,10 @@
-import React from "react";
-import { Flex, VStack } from "@chakra-ui/react";
+import React from "react"
+import { Flex, VStack } from "@chakra-ui/react"
 
 // import CompletionRateChart from "./CompletionRate";
-import AchievementCard from "../Card/Overview/AchievementCard";
-import CompletionCurveChart from "./CompletionCurve";
-import Toolbar from "./Toolbar";
+import AchievementCard from "../Card/Overview/AchievementCard"
+import CompletionCurveChart from "./CompletionCurve"
+import Toolbar from "./Toolbar"
 
 const Main = (): JSX.Element => {
   return (
@@ -32,7 +32,7 @@ const Main = (): JSX.Element => {
         <CompletionCurveChart />
       </Flex> */}
     </VStack>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

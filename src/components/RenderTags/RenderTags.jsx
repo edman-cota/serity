@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-const RenderTags = () => <p>Render tags</p>;
+const RenderTags = () => <p>Render tags</p>
 
-export default RenderTags;
+export default RenderTags
 // /* eslint-disable object-curly-newline */
 // /* eslint-disable arrow-body-style */
 // import React, { useContext } from "react";

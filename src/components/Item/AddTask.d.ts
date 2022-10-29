@@ -1,3 +1,3 @@
-function AddTask(): JSX.Element;
+function AddTask(): JSX.Element
 
-export default AddTask;
+export default AddTask

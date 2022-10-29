@@ -6,11 +6,11 @@ import {
   useColorModeValue,
   chakra,
   shouldForwardProp,
-} from "@chakra-ui/react";
-import { motion, AnimatePresence, isValidMotionProp } from "framer-motion";
-import { FormattedMessage } from "react-intl";
-import { useGetAchievement } from "../../../hooks/useGetAchievement";
-import { calculatePercentage } from "../../../helpers/calculatePercentage";
+} from "@chakra-ui/react"
+import { motion, AnimatePresence, isValidMotionProp } from "framer-motion"
+import { FormattedMessage } from "react-intl"
+import { useGetAchievement } from "../../../hooks/useGetAchievement"
+import { calculatePercentage } from "../../../helpers/calculatePercentage"
 
 const MotionFlex = chakra(motion.div, {
   /**
@@ -18,11 +18,11 @@ const MotionFlex = chakra(motion.div, {
    */
   shouldForwardProp: (prop) =>
     isValidMotionProp(prop) || shouldForwardProp(prop),
-});
+})
 
 const AchievementCard = () => {
-  const { tasks, completedTasks } = useGetAchievement();
-  const cardBackground = useColorModeValue("white", "gray.700");
+  const { tasks, completedTasks } = useGetAchievement()
+  const cardBackground = useColorModeValue("white", "gray.700")
 
   return (
     <AnimatePresence>
@@ -62,7 +62,7 @@ const AchievementCard = () => {
         </HStack>
       </MotionFlex>
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export default AchievementCard;
+export default AchievementCard

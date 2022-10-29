@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Flex,
   Box,
@@ -9,10 +9,10 @@ import {
   AccordionPanel,
   AccordionIcon,
   LightMode,
-} from "@chakra-ui/react";
-import Navbar from "../../components/Home/Navbar/Navbar";
-import Footer from "../../containers/Footer/Footer";
-import "./FAQ.scss";
+} from "@chakra-ui/react"
+import Navbar from "../../components/Home/Navbar/Navbar"
+import Footer from "../../containers/Footer/Footer"
+import "./FAQ.scss"
 
 const FAQ = (): JSX.Element => {
   return (
@@ -155,7 +155,7 @@ const FAQ = (): JSX.Element => {
       </Flex>
       <Footer />
     </Flex>
-  );
-};
+  )
+}
 
-export default FAQ;
+export default FAQ

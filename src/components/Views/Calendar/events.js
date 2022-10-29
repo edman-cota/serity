@@ -12,4 +12,4 @@ export default [
     start: new Date(2022, 1, 7),
     end: new Date(2022, 1, 10),
   },
-];
+]

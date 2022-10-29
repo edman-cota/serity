@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   useDisclosure,
   Modal,
@@ -11,12 +11,12 @@ import {
   Text,
   Button,
   Tooltip,
-} from "@chakra-ui/react";
-import { FaRegKeyboard } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
+} from "@chakra-ui/react"
+import { FaRegKeyboard } from "react-icons/fa"
+import { AiOutlineClose } from "react-icons/ai"
 
 const ShortcutsModal = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <>
@@ -156,7 +156,7 @@ const ShortcutsModal = () => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default ShortcutsModal;
+export default ShortcutsModal

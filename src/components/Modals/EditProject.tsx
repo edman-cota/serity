@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from "react";
+import React, { useState } from "react"
 import {
   useDisclosure,
   MenuItem,
@@ -14,44 +14,44 @@ import {
   Button,
   HStack,
   DarkMode,
-} from "@chakra-ui/react";
-import FocusLock from "react-focus-lock";
-import { FormattedMessage } from "react-intl";
-import { useSelector, useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
-import { FiEdit } from "react-icons/fi";
-import { useAuthState } from "react-firebase-hooks/auth";
-import ChooseIconModal from "./ChooseIconModal";
-import database, { auth } from "../../firebase";
-import type { RootState } from "../../store";
-import { setEmoji } from "../../features/counter/emojiSlice";
+} from "@chakra-ui/react"
+import FocusLock from "react-focus-lock"
+import { FormattedMessage } from "react-intl"
+import { useSelector, useDispatch } from "react-redux"
+import { useForm } from "react-hook-form"
+import { FiEdit } from "react-icons/fi"
+import { useAuthState } from "react-firebase-hooks/auth"
+import ChooseIconModal from "./ChooseIconModal"
+import database, { auth } from "../../firebase"
+import type { RootState } from "../../store"
+import { setEmoji } from "../../features/counter/emojiSlice"
 
 interface Props {
-  name: string;
-  id: string;
-  emoji: string;
+  name: string
+  id: string
+  emoji: string
 }
 
 const EditProject = ({ name, id, emoji }: Props) => {
-  const [user] = useAuthState(auth);
-  const dispatch = useDispatch();
-  const savedEmoji = useSelector((state: RootState) => state.emoji.value);
+  const [user] = useAuthState(auth)
+  const dispatch = useDispatch()
+  const savedEmoji = useSelector((state: RootState) => state.emoji.value)
   // eslint-disable-next-line no-unused-vars
-  const [title, setTitle] = useState(name);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [title, setTitle] = useState(name)
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const { register, resetField, handleSubmit } = useForm({
     defaultValues: {
       name: title,
     },
-  });
+  })
 
   const onSubmit = (data: any) => {
     database
       .ref(`${user?.uid}/projects/${id}`)
       .update({ name: data.name, emoji: savedEmoji })
-      .then(() => onClose());
-    dispatch(setEmoji(""));
-  };
+      .then(() => onClose())
+    dispatch(setEmoji(""))
+  }
 
   return (
     <>
@@ -106,8 +106,8 @@ const EditProject = ({ name, id, emoji }: Props) => {
                     variant="ghost"
                     w="100px"
                     onClick={() => {
-                      onClose();
-                      resetField("name");
+                      onClose()
+                      resetField("name")
                     }}
                   >
                     <FormattedMessage id="cancel" />
@@ -130,7 +130,7 @@ const EditProject = ({ name, id, emoji }: Props) => {
         </Modal>
       </DarkMode>
     </>
-  );
-};
+  )
+}
 
-export default EditProject;
+export default EditProject

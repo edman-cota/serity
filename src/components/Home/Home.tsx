@@ -1,10 +1,10 @@
-import React from "react";
-import CookieConsent from "react-cookie-consent";
-import "./home.scss";
-import { Footer } from "../../containers";
+import React from "react"
+import CookieConsent from "react-cookie-consent"
+import "./home.scss"
+import { Footer } from "../../containers"
 
-import Header from "../../containers/Header/Header";
-import Navbar from "./Navbar/Navbar";
+import Header from "../../containers/Header/Header"
+import Navbar from "./Navbar/Navbar"
 
 export const Main = (): JSX.Element => {
   return (
@@ -12,7 +12,7 @@ export const Main = (): JSX.Element => {
       <Navbar />
       <Header />
     </div>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

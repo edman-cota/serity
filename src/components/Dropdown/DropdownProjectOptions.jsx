@@ -8,12 +8,12 @@ import {
   MenuItem,
   Text,
   MenuDivider,
-} from "@chakra-ui/react";
-import { RiMoreLine } from "react-icons/ri";
-import { AiOutlineDelete } from "react-icons/ai";
+} from "@chakra-ui/react"
+import { RiMoreLine } from "react-icons/ri"
+import { AiOutlineDelete } from "react-icons/ai"
 // import { useDispatch, useSelector } from "react-redux";
-import { IoShareSocialOutline } from "react-icons/io5";
-import { FormattedMessage } from "react-intl";
+import { IoShareSocialOutline } from "react-icons/io5"
+import { FormattedMessage } from "react-intl"
 // import { setShowCompleted } from "../../features/counter/ShowCompletedSlice";
 // import { setSelectedTaskId } from "../../features/counter/SelectedTaskIdSlice";
 // import { setActiveIndex } from "../../features/counter/ActiveIndexSlice";
@@ -77,7 +77,7 @@ const DropdownProjectOptions = () => {
         </MenuItem>
       </MenuList>
     </Menu>
-  );
-};
+  )
+}
 
-export default DropdownProjectOptions;
+export default DropdownProjectOptions

@@ -1,7 +1,7 @@
-import React from "react";
-import { Flex } from "@chakra-ui/react";
-import "./Dev.scss";
-import Navbar from "../../components/Home/Navbar/Navbar";
+import React from "react"
+import { Flex } from "@chakra-ui/react"
+import "./Dev.scss"
+import Navbar from "../../components/Home/Navbar/Navbar"
 
 const Dev = (): JSX.Element => {
   return (
@@ -53,7 +53,7 @@ const Dev = (): JSX.Element => {
         Dev
       </Flex>
     </Flex>
-  );
-};
+  )
+}
 
-export default Dev;
+export default Dev

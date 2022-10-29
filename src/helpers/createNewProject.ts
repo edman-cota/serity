@@ -1,19 +1,19 @@
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useSelector } from "react-redux";
-import { ProjectProps } from "../types/project.model";
-import database, { auth } from "../firebase";
-import type { RootState } from "../store";
-import { Status } from "../enums/definitions";
+import { useAuthState } from "react-firebase-hooks/auth"
+import { useSelector } from "react-redux"
+import { ProjectProps } from "../types/project.model"
+import database, { auth } from "../firebase"
+import type { RootState } from "../store"
+import { Status } from "../enums/definitions"
 
 export const createNewProject = (name: string) => {
-  const [user] = useAuthState(auth);
-  const emoji = useSelector((state: RootState) => state.emoji.value);
+  const [user] = useAuthState(auth)
+  const emoji = useSelector((state: RootState) => state.emoji.value)
 
-  const currentDate = new Date();
-  const timestamp = currentDate.getTime(); // Milliseconds
+  const currentDate = new Date()
+  const timestamp = currentDate.getTime() // Milliseconds
 
-  const projectRef = database.ref(`${user?.uid}/projects`);
-  const newProjectRef = projectRef.push();
+  const projectRef = database.ref(`${user?.uid}/projects`)
+  const newProjectRef = projectRef.push()
 
   if (newProjectRef.key !== null && user?.uid !== undefined) {
     const project: ProjectProps = {
@@ -30,18 +30,18 @@ export const createNewProject = (name: string) => {
       createdAt: timestamp.toString(),
       createdBy: user?.uid,
       showCompleted: false,
-    };
+    }
 
     newProjectRef
       .set(project)
       .then(() => {
-        return Status.SUCCESS;
+        return Status.SUCCESS
       })
-      .catch(() => Status.ERROR);
+      .catch(() => Status.ERROR)
 
-    return Status.SUCCESS;
+    return Status.SUCCESS
   }
-};
+}
 
 // Add new project to projectOrder root
 // const newRef = database.ref(`${user?.uid}/projectOrder`);

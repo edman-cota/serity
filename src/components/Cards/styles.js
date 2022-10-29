@@ -1,6 +1,6 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable implicit-arrow-linebreak */
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components"
 
 export const Card = styled.div`
   position: relative;
@@ -25,7 +25,7 @@ export const Card = styled.div`
     margin-top: 11px;
     border-radius: 50%;
   }
-`;
+`
 
 export const Label = styled.span`
   // width: 60px;
@@ -38,7 +38,7 @@ export const Label = styled.span`
   display: inline-block;
   margin-right: 8px;
   background: ${(props) => props.color};
-`;
+`
 
 export const Content = styled.div`
   display: flex;
@@ -50,10 +50,10 @@ export const Content = styled.div`
   // display: -webkit-box;
   // -webkit-line-clamp: 2;
   // -webkit-box-orient: vertical;
-`;
+`
 
 export const Title = styled.p`
   font-weight: 400 !important;
   width: 100%;
   color: ${(props) => (props.isDark ? "rgba(255, 255, 255, 0.9)" : "#585D77")};
-`;
+`

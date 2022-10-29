@@ -1,5 +1,5 @@
 /* eslint-disable comma-dangle */
-import React from "react";
+import React from "react"
 import {
   Modal,
   Text,
@@ -10,29 +10,29 @@ import {
   useDisclosure,
   Flex,
   useColorModeValue,
-} from "@chakra-ui/react";
-import EmojiPicker, { Theme } from "emoji-picker-react";
-import { FormattedMessage } from "react-intl";
-import { useSelector, useDispatch } from "react-redux";
-import { BiChevronRight } from "react-icons/bi";
-import { AiOutlineClose } from "react-icons/ai";
-import type { RootState } from "../../store";
-import { setEmoji } from "../../features/counter/emojiSlice";
+} from "@chakra-ui/react"
+import EmojiPicker, { Theme } from "emoji-picker-react"
+import { FormattedMessage } from "react-intl"
+import { useSelector, useDispatch } from "react-redux"
+import { BiChevronRight } from "react-icons/bi"
+import { AiOutlineClose } from "react-icons/ai"
+import type { RootState } from "../../store"
+import { setEmoji } from "../../features/counter/emojiSlice"
 
 const ChooseIconModal = () => {
-  const dispatch = useDispatch();
-  const emoji = useSelector((state: RootState) => state.emoji.value);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const background = useColorModeValue("white", "#282e3e");
+  const dispatch = useDispatch()
+  const emoji = useSelector((state: RootState) => state.emoji.value)
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const background = useColorModeValue("white", "#282e3e")
   const buttonBg = useColorModeValue(
     "rgba(0, 0, 0, 0.01)",
-    "rgba(255, 255, 255, 0.06)"
-  );
+    "rgba(255, 255, 255, 0.06)",
+  )
 
   const onEmojiClick = (emojiData: any) => {
-    dispatch(setEmoji(emojiData.emoji));
-    onClose();
-  };
+    dispatch(setEmoji(emojiData.emoji))
+    onClose()
+  }
 
   return (
     <>
@@ -81,7 +81,7 @@ const ChooseIconModal = () => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default ChooseIconModal;
+export default ChooseIconModal

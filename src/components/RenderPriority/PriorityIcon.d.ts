@@ -1,3 +1,3 @@
-function PriorityIcon(task : any, visibility: string): JSX.Element;
+function PriorityIcon(task: any, visibility: string): JSX.Element
 
-export default PriorityIcon;
+export default PriorityIcon

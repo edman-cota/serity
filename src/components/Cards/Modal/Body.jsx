@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useState } from "react";
-import { ModalBody } from "@chakra-ui/react";
+import React, { useState } from "react"
+import { ModalBody } from "@chakra-ui/react"
 
-import { motion, AnimatePresence } from "framer-motion";
-import { initialTabs as tabs } from "../ingredients";
+import { motion, AnimatePresence } from "framer-motion"
+import { initialTabs as tabs } from "../ingredients"
 
 const Body = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0])
 
   return (
     <ModalBody px="40px" h="100%" paddingBottom="0px">
@@ -43,7 +43,7 @@ const Body = () => {
         </main>
       </div>
     </ModalBody>
-  );
-};
+  )
+}
 
-export default Body;
+export default Body

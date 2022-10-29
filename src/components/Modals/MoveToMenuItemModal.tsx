@@ -1,5 +1,5 @@
 /* eslint-disable arrow-body-style */
-import React from "react";
+import React from "react"
 import {
   Modal,
   MenuItem,
@@ -10,12 +10,12 @@ import {
   ModalBody,
   Flex,
   Select,
-} from "@chakra-ui/react";
-import { MdOutlineDriveFileMove } from "react-icons/md";
-import { FormattedMessage } from "react-intl";
+} from "@chakra-ui/react"
+import { MdOutlineDriveFileMove } from "react-icons/md"
+import { FormattedMessage } from "react-intl"
 
 const MoveToMenuItemModal = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <>
@@ -44,7 +44,7 @@ const MoveToMenuItemModal = () => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default MoveToMenuItemModal;
+export default MoveToMenuItemModal

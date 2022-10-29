@@ -1,14 +1,14 @@
-import React from "react";
-import moment from "moment";
-import { Text } from "@chakra-ui/react";
-import { FormattedMessage, FormattedDate } from "react-intl";
+import React from "react"
+import moment from "moment"
+import { Text } from "@chakra-ui/react"
+import { FormattedMessage, FormattedDate } from "react-intl"
 
 // props = time in seconds
 const RenderDateText = ({ due }: { due: string }) => {
-  let dueDate: number = new Date(due).getTime();
+  let dueDate: number = new Date(due).getTime()
 
-  var todayDate = new Date().setHours(0, 0, 0, 0);
-  var dateSaved: number = new Date(dueDate).setHours(0, 0, 0, 0);
+  var todayDate = new Date().setHours(0, 0, 0, 0)
+  var dateSaved: number = new Date(dueDate).setHours(0, 0, 0, 0)
 
   // BEFORE YESTERDAY
   if (todayDate - dateSaved > 86400000) {
@@ -26,7 +26,7 @@ const RenderDateText = ({ due }: { due: string }) => {
           day="2-digit"
         />
       </Text>
-    );
+    )
   }
 
   // YESTERDAY
@@ -40,7 +40,7 @@ const RenderDateText = ({ due }: { due: string }) => {
       >
         <FormattedMessage id="yesterday" />
       </Text>
-    );
+    )
   }
 
   // TODAY
@@ -49,7 +49,7 @@ const RenderDateText = ({ due }: { due: string }) => {
       <Text fontSize="14px" visibility="visible" lineHeight="20px">
         <FormattedMessage id="today" />
       </Text>
-    );
+    )
   }
 
   // TOMORROW
@@ -63,7 +63,7 @@ const RenderDateText = ({ due }: { due: string }) => {
       >
         <FormattedMessage id="tomorrow" />
       </Text>
-    );
+    )
   }
 
   // AFTER TOMORROW
@@ -80,7 +80,7 @@ const RenderDateText = ({ due }: { due: string }) => {
         day="2-digit"
       />
     </Text>
-  );
-};
+  )
+}
 
-export default RenderDateText;
+export default RenderDateText

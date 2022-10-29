@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-const EditColumnItem = () => <p>Column</p>;
+const EditColumnItem = () => <p>Column</p>
 
-export default EditColumnItem;
+export default EditColumnItem
 
 // import { useState } from "react";
 // import {

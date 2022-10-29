@@ -1,26 +1,26 @@
-import React, { useEffect } from "react";
-import { FcGoogle } from "react-icons/fc";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
-import { Button, Flex, List, ListItem, Text } from "@chakra-ui/react";
-import { FormattedMessage } from "react-intl";
-import { auth, signInWithGoogle } from "../../firebase";
-import { beautifyUsername } from "../../helpers/beautifyUsername";
+import React, { useEffect } from "react"
+import { FcGoogle } from "react-icons/fc"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { useNavigate } from "react-router-dom"
+import { Button, Flex, List, ListItem, Text } from "@chakra-ui/react"
+import { FormattedMessage } from "react-intl"
+import { auth, signInWithGoogle } from "../../firebase"
+import { beautifyUsername } from "../../helpers/beautifyUsername"
 
 const SocialLogin = () => {
-  const navigate = useNavigate();
-  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate()
+  const [user, loading] = useAuthState(auth)
 
   useEffect(() => {
     if (loading) {
       // maybe trigger a loading screen
-      return;
+      return
     }
     if (user) {
-      const username = beautifyUsername(user?.email);
-      navigate(`/${username}/today/`);
+      const username = beautifyUsername(user?.email)
+      navigate(`/${username}/today/`)
     }
-  }, [user, loading, navigate]);
+  }, [user, loading, navigate])
 
   return (
     <Flex w="440px" p="25px">
@@ -44,7 +44,7 @@ const SocialLogin = () => {
         </ListItem>
       </List>
     </Flex>
-  );
-};
+  )
+}
 
-export default SocialLogin;
+export default SocialLogin

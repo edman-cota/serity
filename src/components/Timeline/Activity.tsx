@@ -1,12 +1,12 @@
-import { Flex, Text } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import Icon from "./Icon";
-import Verbose from "./Verbose";
-import ActivityContent from "./ActivityContent";
-import "./Activities.scss";
-import Time from "./Time";
-import Last from "./Last";
-import { ActivityProps } from "../../types/activity.model";
+import { Flex, Text } from "@chakra-ui/react"
+import { motion } from "framer-motion"
+import Icon from "./Icon"
+import Verbose from "./Verbose"
+import ActivityContent from "./ActivityContent"
+import "./Activities.scss"
+import Time from "./Time"
+import Last from "./Last"
+import { ActivityProps } from "../../types/activity.model"
 
 const Activity = ({
   username,
@@ -19,8 +19,7 @@ const Activity = ({
 }: ActivityProps): JSX.Element => {
   return (
     <motion.li className="timeline-item">
-      <Flex
-      >
+      <Flex>
         <Icon type={type} />
 
         <Flex
@@ -30,11 +29,18 @@ const Activity = ({
           mb="20px"
           mx="30px"
         >
-          <Flex pt="3px" w="100%" fontSize="15px" justifyContent="space-between">
-            <Text as="span"
-            color="rgba(255, 255, 255, 0.92)"
-            pr="30px"
-            fontWeight={600}>
+          <Flex
+            pt="3px"
+            w="100%"
+            fontSize="15px"
+            justifyContent="space-between"
+          >
+            <Text
+              as="span"
+              color="rgba(255, 255, 255, 0.92)"
+              pr="30px"
+              fontWeight={600}
+            >
               {username}
             </Text>
             <Time createdAt={createdAt} />
@@ -51,7 +57,7 @@ const Activity = ({
         </Flex>
       </Flex>
     </motion.li>
-  );
-};
+  )
+}
 
-export default Activity;
+export default Activity

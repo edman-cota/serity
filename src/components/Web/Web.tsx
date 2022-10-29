@@ -1,8 +1,8 @@
-import React from "react";
-import { Flex } from "@chakra-ui/react";
+import React from "react"
+import { Flex } from "@chakra-ui/react"
 
-import Content from "./Content";
-import Sidebar from "../Sidebar/Sidebar";
+import Content from "./Content"
+import Sidebar from "../Sidebar/Sidebar"
 
 const Web = (): JSX.Element => {
   return (
@@ -10,6 +10,6 @@ const Web = (): JSX.Element => {
       <Sidebar />
       <Content />
     </Flex>
-  );
-};
-export default Web;
+  )
+}
+export default Web

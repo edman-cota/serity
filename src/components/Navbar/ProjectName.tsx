@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { Input } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { useAuthState } from "react-firebase-hooks/auth";
-import type { RootState } from "../../store";
-import database, { auth } from "../../firebase";
+import React, { useEffect, useState } from "react"
+import { Input } from "@chakra-ui/react"
+import { useSelector } from "react-redux"
+import { useAuthState } from "react-firebase-hooks/auth"
+import type { RootState } from "../../store"
+import database, { auth } from "../../firebase"
 
 const ProjectName = () => {
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth)
   const workingProject = useSelector(
-    (state: RootState) => state.workingProject.value
-  );
+    (state: RootState) => state.workingProject.value,
+  )
   const [title, setTitle] = useState(
     window.localStorage.getItem("project") ??
-      "Serity - Clean and simple to-do app"
-  );
+      "Serity - Clean and simple to-do app",
+  )
 
   useEffect(() => {
-    document.title = title;
-  }, [title]);
+    document.title = title
+  }, [title])
 
   const handleOnChange = (e: any) => {
-    setTitle(e.target.value);
+    setTitle(e.target.value)
     database
       .ref(`${user?.uid}/projects/${workingProject.id}`)
-      .update({ name: e.target.value });
-  };
+      .update({ name: e.target.value })
+  }
 
   return (
     <Input
@@ -40,6 +40,6 @@ const ProjectName = () => {
       onChange={(e) => handleOnChange(e)}
       _focus={{ outline: "none" }}
     />
-  );
-};
-export default ProjectName;
+  )
+}
+export default ProjectName

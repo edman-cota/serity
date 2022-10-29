@@ -1,13 +1,13 @@
-import { ActivityType } from "../enums/definitions";
-import database from "../firebase";
+import { ActivityType } from "../enums/definitions"
+import database from "../firebase"
 
 export function markStatusToUncomplete(
   user: any,
   workingProject: any,
   project: any,
-  task: any
+  task: any,
 ) {
-  const status = { success: "success", error: "error" };
+  const status = { success: "success", error: "error" }
 
   database
     .ref(`${user?.uid}/tasks/`)
@@ -17,11 +17,11 @@ export function markStatusToUncomplete(
       // Add 1 from the total of active tasks
       database.ref(`${user?.uid}/projects/${workingProject.id}`).update({
         activeCount: project?.[0].activeCount + 1,
-      });
+      })
 
       // Save the current operation activity
-      const activityRef = database.ref(`${user?.uid}/activities`);
-      const newActivityRef = activityRef.push();
+      const activityRef = database.ref(`${user?.uid}/activities`)
+      const newActivityRef = activityRef.push()
       newActivityRef
         .set({
           id: newActivityRef.key,
@@ -33,8 +33,8 @@ export function markStatusToUncomplete(
           createdAt: new Date().toISOString(),
           type: ActivityType.REOPEN_TASK_ACTIVITY_TYPE,
         })
-        .catch(() => status.error);
-    });
+        .catch(() => status.error)
+    })
 
-  return status.success;
+  return status.success
 }

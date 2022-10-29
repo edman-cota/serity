@@ -1,4 +1,4 @@
-import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
+import { defineStyle, defineStyleConfig } from "@chakra-ui/react"
 
 const baseStyle = defineStyle({
   fontWeight: "normal",
@@ -15,7 +15,7 @@ const baseStyle = defineStyle({
       color: "white",
     },
   },
-});
+})
 
 const ghost = defineStyle({
   color: "rgba(24, 29, 37, .6)",
@@ -23,7 +23,7 @@ const ghost = defineStyle({
   _hover: {
     color: "black",
   },
-});
+})
 
 const solid = defineStyle({
   bg: "whiteAlpha.200",
@@ -37,7 +37,7 @@ const solid = defineStyle({
   _dark: {
     color: "white",
   },
-});
+})
 
 export const buttonTheme = defineStyleConfig({
   baseStyle,
@@ -45,4 +45,4 @@ export const buttonTheme = defineStyleConfig({
   defaultProps: {
     variant: "ghost",
   },
-});
+})

@@ -1,4 +1,4 @@
 export const getProjectFromLocalStorage = () => {
-  const project = window.localStorage.getItem("project") || "today";
-  return project;
+  const project = window.localStorage.getItem("project") || "today"
+  return project
 }

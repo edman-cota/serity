@@ -1,6 +1,6 @@
-import React from "react";
-import { Flex, Text } from "@chakra-ui/react";
-import { ClipLoader } from "react-spinners";
+import React from "react"
+import { Flex, Text } from "@chakra-ui/react"
+import { ClipLoader } from "react-spinners"
 
 const LoadingScreen = (): JSX.Element => {
   return (
@@ -11,7 +11,7 @@ const LoadingScreen = (): JSX.Element => {
         </Text>
       </Flex>
     </Flex>
-  );
-};
+  )
+}
 
-export default LoadingScreen;
+export default LoadingScreen

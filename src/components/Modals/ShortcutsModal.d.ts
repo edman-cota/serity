@@ -1,4 +1,3 @@
+function ShortcutsModal(): JSX.Element
 
-function ShortcutsModal():JSX.Element;
-
-export default ShortcutsModal;
+export default ShortcutsModal

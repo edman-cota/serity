@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-const CreateColumn = () => <p>Column</p>;
+const CreateColumn = () => <p>Column</p>
 
-export default CreateColumn;
+export default CreateColumn
 
 // import { useState } from "react";
 // import { Flex, Text, Input, Button } from "@chakra-ui/react";

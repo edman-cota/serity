@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
 const Profile = (): JSX.Element => {
-  return <p>Profile</p>;
-};
+  return <p>Profile</p>
+}
 
-export default Profile;
+export default Profile

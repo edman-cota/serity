@@ -1,10 +1,10 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
-import React from "react";
-import { Flex, Text, AvatarGroup, Avatar } from "@chakra-ui/react";
+import React from "react"
+import { Flex, Text, AvatarGroup, Avatar } from "@chakra-ui/react"
 
-import RenderDateText from "../RenderDate/RenderDateText.tsx";
-import PriorityIcon from "../RenderPriority/PriorityIcon";
+import RenderDateText from "../RenderDate/RenderDateText.tsx"
+import PriorityIcon from "../RenderPriority/PriorityIcon"
 
 const CardFooter = ({ task }) => (
   <Flex h="36px" alignItems="center" justifyContent="space-between" pb="6px">
@@ -30,6 +30,6 @@ const CardFooter = ({ task }) => (
     </Flex>
     {task.due && <RenderDateText due={task.due} />}
   </Flex>
-);
+)
 
-export default CardFooter;
+export default CardFooter
