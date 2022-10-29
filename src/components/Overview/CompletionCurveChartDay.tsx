@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import {
   AreaChart,
   AreaSeries,
@@ -17,11 +17,11 @@ import {
   LinearYAxisTickLabel,
   ScatterPoint,
 } from "reaviz"
-import { useGetTaskss } from "../../hooks/useGetTaskss"
+import { useGetAllCompletedTasks } from "../../hooks/useGetAllCompletedTasks"
 import ChartTitle from "./ChartTitle"
 
 const CompletionCurveChart = (): JSX.Element => {
-  const [tasks] = useGetTaskss()
+  const { completedTasks } = useGetAllCompletedTasks()
   const [first, setFirst] = useState(0)
   const [one, setOne] = useState("")
   const [second, setSecond] = useState(0)
@@ -43,8 +43,8 @@ const CompletionCurveChart = (): JSX.Element => {
     const now = new Date()
     const time = new Date(now.setDate(now.getDate())).toString()
 
-    tasks &&
-      tasks.map((task: any) => {
+    completedTasks &&
+      completedTasks.map((task: any) => {
         const completedAt = new Date(task.completedAt).toString().slice(0, 15)
         if (completedAt === time.slice(0, 15)) {
           completed.push(task)
@@ -53,7 +53,7 @@ const CompletionCurveChart = (): JSX.Element => {
 
     setToday("Today")
     setSeventh(completed.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 1 => sixth
   useEffect(() => {
@@ -61,8 +61,8 @@ const CompletionCurveChart = (): JSX.Element => {
     const now = new Date()
     const time = new Date(now.setDate(now.getDate() - 1)).toString()
 
-    tasks &&
-      tasks.map((task: any) => {
+    completedTasks &&
+      completedTasks.map((task: any) => {
         const completedAt = new Date(task.completedAt).toString().slice(0, 15)
         if (completedAt === time.slice(0, 15)) {
           completed.push(task)
@@ -75,7 +75,7 @@ const CompletionCurveChart = (): JSX.Element => {
 
     setSix(`${month} ${day}`)
     setSixth(completed.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 2 =? fifth
   useEffect(() => {
@@ -83,8 +83,8 @@ const CompletionCurveChart = (): JSX.Element => {
     const now = new Date()
     const time = new Date(now.setDate(now.getDate() - 2)).toString()
 
-    tasks &&
-      tasks.map((task: any) => {
+    completedTasks &&
+      completedTasks.map((task: any) => {
         const completedAt = new Date(task.completedAt).toString().slice(0, 15)
         if (completedAt === time.slice(0, 15)) {
           completed.push(task)
@@ -97,7 +97,7 @@ const CompletionCurveChart = (): JSX.Element => {
 
     setFive(`${month} ${day}`)
     setFifth(completed.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 3 => forth
   useEffect(() => {
@@ -105,8 +105,8 @@ const CompletionCurveChart = (): JSX.Element => {
     const now = new Date()
     const time = new Date(now.setDate(now.getDate() - 3)).toString()
 
-    tasks &&
-      tasks.map((task: any) => {
+    completedTasks &&
+      completedTasks.map((task: any) => {
         const completedAt = new Date(task.completedAt).toString().slice(0, 15)
         if (completedAt === time.slice(0, 15)) {
           completed.push(task)
@@ -119,7 +119,7 @@ const CompletionCurveChart = (): JSX.Element => {
 
     setFour(`${month} ${day}`)
     setFourth(completed.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 4 - third
   useEffect(() => {
@@ -127,8 +127,8 @@ const CompletionCurveChart = (): JSX.Element => {
     const now = new Date()
     const time = new Date(now.setDate(now.getDate() - 4)).toString()
 
-    tasks &&
-      tasks.map((task: any) => {
+    completedTasks &&
+      completedTasks.map((task: any) => {
         const completedAt = new Date(task.completedAt).toString().slice(0, 15)
 
         if (completedAt === time.slice(0, 15)) {
@@ -141,7 +141,7 @@ const CompletionCurveChart = (): JSX.Element => {
 
     setThree(`${month} ${day}`)
     setThird(completed.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 5 => second
   useEffect(() => {
@@ -149,8 +149,8 @@ const CompletionCurveChart = (): JSX.Element => {
     const now = new Date()
     const time = new Date(now.setDate(now.getDate() - 5)).toString()
 
-    tasks &&
-      tasks.map((task: any) => {
+    completedTasks &&
+      completedTasks.map((task: any) => {
         const completedAt = new Date(task.completedAt).toString().slice(0, 15)
 
         if (completedAt === time.slice(0, 15)) {
@@ -163,7 +163,7 @@ const CompletionCurveChart = (): JSX.Element => {
 
     setTwo(`${month} ${day}`)
     setSecond(completed.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 6 => first
   useEffect(() => {
@@ -171,8 +171,8 @@ const CompletionCurveChart = (): JSX.Element => {
     const now = new Date()
     const time = new Date(now.setDate(now.getDate() - 6)).toString()
 
-    tasks &&
-      tasks.map((task: any) => {
+    completedTasks &&
+      completedTasks.map((task: any) => {
         const completedAt = new Date(task.completedAt).toString().slice(0, 15)
 
         if (completedAt === time.slice(0, 15)) {
@@ -185,7 +185,9 @@ const CompletionCurveChart = (): JSX.Element => {
 
     setOne(`${month} ${day}`)
     setFirst(completed.length)
-  }, [tasks])
+  }, [completedTasks])
+
+  console.log(completedTasks)
 
   const data = [
     { key: one, data: first },

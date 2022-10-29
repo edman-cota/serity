@@ -2,7 +2,7 @@ import React from "react"
 import { Flex } from "@chakra-ui/react"
 import { useSelector } from "react-redux"
 
-import Tree from "../Views/Tree/Tree.tsx"
+import Tree from "../Views/Tree/Tree"
 
 const Content = () => {
   const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value)

@@ -10,7 +10,7 @@ import { TaskProps } from "../types/task.model"
 
 export const useGetTasks = () => {
   const [user] = useAuthState(auth)
-  const [completedTasks, setCompletedTasks] = useState([])
+  const [completedTasks, setCompletedTasks] = useState<TaskProps[]>([])
   const [tasks, setTasks] = useState<TaskProps[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const orderBy = useSelector((state: RootState) => state.orderBy.value)
@@ -49,6 +49,7 @@ export const useGetTasks = () => {
         //   )
         // );
         setTasks(taskList)
+        setCompletedTasks(completedTask)
         setIsLoading(false)
       })
   }, [user?.uid, workingProject.id, orderBy, isLoading])

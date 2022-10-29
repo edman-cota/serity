@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react"
-import { Flex, Text } from "@chakra-ui/react"
+import { useState, useEffect } from "react"
 import {
   AreaChart,
   AreaSeries,
@@ -17,11 +16,11 @@ import {
   LinearYAxisTickSeries,
   LinearYAxisTickLabel,
 } from "reaviz"
-import { useGetTaskss } from "../../hooks/useGetTaskss"
+import { useGetAllCompletedTasks } from "../../hooks/useGetAllCompletedTasks"
 import ChartTitle from "./ChartTitle"
 
 const CompletionCurveChartMonth = (): JSX.Element => {
-  const [tasks] = useGetTaskss()
+  const { completedTasks } = useGetAllCompletedTasks()
   const [first, setFirst] = useState(0)
   const [one, setOne] = useState("")
   const [second, setSecond] = useState(0)
@@ -45,8 +44,8 @@ const CompletionCurveChartMonth = (): JSX.Element => {
       "en-CA",
     )
 
-    tasks &&
-      tasks.map((task: any, index: number) => {
+    completedTasks &&
+      completedTasks.map((task: any, index: number) => {
         const completedAt = new Date(task.completedAt)
           .toLocaleString("en-CA")
           .slice(0, 7)
@@ -56,7 +55,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
       })
     setToday("This Month")
     setSeventh(list.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 1 => sixth
   useEffect(() => {
@@ -66,8 +65,8 @@ const CompletionCurveChartMonth = (): JSX.Element => {
       "en-CA",
     )
 
-    tasks &&
-      tasks.map((task: any, index: number) => {
+    completedTasks &&
+      completedTasks.map((task: any, index: number) => {
         const completedAt = new Date(task.completedAt)
           .toLocaleString("en-CA")
           .slice(0, 7)
@@ -80,7 +79,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
 
     setSix(month)
     setSixth(completed.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 2 =? fifth
   useEffect(() => {
@@ -90,8 +89,8 @@ const CompletionCurveChartMonth = (): JSX.Element => {
       "en-CA",
     )
 
-    tasks &&
-      tasks.map((task: any, index: number) => {
+    completedTasks &&
+      completedTasks.map((task: any, index: number) => {
         const completedAt = new Date(task.completedAt)
           .toLocaleString("en-CA")
           .slice(0, 7)
@@ -104,7 +103,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
 
     setFive(month)
     setFifth(list.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 3 => forth
   useEffect(() => {
@@ -114,8 +113,8 @@ const CompletionCurveChartMonth = (): JSX.Element => {
       "en-CA",
     )
 
-    tasks &&
-      tasks.map((task: any) => {
+    completedTasks &&
+      completedTasks.map((task: any) => {
         const completedAt = new Date(task.completedAt)
           .toLocaleString("en-CA")
           .slice(0, 7)
@@ -128,7 +127,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
 
     setFour(month)
     setFourth(list.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 4 - third
   useEffect(() => {
@@ -138,8 +137,8 @@ const CompletionCurveChartMonth = (): JSX.Element => {
       "en-CA",
     )
 
-    tasks &&
-      tasks.map((task: any) => {
+    completedTasks &&
+      completedTasks.map((task: any) => {
         const completedAt = new Date(task.completedAt)
           .toLocaleString("en-CA")
           .slice(0, 7)
@@ -152,7 +151,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
 
     setThree(month)
     setThird(list2.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 5 => second
   useEffect(() => {
@@ -162,8 +161,8 @@ const CompletionCurveChartMonth = (): JSX.Element => {
       "en-CA",
     )
 
-    tasks &&
-      tasks.map((task: any, index: number) => {
+    completedTasks &&
+      completedTasks.map((task: any, index: number) => {
         const completedAt = new Date(task.completedAt)
           .toLocaleString("en-CA")
           .slice(0, 7)
@@ -176,7 +175,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
 
     setTwo(month)
     setSecond(list.length)
-  }, [tasks])
+  }, [completedTasks])
 
   // - 6 => first
   useEffect(() => {
@@ -186,8 +185,8 @@ const CompletionCurveChartMonth = (): JSX.Element => {
       "en-CA",
     )
 
-    tasks &&
-      tasks.map((task: any, index: number) => {
+    completedTasks &&
+      completedTasks.map((task: any, index: number) => {
         const completedAt = new Date(task.completedAt)
           .toLocaleString("en-CA")
           .slice(0, 7)
@@ -200,7 +199,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
 
     setOne(month)
     setFirst(list.length)
-  }, [tasks])
+  }, [completedTasks])
 
   const data = [
     { key: one, data: first },
