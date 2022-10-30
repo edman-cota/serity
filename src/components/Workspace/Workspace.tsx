@@ -14,8 +14,8 @@ import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
 import { setActiveIndex } from '../../features/counter/activeIndexSlice'
 import { setShowAddTask } from '../../features/counter/showAddTaskSlice'
 import '../Sidebar/Sidebar.scss'
-import { beautifyUrl } from '../../helpers/beautifyUrl'
-import { beautifyUsername } from '../../helpers/beautifyUsername'
+import { formatUrl } from '../../helpers/formatter'
+import { formatUsername } from '../../helpers/formatter'
 import { ProjectProps } from '../../types/project.model'
 import Toolbar from './Toolbar'
 
@@ -24,7 +24,7 @@ const Workspace = () => {
   const [user] = useAuthState(auth)
   const { projects } = useGetProjects()
 
-  const username = beautifyUsername(user?.email)
+  const username = formatUsername(user?.email)
 
   const navigateTo = (project: ProjectProps) => {
     // Guarda localmente
@@ -47,7 +47,7 @@ const Workspace = () => {
               <ListItem key={project.id} color="hsla(0,0%,100%,.87)">
                 <NavLink
                   key={project.id}
-                  to={`/${username}/${beautifyUrl(project?.name)}`}
+                  to={`/${username}/${formatUrl(project?.name)}`}
                   className={({ isActive }) => (isActive ? 'i-active' : 'i-link')}
                 >
                   <Text as="span" w="30px">

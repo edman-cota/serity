@@ -22,9 +22,10 @@ import { useForm } from 'react-hook-form'
 import { FiEdit } from 'react-icons/fi'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import ChooseIconModal from './ChooseIconModal'
-import database, { auth } from '../../firebase'
+import { auth } from '../../firebase'
 import type { RootState } from '../../store'
 import { setEmoji } from '../../features/counter/emojiSlice'
+import { editProject } from '../../helpers/editProject'
 
 interface Props {
   name: string
@@ -46,11 +47,11 @@ const EditProject = ({ name, id, emoji }: Props) => {
   })
 
   const onSubmit = (data: any) => {
-    database
-      .ref(`${user?.uid}/projects/${id}`)
-      .update({ name: data.name, emoji: savedEmoji })
-      .then(() => onClose())
-    dispatch(setEmoji(''))
+    const status = editProject(data.name, user, emoji, id)
+    if (status === 'success') {
+      onClose()
+      dispatch(setEmoji(''))
+    }
   }
 
   return (
@@ -92,7 +93,7 @@ const EditProject = ({ name, id, emoji }: Props) => {
                     />
                   </FocusLock>
                 </form>
-                <ChooseIconModal emoji={emoji} />
+                <ChooseIconModal />
                 <HStack mt="135px" justifyContent="space-between">
                   <Button
                     variant="ghost"

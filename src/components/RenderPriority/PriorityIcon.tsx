@@ -20,9 +20,7 @@ const PriorityIcon = (props: any) => {
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   const updateTaskPriority = (priority: number) => {
-    if (priority === props.task?.priority) {
-      return
-    }
+    if (priority === props.task?.priority) return
 
     const result = changeTaskPriority(user, workingProject, props.task, priority)
     if (result !== Status.SUCCESS) {
@@ -42,12 +40,7 @@ const PriorityIcon = (props: any) => {
 
       <MenuList minW="150px">
         {priorities.map((priority, index, { length }) => (
-          <MenuItem
-            key={priority}
-            onClick={() => {
-              updateTaskPriority(length - (index + 1))
-            }}
-          >
+          <MenuItem key={priority} onClick={() => updateTaskPriority(length - (index + 1))}>
             <Text w="30px">
               <BsFlag color={colors[index]} fontSize="14px" />
             </Text>

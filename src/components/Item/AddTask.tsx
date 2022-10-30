@@ -6,11 +6,12 @@ import ReactFocusLock from 'react-focus-lock'
 import { useDispatch, useSelector } from 'react-redux'
 import { BiSquareRounded } from 'react-icons/bi'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { auth } from '../../firebase.ts'
-import { useGetProject } from '../../hooks/useGetProject.ts'
-import { setShowAddTask } from '../../features/counter/showAddTaskSlice.ts'
-import { scale } from './item.transition.tsx'
-import { createNewTask } from '../../helpers/createNewTask.ts'
+import { auth } from '../../firebase'
+import { useGetProject } from '../../hooks/useGetProject'
+import { setShowAddTask } from '../../features/counter/showAddTaskSlice'
+import { scale } from './item.transition'
+import { createNewTask } from '../../helpers/createNewTask'
+import { RootState } from '../../store'
 
 const MotionFlex = chakra(motion.div, {
   /**
@@ -24,11 +25,11 @@ const AddTask = () => {
   const { project } = useGetProject()
   const [title, setTitle] = useState('')
   const dispatch = useDispatch()
-  const showAddTask = useSelector((state) => state.showAddTask.value)
+  const showAddTask = useSelector((state: RootState) => state.showAddTask.value)
   const [height, setHeight] = useState(40)
   const areaRef = useRef(null)
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: any) => {
     const keyCode = event.which || event.keyCode
 
     if (keyCode === 13 && !event.shiftKey) {
@@ -78,8 +79,8 @@ const AddTask = () => {
           spellCheck="false"
           autoComplete="off"
           name="w3review"
-          rows="1"
-          cols="200"
+          rows={1}
+          cols={200}
           w="full"
           border="none"
           h={`${height}px`}

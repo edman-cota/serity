@@ -11,64 +11,34 @@ import {
   Tooltip,
   HStack,
   useColorModeValue,
-  useColorMode,
 } from '@chakra-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useSelector } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
 import FocusLock from 'react-focus-lock'
 import { useForm } from 'react-hook-form'
+import { useSelector } from 'react-redux'
 import { AiOutlinePlus } from 'react-icons/ai'
 import ChooseIconModal from './ChooseIconModal'
 import { createNewProject } from '../../helpers/createNewProject'
 import { Status } from '../../enums/definitions'
-import database, { auth } from '../../firebase'
-import type { RootState } from '../../store'
-import { ProjectProps } from '../../types/project.model'
+import { auth } from '../../firebase'
+import { RootState } from '../../store'
 
 const CreateProject = () => {
-  const { colorMode } = useColorMode()
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const { register, resetField, handleSubmit } = useForm({ mode: 'onChange' })
-
   const [user] = useAuthState(auth)
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const modalBg = useColorModeValue('white', '#1c2333')
+  const { register, resetField, handleSubmit } = useForm({ mode: 'onChange' })
   const emoji = useSelector((state: RootState) => state.emoji.value)
 
   const onSubmit = (data: any) => {
-    const currentDate = new Date()
-    const timestamp = currentDate.getTime() // Milliseconds
+    const status = createNewProject(data.name, user, emoji)
 
-    const projectRef = database.ref(`${user?.uid}/projects`)
-    const newProjectRef = projectRef.push()
-
-    if (newProjectRef.key !== null && user?.uid !== undefined) {
-      const project: ProjectProps = {
-        id: newProjectRef.key,
-        name: data.name.trim(),
-        emoji: emoji,
-        color: 'white',
-        activeCount: 0,
-        taskCount: 0,
-        shared: false,
-        members: [],
-        columns: [],
-        columnsOrder: [],
-        createdAt: timestamp.toString(),
-        createdBy: user?.uid,
-        showCompleted: false,
-      }
-
-      newProjectRef
-        .set(project)
-        .then(() => {
-          onClose()
-          resetField('name')
-        })
-        .catch(() => Status.ERROR)
+    if (status === Status.SUCCESS) {
+      onClose()
+      resetField('name')
     }
   }
-
-  const modalBg = useColorModeValue('white', '#1c2333')
 
   return (
     <>

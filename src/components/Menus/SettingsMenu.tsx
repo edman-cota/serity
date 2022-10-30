@@ -12,7 +12,7 @@ import { logout, auth } from '../../firebase'
 import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
 import { setActiveIndex } from '../../features/counter/activeIndexSlice'
 import { setIsExpanded } from '../../features/counter/expandedSlice'
-import { beautifyUsername } from '../../helpers/beautifyUsername'
+import { formatUsername } from '../../helpers/formatter'
 
 interface NavProps {
   text: string
@@ -22,11 +22,11 @@ interface NavProps {
 const SettingsMenu = () => {
   const dispatch = useDispatch()
   const [user] = useAuthState(auth)
-  const username = beautifyUsername(user?.email)
+  const username = formatUsername(user?.email)
 
   const clearOpenTask = () => {
     dispatch(setSelectedTaskId(''))
-    dispatch(setActiveIndex(''))
+    dispatch(setActiveIndex(-1))
     dispatch(setIsExpanded(false))
   }
 

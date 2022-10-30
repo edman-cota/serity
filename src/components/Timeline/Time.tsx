@@ -1,5 +1,5 @@
 import { Text } from '@chakra-ui/react'
-import { formatAMPM } from '../../helpers/formatAMPM'
+import { formatAMPM } from '../../helpers/formatter'
 
 interface Props {
   createdAt: string

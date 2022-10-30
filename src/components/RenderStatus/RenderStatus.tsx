@@ -2,7 +2,6 @@
 /* eslint-disable comma-dangle */
 import React from 'react'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
-import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { Tooltip, useToast, Text } from '@chakra-ui/react'
 // import { BiSquareRounded } from "react-icons/bi";
@@ -153,10 +152,6 @@ const RenderStatus = ({ task }: Props) => {
         </Tooltip>
       )
   }
-}
-
-RenderStatus.propTypes = {
-  task: PropTypes.shape({ completed: PropTypes.number }).isRequired,
 }
 
 export default RenderStatus

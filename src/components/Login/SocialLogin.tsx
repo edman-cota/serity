@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { Button, Flex, List, ListItem, Text } from '@chakra-ui/react'
 import { FormattedMessage } from 'react-intl'
 import { auth, signInWithGoogle } from '../../firebase'
-import { beautifyUsername } from '../../helpers/beautifyUsername'
+import { formatUsername } from '../../helpers/formatter'
 
 const SocialLogin = () => {
   const navigate = useNavigate()
@@ -17,7 +17,7 @@ const SocialLogin = () => {
       return
     }
     if (user) {
-      const username = beautifyUsername(user?.email)
+      const username = formatUsername(user?.email)
       navigate(`/${username}/today/`)
     }
   }, [user, loading, navigate])

@@ -8,8 +8,8 @@ import { auth } from '../../firebase'
 import SocialLogin from './SocialLogin'
 import Footer from './Footer'
 import LoginHeader from './LoginHeader'
-import { beautifyUrl } from '../../helpers/beautifyUrl'
-import { beautifyUsername } from '../../helpers/beautifyUsername'
+import { formatUrl } from '../../helpers/formatter'
+import { formatUsername } from '../../helpers/formatter'
 
 const LoginForm = () => {
   const navigate = useNavigate()
@@ -33,8 +33,8 @@ const LoginForm = () => {
       return
     }
     if (user) {
-      const username = beautifyUsername(user?.email)
-      navigate(`/${username}/${beautifyUrl(project)}`)
+      const username = formatUsername(user?.email)
+      navigate(`/${username}/${formatUrl(project)}`)
     }
   }, [user, loading, navigate])
 

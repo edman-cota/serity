@@ -1,14 +1,8 @@
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { useSelector } from 'react-redux'
-import { ProjectProps } from '../types/project.model'
-import database, { auth } from '../firebase'
-import type { RootState } from '../store'
+import database from '../firebase'
 import { Status } from '../enums/definitions'
+import { ProjectProps } from '../types/project.model'
 
-export const createNewProject = (name: string) => {
-  const [user] = useAuthState(auth)
-  const emoji = useSelector((state: RootState) => state.emoji.value)
-
+export const createNewProject = (name: string, user: any, emoji: any) => {
   const currentDate = new Date()
   const timestamp = currentDate.getTime() // Milliseconds
 

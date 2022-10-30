@@ -8,15 +8,15 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import logo from '../../../assets/img/logo.svg'
 import { auth } from '../../../firebase'
-import { beautifyUrl } from '../../../helpers/beautifyUrl'
+import { formatUrl } from '../../../helpers/formatter'
 import { getProjectFromLocalStorage } from '../../../helpers/getProjectFromLocalStorage'
 import '../home.scss'
-import { beautifyUsername } from '../../../helpers/beautifyUsername'
+import { formatUsername } from '../../../helpers/formatter'
 
 const Navbar = () => {
   const navigate = useNavigate()
   const [user, loading] = useAuthState(auth)
-  const username = beautifyUsername(user?.email)
+  const username = formatUsername(user?.email)
   const [scrolled, setScrolled] = useState(false)
   // eslint-disable-next-line no-unused-vars
   const [isFixed, setIsFixed] = useState(true)
@@ -24,7 +24,7 @@ const Navbar = () => {
   let navbarPosition = 'relative'
 
   const navigateTo = () => {
-    navigate(`${username}/${beautifyUrl(getProjectFromLocalStorage())}/?view=tree`)
+    navigate(`${username}/${formatUrl(getProjectFromLocalStorage())}/?view=tree`)
   }
 
   useEffect(() => {
