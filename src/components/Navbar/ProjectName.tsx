@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react"
-import { Input } from "@chakra-ui/react"
-import { useSelector } from "react-redux"
-import { useAuthState } from "react-firebase-hooks/auth"
-import type { RootState } from "../../store"
-import database, { auth } from "../../firebase"
+import React, { useEffect, useState } from 'react'
+import { Input } from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import type { RootState } from '../../store'
+import database, { auth } from '../../firebase'
 
 const ProjectName = () => {
   const [user] = useAuthState(auth)
-  const workingProject = useSelector(
-    (state: RootState) => state.workingProject.value,
-  )
+  const workingProject = useSelector((state: RootState) => state.workingProject.value)
   const [title, setTitle] = useState(
-    window.localStorage.getItem("project") ??
-      "Serity - Clean and simple to-do app",
+    window.localStorage.getItem('project') ?? 'Serity - Clean and simple to-do app',
   )
 
   useEffect(() => {
@@ -21,9 +18,7 @@ const ProjectName = () => {
 
   const handleOnChange = (e: any) => {
     setTitle(e.target.value)
-    database
-      .ref(`${user?.uid}/projects/${workingProject.id}`)
-      .update({ name: e.target.value })
+    database.ref(`${user?.uid}/projects/${workingProject.id}`).update({ name: e.target.value })
   }
 
   return (
@@ -38,7 +33,7 @@ const ProjectName = () => {
       fontWeight={700}
       placeholder="Give me a title"
       onChange={(e) => handleOnChange(e)}
-      _focus={{ outline: "none" }}
+      _focus={{ outline: 'none' }}
     />
   )
 }

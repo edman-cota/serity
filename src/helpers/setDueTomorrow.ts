@@ -1,5 +1,5 @@
-import { ActivityType, Status } from "../enums/definitions"
-import database from "../firebase"
+import { ActivityType, Status } from '../enums/definitions'
+import database from '../firebase'
 
 export function setDueTomorrow(user: any, task: any, workingProject: any) {
   const now = new Date()

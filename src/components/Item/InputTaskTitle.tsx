@@ -1,7 +1,7 @@
-import { Textarea } from "@chakra-ui/react"
-import { useAuthState } from "react-firebase-hooks/auth"
-import { ActivityType } from "../../enums/definitions"
-import database, { auth } from "../../firebase"
+import { Textarea } from '@chakra-ui/react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { ActivityType } from '../../enums/definitions'
+import database, { auth } from '../../firebase'
 
 interface Props {
   content: string

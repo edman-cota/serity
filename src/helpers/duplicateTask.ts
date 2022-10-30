@@ -1,8 +1,8 @@
-import { ActivityType } from "../enums/definitions"
-import database from "../firebase"
+import { ActivityType } from '../enums/definitions'
+import database from '../firebase'
 
 export function duplicateTask(task: any, project: any, user: any) {
-  const status = { success: "success", error: "error" }
+  const status = { success: 'success', error: 'error' }
 
   const cardRef = database.ref(`${user?.uid}/tasks`)
   const newCardRef = cardRef.push()

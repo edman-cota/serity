@@ -1,11 +1,11 @@
-import { Text } from "@chakra-ui/react"
-import { AiOutlinePlus } from "react-icons/ai"
-import { VscCircleLargeOutline } from "react-icons/vsc"
-import { BiFlag } from "react-icons/bi"
-import { HiOutlineCalendar } from "react-icons/hi"
-import { BsCheck2 } from "react-icons/bs"
-import { AiOutlineEdit } from "react-icons/ai"
-import "./Activities.scss"
+import { Text } from '@chakra-ui/react'
+import { AiOutlinePlus } from 'react-icons/ai'
+import { VscCircleLargeOutline } from 'react-icons/vsc'
+import { BiFlag } from 'react-icons/bi'
+import { HiOutlineCalendar } from 'react-icons/hi'
+import { BsCheck2 } from 'react-icons/bs'
+import { AiOutlineEdit } from 'react-icons/ai'
+import './Activities.scss'
 
 interface IconProps {
   type: number

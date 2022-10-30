@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from 'react'
 import {
   Popover,
   PopoverTrigger,
@@ -8,21 +8,21 @@ import {
   Flex,
   Text,
   useDisclosure,
-} from "@chakra-ui/react"
-import { useSelector } from "react-redux"
-import Calendar from "react-calendar"
-import { useAuthState } from "react-firebase-hooks/auth"
+} from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
+import Calendar from 'react-calendar'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
-import { auth } from "../../firebase"
-import TopOptions from "./TopOptions"
-import "react-calendar/dist/Calendar.css" // more from DetailTab.scss
-import type { RootState } from "../../store"
-import RenderDateText from "./RenderDateText"
-import { isToday } from "../../helpers/isToday"
-import CalendarIcon from "../Icons/CalendarIcon"
-import { isSameDay } from "../../helpers/isSameDay"
-import { isTomorrow } from "../../helpers/isTomorrow"
-import { setDueDate } from "../../helpers/setDueDate"
+import { auth } from '../../firebase'
+import TopOptions from './TopOptions'
+import 'react-calendar/dist/Calendar.css' // more from DetailTab.scss
+import type { RootState } from '../../store'
+import RenderDateText from './RenderDateText'
+import { isToday } from '../../helpers/isToday'
+import CalendarIcon from '../Icons/CalendarIcon'
+import { isSameDay } from '../../helpers/isSameDay'
+import { isTomorrow } from '../../helpers/isTomorrow'
+import { setDueDate } from '../../helpers/setDueDate'
 
 interface Props {
   task: any
@@ -30,13 +30,11 @@ interface Props {
 
 const CalendarPopover = ({ task }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const workingProject = useSelector(
-    (state: RootState) => state.workingProject.value,
-  )
+  const workingProject = useSelector((state: RootState) => state.workingProject.value)
   const [user] = useAuthState(auth)
   const [value, setValue] = useState(null)
 
-  const locale = localStorage.getItem("locale") || "en-US"
+  const locale = localStorage.getItem('locale') || 'en-US'
 
   useEffect(() => {
     setValue(task?.due && new Date(task?.due))
@@ -56,7 +54,7 @@ const CalendarPopover = ({ task }: Props) => {
     }
 
     const status = setDueDate(user, task, e, workingProject)
-    if (status === "success") onClose()
+    if (status === 'success') onClose()
   }
 
   return (

@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface ExpandedState {
   value: boolean
@@ -10,7 +10,7 @@ const initialState: ExpandedState = {
 }
 
 export const expandedSlice = createSlice({
-  name: "isExpanded",
+  name: 'isExpanded',
   initialState,
   reducers: {
     setIsExpanded: (state, action: PayloadAction<boolean>) => {

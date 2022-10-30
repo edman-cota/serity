@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 import {
   AreaChart,
   AreaSeries,
@@ -15,45 +15,41 @@ import {
   Line,
   LinearYAxisTickSeries,
   LinearYAxisTickLabel,
-} from "reaviz"
-import { useGetAllCompletedTasks } from "../../hooks/useGetAllCompletedTasks"
-import ChartTitle from "./ChartTitle"
+} from 'reaviz'
+import { useGetAllCompletedTasks } from '../../hooks/useGetAllCompletedTasks'
+import ChartTitle from './ChartTitle'
 
 const CompletionCurveChartMonth = (): JSX.Element => {
   const { completedTasks } = useGetAllCompletedTasks()
   const [first, setFirst] = useState(0)
-  const [one, setOne] = useState("")
+  const [one, setOne] = useState('')
   const [second, setSecond] = useState(0)
-  const [two, setTwo] = useState("")
+  const [two, setTwo] = useState('')
   const [third, setThird] = useState(0)
-  const [three, setThree] = useState("")
+  const [three, setThree] = useState('')
   const [fourth, setFourth] = useState(0)
-  const [four, setFour] = useState("")
+  const [four, setFour] = useState('')
   const [fifth, setFifth] = useState(0)
-  const [five, setFive] = useState("")
+  const [five, setFive] = useState('')
   const [sixth, setSixth] = useState(0)
-  const [six, setSix] = useState("")
+  const [six, setSix] = useState('')
   const [seventh, setSeventh] = useState(0)
-  const [today, setToday] = useState("")
+  const [today, setToday] = useState('')
 
   // seventh
   useEffect(() => {
     let list = []
     const now = new Date()
-    const time = new Date(now.setMonth(now.getMonth() - 0)).toLocaleString(
-      "en-CA",
-    )
+    const time = new Date(now.setMonth(now.getMonth() - 0)).toLocaleString('en-CA')
 
     completedTasks &&
       completedTasks.map((task: any, index: number) => {
-        const completedAt = new Date(task.completedAt)
-          .toLocaleString("en-CA")
-          .slice(0, 7)
+        const completedAt = new Date(task.completedAt).toLocaleString('en-CA').slice(0, 7)
         if (completedAt === time.slice(0, 7)) {
           list.push(task)
         }
       })
-    setToday("This Month")
+    setToday('This Month')
     setSeventh(list.length)
   }, [completedTasks])
 
@@ -61,15 +57,11 @@ const CompletionCurveChartMonth = (): JSX.Element => {
   useEffect(() => {
     const completed = []
     const now = new Date()
-    const time = new Date(now.setMonth(now.getMonth() - 1)).toLocaleString(
-      "en-CA",
-    )
+    const time = new Date(now.setMonth(now.getMonth() - 1)).toLocaleString('en-CA')
 
     completedTasks &&
       completedTasks.map((task: any, index: number) => {
-        const completedAt = new Date(task.completedAt)
-          .toLocaleString("en-CA")
-          .slice(0, 7)
+        const completedAt = new Date(task.completedAt).toLocaleString('en-CA').slice(0, 7)
         if (completedAt === time.slice(0, 7)) {
           completed.push(task)
         }
@@ -85,15 +77,11 @@ const CompletionCurveChartMonth = (): JSX.Element => {
   useEffect(() => {
     let list = []
     const now = new Date()
-    const time = new Date(now.setMonth(now.getMonth() - 2)).toLocaleString(
-      "en-CA",
-    )
+    const time = new Date(now.setMonth(now.getMonth() - 2)).toLocaleString('en-CA')
 
     completedTasks &&
       completedTasks.map((task: any, index: number) => {
-        const completedAt = new Date(task.completedAt)
-          .toLocaleString("en-CA")
-          .slice(0, 7)
+        const completedAt = new Date(task.completedAt).toLocaleString('en-CA').slice(0, 7)
         if (completedAt === time.slice(0, 7)) {
           list.push(task)
         }
@@ -109,15 +97,11 @@ const CompletionCurveChartMonth = (): JSX.Element => {
   useEffect(() => {
     let list = []
     const now = new Date()
-    const time = new Date(now.setMonth(now.getMonth() - 3)).toLocaleString(
-      "en-CA",
-    )
+    const time = new Date(now.setMonth(now.getMonth() - 3)).toLocaleString('en-CA')
 
     completedTasks &&
       completedTasks.map((task: any) => {
-        const completedAt = new Date(task.completedAt)
-          .toLocaleString("en-CA")
-          .slice(0, 7)
+        const completedAt = new Date(task.completedAt).toLocaleString('en-CA').slice(0, 7)
         if (completedAt === time.slice(0, 7)) {
           list.push(task)
         }
@@ -133,15 +117,11 @@ const CompletionCurveChartMonth = (): JSX.Element => {
   useEffect(() => {
     let list2 = []
     const now = new Date()
-    const time = new Date(now.setMonth(now.getMonth() - 4)).toLocaleString(
-      "en-CA",
-    )
+    const time = new Date(now.setMonth(now.getMonth() - 4)).toLocaleString('en-CA')
 
     completedTasks &&
       completedTasks.map((task: any) => {
-        const completedAt = new Date(task.completedAt)
-          .toLocaleString("en-CA")
-          .slice(0, 7)
+        const completedAt = new Date(task.completedAt).toLocaleString('en-CA').slice(0, 7)
         if (completedAt === time.slice(0, 7)) {
           list2.push(task)
         }
@@ -157,15 +137,11 @@ const CompletionCurveChartMonth = (): JSX.Element => {
   useEffect(() => {
     let list = []
     const now = new Date()
-    const time = new Date(now.setMonth(now.getMonth() - 5)).toLocaleString(
-      "en-CA",
-    )
+    const time = new Date(now.setMonth(now.getMonth() - 5)).toLocaleString('en-CA')
 
     completedTasks &&
       completedTasks.map((task: any, index: number) => {
-        const completedAt = new Date(task.completedAt)
-          .toLocaleString("en-CA")
-          .slice(0, 7)
+        const completedAt = new Date(task.completedAt).toLocaleString('en-CA').slice(0, 7)
         if (completedAt === time.slice(0, 7)) {
           list.push(task)
         }
@@ -181,15 +157,11 @@ const CompletionCurveChartMonth = (): JSX.Element => {
   useEffect(() => {
     let list = []
     const now = new Date()
-    const time = new Date(now.setMonth(now.getMonth() - 6)).toLocaleString(
-      "en-CA",
-    )
+    const time = new Date(now.setMonth(now.getMonth() - 6)).toLocaleString('en-CA')
 
     completedTasks &&
       completedTasks.map((task: any, index: number) => {
-        const completedAt = new Date(task.completedAt)
-          .toLocaleString("en-CA")
-          .slice(0, 7)
+        const completedAt = new Date(task.completedAt).toLocaleString('en-CA').slice(0, 7)
         if (completedAt === time.slice(0, 7)) {
           list.push(task)
         }
@@ -227,13 +199,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
             tickSeries={
               <LinearXAxisTickSeries
                 line={null}
-                label={
-                  <LinearXAxisTickLabel
-                    padding={8}
-                    fontSize={12}
-                    position="end"
-                  />
-                }
+                label={<LinearXAxisTickLabel padding={8} fontSize={12} position="end" />}
               />
             }
           />
@@ -273,11 +239,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
           />
         }
         gridlines={
-          <GridlineSeries
-            line={
-              <Gridline direction="y" strokeColor="#444444" strokeWidth={1} />
-            }
-          />
+          <GridlineSeries line={<Gridline direction="y" strokeColor="#444444" strokeWidth={1} />} />
         }
       />
     </>

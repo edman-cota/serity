@@ -1,16 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface OrderByState {
   value: string
 }
 
 const initialState: OrderByState = {
-  value: "custom",
+  value: 'custom',
 }
 
 export const orderBySlice = createSlice({
-  name: "orderBy",
+  name: 'orderBy',
   initialState,
   reducers: {
     setOrderBy: (state, action: PayloadAction<string>) => {

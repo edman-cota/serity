@@ -17,12 +17,12 @@ export enum ActivityType {
 }
 
 export enum Status {
-  SUCCESS = "success",
-  ERROR = "error",
+  SUCCESS = 'success',
+  ERROR = 'error',
 }
 
 export enum DBRef {
-  Tasks = "tasks",
-  Projects = "projects",
-  Activities = "activities",
+  Tasks = 'tasks',
+  Projects = 'projects',
+  Activities = 'activities',
 }

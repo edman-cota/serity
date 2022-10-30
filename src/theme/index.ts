@@ -1,13 +1,13 @@
-import { extendTheme } from "@chakra-ui/react"
-import { inputTheme } from "./components/input"
-import { menuTheme } from "./components/menu"
-import { tooltipTheme } from "./components/tooltip"
-import { buttonTheme } from "./components/button"
-import { textareaTheme } from "./components/textarea"
-import { breakpoints } from "./foundations/breakpoints"
+import { extendTheme } from '@chakra-ui/react'
+import { inputTheme } from './components/input'
+import { menuTheme } from './components/menu'
+import { tooltipTheme } from './components/tooltip'
+import { buttonTheme } from './components/button'
+import { textareaTheme } from './components/textarea'
+import { breakpoints } from './foundations/breakpoints'
 
 const config = {
-  initialColorMode: "dark",
+  initialColorMode: 'dark',
   useSystemColorMode: false,
 }
 
@@ -68,7 +68,7 @@ const theme = extendTheme({
   config,
   colors: {
     gray: {
-      700: "#1f2733",
+      700: '#1f2733',
     },
   },
   breakpoints,

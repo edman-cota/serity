@@ -6,30 +6,29 @@ import {
   useColorModeValue,
   chakra,
   shouldForwardProp,
-} from "@chakra-ui/react"
-import { motion, AnimatePresence, isValidMotionProp } from "framer-motion"
-import { FormattedMessage } from "react-intl"
-import { useGetAchievement } from "../../hooks/useGetAchievement"
-import { calculatePercentage } from "../../helpers/calculatePercentage"
+} from '@chakra-ui/react'
+import { motion, AnimatePresence, isValidMotionProp } from 'framer-motion'
+import { FormattedMessage } from 'react-intl'
+import { useGetAchievement } from '../../hooks/useGetAchievement'
+import { calculatePercentage } from '../../helpers/calculatePercentage'
 
 const MotionFlex = chakra(motion.div, {
   /**
    ** Allow motion props and non-chakra props to be forwarded.
    */
-  shouldForwardProp: (prop) =>
-    isValidMotionProp(prop) || shouldForwardProp(prop),
+  shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
 })
 
 const AchievementCard = () => {
   const { tasks, completedTasks } = useGetAchievement()
-  const cardBackground = useColorModeValue("white", "gray.700")
+  const cardBackground = useColorModeValue('white', 'gray.700')
 
   return (
     <AnimatePresence>
       <MotionFlex
-        w={{ base: "95%", sm: "85%", xl: "490px" }}
-        mx={{ base: "auto", xl: "15px" }}
-        mt={{ base: "16px", xl: "20px" }}
+        w={{ base: '95%', sm: '85%', xl: '490px' }}
+        mx={{ base: 'auto', xl: '15px' }}
+        mt={{ base: '16px', xl: '20px' }}
         borderRadius="lg"
         p="30px"
         h="284px"
@@ -56,8 +55,7 @@ const AchievementCard = () => {
             <b>{tasks.length}</b> <FormattedMessage id="pending" />
           </Text>
           <Text fontSize="14px">
-            <b>{tasks.length + completedTasks.length}</b>{" "}
-            <FormattedMessage id="total" />
+            <b>{tasks.length + completedTasks.length}</b> <FormattedMessage id="total" />
           </Text>
         </HStack>
       </MotionFlex>

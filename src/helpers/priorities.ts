@@ -1,1 +1,1 @@
-export const priorities = ["high", "medium", "low", "none"]
+export const priorities = ['high', 'medium', 'low', 'none']

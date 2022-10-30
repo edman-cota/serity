@@ -1,6 +1,6 @@
-import database from "../firebase"
-import { Status } from "../enums/definitions"
-import { ActivityType } from "../enums/definitions"
+import database from '../firebase'
+import { Status } from '../enums/definitions'
+import { ActivityType } from '../enums/definitions'
 
 export function setDueDate(user: any, task: any, e: any, workingProject: any) {
   database

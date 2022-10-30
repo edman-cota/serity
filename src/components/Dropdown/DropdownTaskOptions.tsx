@@ -1,30 +1,23 @@
 /* eslint-disable comma-dangle */
-import React from "react"
-import {
-  Button,
-  Menu,
-  MenuList,
-  MenuItem,
-  MenuButton,
-  useToast,
-} from "@chakra-ui/react"
-import { useDispatch } from "react-redux"
-import { CopyIcon } from "@chakra-ui/icons"
-import { AiOutlineDelete } from "react-icons/ai"
-import { RiMoreLine } from "react-icons/ri"
-import { FormattedMessage } from "react-intl"
-import { useAuthState } from "react-firebase-hooks/auth"
-import { useGetTask } from "../../hooks/useGetTask"
-import { auth } from "../../firebase"
-import { SUCCESS, ERROR, TOAST } from "../../constants"
-import { useGetProject } from "../../hooks/useGetProject"
-import { duplicateTask } from "../../helpers/duplicateTask"
-import { deleteSingleTask } from "../../helpers/deleteSingleTask"
-import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice"
-import { setActiveIndex } from "../../features/counter/activeIndexSlice"
-import CopyToClipboardMenuItem from "./CopyToClipboardMenuItem"
-import MoveToMenuItemModal from "../Modals/MoveToMenuItemModal"
-import { setIsExpanded } from "../../features/counter/expandedSlice"
+import React from 'react'
+import { Button, Menu, MenuList, MenuItem, MenuButton, useToast } from '@chakra-ui/react'
+import { useDispatch } from 'react-redux'
+import { CopyIcon } from '@chakra-ui/icons'
+import { AiOutlineDelete } from 'react-icons/ai'
+import { RiMoreLine } from 'react-icons/ri'
+import { FormattedMessage } from 'react-intl'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useGetTask } from '../../hooks/useGetTask'
+import { auth } from '../../firebase'
+import { SUCCESS, ERROR, TOAST } from '../../constants'
+import { useGetProject } from '../../hooks/useGetProject'
+import { duplicateTask } from '../../helpers/duplicateTask'
+import { deleteSingleTask } from '../../helpers/deleteSingleTask'
+import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
+import { setActiveIndex } from '../../features/counter/activeIndexSlice'
+import CopyToClipboardMenuItem from './CopyToClipboardMenuItem'
+import MoveToMenuItemModal from '../Modals/MoveToMenuItemModal'
+import { setIsExpanded } from '../../features/counter/expandedSlice'
 
 const DropdownTaskOptions = () => {
   const toast = useToast()
@@ -38,14 +31,14 @@ const DropdownTaskOptions = () => {
 
     if (status === SUCCESS) {
       toast({
-        description: "Success",
+        description: 'Success',
         status: ERROR,
         isClosable: true,
       })
     }
     if (status === ERROR) {
       toast({
-        description: "Error",
+        description: 'Error',
         status: ERROR,
         isClosable: true,
       })
@@ -53,7 +46,7 @@ const DropdownTaskOptions = () => {
   }
 
   const handleDeleteTask = () => {
-    dispatch(setSelectedTaskId(""))
+    dispatch(setSelectedTaskId(''))
     dispatch(setActiveIndex(-1))
     dispatch(setIsExpanded(false))
 

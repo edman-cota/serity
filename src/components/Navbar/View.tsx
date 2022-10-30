@@ -1,38 +1,38 @@
-import React from "react"
-import { FormattedMessage } from "react-intl"
+import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
-import { HiViewBoards } from "react-icons/hi"
-import { FiChevronDown } from "react-icons/fi"
-import { VscListSelection } from "react-icons/vsc"
-import { BsFillCalendarMinusFill } from "react-icons/bs"
+import { HiViewBoards } from 'react-icons/hi'
+import { FiChevronDown } from 'react-icons/fi'
+import { VscListSelection } from 'react-icons/vsc'
+import { BsFillCalendarMinusFill } from 'react-icons/bs'
 
 const View = ({ view }: { view: string }) => {
   switch (view) {
-    case "tree":
+    case 'tree':
       return (
         <span style={TextStyle}>
           <VscListSelection />
-          <span style={{ padding: "0 10px", fontSize: "15px" }}>
+          <span style={{ padding: '0 10px', fontSize: '15px' }}>
             <FormattedMessage id={view} />
           </span>
           <FiChevronDown />
         </span>
       )
-    case "kanban":
+    case 'kanban':
       return (
         <span style={TextStyle}>
           <HiViewBoards />
-          <span style={{ padding: "0 10px", fontSize: "15px" }}>
+          <span style={{ padding: '0 10px', fontSize: '15px' }}>
             <FormattedMessage id={view} />
           </span>
           <FiChevronDown />
         </span>
       )
-    case "calendar":
+    case 'calendar':
       return (
         <span style={TextStyle}>
           <BsFillCalendarMinusFill />
-          <span style={{ padding: "0 10px", fontSize: "15px" }}>
+          <span style={{ padding: '0 10px', fontSize: '15px' }}>
             <FormattedMessage id={view} />
           </span>
           <FiChevronDown />
@@ -51,6 +51,6 @@ const View = ({ view }: { view: string }) => {
 export default View
 
 const TextStyle = {
-  display: "flex",
-  alignItems: "center",
+  display: 'flex',
+  alignItems: 'center',
 }

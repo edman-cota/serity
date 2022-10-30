@@ -1,12 +1,12 @@
-import React from "react"
-import { Button, HStack, Tooltip, useColorModeValue } from "@chakra-ui/react"
-import CreateProject from "../Modals/CreateProject"
-import SettingsMenu from "../Menus/SettingsMenu"
-import { IoNotificationsOutline } from "react-icons/io5"
-import { FormattedMessage } from "react-intl"
+import React from 'react'
+import { Button, HStack, Tooltip, useColorModeValue } from '@chakra-ui/react'
+import CreateProject from '../Modals/CreateProject'
+import SettingsMenu from '../Menus/SettingsMenu'
+import { IoNotificationsOutline } from 'react-icons/io5'
+import { FormattedMessage } from 'react-intl'
 
 const Footer = (): JSX.Element => {
-  const borderTopColor = useColorModeValue("gray.300", "gray.500")
+  const borderTopColor = useColorModeValue('gray.300', 'gray.500')
 
   return (
     <HStack

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
-import { useWindowSize } from "react-use"
-import { useSelector } from "react-redux"
-import type { RootState } from "../store"
+import { useEffect, useState } from 'react'
+import { useWindowSize } from 'react-use'
+import { useSelector } from 'react-redux'
+import type { RootState } from '../store'
 
 export const useSplitSizes = () => {
   const { width } = useWindowSize()
@@ -12,15 +12,15 @@ export const useSplitSizes = () => {
   useEffect(() => {
     if (width <= 770) {
       setSizes([0, 100]) // in %
-      setPaneDisplay(["none", "flex"])
+      setPaneDisplay(['none', 'flex'])
     }
     if (width > 770) {
       if (isExpanded) {
         setSizes([0, 100]) // in %
-        setPaneDisplay(["none", "flex"])
+        setPaneDisplay(['none', 'flex'])
       } else {
         setSizes([68, 32]) // in %
-        setPaneDisplay(["flex", "flex"])
+        setPaneDisplay(['flex', 'flex'])
       }
     }
   }, [width, isExpanded])

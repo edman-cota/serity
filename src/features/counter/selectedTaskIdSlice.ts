@@ -1,16 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface TaskIdState {
   value: string
 }
 
 const initialState: TaskIdState = {
-  value: "",
+  value: '',
 }
 
 export const selectedTaskIdSlice = createSlice({
-  name: "selectedTaskId",
+  name: 'selectedTaskId',
   initialState,
   reducers: {
     setSelectedTaskId: (state, action: PayloadAction<string>) => {

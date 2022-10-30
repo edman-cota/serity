@@ -9,23 +9,23 @@ export const timeDifference = (previous: number, locale: string): string => {
   const current = Date.now()
   var elapsed = current - previous
 
-  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" })
+  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' })
 
   if (elapsed < msPerMinute) {
     // return <FormattedMessage id="just_now" />;
-    return "just now"
+    return 'just now'
   } else if (elapsed < msPerHour) {
-    return rtf.format(-Math.floor(elapsed / msPerMinute), "minutes")
+    return rtf.format(-Math.floor(elapsed / msPerMinute), 'minutes')
   } else if (elapsed < msPerDay) {
-    return rtf.format(-Math.floor(elapsed / msPerHour), "hours")
+    return rtf.format(-Math.floor(elapsed / msPerHour), 'hours')
   } else if (elapsed < msPerMonth) {
     // return Math.round(elapsed / msPerDay) + " days ago";
-    return rtf.format(-Math.floor(elapsed / msPerDay), "days")
+    return rtf.format(-Math.floor(elapsed / msPerDay), 'days')
   } else if (elapsed < msPerYear) {
     // return Math.round(elapsed / msPerMonth) + " months ago";
-    return rtf.format(-Math.floor(elapsed / msPerMonth), "months")
+    return rtf.format(-Math.floor(elapsed / msPerMonth), 'months')
   } else {
     // return Math.round(elapsed / msPerYear) + " years ago";
-    return rtf.format(-Math.floor(elapsed / msPerYear), "years")
+    return rtf.format(-Math.floor(elapsed / msPerYear), 'years')
   }
 }

@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface ShowState {
   value: boolean
@@ -10,7 +10,7 @@ const initialState: ShowState = {
 }
 
 export const showCompletedSlice = createSlice({
-  name: "showCompleted",
+  name: 'showCompleted',
   initialState,
   reducers: {
     setShowCompleted: (state, action: PayloadAction<boolean>) => {

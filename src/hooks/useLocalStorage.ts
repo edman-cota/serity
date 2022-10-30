@@ -1,6 +1,6 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable import/prefer-default-export */
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
 interface Props {
   storageKey: string
@@ -8,9 +8,7 @@ interface Props {
 }
 
 export const useLocalStorage = (storageKey: string, fallbackStage: string) => {
-  const [value, setValue] = useState(
-    JSON.parse(localStorage.getItem(storageKey) || fallbackStage),
-  )
+  const [value, setValue] = useState(JSON.parse(localStorage.getItem(storageKey) || fallbackStage))
 
   // useEffect(() => {
   //   localStorage.setItem(storageKey, JSON.stringify(value));

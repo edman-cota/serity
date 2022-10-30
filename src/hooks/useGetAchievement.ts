@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react"
-import { useAuthState } from "react-firebase-hooks/auth"
-import database, { auth } from "../firebase"
-import { TaskProps } from "../types/task.model"
+import { useState, useEffect } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import database, { auth } from '../firebase'
+import { TaskProps } from '../types/task.model'
 
 export const useGetAchievement = () => {
   const [user] = useAuthState(auth)
@@ -9,7 +9,7 @@ export const useGetAchievement = () => {
   const [completedTasks, setCompletedTasks] = useState<TaskProps[]>([])
 
   useEffect(() => {
-    database.ref(`${user?.uid}/tasks`).on("value", (snapshot) => {
+    database.ref(`${user?.uid}/tasks`).on('value', (snapshot) => {
       const taskList: TaskProps[] = []
       const completedTask: TaskProps[] = []
       snapshot.forEach((snap) => {

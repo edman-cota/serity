@@ -1,5 +1,5 @@
-import React from "react"
-import { BsCalendar2 } from "react-icons/bs"
+import React from 'react'
+import { BsCalendar2 } from 'react-icons/bs'
 
 interface Props {
   due: string

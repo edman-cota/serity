@@ -1,5 +1,5 @@
-import React from "react"
-import { FormattedMessage } from "react-intl"
+import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 interface PriorityProps {
   priority: number
@@ -9,8 +9,8 @@ const Priority = ({ priority }: PriorityProps): JSX.Element => {
   switch (priority) {
     case 0:
       return (
-        <span style={{ paddingRight: "7px" }}>
-          <span style={{ paddingRight: "7px" }}>
+        <span style={{ paddingRight: '7px' }}>
+          <span style={{ paddingRight: '7px' }}>
             <FormattedMessage id="to" />
           </span>
           <b>
@@ -20,8 +20,8 @@ const Priority = ({ priority }: PriorityProps): JSX.Element => {
       )
     case 1:
       return (
-        <span style={{ paddingRight: "7px" }}>
-          <span style={{ paddingRight: "7px" }}>
+        <span style={{ paddingRight: '7px' }}>
+          <span style={{ paddingRight: '7px' }}>
             <FormattedMessage id="to" />
           </span>
           <b>
@@ -31,8 +31,8 @@ const Priority = ({ priority }: PriorityProps): JSX.Element => {
       )
     case 2:
       return (
-        <span style={{ paddingRight: "7px" }}>
-          <span style={{ paddingRight: "7px" }}>
+        <span style={{ paddingRight: '7px' }}>
+          <span style={{ paddingRight: '7px' }}>
             <FormattedMessage id="to" />
           </span>
           <b>
@@ -42,8 +42,8 @@ const Priority = ({ priority }: PriorityProps): JSX.Element => {
       )
     case 3:
       return (
-        <span style={{ paddingRight: "7px" }}>
-          <span style={{ paddingRight: "7px" }}>
+        <span style={{ paddingRight: '7px' }}>
+          <span style={{ paddingRight: '7px' }}>
             <FormattedMessage id="to" />
           </span>
           <b>

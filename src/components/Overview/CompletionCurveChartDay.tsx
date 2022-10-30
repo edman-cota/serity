@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 import {
   AreaChart,
   AreaSeries,
@@ -16,26 +16,26 @@ import {
   LinearYAxisTickSeries,
   LinearYAxisTickLabel,
   ScatterPoint,
-} from "reaviz"
-import { useGetAllCompletedTasks } from "../../hooks/useGetAllCompletedTasks"
-import ChartTitle from "./ChartTitle"
+} from 'reaviz'
+import { useGetAllCompletedTasks } from '../../hooks/useGetAllCompletedTasks'
+import ChartTitle from './ChartTitle'
 
 const CompletionCurveChart = (): JSX.Element => {
   const { completedTasks } = useGetAllCompletedTasks()
   const [first, setFirst] = useState(0)
-  const [one, setOne] = useState("")
+  const [one, setOne] = useState('')
   const [second, setSecond] = useState(0)
-  const [two, setTwo] = useState("")
+  const [two, setTwo] = useState('')
   const [third, setThird] = useState(0)
-  const [three, setThree] = useState("")
+  const [three, setThree] = useState('')
   const [fourth, setFourth] = useState(0)
-  const [four, setFour] = useState("")
+  const [four, setFour] = useState('')
   const [fifth, setFifth] = useState(0)
-  const [five, setFive] = useState("")
+  const [five, setFive] = useState('')
   const [sixth, setSixth] = useState(0)
-  const [six, setSix] = useState("")
+  const [six, setSix] = useState('')
   const [seventh, setSeventh] = useState(0)
-  const [today, setToday] = useState("")
+  const [today, setToday] = useState('')
 
   // seventh
   useEffect(() => {
@@ -51,7 +51,7 @@ const CompletionCurveChart = (): JSX.Element => {
         }
       })
 
-    setToday("Today")
+    setToday('Today')
     setSeventh(completed.length)
   }, [completedTasks])
 
@@ -70,8 +70,8 @@ const CompletionCurveChart = (): JSX.Element => {
       })
 
     let d = new Date(time)
-    let month = new Intl.DateTimeFormat("en", { month: "short" }).format(d)
-    let day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d)
+    let month = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+    let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
 
     setSix(`${month} ${day}`)
     setSixth(completed.length)
@@ -92,8 +92,8 @@ const CompletionCurveChart = (): JSX.Element => {
       })
 
     let d = new Date(time)
-    let month = new Intl.DateTimeFormat("en", { month: "short" }).format(d)
-    let day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d)
+    let month = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+    let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
 
     setFive(`${month} ${day}`)
     setFifth(completed.length)
@@ -114,8 +114,8 @@ const CompletionCurveChart = (): JSX.Element => {
       })
 
     let d = new Date(time)
-    let month = new Intl.DateTimeFormat("en", { month: "short" }).format(d)
-    let day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d)
+    let month = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+    let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
 
     setFour(`${month} ${day}`)
     setFourth(completed.length)
@@ -136,8 +136,8 @@ const CompletionCurveChart = (): JSX.Element => {
         }
       })
     let d = new Date(time)
-    let month = new Intl.DateTimeFormat("en", { month: "short" }).format(d)
-    let day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d)
+    let month = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+    let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
 
     setThree(`${month} ${day}`)
     setThird(completed.length)
@@ -158,8 +158,8 @@ const CompletionCurveChart = (): JSX.Element => {
         }
       })
     let d = new Date(time)
-    let month = new Intl.DateTimeFormat("en", { month: "short" }).format(d)
-    let day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d)
+    let month = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+    let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
 
     setTwo(`${month} ${day}`)
     setSecond(completed.length)
@@ -180,8 +180,8 @@ const CompletionCurveChart = (): JSX.Element => {
         }
       })
     let d = new Date(time)
-    let month = new Intl.DateTimeFormat("en", { month: "short" }).format(d)
-    let day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d)
+    let month = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+    let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
 
     setOne(`${month} ${day}`)
     setFirst(completed.length)
@@ -214,13 +214,7 @@ const CompletionCurveChart = (): JSX.Element => {
             tickSeries={
               <LinearXAxisTickSeries
                 line={null}
-                label={
-                  <LinearXAxisTickLabel
-                    padding={8}
-                    fontSize={12}
-                    position="end"
-                  />
-                }
+                label={<LinearXAxisTickLabel padding={8} fontSize={12} position="end" />}
               />
             }
           />
@@ -266,11 +260,7 @@ const CompletionCurveChart = (): JSX.Element => {
           />
         }
         gridlines={
-          <GridlineSeries
-            line={
-              <Gridline direction="y" strokeColor="#444444" strokeWidth={1} />
-            }
-          />
+          <GridlineSeries line={<Gridline direction="y" strokeColor="#444444" strokeWidth={1} />} />
         }
       />
     </>

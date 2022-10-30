@@ -1,6 +1,6 @@
-import { Avatar, Flex, Text } from "@chakra-ui/react"
-import { useAuthState } from "react-firebase-hooks/auth"
-import { auth } from "../../firebase"
+import { Avatar, Flex, Text } from '@chakra-ui/react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../../firebase'
 
 const UserAvatar = () => {
   const [user] = useAuthState(auth)
@@ -8,7 +8,7 @@ const UserAvatar = () => {
   return (
     <Flex alignItems="center" flex="1">
       <Flex>
-        <Avatar src={user?.photoURL || "none"} w="8" h="8" />
+        <Avatar src={user?.photoURL || 'none'} w="8" h="8" />
       </Flex>
       <Flex direction="column" px="10px">
         <Text>{user?.displayName}</Text>

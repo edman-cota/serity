@@ -1,5 +1,5 @@
-import React from "react"
-import { FormattedDate, FormattedMessage } from "react-intl"
+import React from 'react'
+import { FormattedDate, FormattedMessage } from 'react-intl'
 
 interface DueProps {
   due: string
@@ -8,7 +8,7 @@ interface DueProps {
 const DueDate = ({ due }: DueProps): JSX.Element => {
   return (
     <span>
-      <span style={{ paddingRight: "7px" }}>
+      <span style={{ paddingRight: '7px' }}>
         <FormattedMessage id="to" />
       </span>
       <b>

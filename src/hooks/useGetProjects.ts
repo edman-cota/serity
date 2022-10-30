@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react"
-import { useAuthState } from "react-firebase-hooks/auth"
-import database, { auth } from "../firebase"
-import { ProjectProps } from "../types/project.model"
+import { useState, useEffect } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import database, { auth } from '../firebase'
+import { ProjectProps } from '../types/project.model'
 
 export const useGetProjects = () => {
   const [user] = useAuthState(auth)
@@ -9,7 +9,7 @@ export const useGetProjects = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    database.ref(`${user?.uid}/projects`).on("value", (snapshot) => {
+    database.ref(`${user?.uid}/projects`).on('value', (snapshot) => {
       setIsLoading(true)
       const currentList: ProjectProps[] = []
 

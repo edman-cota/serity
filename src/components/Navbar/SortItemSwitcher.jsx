@@ -1,26 +1,20 @@
-import React from "react"
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Text,
-  Button,
-} from "@chakra-ui/react"
-import { FormattedMessage } from "react-intl"
-import { useDispatch } from "react-redux"
-import { FiCheck, FiList } from "react-icons/fi"
-import { HiViewBoards } from "react-icons/hi"
-import { BsFillCalendarMinusFill } from "react-icons/bs"
-import { VscFilter, VscFilterFilled } from "react-icons/vsc"
-import { setOrderBy } from "../../features/counter/orderBySlice.ts"
-import { useLocalStorage } from "../../hooks/useLocalStorage.ts"
+/* eslint-disable object-curly-newline */
+import React from 'react'
+import { Menu, MenuButton, MenuList, MenuItem, Text, Button } from '@chakra-ui/react'
+import { FormattedMessage } from 'react-intl'
+import { useDispatch } from 'react-redux'
+import { FiCheck, FiList } from 'react-icons/fi'
+import { HiViewBoards } from 'react-icons/hi'
+import { BsFillCalendarMinusFill } from 'react-icons/bs'
+import { VscFilter, VscFilterFilled } from 'react-icons/vsc'
+import { setOrderBy } from '../../features/counter/orderBySlice.ts'
+import { useLocalStorage } from '../../hooks/useLocalStorage.ts'
 
 const SortItem = () => {
   const dispatch = useDispatch()
-  const [sortedBy, setSortedBy] = useLocalStorage("order-by", "custom")
+  const [sortedBy, setSortedBy] = useLocalStorage('order-by', 'custom')
 
-  const filters = ["custom", "priority", "content"]
+  const filters = ['custom', 'priority', 'content']
   const icons = { 0: FiList, 1: HiViewBoards, 2: BsFillCalendarMinusFill }
 
   const updateSortedBy = (order) => {
@@ -31,26 +25,14 @@ const SortItem = () => {
   return (
     <Menu autoSelect={false}>
       <MenuButton as={Button} variant="ghost">
-        {sortedBy === "custom" ? (
-          <VscFilter />
-        ) : (
-          <VscFilterFilled color="#00B8D9" />
-        )}
+        {sortedBy === 'custom' ? <VscFilter /> : <VscFilterFilled color="#00B8D9" />}
       </MenuButton>
       <MenuList>
         {filters.map((filter, index) => {
           const Icon = icons[index]
           return (
-            <MenuItem
-              key={filter}
-              icon={<Icon />}
-              onClick={() => updateSortedBy(filter)}
-            >
-              <Text
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-              >
+            <MenuItem key={filter} icon={<Icon />} onClick={() => updateSortedBy(filter)}>
+              <Text display="flex" justifyContent="space-between" alignItems="center">
                 <Text as="span" pl="6px" fontSize="14px">
                   <FormattedMessage id={filter} />
                 </Text>

@@ -1,13 +1,8 @@
-import { ActivityType } from "../enums/definitions"
-import database from "../firebase"
+import { ActivityType } from '../enums/definitions'
+import database from '../firebase'
 
-export function markStatusToUncomplete(
-  user: any,
-  workingProject: any,
-  project: any,
-  task: any,
-) {
-  const status = { success: "success", error: "error" }
+export function markStatusToUncomplete(user: any, workingProject: any, project: any, task: any) {
+  const status = { success: 'success', error: 'error' }
 
   database
     .ref(`${user?.uid}/tasks/`)

@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface AddTaskState {
   value: boolean
@@ -10,7 +10,7 @@ const initialState: AddTaskState = {
 }
 
 export const showAddTaskSlice = createSlice({
-  name: "showAddTask",
+  name: 'showAddTask',
   initialState,
   reducers: {
     setShowAddTask: (state, action: PayloadAction<boolean>) => {

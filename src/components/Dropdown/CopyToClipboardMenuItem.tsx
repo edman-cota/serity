@@ -1,7 +1,7 @@
-import React from "react"
-import { MenuItem } from "@chakra-ui/react"
-import { BsLink45Deg } from "react-icons/bs"
-import { FormattedMessage } from "react-intl"
+import React from 'react'
+import { MenuItem } from '@chakra-ui/react'
+import { BsLink45Deg } from 'react-icons/bs'
+import { FormattedMessage } from 'react-intl'
 
 const CopyToClipboardMenuItem = () => {
   const copyToClipboard = () => {

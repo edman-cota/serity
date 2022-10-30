@@ -1,8 +1,8 @@
-import { Text } from "@chakra-ui/react"
-import { useAuthState } from "react-firebase-hooks/auth"
-import database, { auth } from "../../firebase"
-import { UPDATE_DESCRIPTION_ACTIVITY_TYPE } from "../../constants/index"
-import "./DetailTab.scss"
+import { Text } from '@chakra-ui/react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import database, { auth } from '../../firebase'
+import { UPDATE_DESCRIPTION_ACTIVITY_TYPE } from '../../constants/index'
+import './DetailTab.scss'
 
 interface Props {
   description: string | undefined

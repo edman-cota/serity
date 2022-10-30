@@ -1,18 +1,16 @@
-import { useSelector } from "react-redux"
-import { useColorModeValue, VStack } from "@chakra-ui/react"
-import Footer from "./Footer"
-import Header from "./Header"
-import type { RootState } from "../../store"
-import Workspace from "../Workspace/Workspace"
+import { useSelector } from 'react-redux'
+import { useColorModeValue, VStack } from '@chakra-ui/react'
+import Footer from './Footer'
+import Header from './Header'
+import type { RootState } from '../../store'
+import Workspace from '../Workspace/Workspace'
 
 const Sidebar = () => {
-  const isSidebarOpen = useSelector(
-    (state: RootState) => state.isSidebarOpen.value,
-  )
+  const isSidebarOpen = useSelector((state: RootState) => state.isSidebarOpen.value)
 
-  const display = isSidebarOpen ? "flex" : "none"
+  const display = isSidebarOpen ? 'flex' : 'none'
 
-  const sidebarBackground = useColorModeValue("gray.100", "gray.700")
+  const sidebarBackground = useColorModeValue('gray.100', 'gray.700')
 
   return (
     <VStack

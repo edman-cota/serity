@@ -1,20 +1,14 @@
 /* eslint-disable object-curly-newline */
-import React from "react"
-import PropTypes from "prop-types"
-import { useSelector } from "react-redux"
-import {
-  Flex,
-  HStack,
-  ListItem,
-  useColorModeValue,
-  useColorMode,
-} from "@chakra-ui/react"
-import RenderStatus from "../RenderStatus/RenderStatus"
-import ItemTitle from "./ItemTitle"
-import ItemMenu from "./ItemMenu"
-import "./Item.scss"
-import { TaskProps } from "../../types/task.model"
-import type { RootState } from "../../store"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+import { Flex, HStack, ListItem, useColorModeValue, useColorMode } from '@chakra-ui/react'
+import RenderStatus from '../RenderStatus/RenderStatus'
+import ItemTitle from './ItemTitle'
+import ItemMenu from './ItemMenu'
+import './Item.scss'
+import { TaskProps } from '../../types/task.model'
+import type { RootState } from '../../store'
 
 interface Props {
   task: TaskProps
@@ -24,7 +18,7 @@ interface Props {
 const Item = ({ task, index }: Props) => {
   const activeIndex = useSelector((state: RootState) => state.activeIndex.value)
   const { colorMode } = useColorMode()
-  const hover = useColorModeValue("gray.200", "gray.700")
+  const hover = useColorModeValue('gray.200', 'gray.700')
 
   // console.log("index", index);
 
@@ -32,7 +26,7 @@ const Item = ({ task, index }: Props) => {
 
   return (
     <ListItem
-      className={`tree-row${index === activeIndex ? " selected" : ""}`}
+      className={`tree-row${index === activeIndex ? ' selected' : ''}`}
       borderRadius="4px"
       // backgroundColor={bg}
       cursor="pointer"

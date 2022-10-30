@@ -1,4 +1,4 @@
-import { PriorityType, ActivityType } from "../enums/definitions"
+import { PriorityType, ActivityType } from '../enums/definitions'
 
 export interface ActivityProps {
   /**

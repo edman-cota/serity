@@ -1,7 +1,7 @@
-import React from "react"
-import { Flex, Text, useColorModeValue } from "@chakra-ui/react"
-import { FormattedMessage } from "react-intl"
-import { Link } from "react-router-dom"
+import React from 'react'
+import { Flex, Text, useColorModeValue } from '@chakra-ui/react'
+import { FormattedMessage } from 'react-intl'
+import { Link } from 'react-router-dom'
 
 interface PropsInterface {
   to: string
@@ -9,8 +9,8 @@ interface PropsInterface {
 }
 
 const SidebarItem = ({ to, textId }: PropsInterface): JSX.Element => {
-  const hover = useColorModeValue("#e9ecef", "#1F2733")
-  const backgroundColor = useColorModeValue("#e9ecef", "#1F2733")
+  const hover = useColorModeValue('#e9ecef', '#1F2733')
+  const backgroundColor = useColorModeValue('#e9ecef', '#1F2733')
 
   return (
     <Flex

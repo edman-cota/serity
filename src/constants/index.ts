@@ -9,19 +9,19 @@ export const UPDATE_DESCRIPTION_ACTIVITY_TYPE = 8
 
 export const MAX_PROJECTS_IN_FREE_TIER = 5
 
-export const SUCCESS = "success"
-export const ERROR = "error"
+export const SUCCESS = 'success'
+export const ERROR = 'error'
 
 export const TOAST = {
   status: {
     success: {
-      description: "Task duplicated sucessfully",
-      status: "SUCCESS",
+      description: 'Task duplicated sucessfully',
+      status: 'SUCCESS',
       isClosable: true,
     },
     error: {
-      description: "Failed to duplicate task",
-      status: "ERROR",
+      description: 'Failed to duplicate task',
+      status: 'ERROR',
       isClosable: true,
     },
   },

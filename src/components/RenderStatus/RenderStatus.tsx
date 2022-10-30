@@ -1,23 +1,23 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable comma-dangle */
-import React from "react"
-import { motion, useMotionValue, useTransform } from "framer-motion"
-import PropTypes from "prop-types"
-import { useDispatch, useSelector } from "react-redux"
-import { Tooltip, useToast, Text } from "@chakra-ui/react"
+import React from 'react'
+import { motion, useMotionValue, useTransform } from 'framer-motion'
+import PropTypes from 'prop-types'
+import { useDispatch, useSelector } from 'react-redux'
+import { Tooltip, useToast, Text } from '@chakra-ui/react'
 // import { BiSquareRounded } from "react-icons/bi";
 // import { BsFillCheckSquareFill } from "react-icons/bs";
-import { useAuthState } from "react-firebase-hooks/auth"
-import { useGetProject } from "../../hooks/useGetProject"
-import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice"
-import { setActiveIndex } from "../../features/counter/activeIndexSlice"
-import { auth } from "../../firebase"
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useGetProject } from '../../hooks/useGetProject'
+import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
+import { setActiveIndex } from '../../features/counter/activeIndexSlice'
+import { auth } from '../../firebase'
 
-import { markStatusToCompleted } from "../../helpers/markStatusToCompleted"
-import { markStatusToUncomplete } from "../../helpers/markStatusToUncomplete"
-import { getPriorityColor } from "../../helpers/getPriorityColor"
-import { TaskProps } from "../../types/task.model"
-import type { RootState } from "../../store"
+import { markStatusToCompleted } from '../../helpers/markStatusToCompleted'
+import { markStatusToUncomplete } from '../../helpers/markStatusToUncomplete'
+import { getPriorityColor } from '../../helpers/getPriorityColor'
+import { TaskProps } from '../../types/task.model'
+import type { RootState } from '../../store'
 
 interface Props {
   task: TaskProps
@@ -28,9 +28,7 @@ const RenderStatus = ({ task }: Props) => {
   const dispatch = useDispatch()
   const [user] = useAuthState(auth)
   const { project } = useGetProject()
-  const workingProject = useSelector(
-    (state: RootState) => state.workingProject.value,
-  )
+  const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   const [clicked, setClicked] = React.useState(false)
   const x = useMotionValue(100)
@@ -38,20 +36,15 @@ const RenderStatus = ({ task }: Props) => {
 
   const markStatusAsComplete = (taskToUpdate: TaskProps) => {
     setTimeout(() => {
-      const result = markStatusToCompleted(
-        user,
-        workingProject,
-        project,
-        taskToUpdate,
-      )
-      if (result === "success") {
+      const result = markStatusToCompleted(user, workingProject, project, taskToUpdate)
+      if (result === 'success') {
         // close task detail sidebar
-        dispatch(setSelectedTaskId(""))
+        dispatch(setSelectedTaskId(''))
         dispatch(setActiveIndex(-1))
 
         toast({
-          description: "Task completed successfully",
-          status: "success",
+          description: 'Task completed successfully',
+          status: 'success',
         })
       }
     }, 300)
@@ -61,18 +54,13 @@ const RenderStatus = ({ task }: Props) => {
   const tickPathDone = useTransform(x, [10, 100], [0, 1])
 
   const markStatusAsUncomplete = (taskToUpdate: TaskProps) => {
-    const result = markStatusToUncomplete(
-      user,
-      workingProject,
-      project,
-      taskToUpdate,
-    )
+    const result = markStatusToUncomplete(user, workingProject, project, taskToUpdate)
 
-    if (result === "success") {
+    if (result === 'success') {
       toast({
-        description: "Task restored successfully",
-        status: "success",
-        variant: "subtle",
+        description: 'Task restored successfully',
+        status: 'success',
+        variant: 'subtle',
       })
     }
   }
@@ -92,11 +80,9 @@ const RenderStatus = ({ task }: Props) => {
               }}
             >
               <motion.path
-                fill={clicked ? "#2175e2" : "none"}
+                fill={clicked ? '#2175e2' : 'none'}
                 strokeWidth="2"
-                stroke={
-                  clicked ? "#2175e2" : getPriorityColor(task.priority || 0)
-                }
+                stroke={clicked ? '#2175e2' : getPriorityColor(task.priority || 0)}
                 d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
                 style={{ translateX: 5, translateY: 5 }}
               />
@@ -106,7 +92,7 @@ const RenderStatus = ({ task }: Props) => {
                 stroke="white"
                 d="M14,26 L 22,33 L 35,16"
                 strokeDasharray="0 1"
-                transition={{ type: "tween", duration: 5 }}
+                transition={{ type: 'tween', duration: 5 }}
                 style={{ pathLength: tickPath }}
               />
             </svg>

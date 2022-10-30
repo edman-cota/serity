@@ -3,8 +3,8 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-var */
 /* eslint-disable import/no-mutable-exports */
-import firebase from "firebase"
-import "firebase/storage"
+import firebase from 'firebase'
+import 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -26,15 +26,12 @@ const signInWithGoogle = async () => {
   try {
     const res = await auth.signInWithPopup(googleProvider)
     const user = res.user
-    const query = await db
-      .collection("users")
-      .where("uid", "==", user?.uid)
-      .get()
+    const query = await db.collection('users').where('uid', '==', user?.uid).get()
     if (query.docs.length === 0) {
-      await db.collection("users").add({
+      await db.collection('users').add({
         uid: user?.uid,
         name: user?.displayName,
-        authProvider: "google",
+        authProvider: 'google',
         email: user?.email,
       })
     }
@@ -45,18 +42,14 @@ const signInWithEmailAndPassword = async (email: string, password: string) => {
     await auth.signInWithEmailAndPassword(email, password)
   } catch (err) {}
 }
-const registerWithEmailAndPassword = async (
-  name: string,
-  email: string,
-  password: string,
-) => {
+const registerWithEmailAndPassword = async (name: string, email: string, password: string) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password)
     const user = res.user
-    await db.collection("users").add({
+    await db.collection('users').add({
       uid: user?.uid,
       name,
-      authProvider: "local",
+      authProvider: 'local',
       email,
     })
   } catch (err) {}

@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from "react"
-import PropTypes from "prop-types"
-import { Flex, Text } from "@chakra-ui/react"
-import { BsCheck2 } from "react-icons/bs"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Flex, Text } from '@chakra-ui/react'
+import { BsCheck2 } from 'react-icons/bs'
 
 const Update = ({ data }) => (
   <div className="timeline-item">

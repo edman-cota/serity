@@ -1,16 +1,16 @@
 /* eslint-disable consistent-return */
-import React, { useEffect, memo } from "react"
-import { Flex, List, ListItem } from "@chakra-ui/react"
-import { useNavigate, useParams } from "react-router-dom"
-import { useAuthState } from "react-firebase-hooks/auth"
+import React, { useEffect, memo } from 'react'
+import { Flex, List, ListItem } from '@chakra-ui/react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth'
 // import { Button } from "react-loading-arleth";
 // import "react-loading-arleth/dist/index.css";
-import ToggleSidebarVisibility from "./ToggleSidebarVisibility"
-import NavItemAddTask from "./NavItemAddTask"
-import ProjectName from "./ProjectName"
-import { auth } from "../../firebase"
-import ColorModeSwitcher from "./ColorModeSwitcher"
-import ProjectOptionsMenu from "../Menus/ProjectOptionsMenu"
+import ToggleSidebarVisibility from './ToggleSidebarVisibility'
+import NavItemAddTask from './NavItemAddTask'
+import ProjectName from './ProjectName'
+import { auth } from '../../firebase'
+import ColorModeSwitcher from './ColorModeSwitcher'
+import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -19,7 +19,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (loading) return
-    if (!user) return navigate("/login")
+    if (!user) return navigate('/login')
   }, [user, loading, navigate])
 
   return (
@@ -31,7 +31,7 @@ const Navbar = () => {
         </Flex>
         <Flex flex="1" justifyContent="flex-end">
           <List display="flex" alignItems="center" gap="20px">
-            {project !== "today" ? (
+            {project !== 'today' ? (
               <ListItem>
                 <NavItemAddTask />
               </ListItem>

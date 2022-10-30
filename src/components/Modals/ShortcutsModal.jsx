@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import {
   useDisclosure,
   Modal,
@@ -11,9 +11,9 @@ import {
   Text,
   Button,
   Tooltip,
-} from "@chakra-ui/react"
-import { FaRegKeyboard } from "react-icons/fa"
-import { AiOutlineClose } from "react-icons/ai"
+} from '@chakra-ui/react'
+import { FaRegKeyboard } from 'react-icons/fa'
+import { AiOutlineClose } from 'react-icons/ai'
 
 const ShortcutsModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -26,12 +26,7 @@ const ShortcutsModal = () => {
         </Button>
       </Tooltip>
 
-      <Modal
-        onClose={onClose}
-        isOpen={isOpen}
-        motionPreset="slideInBottom"
-        size="xl"
-      >
+      <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="xl">
         <ModalOverlay bg="#0e1525A0" />
         <ModalContent
           maxW="750px"
@@ -43,12 +38,7 @@ const ShortcutsModal = () => {
             <VStack h="100%" flex={1} p="20px">
               <Flex justifyContent="space-between" w="100%">
                 <Text>Keyboard Shortcuts</Text>
-                <Button
-                  variant="ghost"
-                  px="0rem"
-                  borderRadius="full"
-                  onClick={onClose}
-                >
+                <Button variant="ghost" px="0rem" borderRadius="full" onClick={onClose}>
                   <AiOutlineClose />
                 </Button>
               </Flex>

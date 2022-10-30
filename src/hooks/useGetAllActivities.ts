@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react"
-import { useSelector } from "react-redux"
-import { useAuthState } from "react-firebase-hooks/auth"
-import database, { auth } from "../firebase"
-import type { RootState } from "../store"
-import { ActivityProps } from "../types/activity.model"
+import { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import database, { auth } from '../firebase'
+import type { RootState } from '../store'
+import { ActivityProps } from '../types/activity.model'
 
 const useGetActivities = () => {
   const [activities, setActivities] = useState<ActivityProps[]>([])
@@ -12,7 +12,7 @@ const useGetActivities = () => {
   const task = useSelector((state: RootState) => state.task.value)
 
   useEffect(() => {
-    database.ref(`${user?.uid}/activities`).on("value", (snapshot) => {
+    database.ref(`${user?.uid}/activities`).on('value', (snapshot) => {
       setIsLoading(true)
       const currentList: ActivityProps[] = []
       snapshot.forEach((snap) => {

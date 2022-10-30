@@ -12,24 +12,24 @@ import {
   HStack,
   useColorModeValue,
   useColorMode,
-} from "@chakra-ui/react"
-import { useAuthState } from "react-firebase-hooks/auth"
-import { useSelector } from "react-redux"
-import { FormattedMessage } from "react-intl"
-import FocusLock from "react-focus-lock"
-import { useForm } from "react-hook-form"
-import { AiOutlinePlus } from "react-icons/ai"
-import ChooseIconModal from "./ChooseIconModal"
-import { createNewProject } from "../../helpers/createNewProject"
-import { Status } from "../../enums/definitions"
-import database, { auth } from "../../firebase"
-import type { RootState } from "../../store"
-import { ProjectProps } from "../../types/project.model"
+} from '@chakra-ui/react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useSelector } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
+import FocusLock from 'react-focus-lock'
+import { useForm } from 'react-hook-form'
+import { AiOutlinePlus } from 'react-icons/ai'
+import ChooseIconModal from './ChooseIconModal'
+import { createNewProject } from '../../helpers/createNewProject'
+import { Status } from '../../enums/definitions'
+import database, { auth } from '../../firebase'
+import type { RootState } from '../../store'
+import { ProjectProps } from '../../types/project.model'
 
 const CreateProject = () => {
   const { colorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { register, resetField, handleSubmit } = useForm({ mode: "onChange" })
+  const { register, resetField, handleSubmit } = useForm({ mode: 'onChange' })
 
   const [user] = useAuthState(auth)
   const emoji = useSelector((state: RootState) => state.emoji.value)
@@ -46,7 +46,7 @@ const CreateProject = () => {
         id: newProjectRef.key,
         name: data.name.trim(),
         emoji: emoji,
-        color: "white",
+        color: 'white',
         activeCount: 0,
         taskCount: 0,
         shared: false,
@@ -62,13 +62,13 @@ const CreateProject = () => {
         .set(project)
         .then(() => {
           onClose()
-          resetField("name")
+          resetField('name')
         })
         .catch(() => Status.ERROR)
     }
   }
 
-  const modalBg = useColorModeValue("white", "#1c2333")
+  const modalBg = useColorModeValue('white', '#1c2333')
 
   return (
     <>
@@ -78,12 +78,7 @@ const CreateProject = () => {
         </Button>
       </Tooltip>
 
-      <Modal
-        onClose={onClose}
-        isOpen={isOpen}
-        motionPreset="slideInBottom"
-        size="xl"
-      >
+      <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="xl">
         <ModalOverlay bg="#0e1525A0" />
         <ModalContent
           maxW="450px"
@@ -97,14 +92,14 @@ const CreateProject = () => {
 
           <ModalBody>
             <Flex w="100%" direction="column">
-              <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
+              <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
                 <FocusLock>
                   <Input
                     autoComplete="off"
                     placeholder="Give your new project a name"
-                    {...register("name", { required: true })}
+                    {...register('name', { required: true })}
                     _focus={{
-                      borderColor: "#2175e2",
+                      borderColor: '#2175e2',
                     }}
                   />
                 </FocusLock>
@@ -115,7 +110,7 @@ const CreateProject = () => {
                     w="100px"
                     onClick={() => {
                       onClose()
-                      resetField("name")
+                      resetField('name')
                     }}
                   >
                     <FormattedMessage id="cancel" />
@@ -125,7 +120,7 @@ const CreateProject = () => {
                     color="white"
                     bg="#2e85ec"
                     w="100px"
-                    _hover={{ bg: "#0071dc" }}
+                    _hover={{ bg: '#0071dc' }}
                   >
                     <FormattedMessage id="create" />
                   </Button>

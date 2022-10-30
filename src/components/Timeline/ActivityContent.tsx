@@ -1,4 +1,4 @@
-import { Text, useColorModeValue } from "@chakra-ui/react"
+import { Text, useColorModeValue } from '@chakra-ui/react'
 
 interface Props {
   type: number
@@ -7,7 +7,7 @@ interface Props {
 }
 
 const ActivityContent = ({ type, content, description }: Props) => {
-  const color = useColorModeValue("gray", "whiteAlpha.700")
+  const color = useColorModeValue('gray', 'whiteAlpha.700')
 
   switch (type) {
     case 1:

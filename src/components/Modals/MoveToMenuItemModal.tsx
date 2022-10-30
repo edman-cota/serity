@@ -1,5 +1,5 @@
 /* eslint-disable arrow-body-style */
-import React from "react"
+import React from 'react'
 import {
   Modal,
   MenuItem,
@@ -10,9 +10,9 @@ import {
   ModalBody,
   Flex,
   Select,
-} from "@chakra-ui/react"
-import { MdOutlineDriveFileMove } from "react-icons/md"
-import { FormattedMessage } from "react-intl"
+} from '@chakra-ui/react'
+import { MdOutlineDriveFileMove } from 'react-icons/md'
+import { FormattedMessage } from 'react-intl'
 
 const MoveToMenuItemModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -22,12 +22,7 @@ const MoveToMenuItemModal = () => {
       <MenuItem icon={<MdOutlineDriveFileMove />} onClick={onOpen}>
         <FormattedMessage id="move_to" />
       </MenuItem>
-      <Modal
-        onClose={onClose}
-        isOpen={isOpen}
-        motionPreset="slideInBottom"
-        size="xl"
-      >
+      <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="xl">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>

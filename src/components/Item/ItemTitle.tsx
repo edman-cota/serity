@@ -1,12 +1,12 @@
-import { Flex, Text, useColorModeValue } from "@chakra-ui/react"
-import { useWindowSize } from "react-use"
-import { useDispatch } from "react-redux"
-import { setActiveIndex } from "../../features/counter/activeIndexSlice"
-import { setSelectedTaskId } from "../../features/counter/selectedTaskIdSlice"
-import { setTask } from "../../features/counter/taskSlice"
-import { setSidebarVisibility } from "../../features/counter/sidebarVisibilitySlice"
-import { setTaskActivityVisibility } from "../../features/counter/taskActivitySlice"
-import { TaskProps } from "../../types/task.model"
+import { Flex, Text, useColorModeValue } from '@chakra-ui/react'
+import { useWindowSize } from 'react-use'
+import { useDispatch } from 'react-redux'
+import { setActiveIndex } from '../../features/counter/activeIndexSlice'
+import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
+import { setTask } from '../../features/counter/taskSlice'
+import { setSidebarVisibility } from '../../features/counter/sidebarVisibilitySlice'
+import { setTaskActivityVisibility } from '../../features/counter/taskActivitySlice'
+import { TaskProps } from '../../types/task.model'
 
 interface Props {
   task: TaskProps
@@ -16,7 +16,7 @@ interface Props {
 const ItemTitle = ({ task, index }: Props) => {
   const { width } = useWindowSize()
   const dispatch = useDispatch()
-  const color = useColorModeValue("#181d25", "whiteAlpha.900")
+  const color = useColorModeValue('#181d25', 'whiteAlpha.900')
 
   const onSelectItem = (id: string, itemIndex: number) => {
     dispatch(setSelectedTaskId(id))
@@ -34,7 +34,7 @@ const ItemTitle = ({ task, index }: Props) => {
       flex={3}
       h="100%"
       alignItems="center"
-      onClick={() => onSelectItem(task.id || "today", index)}
+      onClick={() => onSelectItem(task.id || 'today', index)}
     >
       <Text className="text-item" color={color} fontSize="15px">
         {task.content}

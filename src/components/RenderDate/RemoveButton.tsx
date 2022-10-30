@@ -1,12 +1,12 @@
-import { Button } from "@chakra-ui/react"
-import { useSelector } from "react-redux"
-import { FormattedMessage } from "react-intl"
-import { useAuthState } from "react-firebase-hooks/auth"
+import { Button } from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
-import { auth } from "../../firebase"
-import type { RootState } from "../../store"
-import { Status } from "../../enums/definitions"
-import { removeDueDate } from "../../helpers/removeDueDate"
+import { auth } from '../../firebase'
+import type { RootState } from '../../store'
+import { Status } from '../../enums/definitions'
+import { removeDueDate } from '../../helpers/removeDueDate'
 
 interface Props {
   onClose: any
@@ -15,9 +15,7 @@ interface Props {
 
 const RemoveButton = ({ onClose, task }: Props) => {
   const [user] = useAuthState(auth)
-  const workingProject = useSelector(
-    (state: RootState) => state.workingProject.value,
-  )
+  const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   const handleRemoveDueDate = () => {
     if (task.due === undefined) {

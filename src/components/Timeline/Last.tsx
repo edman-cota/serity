@@ -1,5 +1,5 @@
-import Priority from "./Priority"
-import DueDate from "./DueDate"
+import Priority from './Priority'
+import DueDate from './DueDate'
 
 interface Props {
   type: number

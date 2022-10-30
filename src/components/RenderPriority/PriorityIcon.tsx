@@ -1,48 +1,33 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import {
-  Button,
-  Text,
-  useToast,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-} from "@chakra-ui/react"
-import { useSelector } from "react-redux"
-import { FormattedMessage } from "react-intl"
-import { useAuthState } from "react-firebase-hooks/auth"
-import { BsFlag } from "react-icons/bs"
-import RenderPriority from "./RenderPriority"
-import { auth } from "../../firebase"
-import { changeTaskPriority } from "../../helpers/changeTaskPriority"
-import { priorities } from "../../helpers/priorities"
-import { colors } from "../../helpers/colors"
-import type { RootState } from "../../store"
-import { Status } from "../../enums/definitions"
+import { Button, Text, useToast, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { BsFlag } from 'react-icons/bs'
+import RenderPriority from './RenderPriority'
+import { auth } from '../../firebase'
+import { changeTaskPriority } from '../../helpers/changeTaskPriority'
+import { priorities } from '../../helpers/priorities'
+import { colors } from '../../helpers/colors'
+import type { RootState } from '../../store'
+import { Status } from '../../enums/definitions'
 
 const PriorityIcon = (props: any) => {
   const toast = useToast()
   const [user] = useAuthState(auth)
-  const workingProject = useSelector(
-    (state: RootState) => state.workingProject.value,
-  )
+  const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   const updateTaskPriority = (priority: number) => {
     if (priority === props.task?.priority) {
       return
     }
 
-    const result = changeTaskPriority(
-      user,
-      workingProject,
-      props.task,
-      priority,
-    )
+    const result = changeTaskPriority(user, workingProject, props.task, priority)
     if (result !== Status.SUCCESS) {
       toast({
-        description: "Failed to update priority",
+        description: 'Failed to update priority',
         status: Status.ERROR,
         isClosable: true,
       })

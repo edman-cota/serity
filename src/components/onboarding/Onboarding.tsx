@@ -1,21 +1,14 @@
-import "./style.scss"
-import {
-  Button,
-  Flex,
-  Heading,
-  Image,
-  VStack,
-  useColorMode,
-} from "@chakra-ui/react"
-import Logo from "../../assets/img/logo.svg"
-import { Tooltip } from "custom-react-tooltip"
+import './style.scss'
+import { Button, Flex, Heading, Image, VStack, useColorMode } from '@chakra-ui/react'
+import Logo from '../../assets/img/logo.svg'
+import { Tooltip } from 'custom-react-tooltip'
 
 const Onboarding = () => {
-  const themes: string[] = ["lightTheme", "darkTheme"]
+  const themes: string[] = ['lightTheme', 'darkTheme']
   const { toggleColorMode } = useColorMode()
 
   return (
-    <VStack style={{ height: "100vh", width: "100%" }}>
+    <VStack style={{ height: '100vh', width: '100%' }}>
       <Flex h="100px" alignItems="center">
         <Image src={Logo} alt="Serity logo" w="10" h="10" />
       </Flex>
@@ -37,9 +30,9 @@ const Onboarding = () => {
           className="radio_label"
           for="lightTheme"
           style={{
-            backgroundColor: "#FFFFFF",
-            color: "#39414b",
-            borderColor: "#d0d8e5",
+            backgroundColor: '#FFFFFF',
+            color: '#39414b',
+            borderColor: '#d0d8e5',
           }}
           onClick={toggleColorMode}
         >
@@ -57,9 +50,9 @@ const Onboarding = () => {
           className="radio_label"
           for="darkTheme"
           style={{
-            backgroundColor: "#FFFFFF",
-            color: "#39414b",
-            borderColor: "#d0d8e5",
+            backgroundColor: '#FFFFFF',
+            color: '#39414b',
+            borderColor: '#d0d8e5',
           }}
           onClick={toggleColorMode}
         >
@@ -68,7 +61,7 @@ const Onboarding = () => {
       </Flex>
       <Flex justifyContent="flex-start" w="100%">
         <Tooltip label="Tooltip" placement="left">
-          <button style={{ backgroundColor: "red" }}>Hola mundo</button>
+          <button style={{ backgroundColor: 'red' }}>Hola mundo</button>
         </Tooltip>
         {/* <Button w="380px" bg="#457ae5" color="white">
           Continue

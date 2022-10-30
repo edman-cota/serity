@@ -1,36 +1,28 @@
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable comma-dangle */
-/* eslint-disable no-unsafe-optional-chaining */
-import React, { useRef, useState } from "react"
-import {
-  useColorModeValue,
-  Textarea,
-  chakra,
-  shouldForwardProp,
-} from "@chakra-ui/react"
-import { motion, isValidMotionProp } from "framer-motion"
-import ReactFocusLock from "react-focus-lock"
-import { useDispatch, useSelector } from "react-redux"
-import { BiSquareRounded } from "react-icons/bi"
-import { useAuthState } from "react-firebase-hooks/auth"
-import { auth } from "../../firebase.ts"
-import { useGetProject } from "../../hooks/useGetProject.ts"
-import { setShowAddTask } from "../../features/counter/showAddTaskSlice.ts"
-import { scale } from "./item.transition.tsx"
-import { createNewTask } from "../../helpers/createNewTask.ts"
+/* eslint-disable object-curly-newline */
+import React, { useRef, useState } from 'react'
+import { useColorModeValue, Textarea, chakra, shouldForwardProp } from '@chakra-ui/react'
+import { motion, isValidMotionProp } from 'framer-motion'
+import ReactFocusLock from 'react-focus-lock'
+import { useDispatch, useSelector } from 'react-redux'
+import { BiSquareRounded } from 'react-icons/bi'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../../firebase.ts'
+import { useGetProject } from '../../hooks/useGetProject.ts'
+import { setShowAddTask } from '../../features/counter/showAddTaskSlice.ts'
+import { scale } from './item.transition.tsx'
+import { createNewTask } from '../../helpers/createNewTask.ts'
 
 const MotionFlex = chakra(motion.div, {
   /**
    ** Allow motion props and non-chakra props to be forwarded.
    */
-  shouldForwardProp: (prop) =>
-    isValidMotionProp(prop) || shouldForwardProp(prop),
+  shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
 })
 
 const AddTask = () => {
   const [user] = useAuthState(auth)
   const { project } = useGetProject()
-  const [title, setTitle] = useState("")
+  const [title, setTitle] = useState('')
   const dispatch = useDispatch()
   const showAddTask = useSelector((state) => state.showAddTask.value)
   const [height, setHeight] = useState(40)
@@ -42,7 +34,7 @@ const AddTask = () => {
     if (keyCode === 13 && !event.shiftKey) {
       event.preventDefault()
 
-      if (title === "") {
+      if (title === '') {
         dispatch(setShowAddTask(!showAddTask))
         return
       }
@@ -56,7 +48,7 @@ const AddTask = () => {
     setHeight(areaRef.current.scrollHeight)
   }
 
-  const background = useColorModeValue("var(--gray-100)", "var(--gray-700)")
+  const background = useColorModeValue('var(--gray-100)', 'var(--gray-700)')
   return (
     <MotionFlex
       variants={scale}

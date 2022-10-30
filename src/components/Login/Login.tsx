@@ -1,5 +1,5 @@
-import { HStack, LightMode } from "@chakra-ui/react"
-import LoginForm from "./LoginForm"
+import { HStack, LightMode } from '@chakra-ui/react'
+import LoginForm from './LoginForm'
 
 const Login = (): JSX.Element => (
   <LightMode>

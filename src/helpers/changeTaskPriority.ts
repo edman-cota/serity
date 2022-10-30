@@ -1,13 +1,8 @@
-import database from "../firebase"
-import { ActivityType, Status, DBRef } from "../enums/definitions"
-import { Task } from "../types/task.model"
+import database from '../firebase'
+import { ActivityType, Status, DBRef } from '../enums/definitions'
+import { Task } from '../types/task.model'
 
-export function changeTaskPriority(
-  user: any,
-  workingProject: any,
-  task: Task,
-  priority: number,
-) {
+export function changeTaskPriority(user: any, workingProject: any, task: Task, priority: number) {
   database
     .ref(`${user?.uid}/${DBRef.Tasks}/${task.id}`)
     .update({ priority })

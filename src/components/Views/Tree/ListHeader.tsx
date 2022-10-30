@@ -1,6 +1,6 @@
-import { Button, Flex, Text } from "@chakra-ui/react"
-import { FormattedMessage } from "react-intl"
-import { HiOutlineChevronDown } from "react-icons/hi"
+import { Button, Flex, Text } from '@chakra-ui/react'
+import { FormattedMessage } from 'react-intl'
+import { HiOutlineChevronDown } from 'react-icons/hi'
 
 interface Props {
   count: number

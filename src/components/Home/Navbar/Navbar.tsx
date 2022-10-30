@@ -3,15 +3,15 @@
 /* eslint-disable no-useless-return */
 /* eslint-disable no-unused-vars */
 /* eslint-disable object-curly-newline */
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { useAuthState } from "react-firebase-hooks/auth"
-import logo from "../../../assets/img/logo.svg"
-import { auth } from "../../../firebase"
-import { beautifyUrl } from "../../../helpers/beautifyUrl"
-import { getProjectFromLocalStorage } from "../../../helpers/getProjectFromLocalStorage"
-import "../home.scss"
-import { beautifyUsername } from "../../../helpers/beautifyUsername"
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import logo from '../../../assets/img/logo.svg'
+import { auth } from '../../../firebase'
+import { beautifyUrl } from '../../../helpers/beautifyUrl'
+import { getProjectFromLocalStorage } from '../../../helpers/getProjectFromLocalStorage'
+import '../home.scss'
+import { beautifyUsername } from '../../../helpers/beautifyUsername'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -21,12 +21,10 @@ const Navbar = () => {
   // eslint-disable-next-line no-unused-vars
   const [isFixed, setIsFixed] = useState(true)
 
-  let navbarPosition = "relative"
+  let navbarPosition = 'relative'
 
   const navigateTo = () => {
-    navigate(
-      `${username}/${beautifyUrl(getProjectFromLocalStorage())}/?view=tree`,
-    )
+    navigate(`${username}/${beautifyUrl(getProjectFromLocalStorage())}/?view=tree`)
   }
 
   useEffect(() => {
@@ -35,7 +33,7 @@ const Navbar = () => {
 
   if (isFixed) {
     if (scrolled) {
-      navbarPosition = "fixed"
+      navbarPosition = 'fixed'
     }
   }
 
@@ -47,10 +45,10 @@ const Navbar = () => {
     }
   }
 
-  window.addEventListener("scroll", changeNavbar)
+  window.addEventListener('scroll', changeNavbar)
 
   return (
-    <header style={{ position: "relative", zIndex: "20" }}>
+    <header style={{ position: 'relative', zIndex: '20' }}>
       <div className="header-child"></div>
       <div className="header-child-child">
         <div className="header-inside">

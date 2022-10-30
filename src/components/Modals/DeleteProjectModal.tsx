@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import {
   useDisclosure,
   MenuItem,
@@ -11,11 +11,11 @@ import {
   Button,
   HStack,
   Text,
-} from "@chakra-ui/react"
-import { FormattedMessage } from "react-intl"
-import { AiOutlineDelete } from "react-icons/ai"
-import { useAuthState } from "react-firebase-hooks/auth"
-import database, { auth } from "../../firebase"
+} from '@chakra-ui/react'
+import { FormattedMessage } from 'react-intl'
+import { AiOutlineDelete } from 'react-icons/ai'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import database, { auth } from '../../firebase'
 
 interface Props {
   name: string
@@ -39,12 +39,7 @@ const DeleteProjectModal = ({ name, id }: Props) => {
         <FormattedMessage id="delete" />
       </MenuItem>
 
-      <Modal
-        onClose={onClose}
-        isOpen={isOpen}
-        motionPreset="slideInBottom"
-        size="xl"
-      >
+      <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="xl">
         <ModalOverlay bg="#0e1525A0" />
         <ModalContent
           maxW="450px"
@@ -67,8 +62,8 @@ const DeleteProjectModal = ({ name, id }: Props) => {
             <Flex w="100%" direction="column">
               <Flex>
                 <Text>
-                  All tasks withing this project <b> {name}</b> will be delted.
-                  Confirm to delete project.
+                  All tasks withing this project <b> {name}</b> will be delted. Confirm to delete
+                  project.
                 </Text>
               </Flex>
 
@@ -82,7 +77,7 @@ const DeleteProjectModal = ({ name, id }: Props) => {
                   bg="#ff6666"
                   w="100px"
                   onClick={handleDelete}
-                  _hover={{ bg: "#ff6666" }}
+                  _hover={{ bg: '#ff6666' }}
                 >
                   <FormattedMessage id="delete" />
                 </Button>

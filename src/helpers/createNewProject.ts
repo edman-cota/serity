@@ -1,9 +1,9 @@
-import { useAuthState } from "react-firebase-hooks/auth"
-import { useSelector } from "react-redux"
-import { ProjectProps } from "../types/project.model"
-import database, { auth } from "../firebase"
-import type { RootState } from "../store"
-import { Status } from "../enums/definitions"
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useSelector } from 'react-redux'
+import { ProjectProps } from '../types/project.model'
+import database, { auth } from '../firebase'
+import type { RootState } from '../store'
+import { Status } from '../enums/definitions'
 
 export const createNewProject = (name: string) => {
   const [user] = useAuthState(auth)
@@ -20,7 +20,7 @@ export const createNewProject = (name: string) => {
       id: newProjectRef.key,
       name: name.trim(),
       emoji: emoji,
-      color: "white",
+      color: 'white',
       activeCount: 0,
       taskCount: 0,
       shared: false,

@@ -1,8 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { HStack } from "@chakra-ui/react"
-import Sidebar from "./Sidebar.tsx"
-import Content from "./Content"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { HStack } from '@chakra-ui/react'
+import Sidebar from './Sidebar.tsx'
+import Content from './Content'
 
 const Settings = ({ currentLocale, handleChange }) => (
   <HStack h="100%" w="100%">
@@ -17,8 +17,8 @@ Settings.propTypes = {
 }
 
 Settings.defaultProps = {
-  currentLocale: "",
-  handleChange: "",
+  currentLocale: '',
+  handleChange: '',
 }
 
 export default Settings

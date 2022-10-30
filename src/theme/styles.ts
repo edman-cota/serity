@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { mode } from "@chakra-ui/theme-tools"
-import type { StyleFunctionProps } from "@chakra-ui/styled-system"
+import { mode } from '@chakra-ui/theme-tools'
+import type { StyleFunctionProps } from '@chakra-ui/styled-system'
 
 export const styles = {
   // colors: {
@@ -19,8 +19,8 @@ export const styles = {
   styles: {
     global: (props: StyleFunctionProps) => ({
       body: {
-        bg: mode("white", "gray.800")(props), // 1
-        fontFamily: "Segoe UI, Hind, Open Sans, Roboto, Helvetica, sans-serif",
+        bg: mode('white', 'gray.800')(props), // 1
+        fontFamily: 'Segoe UI, Hind, Open Sans, Roboto, Helvetica, sans-serif',
       },
     }),
   },

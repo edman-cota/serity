@@ -1,7 +1,7 @@
-import "./home.scss"
+import './home.scss'
 
-import Header from "../../containers/Header/Header"
-import Navbar from "./Navbar/Navbar"
+import Header from '../../containers/Header/Header'
+import Navbar from './Navbar/Navbar'
 
 export const Main = (): JSX.Element => {
   return (

@@ -1,5 +1,5 @@
-import React from "react"
-import "../../components/Home/home.scss"
+import React from 'react'
+import '../../components/Home/home.scss'
 
 const Header = (): JSX.Element => {
   return (
@@ -17,12 +17,9 @@ const Header = (): JSX.Element => {
                       to-do list
                     </h1>
                     <h2>
+                      <span>Complete blogging platform with Notion as your CMS.</span>
                       <span>
-                        Complete blogging platform with Notion as your CMS.
-                      </span>
-                      <span>
-                        Write your articles on Notion and publish them with a
-                        single click.
+                        Write your articles on Notion and publish them with a single click.
                       </span>
                       <span>No coding or design skills required.</span>
                     </h2>

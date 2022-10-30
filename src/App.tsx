@@ -1,16 +1,16 @@
-import React, { useState } from "react"
-import { IntlProvider } from "react-intl"
-import { ChakraProvider, Flex } from "@chakra-ui/react"
-import Routing from "./routes/index"
+import React, { useState } from 'react'
+import { IntlProvider } from 'react-intl'
+import { ChakraProvider, Flex } from '@chakra-ui/react'
+import Routing from './routes/index'
 
-import theme from "./theme/index"
-import { LOCALES } from "./i18n/locales"
-import { messages } from "./i18n/messages"
-import "./App.css"
+import theme from './theme/index'
+import { LOCALES } from './i18n/locales'
+import { messages } from './i18n/messages'
+import './App.css'
 
 const App = () => {
   function getInitialLocal() {
-    const savedLocale = localStorage.getItem("locale")
+    const savedLocale = localStorage.getItem('locale')
     return savedLocale || LOCALES.ENGLISH
   }
 
@@ -18,7 +18,7 @@ const App = () => {
 
   const handleChange = (e: any) => {
     setCurrentLocale(e.target.value)
-    localStorage.setItem("locale", e.target.value)
+    localStorage.setItem('locale', e.target.value)
   }
 
   return (

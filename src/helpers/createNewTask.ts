@@ -1,8 +1,8 @@
-import database from "../firebase"
-import { ADD_TASK_ACTIVITY_TYPE } from "../constants"
+import database from '../firebase'
+import { ADD_TASK_ACTIVITY_TYPE } from '../constants'
 
 export function createNewTask(user: any, title: string, project: any) {
-  const workingProjectId = window.localStorage.getItem("working-project")
+  const workingProjectId = window.localStorage.getItem('working-project')
 
   const cardRef = database.ref(`${user?.uid}/tasks`)
   const newCardRef = cardRef.push()
@@ -28,9 +28,7 @@ export function createNewTask(user: any, title: string, project: any) {
         .update({ taskCount: project?.[0].taskCount + 1 })
 
       // Add new created to To-do column
-      const columnRef = database.ref(
-        `${user?.uid}/columns/-Mw4Wwi2BZCRdtMv-U5u/taskIds`,
-      )
+      const columnRef = database.ref(`${user?.uid}/columns/-Mw4Wwi2BZCRdtMv-U5u/taskIds`)
       columnRef.transaction((currentArray) => {
         if (currentArray === null) {
           return { 0: newCardRef.key }

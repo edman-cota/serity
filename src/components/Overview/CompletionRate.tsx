@@ -1,16 +1,16 @@
-import React from "react"
-import { Flex, Text, useColorModeValue } from "@chakra-ui/react"
-import { BarChart, Gridline, GridlineSeries, BarSeries } from "reaviz"
+import React from 'react'
+import { Flex, Text, useColorModeValue } from '@chakra-ui/react'
+import { BarChart, Gridline, GridlineSeries, BarSeries } from 'reaviz'
 
 const CompletionRate = (): JSX.Element => {
-  const cardBackground = useColorModeValue("white", "#1F2733")
+  const cardBackground = useColorModeValue('white', '#1F2733')
 
   return (
     <Flex
-      w={{ base: "95%", sm: "85%", xl: "490px" }}
-      mx={{ base: "auto", xl: "15px" }}
-      mt={{ base: "16px", xl: "20px" }}
-      px={{ base: "15px", md: "25px", xl: "20px" }}
+      w={{ base: '95%', sm: '85%', xl: '490px' }}
+      mx={{ base: 'auto', xl: '15px' }}
+      mt={{ base: '16px', xl: '20px' }}
+      px={{ base: '15px', md: '25px', xl: '20px' }}
       h="284px"
       borderRadius="8px"
       bg={cardBackground}

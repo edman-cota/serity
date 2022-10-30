@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import {
   useDisclosure,
   MenuItem,
@@ -14,17 +14,17 @@ import {
   Button,
   HStack,
   DarkMode,
-} from "@chakra-ui/react"
-import FocusLock from "react-focus-lock"
-import { FormattedMessage } from "react-intl"
-import { useSelector, useDispatch } from "react-redux"
-import { useForm } from "react-hook-form"
-import { FiEdit } from "react-icons/fi"
-import { useAuthState } from "react-firebase-hooks/auth"
-import ChooseIconModal from "./ChooseIconModal"
-import database, { auth } from "../../firebase"
-import type { RootState } from "../../store"
-import { setEmoji } from "../../features/counter/emojiSlice"
+} from '@chakra-ui/react'
+import FocusLock from 'react-focus-lock'
+import { FormattedMessage } from 'react-intl'
+import { useSelector, useDispatch } from 'react-redux'
+import { useForm } from 'react-hook-form'
+import { FiEdit } from 'react-icons/fi'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import ChooseIconModal from './ChooseIconModal'
+import database, { auth } from '../../firebase'
+import type { RootState } from '../../store'
+import { setEmoji } from '../../features/counter/emojiSlice'
 
 interface Props {
   name: string
@@ -50,7 +50,7 @@ const EditProject = ({ name, id, emoji }: Props) => {
       .ref(`${user?.uid}/projects/${id}`)
       .update({ name: data.name, emoji: savedEmoji })
       .then(() => onClose())
-    dispatch(setEmoji(""))
+    dispatch(setEmoji(''))
   }
 
   return (
@@ -60,12 +60,7 @@ const EditProject = ({ name, id, emoji }: Props) => {
       </MenuItem>
 
       <DarkMode>
-        <Modal
-          onClose={onClose}
-          isOpen={isOpen}
-          motionPreset="slideInBottom"
-          size="xl"
-        >
+        <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="xl">
           <ModalOverlay bg="#0e1525A0" />
           <ModalContent
             maxW="450px"
@@ -86,17 +81,14 @@ const EditProject = ({ name, id, emoji }: Props) => {
 
             <ModalBody>
               <Flex w="100%" direction="column">
-                <form
-                  onSubmit={handleSubmit(onSubmit)}
-                  style={{ width: "100%" }}
-                >
+                <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
                   <FocusLock>
                     <Input
                       autoComplete="off"
                       _focus={{
-                        borderColor: "#2175e2",
+                        borderColor: '#2175e2',
                       }}
-                      {...register("name", { required: true })}
+                      {...register('name', { required: true })}
                     />
                   </FocusLock>
                 </form>
@@ -107,7 +99,7 @@ const EditProject = ({ name, id, emoji }: Props) => {
                     w="100px"
                     onClick={() => {
                       onClose()
-                      resetField("name")
+                      resetField('name')
                     }}
                   >
                     <FormattedMessage id="cancel" />
@@ -118,7 +110,7 @@ const EditProject = ({ name, id, emoji }: Props) => {
                     variant="solid"
                     bg="#2e85ec"
                     w="100px"
-                    _hover={{ bg: "#2e85ec" }}
+                    _hover={{ bg: '#2e85ec' }}
                     // disabled={!isDirty || !isValid}
                   >
                     <FormattedMessage id="save" />

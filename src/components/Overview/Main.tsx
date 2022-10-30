@@ -1,18 +1,18 @@
-import React from "react"
-import { Flex, VStack } from "@chakra-ui/react"
+import React from 'react'
+import { Flex, VStack } from '@chakra-ui/react'
 
 // import CompletionRateChart from "./CompletionRate";
-import AchievementCard from "../Cards/AchievementCard"
-import CompletionCurveChart from "./CompletionCurve"
-import Toolbar from "./Toolbar"
+import AchievementCard from '../Cards/AchievementCard'
+import CompletionCurveChart from './CompletionCurve'
+import Toolbar from './Toolbar'
 
 const Main = (): JSX.Element => {
   return (
     <VStack w="100%">
       <Toolbar />
       <Flex
-        direction={{ base: "column", xl: "row" }}
-        pb={{ base: "40px", xl: "40px" }}
+        direction={{ base: 'column', xl: 'row' }}
+        pb={{ base: '40px', xl: '40px' }}
         w="100%"
         pt="0px"
         justifyContent="center"

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { Flex, Text, Link, LightMode } from "@chakra-ui/react"
-import React from "react"
-import { FormattedMessage } from "react-intl"
-import { Link as RouterLink } from "react-router-dom"
+import { Flex, Text, Link, LightMode } from '@chakra-ui/react'
+import React from 'react'
+import { FormattedMessage } from 'react-intl'
+import { Link as RouterLink } from 'react-router-dom'
 
 interface Props {
   textId: string
@@ -16,7 +16,7 @@ const Footer: React.FC<Props> = (props) => {
         <Text color="blackAlpha.800">
           <FormattedMessage id={props.textId} />
           <Link color="#0071dc" as={RouterLink} to={`/${props.whereTo}`}>
-            {" "}
+            {' '}
             <FormattedMessage id={props.whereTo} />
           </Link>
         </Text>

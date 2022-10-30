@@ -1,16 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface EmojiState {
   value: string
 }
 
 const initialState: EmojiState = {
-  value: "📁",
+  value: '📁',
 }
 
 export const emojiSlice = createSlice({
-  name: "emoji",
+  name: 'emoji',
   initialState,
   reducers: {
     setEmoji: (state, action: PayloadAction<string>) => {

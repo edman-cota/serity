@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface VisibilityState {
   value: boolean
@@ -10,7 +10,7 @@ const initialState: VisibilityState = {
 }
 
 export const sidebarVisibilitySlice = createSlice({
-  name: "isSidebarOpen",
+  name: 'isSidebarOpen',
   initialState,
   reducers: {
     setSidebarVisibility: (state, action: PayloadAction<boolean>) => {

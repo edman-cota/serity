@@ -1,5 +1,5 @@
-import { Text } from "@chakra-ui/react"
-import { FormattedMessage } from "react-intl"
+import { Text } from '@chakra-ui/react'
+import { FormattedMessage } from 'react-intl'
 
 interface Props {
   type: number

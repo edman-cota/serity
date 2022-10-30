@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit"
-import { TaskProps } from "../../types/task.model"
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
+import { TaskProps } from '../../types/task.model'
 
 export interface Props {
   value: Partial<TaskProps>
@@ -11,7 +11,7 @@ const initialState: Props = {
 }
 
 export const taskSlice = createSlice({
-  name: "task",
+  name: 'task',
   initialState,
   reducers: {
     setTask: (state, action: PayloadAction<TaskProps>) => {

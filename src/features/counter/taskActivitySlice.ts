@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface ActivityState {
   value: boolean
@@ -10,7 +10,7 @@ const initialState: ActivityState = {
 }
 
 export const taskActivitySlice = createSlice({
-  name: "taskActivityVisibility",
+  name: 'taskActivityVisibility',
   initialState,
   reducers: {
     setTaskActivityVisibility: (state, action: PayloadAction<boolean>) => {

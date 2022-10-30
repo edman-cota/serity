@@ -1,27 +1,20 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
-import React, { useEffect } from "react"
-import PropTypes from "prop-types"
-import {
-  Flex,
-  Text,
-  Avatar,
-  Input,
-  Select,
-  Button,
-  VStack,
-} from "@chakra-ui/react"
-import { FormattedMessage } from "react-intl"
-import { AiOutlineCamera } from "react-icons/ai"
-import { useAuthState } from "react-firebase-hooks/auth"
-import { LOCALES } from "../../i18n/locales.ts"
-import { auth, storage } from "../../firebase.ts"
+import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { Flex, Text, Avatar, Input, Select, Button, VStack } from '@chakra-ui/react'
+import { FormattedMessage } from 'react-intl'
+import { AiOutlineCamera } from 'react-icons/ai'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { LOCALES } from '../../i18n/locales.ts'
+import { auth, storage } from '../../firebase.ts'
 
 const Content = ({ handleChange, currentLocale }) => {
   const [user, loading] = useAuthState(auth)
 
   const languages = [
-    { name: "English", code: LOCALES.ENGLISH },
-    { name: "Spanish", code: LOCALES.SPANISH },
+    { name: 'English', code: LOCALES.ENGLISH },
+    { name: 'Spanish', code: LOCALES.SPANISH },
   ]
 
   const onChangeImage = (e) => {
@@ -30,7 +23,7 @@ const Content = ({ handleChange, currentLocale }) => {
     storage
       .ref(`/users/${user?.uid}/profile/${e.target.files[0].name}`)
       .put(e.target.files[0])
-      .on("state_changed", () => {
+      .on('state_changed', () => {
         storage
           .ref(`users/${user?.uid}/profile`)
           .child(e.target.files[0].name)
@@ -47,18 +40,14 @@ const Content = ({ handleChange, currentLocale }) => {
   }, [loading])
 
   const handleEditPicture = () => {
-    const fileInput = document.getElementById("imageInput")
+    const fileInput = document.getElementById('imageInput')
     fileInput.click()
   }
 
   return (
     <VStack w="100%" flex={1}>
       <Flex direction="column" w="100%">
-        <Flex
-          bgGradient="linear-gradient(to-r, #CC4194, #EF967A)"
-          h="200px"
-          position="relative"
-        >
+        <Flex bgGradient="linear-gradient(to-r, #CC4194, #EF967A)" h="200px" position="relative">
           <Button fontSize="20px">
             <AiOutlineCamera />
           </Button>
@@ -76,12 +65,7 @@ const Content = ({ handleChange, currentLocale }) => {
         </Flex>
         <Flex mt="30px" position="relative">
           <Flex direction="column" ml="5px" justifyContent="center">
-            <input
-              type="file"
-              id="imageInput"
-              hidden="hidden"
-              onChange={onChangeImage}
-            />
+            <input type="file" id="imageInput" hidden="hidden" onChange={onChangeImage} />
           </Flex>
         </Flex>
         <Flex direction="column">
@@ -90,9 +74,7 @@ const Content = ({ handleChange, currentLocale }) => {
               <FormattedMessage id="name" />
             </Text>
             <FormattedMessage id="name" defaultMessage="Name">
-              {(placeholder) => (
-                <Input placeholder={placeholder} value={user?.displayName} />
-              )}
+              {(placeholder) => <Input placeholder={placeholder} value={user?.displayName} />}
             </FormattedMessage>
           </Flex>
           <Flex direction="column" mt="30px">
@@ -100,13 +82,7 @@ const Content = ({ handleChange, currentLocale }) => {
               <FormattedMessage id="email" />
             </Text>
             <FormattedMessage id="email" defaultMessage="Email">
-              {(placeholder) => (
-                <Input
-                  placeholder={placeholder}
-                  value={user?.email}
-                  isReadOnly
-                />
-              )}
+              {(placeholder) => <Input placeholder={placeholder} value={user?.email} isReadOnly />}
             </FormattedMessage>
           </Flex>
           <Flex direction="column" mt="30px">
@@ -138,8 +114,8 @@ Content.propTypes = {
 }
 
 Content.defaultProps = {
-  currentLocale: "",
-  handleChange: "",
+  currentLocale: '',
+  handleChange: '',
 }
 
 export default Content

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-children-prop */
-import React from "react"
+import React from 'react'
 import {
   useDisclosure,
   Modal,
@@ -12,10 +12,10 @@ import {
   Button,
   InputGroup,
   InputLeftElement,
-} from "@chakra-ui/react"
-import FocusLock from "react-focus-lock"
-import { FiSearch } from "react-icons/fi"
-import { AiOutlineClose } from "react-icons/ai"
+} from '@chakra-ui/react'
+import FocusLock from 'react-focus-lock'
+import { FiSearch } from 'react-icons/fi'
+import { AiOutlineClose } from 'react-icons/ai'
 
 const SearchModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -26,17 +26,8 @@ const SearchModal = () => {
         <FiSearch />
       </Button>
 
-      <Modal
-        onClose={onClose}
-        isOpen={isOpen}
-        motionPreset="slideInBottom"
-        size="xl"
-      >
-        <ModalOverlay
-          backdropFilter="auto"
-          bg="rgb(15, 23, 42/0.8)"
-          backdropBlur="3px"
-        />
+      <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="xl">
+        <ModalOverlay backdropFilter="auto" bg="rgb(15, 23, 42/0.8)" backdropBlur="3px" />
         <ModalContent
           maxW="750px"
           h="500px"
@@ -52,12 +43,9 @@ const SearchModal = () => {
             color="white"
           >
             <Flex flex={1}>
-              <FocusLock style={{ width: "100%" }}>
+              <FocusLock style={{ width: '100%' }}>
                 <InputGroup w="600px" maxW="600px">
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FiSearch color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none" children={<FiSearch color="gray.300" />} />
                   <Input
                     w="100%"
                     maxW="600px"
@@ -66,10 +54,10 @@ const SearchModal = () => {
                     boxShadow="none"
                     borderBottom="1px"
                     _focus={{
-                      outline: "none",
-                      border: "none",
-                      borderBottom: "1px",
-                      borderColor: "#2175e2",
+                      outline: 'none',
+                      border: 'none',
+                      borderBottom: '1px',
+                      borderColor: '#2175e2',
                     }}
                     placeholder="Search"
                   />

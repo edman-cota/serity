@@ -1,16 +1,16 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { configureStore } from '@reduxjs/toolkit'
 
-import activeIndexReducer from "./features/counter/activeIndexSlice"
-import sidebarVisibilityReducer from "./features/counter/sidebarVisibilitySlice"
-import selectedTaskIdReducer from "./features/counter/selectedTaskIdSlice"
-import showAddTaskReducer from "./features/counter/showAddTaskSlice"
-import taskReducer from "./features/counter/taskSlice"
-import showCompletedReducer from "./features/counter/showCompletedSlice"
-import orderByReducer from "./features/counter/orderBySlice"
-import emojiReducer from "./features/counter/emojiSlice"
-import workingProjectReducer from "./features/counter/workingProjectSlice"
-import taskActivityReducer from "./features/counter/taskActivitySlice"
-import expandedSliceReducer from "./features/counter/expandedSlice"
+import activeIndexReducer from './features/counter/activeIndexSlice'
+import sidebarVisibilityReducer from './features/counter/sidebarVisibilitySlice'
+import selectedTaskIdReducer from './features/counter/selectedTaskIdSlice'
+import showAddTaskReducer from './features/counter/showAddTaskSlice'
+import taskReducer from './features/counter/taskSlice'
+import showCompletedReducer from './features/counter/showCompletedSlice'
+import orderByReducer from './features/counter/orderBySlice'
+import emojiReducer from './features/counter/emojiSlice'
+import workingProjectReducer from './features/counter/workingProjectSlice'
+import taskActivityReducer from './features/counter/taskActivitySlice'
+import expandedSliceReducer from './features/counter/expandedSlice'
 
 export const store = configureStore({
   reducer: {
