@@ -46,6 +46,7 @@ const InputTaskTitle = ({ content, id, projectId }: Props) => {
       spellCheck="false"
       autoComplete="off"
       value={content}
+      readOnly
       placeholder="Content should not be empty"
       fontSize="18px"
       px="4px"

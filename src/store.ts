@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import activeIndexReducer from './features/counter/activeIndexSlice'
+import emojiVisibilityReducer from './features/counter/emojiVisibilitySlice'
 import sidebarVisibilityReducer from './features/counter/sidebarVisibilitySlice'
 import selectedTaskIdReducer from './features/counter/selectedTaskIdSlice'
 import showAddTaskReducer from './features/counter/showAddTaskSlice'
@@ -15,6 +16,7 @@ import expandedSliceReducer from './features/counter/expandedSlice'
 export const store = configureStore({
   reducer: {
     activeIndex: activeIndexReducer,
+    isEmojiVisible: emojiVisibilityReducer,
     isSidebarOpen: sidebarVisibilityReducer,
     showAddTask: showAddTaskReducer,
     showCompleted: showCompletedReducer,

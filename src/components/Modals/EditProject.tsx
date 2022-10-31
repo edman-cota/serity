@@ -21,7 +21,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { FiEdit } from 'react-icons/fi'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import ChooseIconModal from './ChooseIconModal'
+import EmojiPicker from './EmojiPicker'
 import { auth } from '../../firebase'
 import type { RootState } from '../../store'
 import { setEmoji } from '../../features/counter/emojiSlice'
@@ -36,6 +36,7 @@ interface Props {
 const EditProject = ({ name, id, emoji }: Props) => {
   const [user] = useAuthState(auth)
   const dispatch = useDispatch()
+
   const savedEmoji = useSelector((state: RootState) => state.emoji.value)
   // eslint-disable-next-line no-unused-vars
   const [title, setTitle] = useState(name)
@@ -93,7 +94,8 @@ const EditProject = ({ name, id, emoji }: Props) => {
                     />
                   </FocusLock>
                 </form>
-                <ChooseIconModal />
+                <EmojiPicker />
+
                 <HStack mt="135px" justifyContent="space-between">
                   <Button
                     variant="ghost"
