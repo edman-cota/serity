@@ -16,9 +16,14 @@ const ToggleSidebarVisibility = () => {
   }
 
   return (
-    <Tooltip label={<FormattedMessage id="toggle_sidebar" />} command="Ctrl + B">
+    <Tooltip
+      label={<FormattedMessage id="toggle_sidebar" />}
+      command="Ctrl + B"
+      commandBg="rgba(255, 255, 255, .2)"
+    >
       <Button onClick={toggleSidebarVisibility}>
-        {isSidebarOpen ? <BsLayoutSidebarReverse size={18} /> : <BsLayoutSidebar size={18} />}
+        {/* {isSidebarOpen ? <BsLayoutSidebarReverse size={18} /> : <BsLayoutSidebar size={18} />} */}
+        <BsLayoutSidebar size={18} />
       </Button>
     </Tooltip>
   )

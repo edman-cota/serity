@@ -1,4 +1,3 @@
-import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { GrClose } from 'react-icons/gr'

@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   useDisclosure,
   Modal,
@@ -10,8 +9,8 @@ import {
   Flex,
   Text,
   Button,
-  Tooltip,
 } from '@chakra-ui/react'
+import { Tooltip } from 'serity-ui'
 import { FaRegKeyboard } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
 
@@ -20,8 +19,8 @@ const ShortcutsModal = () => {
 
   return (
     <>
-      <Tooltip label="Open shortcuts menu &#183; Ctrl + ,">
-        <Button variant="ghost" onClick={onOpen}>
+      <Tooltip label="Shortcuts menu" command="Ctrl + ," commandBg="rgba(255, 255, 255, .2)">
+        <Button onClick={onOpen}>
           <FaRegKeyboard />
         </Button>
       </Tooltip>
@@ -30,7 +29,7 @@ const ShortcutsModal = () => {
         <ModalOverlay bg="#0e1525A0" />
         <ModalContent
           maxW="750px"
-          h="83%"
+          h="82%"
           bg="#1c2333"
           boxShadow="inset 0 1px 0 0 rgb(255 255 255 / 5%)"
         >
@@ -38,7 +37,7 @@ const ShortcutsModal = () => {
             <VStack h="100%" flex={1} p="20px">
               <Flex justifyContent="space-between" w="100%">
                 <Text>Keyboard Shortcuts</Text>
-                <Button variant="ghost" px="0rem" borderRadius="full" onClick={onClose}>
+                <Button px="0rem" borderRadius="full" onClick={onClose}>
                   <AiOutlineClose />
                 </Button>
               </Flex>

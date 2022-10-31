@@ -17,7 +17,7 @@ import Onboarding from '../components/onboarding/Onboarding'
 
 interface Props {
   currentLocale: string
-  handleChange: any
+  handleChange: () => void
 }
 
 const Routing = ({ currentLocale, handleChange }: Props): JSX.Element => {

@@ -46,6 +46,7 @@ const Navbar = () => {
           label={<FormattedMessage id="hide_detail_panel" />}
           placement="left"
           command="SPACE"
+          commandBg="rgba(255, 255, 255, .2)"
         >
           <Button px="0px" onClick={() => closeView()}>
             <FiChevronsRight size={19} />
@@ -53,12 +54,12 @@ const Navbar = () => {
         </Tooltip>
         {isExpanded ? (
           <>
-            <Tooltip label="Move up" command="K">
+            <Tooltip label="Move up" command="K" commandBg="rgba(255, 255, 255, .2)">
               <Button>
                 <HiOutlineChevronUp />
               </Button>
             </Tooltip>
-            <Tooltip label="Move down" command="J">
+            <Tooltip label="Move down" command="J" commandBg="rgba(255, 255, 255, .2)">
               <Button>
                 <HiOutlineChevronDown />
               </Button>
@@ -69,7 +70,7 @@ const Navbar = () => {
       <List display="flex" alignItems="center" gap="20px">
         {width >= 770 ? (
           <ListItem>
-            <Tooltip label={label} command="⇧ + SPACE">
+            <Tooltip label={label} command="⇧ + SPACE" commandBg="rgba(255, 255, 255, .2)">
               <Button onClick={expandScreen}>
                 {isExpanded ? <CgMinimizeAlt /> : <AiOutlineExpandAlt />}
               </Button>

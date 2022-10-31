@@ -1,15 +1,19 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import { useEffect } from 'react'
 import { Flex, Text, Avatar, Input, Select, Button, VStack } from '@chakra-ui/react'
 import { FormattedMessage } from 'react-intl'
 import { AiOutlineCamera } from 'react-icons/ai'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { LOCALES } from '../../i18n/locales.ts'
-import { auth, storage } from '../../firebase.ts'
+import { LOCALES } from '../../i18n/locales'
+import { auth, storage } from '../../firebase'
 
-const Content = ({ handleChange, currentLocale }) => {
+interface Props {
+  currentLocale: string
+  handleChange: () => void
+}
+
+const Content = ({ currentLocale, handleChange }: Props) => {
   const [user, loading] = useAuthState(auth)
 
   const languages = [
@@ -17,7 +21,7 @@ const Content = ({ handleChange, currentLocale }) => {
     { name: 'Spanish', code: LOCALES.SPANISH },
   ]
 
-  const onChangeImage = (e) => {
+  const onChangeImage = (e: any) => {
     if (e.target.files[0] == null) return
 
     storage
@@ -29,7 +33,7 @@ const Content = ({ handleChange, currentLocale }) => {
           .child(e.target.files[0].name)
           .getDownloadURL()
           .then((url) => {
-            user.updateProfile({ photoURL: url }).then(() => {})
+            user?.updateProfile({ photoURL: url }).then(() => {})
           })
       })
   }
@@ -41,7 +45,7 @@ const Content = ({ handleChange, currentLocale }) => {
 
   const handleEditPicture = () => {
     const fileInput = document.getElementById('imageInput')
-    fileInput.click()
+    fileInput?.click()
   }
 
   return (
@@ -65,10 +69,10 @@ const Content = ({ handleChange, currentLocale }) => {
         </Flex>
         <Flex mt="30px" position="relative">
           <Flex direction="column" ml="5px" justifyContent="center">
-            <input type="file" id="imageInput" hidden="hidden" onChange={onChangeImage} />
+            <input type="file" id="imageInput" hidden onChange={onChangeImage} />
           </Flex>
         </Flex>
-        <Flex direction="column">
+        <Flex direction="column" w="80%" mx="auto">
           <Flex direction="column" mt="30px">
             <Text>
               <FormattedMessage id="name" />
@@ -93,10 +97,10 @@ const Content = ({ handleChange, currentLocale }) => {
               {(placeholder) => <Input placeholder={placeholder} />}
             </FormattedMessage>
           </Flex>
-          <Flex>
-            <Select onChange={handleChange} value={currentLocale}>
+          <Flex mt="30px">
+            <Select variant="filled" size="md" onChange={handleChange} value={currentLocale}>
               {languages.map(({ name, code }) => (
-                <option key={code} value={code}>
+                <option key={code} value={code} style={{ height: '50px' }}>
                   {name}
                 </option>
               ))}
@@ -106,16 +110,6 @@ const Content = ({ handleChange, currentLocale }) => {
       </Flex>
     </VStack>
   )
-}
-
-Content.propTypes = {
-  currentLocale: PropTypes.string,
-  handleChange: PropTypes.func,
-}
-
-Content.defaultProps = {
-  currentLocale: '',
-  handleChange: '',
 }
 
 export default Content

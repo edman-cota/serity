@@ -1,5 +1,5 @@
-import React from 'react'
-import { Tooltip, useColorMode, useColorModeValue, Button } from '@chakra-ui/react'
+import { useColorMode, useColorModeValue, Button } from '@chakra-ui/react'
+import { Tooltip } from 'serity-ui'
 import { FaMoon, FaSun } from 'react-icons/fa'
 
 const ColorModeSwitcher = () => {

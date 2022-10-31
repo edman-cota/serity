@@ -5,6 +5,7 @@ import { tooltipTheme } from './components/tooltip'
 import { buttonTheme } from './components/button'
 import { textareaTheme } from './components/textarea'
 import { breakpoints } from './foundations/breakpoints'
+import { selectTheme } from './components/select'
 
 const config = {
   initialColorMode: 'dark',
@@ -78,6 +79,7 @@ const theme = extendTheme({
     Tooltip: tooltipTheme,
     Button: buttonTheme,
     Textarea: textareaTheme,
+    Select: selectTheme,
   },
 
   // { config, breakpoints, components },
