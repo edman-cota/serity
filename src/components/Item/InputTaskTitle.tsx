@@ -1,4 +1,5 @@
 import { Textarea } from '@chakra-ui/react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { ActivityType } from '../../enums/definitions'
 import database, { auth } from '../../firebase'
@@ -11,6 +12,8 @@ interface Props {
 
 const InputTaskTitle = ({ content, id, projectId }: Props) => {
   const [user] = useAuthState(auth)
+  const areaRef = useRef<HTMLTextAreaElement>(null)
+  const [height, setHeight] = useState<number>(10)
 
   const handleKeyDown = (e: any) => {
     const keyCode = e.which || e.keyCode
@@ -40,10 +43,16 @@ const InputTaskTitle = ({ content, id, projectId }: Props) => {
 
   return (
     <Textarea
+      spellCheck="false"
+      autoComplete="off"
       value={content}
       placeholder="Content should not be empty"
       fontSize="18px"
       px="4px"
+      ref={areaRef}
+      overflowY="hidden"
+      // h={`${height}px`}
+      // h={`${areaRef.current !== null ? areaRef.current.scrollHeight : 10}px`}
       border="none"
       fontWeight={600}
       onKeyDown={handleKeyDown}
