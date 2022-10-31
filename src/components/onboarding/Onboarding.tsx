@@ -1,7 +1,7 @@
 import './style.scss'
 import { Button, Flex, Heading, Image, VStack, useColorMode } from '@chakra-ui/react'
 import Logo from '../../assets/img/logo.svg'
-import { Tooltip } from 'custom-react-tooltip'
+import { Tooltip } from 'serity-ui'
 
 const Onboarding = () => {
   const themes: string[] = ['lightTheme', 'darkTheme']
