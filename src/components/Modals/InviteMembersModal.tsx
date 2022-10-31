@@ -18,7 +18,7 @@ import {
   MenuItem,
   DarkMode,
 } from '@chakra-ui/react'
-import { Tooltip } from 'custom-react-tooltip'
+import { Tooltip } from 'serity-ui'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FormattedMessage } from 'react-intl'
 import { useAuthState } from 'react-firebase-hooks/auth'
