@@ -5,11 +5,11 @@ const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpe
   inputAnatomy.keys,
 )
 
-const baseStyle = definePartsStyle({
+const outline = definePartsStyle({
   field: {
     _focusVisible: {
-      border: '1px solid',
-      boxShadow: 'purple.500',
+      borderColor: '#2175e2',
+      boxShadow: 'none',
     },
   },
 })
@@ -33,6 +33,7 @@ const filled = definePartsStyle({
 
 const variants = {
   filled: filled,
+  outline: outline,
 }
 
-export const inputTheme = defineMultiStyleConfig({ baseStyle, variants })
+export const inputTheme = defineMultiStyleConfig({ variants })

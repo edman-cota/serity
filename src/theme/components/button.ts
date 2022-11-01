@@ -38,9 +38,25 @@ const solid = defineStyle({
   },
 })
 
+const submit = defineStyle({
+  color: 'white',
+  background: '#2e85ec',
+  w: '100px',
+
+  _dark: {
+    color: 'white',
+    background: '#2e85ec',
+    w: '100px',
+
+    _hover: {
+      bg: '#0071dc',
+    },
+  },
+})
+
 export const buttonTheme = defineStyleConfig({
   baseStyle,
-  variants: { ghost, solid },
+  variants: { ghost, solid, submit },
   defaultProps: {
     variant: 'ghost',
   },

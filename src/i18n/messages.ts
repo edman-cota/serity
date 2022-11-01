@@ -107,6 +107,12 @@ export const messages = {
     // Modals
     invite: 'Invitar',
     generate_a_join_link: 'Generate a join link',
+
+    // Modals -> Keyboard Shortcuts
+    keyboard_shortcuts: 'Keyboard Shortcuts',
+    general: 'General',
+    open_search: 'Open Search',
+    see_all_keyboard_shortcuts: 'See All Keyboard Shortcuts',
   },
   [LOCALES.SPANISH]: {
     // Login / Register
@@ -217,5 +223,11 @@ export const messages = {
     // Modals
     invite: 'Invitar',
     generate_a_join_link: 'Generar un enlace de unión',
+
+    // Modals -> Keyboard Shortcuts
+    keyboard_shortcuts: 'Atajos de teclado',
+    general: 'General',
+    open_search: 'Abrir el buscador',
+    see_all_keyboard_shortcuts: 'Ver todos los atajos de teclado',
   },
 }

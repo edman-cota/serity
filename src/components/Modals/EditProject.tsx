@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
   useDisclosure,
   MenuItem,
@@ -9,13 +7,11 @@ import {
   ModalOverlay,
   ModalContent,
   ModalBody,
-  Flex,
   Input,
   Button,
-  HStack,
   DarkMode,
+  ModalFooter,
 } from '@chakra-ui/react'
-import FocusLock from 'react-focus-lock'
 import { FormattedMessage } from 'react-intl'
 import { useSelector, useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
@@ -62,64 +58,33 @@ const EditProject = ({ name, id, emoji }: Props) => {
       </MenuItem>
 
       <DarkMode>
-        <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="xl">
-          <ModalOverlay bg="#0e1525A0" />
-          <ModalContent
-            maxW="450px"
-            minH="360px"
-            bg="#1c2333"
-            boxShadow="inset 0 1px 0 0 rgb(255 255 255 / 5%)"
-          >
-            <ModalHeader
-              display="flex"
-              mt="4px"
-              mb="10px"
-              fontWeight={500}
-              fontSize="17px"
-              color="white"
-            >
+        <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom">
+          <ModalOverlay />
+          <ModalContent maxW="450px" minH="360px">
+            <ModalHeader fontSize="17px" color="white">
               <FormattedMessage id="edit_project" />
             </ModalHeader>
 
             <ModalBody>
-              <Flex w="100%" direction="column">
-                <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
-                  <Input
-                    autoComplete="off"
-                    autoFocus
-                    _focus={{
-                      borderColor: '#2175e2',
-                    }}
-                    {...register('name', { required: true })}
-                  />
-                </form>
-                <EmojiPicker />
-
-                <HStack mt="135px" justifyContent="space-between">
-                  <Button
-                    variant="ghost"
-                    w="100px"
-                    onClick={() => {
-                      onClose()
-                      resetField('name')
-                    }}
-                  >
-                    <FormattedMessage id="cancel" />
-                  </Button>
-                  <Button
-                    type="submit"
-                    color="white"
-                    variant="solid"
-                    bg="#2e85ec"
-                    w="100px"
-                    _hover={{ bg: '#2e85ec' }}
-                    // disabled={!isDirty || !isValid}
-                  >
-                    <FormattedMessage id="save" />
-                  </Button>
-                </HStack>
-              </Flex>
+              <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
+                <Input autoComplete="off" autoFocus {...register('name', { required: true })} />
+              </form>
+              <EmojiPicker />
             </ModalBody>
+            <ModalFooter justifyContent="space-between">
+              <Button
+                w="100px"
+                onClick={() => {
+                  onClose()
+                  resetField('name')
+                }}
+              >
+                <FormattedMessage id="cancel" />
+              </Button>
+              <Button type="submit" variant="submit">
+                <FormattedMessage id="save" />
+              </Button>
+            </ModalFooter>
           </ModalContent>
         </Modal>
       </DarkMode>

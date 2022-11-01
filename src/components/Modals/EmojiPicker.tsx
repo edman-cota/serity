@@ -29,7 +29,7 @@ const ChooseIconModal = () => {
 
   return (
     <Menu placement="bottom" isOpen={isOpen} onClose={onClose}>
-      <MenuButton as={Button} bg={buttonBg} mt="20px" onClick={onOpen}>
+      <MenuButton as={Button} bg={buttonBg} w="100%" mt="20px" onClick={onOpen}>
         <Text w="100%" display="flex" justifyContent="space-between">
           <Text as="span">
             <FormattedMessage id="choose_an_icon" />
