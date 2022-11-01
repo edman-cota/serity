@@ -41,7 +41,12 @@ const ChooseIconModal = () => {
         </Text>
       </MenuButton>
       <MenuList padding="0" bg="transparent" border="none" boxShadow="none">
-        <Picker data={data} theme="dark" onEmojiSelect={handleOnEmojiSelect} />
+        <Picker
+          data={data}
+          theme="dark"
+          onEmojiSelect={handleOnEmojiSelect}
+          previewPosition="none"
+        />
       </MenuList>
     </Menu>
   )

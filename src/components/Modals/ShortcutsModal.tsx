@@ -37,7 +37,7 @@ const ShortcutsModal = () => {
             <VStack h="100%" flex={1} p="20px">
               <Flex justifyContent="space-between" w="100%">
                 <Text>Keyboard Shortcuts</Text>
-                <Button px="0rem" borderRadius="full" onClick={onClose}>
+                <Button variant="ghost" px="0rem" borderRadius="full" onClick={onClose}>
                   <AiOutlineClose />
                 </Button>
               </Flex>

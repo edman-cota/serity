@@ -84,15 +84,14 @@ const EditProject = ({ name, id, emoji }: Props) => {
             <ModalBody>
               <Flex w="100%" direction="column">
                 <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
-                  <FocusLock>
-                    <Input
-                      autoComplete="off"
-                      _focus={{
-                        borderColor: '#2175e2',
-                      }}
-                      {...register('name', { required: true })}
-                    />
-                  </FocusLock>
+                  <Input
+                    autoComplete="off"
+                    autoFocus
+                    _focus={{
+                      borderColor: '#2175e2',
+                    }}
+                    {...register('name', { required: true })}
+                  />
                 </form>
                 <EmojiPicker />
 
