@@ -37,7 +37,6 @@ const CompletionCurve = (): JSX.Element => {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -40 }}
-      // transition={{ duration: 0.25 }}
     >
       <Tabs variant="unstyled" w="100%" h="100%" align="center" pt="20px">
         <TabList>

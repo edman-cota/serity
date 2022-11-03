@@ -51,7 +51,11 @@ const CompletionCurveChart = (): JSX.Element => {
         }
       })
 
-    setToday('Today')
+    let d = new Date(time)
+    let month = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+    let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
+
+    setToday(`${month} ${day}`)
     setSeventh(completed.length)
   }, [completedTasks])
 
@@ -186,8 +190,6 @@ const CompletionCurveChart = (): JSX.Element => {
     setOne(`${month} ${day}`)
     setFirst(completed.length)
   }, [completedTasks])
-
-  console.log(completedTasks)
 
   const data = [
     { key: one, data: first },

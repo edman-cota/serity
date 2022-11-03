@@ -46,6 +46,7 @@ const ChooseIconModal = () => {
           theme="dark"
           onEmojiSelect={handleOnEmojiSelect}
           previewPosition="none"
+          skinTonePosition="none"
         />
       </MenuList>
     </Menu>

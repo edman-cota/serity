@@ -1,10 +1,8 @@
-import React from 'react'
 import { Flex, VStack } from '@chakra-ui/react'
 
-// import CompletionRateChart from "./CompletionRate";
-import AchievementCard from '../Cards/AchievementCard'
-import CompletionCurveChart from './CompletionCurve'
 import Toolbar from './Toolbar'
+import CompletionCurveChart from './CompletionCurve'
+import AchievementCard from '../Cards/AchievementCard'
 
 const Main = (): JSX.Element => {
   return (
@@ -20,17 +18,6 @@ const Main = (): JSX.Element => {
         <AchievementCard />
         <CompletionCurveChart />
       </Flex>
-
-      {/* <Flex
-        direction={{ base: "column", xl: "row" }}
-        my={{ base: "0px" }}
-        w="100%"
-        pt="0px"
-        justifyContent="center"
-      >
-        <CompletionRateChart />
-        <CompletionCurveChart />
-      </Flex> */}
     </VStack>
   )
 }
