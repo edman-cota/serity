@@ -100,9 +100,9 @@ a {
 .header-child-child {
   position: relative;
   border-bottom-width: 1px;
-  backdrop-filter: blur(4px);
-  background-color: rgb(255 255 255 / 0.9);
-  border-color: rgb(245 245 245 / 1);
+  // backdrop-filter: blur(4px);
+  // background: rgba(255, 255, 255, 0.15);
+  // border-color: rgb(245 245 245 / 1);
 
   .header-inside {
     padding-left: 1.5rem;
@@ -129,7 +129,7 @@ a {
         align-items: center;
         margin-right: auto;
         margin-left: 2rem;
-        color: black;
+        color: white;
 
         a {
           padding: 0.5rem 0.75rem;
@@ -149,14 +149,7 @@ a {
         .header-login-inside {
           display: flex;
           align-items: center;
-
-          .go-to-workspace {
-            margin-right: calc(2rem * 0);
-            margin-left: calc(2rem * calc(1 - 0));
-            display: flex;
-            align-items: center;
-            box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 /0.05);
-          }
+          gap: 20px;
         }
       }
     }
@@ -165,74 +158,64 @@ a {
 
 ////////////////////////MAIN
 ///
-.parent-main {
-  flex: 1 1 0%;
-  min-height: 0px;
-  flex: display;
 
-  .main {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    background-color: rgb(255 255 255 / 1);
-    border: 1px solid rgb(229 229 299 / 1);
+.main {
+  height: calc(100vh - 64px);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  // background-color: rgb(255 255 255 / 1);
 
-    .main-inside {
-      padding: 0 2rem;
-      max-width: 80rem;
-      margin: 0 auto;
+  .main-inside {
+    padding: 0 2rem;
+    max-width: 80rem;
+    margin: 0 auto;
 
-      .main-inside-inside {
-        display: flex;
-        height: 100%;
-        flex-direction: column;
-        justify-content: space-between;
+    .main-inside-inside {
+      display: flex;
+      gap: 20px;
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
 
-        .section-main {
-          flex: 1 1 0%;
+      .section-main {
+        flex: 1 1 0%;
 
-          .section-one {
-            padding-top: 5rem;
+        .section-one {
+          padding-top: 5rem;
 
-            .section-one-div-one {
+          .section-one-div-one {
+            margin: 0 auto;
+            max-width: 80rem;
+            padding: 0 2rem;
+
+            .section-one-tite {
               margin: 0 auto;
-              max-width: 80rem;
-              padding: 0 2rem;
+              max-width: 42rem;
+              text-align: center;
 
-              .section-one-tite {
-                margin: 0 auto;
-                max-width: 42rem;
-                text-align: center;
+              h1 {
+                display: block;
+                font-size: 3.75rem;
+                line-height: 1.1;
+                font-weight: 700;
+                color: white;
 
-                h1 {
-                  display: block;
-                  font-size: 3.75rem;
+                span {
+                  display: inline;
+                  // -webkit-text-fill-color: transparent;
                   line-height: 1.1;
-                  font-weight: 700;
-                  color: rgb(25, 25, 27);
-
-                  span {
-                    display: inline;
-                    // -webkit-text-fill-color: transparent;
-                    line-height: 1.1;
-                    margin-bottom: -4px;
-                    // color: #c0cbdb;
-                    color: linear-gradient(
-                      to right,
-                      rgb(211, 215, 219) 50%,
-                      rgba(179, 207, 255, 0.7) 100%
-                    );
-                  }
+                  margin-bottom: -4px;
                 }
+              }
 
-                h2 {
-                  color: rgb(82 82 82 / 1);
-                  font-weight: 500;
-                  margin-top: 2rem;
-                  font-size: 1.25rem;
-                  line-height: 2.4rem;
-                  display: flex;
-                  flex-direction: column;
-                }
+              h2 {
+                color: white;
+                font-weight: 500;
+                margin-top: 2rem;
+                font-size: 1.25rem;
+                line-height: 2.4rem;
+                display: flex;
+                flex-direction: column;
               }
             }
           }

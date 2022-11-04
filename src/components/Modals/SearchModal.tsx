@@ -28,20 +28,18 @@ const SearchModal = () => {
         <ModalContent maxW='750px' h='70%'>
           <ModalHeader
             display='flex'
-            mt='4px'
-            mb='10px'
             fontWeight={500}
             fontSize='17px'
             color='white'
+            py='10px'
             borderBottom='1px'
             borderColor='rgba(226,232,240,.05)'
           >
             <Flex flex={1}>
-              <InputGroup w='600px' maxW='600px'>
-                <InputLeftElement pointerEvents='none' children={<FiSearch color='gray.300' />} />
+              <InputGroup>
+                <InputLeftElement pointerEvents='none' children={<FiSearch color='#7E8CA0' />} />
                 <Input
                   w='100%'
-                  // maxW='600px'
                   border='none'
                   boxShadow='none'
                   _focus={{
