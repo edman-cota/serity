@@ -14,11 +14,11 @@ const SidebarItem = ({ to, textId }: PropsInterface): JSX.Element => {
 
   return (
     <Flex
-      alignItems="center"
-      h="38px"
-      w="100%"
-      pl="40px"
-      cursor="pointer"
+      alignItems='center'
+      h='38px'
+      w='100%'
+      pl='40px'
+      cursor='pointer'
       _hover={{ background: hover }}
     >
       <Link to={to}>

@@ -20,19 +20,19 @@ const Toolbar = () => {
       w={{ base: '95%', sm: '85%', xl: '1010px' }}
       h={{ base: '56px', xl: '80px' }}
       px={{ base: '30px', xl: '30px' }}
-      mt="40px"
-      borderRadius="lg"
-      alignItems="center"
-      display="flex"
-      justifyContent="space-between"
+      mt='40px'
+      borderRadius='lg'
+      alignItems='center'
+      display='flex'
+      justifyContent='space-between'
       bg={cardBackground}
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       // transition={{ duration: 0.25 }}
     >
-      <Heading size="md">
-        <FormattedMessage id="overview" />
+      <Heading size='md'>
+        <FormattedMessage id='overview' />
       </Heading>
       <Button onClick={() => navigate(-1)}>
         <AiOutlineClose />

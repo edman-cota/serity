@@ -20,16 +20,16 @@ const Item = ({ task, index }: Props) => {
   return (
     <ListItem
       className={`tree-row${index === activeIndex ? ' selected' : ''}`}
-      borderRadius="base"
-      cursor="pointer"
+      borderRadius='base'
+      cursor='pointer'
       _hover={{ background: hover }}
-      role="group"
+      role='group'
     >
-      <HStack h="40px">
-        <Flex px="8px">
+      <HStack h='40px'>
+        <Flex px='8px'>
           <RenderStatus task={task} />
         </Flex>
-        <Flex flex={1} alignItems="center" height="100%">
+        <Flex flex={1} alignItems='center' height='100%'>
           <ItemTitle task={task} index={index} />
           <ItemMenu task={task} />
         </Flex>

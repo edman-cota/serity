@@ -21,10 +21,10 @@ const TreeList = () => {
   return (
     <>
       {!isLoading ? (
-        <VStack w="98%" h="calc(100vh - 76px)" overflowY="auto">
+        <VStack w='98%' h='calc(100vh - 76px)' overflowY='auto'>
           {project !== 'today' ? (
-            <VStack w="100%" pb="40px">
-              <List width="95%" m="auto" maxWidth={880}>
+            <VStack w='100%' pb='40px'>
+              <List width='95%' m='auto' maxWidth={880}>
                 {tasks.map((data, index) => (
                   <Item key={data.id} index={index} task={data} />
                 ))}
@@ -32,8 +32,8 @@ const TreeList = () => {
               {showAddTask ? <AddTask /> : null}
             </VStack>
           ) : (
-            <VStack w="100%">
-              <List width="95%" m="auto" maxWidth={1000}>
+            <VStack w='100%'>
+              <List width='95%' m='auto' maxWidth={1000}>
                 {todayTasks.map((data, index) => (
                   <Item key={data.id} index={index} task={data} />
                 ))}
@@ -43,9 +43,9 @@ const TreeList = () => {
           )}
 
           {showCompleted && completedTasks.length > 0 ? (
-            <VStack w="100%" pb="40px">
+            <VStack w='100%' pb='40px'>
               <ListHeader count={completedTasks.length} />
-              <List width="95%" m="auto" maxWidth={880}>
+              <List width='95%' m='auto' maxWidth={880}>
                 {completedTasks.map((data, index) => (
                   <Item key={data.id} index={index} task={data} />
                 ))}

@@ -7,7 +7,7 @@ const ColorModeSwitcher = () => {
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
 
   return (
-    <Tooltip label="Switch Theme">
+    <Tooltip label='Switch Theme'>
       <Button onClick={toggleColorMode}>
         <SwitchIcon />
       </Button>

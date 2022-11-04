@@ -6,7 +6,6 @@ import ToggleSidebarVisibility from './ToggleSidebarVisibility'
 import NavItemAddTask from './NavItemAddTask'
 import ProjectName from './ProjectName'
 import { auth } from '../../firebase'
-import ColorModeSwitcher from './ColorModeSwitcher'
 import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
 import ShortcutsModal from '../Modals/ShortcutsModal'
 import SearchModal from '../Modals/SearchModal'
@@ -22,22 +21,19 @@ const Navbar = () => {
   }, [user, loading, navigate])
 
   return (
-    <Flex w="100%" mt="20px">
-      <Flex w="95%" mx="auto" maxW="950px">
-        <Flex flex="1" gap="20px">
+    <Flex w='100%' mt='20px'>
+      <Flex w='95%' mx='auto' maxW='950px'>
+        <Flex flex='1' gap='20px'>
           <ToggleSidebarVisibility />
           <ProjectName />
         </Flex>
-        <Flex flex="1" justifyContent="flex-end">
-          <List display="flex" gap="20px">
+        <Flex flex='1' justifyContent='flex-end'>
+          <List display='flex' gap='20px'>
             {project !== 'today' ? (
               <ListItem>
                 <NavItemAddTask />
               </ListItem>
             ) : null}
-            <ListItem>
-              <ColorModeSwitcher />
-            </ListItem>
             <ListItem>
               <ShortcutsModal />
             </ListItem>
@@ -45,7 +41,7 @@ const Navbar = () => {
               <SearchModal />
             </ListItem>
             <ListItem>
-              <ProjectOptionsMenu name="" id="" emoji="" />
+              <ProjectOptionsMenu name='' id='' emoji='' />
             </ListItem>
           </List>
         </Flex>

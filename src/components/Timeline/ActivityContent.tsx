@@ -12,24 +12,24 @@ const ActivityContent = ({ type, content, description }: Props) => {
   switch (type) {
     case 1:
       return (
-        <Text as="span" color={color}>
+        <Text as='span' color={color}>
           {content}
         </Text>
       )
     case 7:
       return (
-        <Text as="span" color={color}>
+        <Text as='span' color={color}>
           {content}
         </Text>
       )
     case 8:
       return (
-        <Text as="span" color={color}>
+        <Text as='span' color={color}>
           {description}
         </Text>
       )
     default:
-      return <Text as="span" color={color}></Text>
+      return <Text as='span' color={color}></Text>
   }
 }
 

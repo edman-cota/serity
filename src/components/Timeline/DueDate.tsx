@@ -9,10 +9,10 @@ const DueDate = ({ due }: DueProps): JSX.Element => {
   return (
     <span>
       <span style={{ paddingRight: '7px' }}>
-        <FormattedMessage id="to" />
+        <FormattedMessage id='to' />
       </span>
       <b>
-        <FormattedDate value={due} month="short" day="2-digit" />
+        <FormattedDate value={due} month='short' day='2-digit' />
       </b>
     </span>
   )

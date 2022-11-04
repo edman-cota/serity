@@ -32,11 +32,11 @@ const ItemTitle = ({ task, index }: Props) => {
   return (
     <Flex
       flex={3}
-      h="100%"
-      alignItems="center"
+      h='100%'
+      alignItems='center'
       onClick={() => onSelectItem(task.id || 'today', index)}
     >
-      <Text className="text-item" color={color} fontSize="15px">
+      <Text className='text-item' color={color} fontSize='15px'>
         {task.content}
       </Text>
     </Flex>

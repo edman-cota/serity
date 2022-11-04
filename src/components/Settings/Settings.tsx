@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Settings = ({ currentLocale, handleChange }: Props) => (
-  <HStack h="100%" w="100%">
+  <HStack h='100%' w='100%'>
     <Sidebar />
     <Content currentLocale={currentLocale} handleChange={handleChange} />
   </HStack>

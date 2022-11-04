@@ -38,22 +38,22 @@ const Workspace = () => {
   }
 
   return (
-    <VStack w="100%" h="calc(100vh - 160px)" pt="30px">
-      <VStack alignItems="center" position="relative" w="100%">
+    <VStack w='100%' h='calc(100vh - 160px)' pt='30px'>
+      <VStack alignItems='center' position='relative' w='100%'>
         <Toolbar />
         <nav style={{ width: '100%' }}>
-          <List w="90%" mx="auto">
+          <List w='90%' mx='auto'>
             {projects?.map((project) => (
-              <ListItem key={project.id} color="hsla(0,0%,100%,.87)">
+              <ListItem key={project.id} color='hsla(0,0%,100%,.87)'>
                 <NavLink
                   key={project.id}
                   to={`/${username}/${formatUrl(project?.name)}`}
                   className={({ isActive }) => (isActive ? 'i-active' : 'i-link')}
                 >
-                  <Text as="span" w="30px">
+                  <Text as='span' w='30px'>
                     {project?.emoji}
                   </Text>
-                  <Text onClick={() => navigateTo(project)} className="sidebar-item-project">
+                  <Text onClick={() => navigateTo(project)} className='sidebar-item-project'>
                     {project?.name}
                   </Text>
                 </NavLink>

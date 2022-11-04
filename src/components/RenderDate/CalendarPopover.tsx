@@ -61,15 +61,15 @@ const CalendarPopover = ({ task }: Props) => {
     <Popover closeOnBlur onClose={onClose} isOpen={isOpen}>
       <PopoverTrigger>
         <Button onClick={onOpen}>
-          <Text as="span" pr="10px" lineHeight="20px">
+          <Text as='span' pr='10px' lineHeight='20px'>
             <CalendarIcon due={task?.due} />
           </Text>
 
           {task && task?.due && <RenderDateText due={task?.due} />}
         </Button>
       </PopoverTrigger>
-      <PopoverContent w="330px" bg="#0e1525" borderColor="#0e1525">
-        <PopoverBody p="0px" mx="auto">
+      <PopoverContent w='330px' bg='#0e1525' borderColor='#0e1525'>
+        <PopoverBody p='0px' mx='auto'>
           <TopOptions task={task} onClose={onClose} />
           <Flex>
             {task && (
@@ -79,7 +79,7 @@ const CalendarPopover = ({ task }: Props) => {
                 locale={locale}
                 next2Label={null}
                 prev2Label={null}
-                minDetail="decade"
+                minDetail='decade'
               />
             )}
           </Flex>

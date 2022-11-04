@@ -33,16 +33,16 @@ const PriorityIcon = (props: any) => {
   }
 
   return (
-    <Menu autoSelect={false} placement="bottom" isLazy>
+    <Menu autoSelect={false} placement='bottom' isLazy>
       <MenuButton as={Button}>
         <RenderPriority priority={props.task?.priority} />
       </MenuButton>
 
-      <MenuList minW="150px">
+      <MenuList minW='150px'>
         {priorities.map((priority, index, { length }) => (
           <MenuItem key={priority} onClick={() => updateTaskPriority(length - (index + 1))}>
-            <Text w="30px">
-              <BsFlag color={colors[index]} fontSize="14px" />
+            <Text w='30px'>
+              <BsFlag color={colors[index]} fontSize='14px' />
             </Text>
             <FormattedMessage id={priority} />
           </MenuItem>

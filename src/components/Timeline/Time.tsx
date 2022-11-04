@@ -9,7 +9,7 @@ const Time = ({ createdAt }: Props) => {
   const date = new Date(createdAt)
 
   return (
-    <Text as="span" fontSize="14px" color="whiteAlpha.700">
+    <Text as='span' fontSize='14px' color='whiteAlpha.700'>
       {new Date(date.getTime()).toLocaleDateString('en-US')} -{' '}
       {formatAMPM(new Date(date.getTime()))}
     </Text>

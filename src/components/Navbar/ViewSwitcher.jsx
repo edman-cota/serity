@@ -44,11 +44,11 @@ const ViewsItem = () => {
 
   return (
     <Menu>
-      <MenuButton as={Button} variant="ghost" righticon={<IoChevronDownOutline />}>
+      <MenuButton as={Button} variant='ghost' righticon={<IoChevronDownOutline />}>
         <View view={searchParams.get('view')} />
       </MenuButton>
       <DarkMode>
-        <MenuList borderRadius="base" border="0px" bg="white">
+        <MenuList borderRadius='base' border='0px' bg='white'>
           {views.map((view, index) => {
             const Icon = icons[index]
             return (
@@ -58,20 +58,20 @@ const ViewsItem = () => {
                 to={`/web/${username}/${project}?view=${view}`}
               >
                 <MenuItem
-                  color="rgb(66, 72, 85)"
-                  w="90%"
-                  h="38px"
-                  mx="auto"
-                  borderRadius="base"
+                  color='rgb(66, 72, 85)'
+                  w='90%'
+                  h='38px'
+                  mx='auto'
+                  borderRadius='base'
                   icon={<Icon />}
                   _hover={{ backgroundColor: 'rgb(244, 246, 248)' }}
                 >
-                  <Text display="flex" justifyContent="space-between" alignItems="center">
-                    <Text as="span" ml="6px" fontSize="14px">
+                  <Text display='flex' justifyContent='space-between' alignItems='center'>
+                    <Text as='span' ml='6px' fontSize='14px'>
                       <FormattedMessage id={view} />
                     </Text>
-                    <Text as="span">
-                      {searchParams.get('view') === view ? <FiCheck color="black" /> : null}
+                    <Text as='span'>
+                      {searchParams.get('view') === view ? <FiCheck color='black' /> : null}
                     </Text>
                   </Text>
                 </MenuItem>

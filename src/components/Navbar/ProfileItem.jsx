@@ -29,32 +29,32 @@ const ProfileItem = () => {
 
   return (
     <Menu autoSelect={false}>
-      <MenuButton as={Button} variant="ghost">
-        <Avatar src="https://assets.codepen.io/t-1/user-default-avatar.jpg" w="5" h="5" />
+      <MenuButton as={Button} variant='ghost'>
+        <Avatar src='https://assets.codepen.io/t-1/user-default-avatar.jpg' w='5' h='5' />
       </MenuButton>
       <Portal>
         <MenuList>
           <RouteLink to={`/${username}/settings`}>
-            <NavLink text="settings" icon={<IoSettingsOutline />} />
+            <NavLink text='settings' icon={<IoSettingsOutline />} />
           </RouteLink>
-          <RouteLink to="/dev/">
-            <NavLink text="help" icon={<IoMdHelp />} />
+          <RouteLink to='/dev/'>
+            <NavLink text='help' icon={<IoMdHelp />} />
           </RouteLink>
           <RouteLink to={`/${username}/overview`}>
-            <NavLink text="statistics" icon={<RiBarChartHorizontalLine />} />
+            <NavLink text='statistics' icon={<RiBarChartHorizontalLine />} />
           </RouteLink>
-          <RouteLink to="/dev/">
-            <NavLink text="premium" icon={<BsShieldCheck />} />
+          <RouteLink to='/dev/'>
+            <NavLink text='premium' icon={<BsShieldCheck />} />
           </RouteLink>
           <MenuItem
             icon={<MdOutlineLogout />}
-            fontSize="14px"
+            fontSize='14px'
             onClick={() => {
               logout()
               clearOpenTask()
             }}
           >
-            <FormattedMessage id="logout" />
+            <FormattedMessage id='logout' />
           </MenuItem>
         </MenuList>
       </Portal>
@@ -63,7 +63,7 @@ const ProfileItem = () => {
 }
 
 const NavLink = ({ text, icon }) => (
-  <MenuItem icon={icon} fontSize="14px">
+  <MenuItem icon={icon} fontSize='14px'>
     <FormattedMessage id={text} />
   </MenuItem>
 )

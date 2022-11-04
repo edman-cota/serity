@@ -28,7 +28,7 @@ const App = () => {
         locale={currentLocale}
         defaultLocale={LOCALES.ENGLISH}
       >
-        <Flex w="100%" overflow="hidden">
+        <Flex w='100%' overflow='hidden'>
           <Routing currentLocale={currentLocale} handleChange={handleChange} />
         </Flex>
       </IntlProvider>

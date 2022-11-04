@@ -41,7 +41,7 @@ const View = ({ view }: { view: string }) => {
     default:
       return (
         <span style={TextStyle}>
-          <FormattedMessage id="tree" />
+          <FormattedMessage id='tree' />
           <FiChevronDown />
         </span>
       )

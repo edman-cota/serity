@@ -32,7 +32,7 @@ const Tree = () => {
         width: '100%',
       }}
     >
-      <Flex w="100%">
+      <Flex w='100%'>
         <Outlet />
         <TreeTask />
       </Flex>

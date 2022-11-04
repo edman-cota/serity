@@ -5,16 +5,16 @@ import Navbar from '../../components/Home/Navbar/Navbar'
 
 const Dev = (): JSX.Element => {
   return (
-    <Flex w="100%" direction="column" border="1px">
+    <Flex w='100%' direction='column' border='1px'>
       <Navbar />
-      <Flex h="1000px" bg="white" w="100%">
-        <Flex className="sidebar" h="calc(100vh-80px)" w="350px"></Flex>
-        <Flex className="docs" flex="1" mt="90px">
-          <article className="docs-article">
-            <h1 className="doc-title">Cota API</h1>
-            <div className="introduction">
-              <div className="doc-row">
-                <div className="doc-content">
+      <Flex h='1000px' bg='white' w='100%'>
+        <Flex className='sidebar' h='calc(100vh-80px)' w='350px'></Flex>
+        <Flex className='docs' flex='1' mt='90px'>
+          <article className='docs-article'>
+            <h1 className='doc-title'>Cota API</h1>
+            <div className='introduction'>
+              <div className='doc-row'>
+                <div className='doc-content'>
                   <h1>Introduction</h1>
 
                   <p>Welcome to the reference for the Cota REST API</p>
@@ -39,7 +39,7 @@ const Dev = (): JSX.Element => {
                     about using our API and what we can do to make it better
                   </p>
                 </div>
-                <div className="doc-example"></div>
+                <div className='doc-example'></div>
               </div>
             </div>
           </article>

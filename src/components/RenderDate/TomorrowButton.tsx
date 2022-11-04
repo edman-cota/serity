@@ -29,8 +29,8 @@ const TomorrowButton = ({ onClose, task }: Props) => {
   }
 
   return (
-    <Button h="1.875rem" variant="solid" onClick={handleSetTomorrow}>
-      <FormattedMessage id="tomorrow" />
+    <Button h='1.875rem' variant='solid' onClick={handleSetTomorrow}>
+      <FormattedMessage id='tomorrow' />
     </Button>
   )
 }

@@ -43,54 +43,54 @@ const LoginForm = () => {
   }
 
   return (
-    <VStack h="100%" justifyContent="center" width={{ base: '100%', xl: '100%' }}>
+    <VStack h='100%' justifyContent='center' width={{ base: '100%', xl: '100%' }}>
       <LoginHeader />
       <SocialLogin />
 
       <VStack>
         <form style={{ width: '440px', padding: '25px' }} onSubmit={handleSubmit(onSubmit)}>
           <Input
-            variant="filled"
-            placeholder="Correo"
+            variant='filled'
+            placeholder='Correo'
             _placeholder={{ color: '#999' }}
             {...register('email', { required: true })}
           />
           {errors.email?.type === 'required' && (
-            <Text color="red.400" _before={{ content: `"⚠ "` }}>
-              <FormattedMessage id="email_is_required" />
+            <Text color='red.400' _before={{ content: `"⚠ "` }}>
+              <FormattedMessage id='email_is_required' />
             </Text>
           )}
 
           <Input
-            variant="filled"
-            placeholder="Contraseña"
+            variant='filled'
+            placeholder='Contraseña'
             _placeholder={{ color: '#999' }}
-            type="password"
+            type='password'
             {...register('password', { required: true, minLength: 6 })}
           />
           {errors.password?.type === 'required' && (
-            <Text color="red.400" _before={{ content: `"⚠ "` }}>
-              <FormattedMessage id="password_is_required" />
+            <Text color='red.400' _before={{ content: `"⚠ "` }}>
+              <FormattedMessage id='password_is_required' />
             </Text>
           )}
 
-          <Flex justifyContent="space-between" my="15px">
-            <Checkbox defaultChecked spacing=".75rem" color="blackAlpha.800">
+          <Flex justifyContent='space-between' my='15px'>
+            <Checkbox defaultChecked spacing='.75rem' color='blackAlpha.800'>
               Remember me
             </Checkbox>
-            <Button variant="link" my="20px" color="#0071dc">
-              <FormattedMessage id="forgot_password" />
+            <Button variant='link' my='20px' color='#0071dc'>
+              <FormattedMessage id='forgot_password' />
             </Button>
           </Flex>
 
-          <button className="cssbuttons-io-button" type="submit">
+          <button className='cssbuttons-io-button' type='submit'>
             Log in
-            <div className="icon">
-              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none" />
+            <div className='icon'>
+              <svg height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M0 0h24v24H0z' fill='none' />
                 <path
-                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                  fill="currentColor"
+                  d='M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z'
+                  fill='currentColor'
                 />
               </svg>
             </div>
@@ -98,7 +98,7 @@ const LoginForm = () => {
         </form>
       </VStack>
 
-      <Footer textId="dont_have_an_account_yet" whereTo="register" />
+      <Footer textId='dont_have_an_account_yet' whereTo='register' />
     </VStack>
   )
 }

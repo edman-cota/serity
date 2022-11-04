@@ -49,22 +49,22 @@ const Navbar = () => {
 
   return (
     <header style={{ position: 'relative', zIndex: '20' }}>
-      <div className="header-child"></div>
-      <div className="header-child-child">
-        <div className="header-inside">
-          <div className="header-inside-inside">
-            <div className="header-logo">
-              <a href="/">
-                <img src={logo} alt="Serity logo" />
+      <div className='header-child'></div>
+      <div className='header-child-child'>
+        <div className='header-inside'>
+          <div className='header-inside-inside'>
+            <div className='header-logo'>
+              <a href='/'>
+                <img src={logo} alt='Serity logo' />
               </a>
             </div>
-            <div className="header-options">
-              <a href="/pricing">Pricing</a>
+            <div className='header-options'>
+              <a href='/pricing'>Pricing</a>
             </div>
-            <div className="header-login">
-              <div className="header-login-inside">
-                <a href="/login">Login</a>
-                <a href="/login" className="go-to-workspace">
+            <div className='header-login'>
+              <div className='header-login-inside'>
+                <a href='/login'>Login</a>
+                <a href='/login' className='go-to-workspace'>
                   Register
                 </a>
               </div>

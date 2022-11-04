@@ -14,9 +14,9 @@ const Sidebar = () => {
 
   return (
     <VStack
-      w="300px"
-      h="100vh"
-      pos="fixed"
+      w='300px'
+      h='100vh'
+      pos='fixed'
       top={0}
       left={0}
       background={sidebarBackground}

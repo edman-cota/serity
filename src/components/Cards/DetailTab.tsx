@@ -11,7 +11,7 @@ const DetailTab = () => {
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   return (
-    <VStack h="100%" px="20px">
+    <VStack h='100%' px='20px'>
       <InputTaskTitle content={task.content} id={task.id} projectId={workingProject.id} />
       <br />
       <Description

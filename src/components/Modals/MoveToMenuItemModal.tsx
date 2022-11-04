@@ -20,20 +20,20 @@ const MoveToMenuItemModal = () => {
   return (
     <>
       <MenuItem icon={<MdOutlineDriveFileMove />} onClick={onOpen}>
-        <FormattedMessage id="move_to" />
+        <FormattedMessage id='move_to' />
       </MenuItem>
-      <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="xl">
+      <Modal onClose={onClose} isOpen={isOpen} motionPreset='slideInBottom' size='xl'>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>
-            <FormattedMessage id="Transfer task" />
+            <FormattedMessage id='Transfer task' />
           </ModalHeader>
           <ModalBody>
             <Flex>You are about to transfer to project:</Flex>
-            <Select placeholder="Select an existing project">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+            <Select placeholder='Select an existing project'>
+              <option value='option1'>Option 1</option>
+              <option value='option2'>Option 2</option>
+              <option value='option3'>Option 3</option>
             </Select>
           </ModalBody>
         </ModalContent>

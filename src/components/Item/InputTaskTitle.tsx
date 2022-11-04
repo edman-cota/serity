@@ -43,18 +43,18 @@ const InputTaskTitle = ({ content, id, projectId }: Props) => {
 
   return (
     <Textarea
-      spellCheck="false"
-      autoComplete="off"
+      spellCheck='false'
+      autoComplete='off'
       value={content}
       readOnly
-      placeholder="Content should not be empty"
-      fontSize="18px"
-      px="4px"
+      placeholder='Content should not be empty'
+      fontSize='18px'
+      px='4px'
       ref={areaRef}
-      overflowY="hidden"
+      overflowY='hidden'
       // h={`${height}px`}
       // h={`${areaRef.current !== null ? areaRef.current.scrollHeight : 10}px`}
-      border="none"
+      border='none'
       fontWeight={600}
       onKeyDown={handleKeyDown}
     />

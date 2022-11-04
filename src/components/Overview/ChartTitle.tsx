@@ -4,8 +4,8 @@ import { FormattedMessage } from 'react-intl'
 
 const ChartTitle = ({ title }: { title: string }): JSX.Element => {
   return (
-    <Flex pb={5} w="full">
-      <Text color="whiteAlpha.800">
+    <Flex pb={5} w='full'>
+      <Text color='whiteAlpha.800'>
         <FormattedMessage id={title} />
       </Text>
     </Flex>

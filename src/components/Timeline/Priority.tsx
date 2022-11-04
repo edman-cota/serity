@@ -11,10 +11,10 @@ const Priority = ({ priority }: PriorityProps): JSX.Element => {
       return (
         <span style={{ paddingRight: '7px' }}>
           <span style={{ paddingRight: '7px' }}>
-            <FormattedMessage id="to" />
+            <FormattedMessage id='to' />
           </span>
           <b>
-            <FormattedMessage id="none" />
+            <FormattedMessage id='none' />
           </b>
         </span>
       )
@@ -22,10 +22,10 @@ const Priority = ({ priority }: PriorityProps): JSX.Element => {
       return (
         <span style={{ paddingRight: '7px' }}>
           <span style={{ paddingRight: '7px' }}>
-            <FormattedMessage id="to" />
+            <FormattedMessage id='to' />
           </span>
           <b>
-            <FormattedMessage id="low" />
+            <FormattedMessage id='low' />
           </b>
         </span>
       )
@@ -33,10 +33,10 @@ const Priority = ({ priority }: PriorityProps): JSX.Element => {
       return (
         <span style={{ paddingRight: '7px' }}>
           <span style={{ paddingRight: '7px' }}>
-            <FormattedMessage id="to" />
+            <FormattedMessage id='to' />
           </span>
           <b>
-            <FormattedMessage id="medium" />
+            <FormattedMessage id='medium' />
           </b>
         </span>
       )
@@ -44,10 +44,10 @@ const Priority = ({ priority }: PriorityProps): JSX.Element => {
       return (
         <span style={{ paddingRight: '7px' }}>
           <span style={{ paddingRight: '7px' }}>
-            <FormattedMessage id="to" />
+            <FormattedMessage id='to' />
           </span>
           <b>
-            <FormattedMessage id="high" />
+            <FormattedMessage id='high' />
           </b>
         </span>
       )

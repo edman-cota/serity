@@ -6,8 +6,8 @@ function Navbar() {
   const navigate = useNavigate()
 
   return (
-    <Flex w="100%" h="60px" justifyContent="flex-end" alignItems="center" px="100px">
-      <Button variant="ghost" onClick={() => navigate(-1)}>
+    <Flex w='100%' h='60px' justifyContent='flex-end' alignItems='center' px='100px'>
+      <Button variant='ghost' onClick={() => navigate(-1)}>
         <GrClose />
       </Button>
     </Flex>

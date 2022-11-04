@@ -8,26 +8,26 @@ const Onboarding = () => {
 
   return (
     <VStack style={{ height: '100vh', width: '100%' }}>
-      <Flex h="100px" alignItems="center">
-        <Image src={Logo} alt="Serity logo" w="10" h="10" />
+      <Flex h='100px' alignItems='center'>
+        <Image src={Logo} alt='Serity logo' w='10' h='10' />
       </Flex>
-      <Flex h="100px">
-        <Heading as="h4" size="lg">
+      <Flex h='100px'>
+        <Heading as='h4' size='lg'>
           Choose your theme
         </Heading>
       </Flex>
-      <Flex className="inputAnswersPanel">
+      <Flex className='inputAnswersPanel'>
         <input
-          className="radio_input"
-          type="radio"
-          value="lightTheme"
-          name="themes"
+          className='radio_input'
+          type='radio'
+          value='lightTheme'
+          name='themes'
           checked
-          id="lightTheme"
+          id='lightTheme'
         />
         <label
-          className="radio_label"
-          htmlFor="lightTheme"
+          className='radio_label'
+          htmlFor='lightTheme'
           style={{
             backgroundColor: '#FFFFFF',
             color: '#39414b',
@@ -39,15 +39,15 @@ const Onboarding = () => {
         </label>
 
         <input
-          className="radio_input"
-          type="radio"
-          value="darkTheme"
-          name="themes"
-          id="darkTheme"
+          className='radio_input'
+          type='radio'
+          value='darkTheme'
+          name='themes'
+          id='darkTheme'
         />
         <label
-          className="radio_label"
-          htmlFor="darkTheme"
+          className='radio_label'
+          htmlFor='darkTheme'
           style={{
             backgroundColor: '#FFFFFF',
             color: '#39414b',
@@ -58,8 +58,8 @@ const Onboarding = () => {
           darkTheme
         </label>
       </Flex>
-      <Flex justifyContent="flex-start" w="100%">
-        <Tooltip label="Tooltip" placement="left">
+      <Flex justifyContent='flex-start' w='100%'>
+        <Tooltip label='Tooltip' placement='left'>
           <button style={{ backgroundColor: 'red' }}>Hola mundo</button>
         </Tooltip>
         {/* <Button w="380px" bg="#457ae5" color="white">

@@ -3,7 +3,7 @@ import LoginForm from './LoginForm'
 
 const Login = (): JSX.Element => (
   <LightMode>
-    <HStack h="100vh" w="100%" bg="white">
+    <HStack h='100vh' w='100%' bg='white'>
       <LoginForm />
     </HStack>
   </LightMode>

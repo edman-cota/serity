@@ -28,8 +28,8 @@ const RemoveButton = ({ onClose, task }: Props) => {
   }
 
   return (
-    <Button h="1.875rem" variant="solid" onClick={handleRemoveDueDate}>
-      <FormattedMessage id="remove_date" />
+    <Button h='1.875rem' variant='solid' onClick={handleRemoveDueDate}>
+      <FormattedMessage id='remove_date' />
     </Button>
   )
 }

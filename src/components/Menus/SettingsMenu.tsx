@@ -32,33 +32,33 @@ const SettingsMenu = () => {
 
   return (
     <Menu autoSelect={false}>
-      <Tooltip label={<FormattedMessage id="settings" />}>
+      <Tooltip label={<FormattedMessage id='settings' />}>
         <MenuButton as={Button}>
           <IoSettingsOutline />
         </MenuButton>
       </Tooltip>
       <MenuList>
         <RouteLink to={`/${username}/settings`}>
-          <NavLink text="settings" icon={<IoSettingsOutline />} />
+          <NavLink text='settings' icon={<IoSettingsOutline />} />
         </RouteLink>
-        <RouteLink to="/dev/">
-          <NavLink text="help" icon={<IoMdHelp />} />
+        <RouteLink to='/dev/'>
+          <NavLink text='help' icon={<IoMdHelp />} />
         </RouteLink>
         <RouteLink to={`/${username}/overview`}>
-          <NavLink text="statistics" icon={<RiBarChartHorizontalLine />} />
+          <NavLink text='statistics' icon={<RiBarChartHorizontalLine />} />
         </RouteLink>
-        <RouteLink to="/dev/">
-          <NavLink text="premium" icon={<BsShieldCheck />} />
+        <RouteLink to='/dev/'>
+          <NavLink text='premium' icon={<BsShieldCheck />} />
         </RouteLink>
         <MenuItem
           icon={<MdOutlineLogout />}
-          fontSize="14px"
+          fontSize='14px'
           onClick={() => {
             logout()
             clearOpenTask()
           }}
         >
-          <FormattedMessage id="logout" />
+          <FormattedMessage id='logout' />
         </MenuItem>
       </MenuList>
     </Menu>
@@ -66,7 +66,7 @@ const SettingsMenu = () => {
 }
 
 const NavLink = ({ text, icon }: NavProps) => (
-  <MenuItem icon={icon} fontSize="14px">
+  <MenuItem icon={icon} fontSize='14px'>
     <FormattedMessage id={text} />
   </MenuItem>
 )

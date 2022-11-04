@@ -11,8 +11,8 @@ const CompletionRate = (): JSX.Element => {
       mx={{ base: 'auto', xl: '15px' }}
       mt={{ base: '16px', xl: '20px' }}
       px={{ base: '15px', md: '25px', xl: '20px' }}
-      h="284px"
-      borderRadius="8px"
+      h='284px'
+      borderRadius='8px'
       bg={cardBackground}
     >
       {/* <Flex className="stat-dates">

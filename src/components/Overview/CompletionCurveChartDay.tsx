@@ -203,27 +203,27 @@ const CompletionCurveChart = (): JSX.Element => {
 
   return (
     <>
-      <ChartTitle title="recent_completion_curve" />
+      <ChartTitle title='recent_completion_curve' />
       <AreaChart
         height={160}
         margins={0}
         data={data}
         xAxis={
           <LinearXAxis
-            type="category"
-            position="end"
+            type='category'
+            position='end'
             axisLine={null}
             tickSeries={
               <LinearXAxisTickSeries
                 line={null}
-                label={<LinearXAxisTickLabel padding={8} fontSize={12} position="end" />}
+                label={<LinearXAxisTickLabel padding={8} fontSize={12} position='end' />}
               />
             }
           />
         }
         yAxis={
           <LinearYAxis
-            type="value"
+            type='value'
             axisLine={null}
             scale={4}
             scaled={false}
@@ -237,13 +237,13 @@ const CompletionCurveChart = (): JSX.Element => {
         }
         series={
           <AreaSeries
-            interpolation="smooth"
+            interpolation='smooth'
             line={<Line strokeWidth={2} />}
             symbols={
               <PointSeries
                 show={true}
-                color="green"
-                point={<ScatterPoint size={2} color="green" />}
+                color='green'
+                point={<ScatterPoint size={2} color='green' />}
               />
             }
             area={
@@ -251,9 +251,9 @@ const CompletionCurveChart = (): JSX.Element => {
                 gradient={
                   <Gradient
                     stops={[
-                      <GradientStop offset="0%" stopOpacity={0} />,
-                      <GradientStop offset="70%" stopOpacity={0.5} />,
-                      <GradientStop offset="95%" stopOpacity={1} />,
+                      <GradientStop offset='0%' stopOpacity={0} />,
+                      <GradientStop offset='70%' stopOpacity={0.5} />,
+                      <GradientStop offset='95%' stopOpacity={1} />,
                     ]}
                   />
                 }
@@ -262,7 +262,7 @@ const CompletionCurveChart = (): JSX.Element => {
           />
         }
         gridlines={
-          <GridlineSeries line={<Gridline direction="y" strokeColor="#444444" strokeWidth={1} />} />
+          <GridlineSeries line={<Gridline direction='y' strokeColor='#444444' strokeWidth={1} />} />
         }
       />
     </>

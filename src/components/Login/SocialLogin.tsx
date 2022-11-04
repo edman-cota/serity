@@ -23,22 +23,22 @@ const SocialLogin = () => {
   }, [user, loading, navigate])
 
   return (
-    <Flex w="440px" p="25px">
-      <List w="100%">
+    <Flex w='440px' p='25px'>
+      <List w='100%'>
         <ListItem>
           <Button
             onClick={signInWithGoogle}
-            px="42px"
-            w="100%"
-            border="1px"
-            borderColor="gray.200"
+            px='42px'
+            w='100%'
+            border='1px'
+            borderColor='gray.200'
             _hover={{ bg: 'gray.200' }}
           >
-            <Text as="span">
-              <FcGoogle fontSize="22px" />
+            <Text as='span'>
+              <FcGoogle fontSize='22px' />
             </Text>
-            <Text as="span" pl="20px">
-              <FormattedMessage id="continue_with_google" />
+            <Text as='span' pl='20px'>
+              <FormattedMessage id='continue_with_google' />
             </Text>
           </Button>
         </ListItem>

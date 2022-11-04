@@ -8,8 +8,8 @@ interface ActivitiesProps {
 
 const TimelineBody = ({ activities }: ActivitiesProps) => {
   return (
-    <div className="timeline">
-      <motion.ul className="timeline-body">
+    <div className='timeline'>
+      <motion.ul className='timeline-body'>
         {activities &&
           activities
             .slice(0)

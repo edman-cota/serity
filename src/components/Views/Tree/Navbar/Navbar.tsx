@@ -23,7 +23,7 @@ const Navbar = () => {
   const dispatch = useDispatch()
   const isTaskActivityVisible = useSelector((state: RootState) => state.isTaskActivityVisible.value)
   const isExpanded = useSelector((state: RootState) => state.isExpanded.value)
-  const label = isExpanded ? <FormattedMessage id="contract" /> : <FormattedMessage id="expand" />
+  const label = isExpanded ? <FormattedMessage id='contract' /> : <FormattedMessage id='expand' />
 
   const closeView = () => {
     dispatch(setSelectedTaskId(''))
@@ -40,26 +40,26 @@ const Navbar = () => {
   }
 
   return (
-    <Flex h="55px" w="100%" justifyContent="space-between" px="10px" my="10px" alignItems="center">
+    <Flex h='55px' w='100%' justifyContent='space-between' px='10px' my='10px' alignItems='center'>
       <Flex>
         <Tooltip
-          label={<FormattedMessage id="hide_detail_panel" />}
-          placement="left"
-          command="SPACE"
-          commandBg="rgba(255, 255, 255, .2)"
+          label={<FormattedMessage id='hide_detail_panel' />}
+          placement='left'
+          command='SPACE'
+          commandBg='rgba(255, 255, 255, .2)'
         >
-          <Button px="0px" onClick={() => closeView()}>
+          <Button px='0px' onClick={() => closeView()}>
             <FiChevronsRight size={19} />
           </Button>
         </Tooltip>
         {isExpanded ? (
           <>
-            <Tooltip label="Move up" command="K" commandBg="rgba(255, 255, 255, .2)">
+            <Tooltip label='Move up' command='K' commandBg='rgba(255, 255, 255, .2)'>
               <Button>
                 <HiOutlineChevronUp />
               </Button>
             </Tooltip>
-            <Tooltip label="Move down" command="J" commandBg="rgba(255, 255, 255, .2)">
+            <Tooltip label='Move down' command='J' commandBg='rgba(255, 255, 255, .2)'>
               <Button>
                 <HiOutlineChevronDown />
               </Button>
@@ -67,10 +67,10 @@ const Navbar = () => {
           </>
         ) : null}
       </Flex>
-      <List display="flex" alignItems="center" gap="20px">
+      <List display='flex' alignItems='center' gap='20px'>
         {width >= 770 ? (
           <ListItem>
-            <Tooltip label={label} command="⇧ + SPACE" commandBg="rgba(255, 255, 255, .2)">
+            <Tooltip label={label} command='⇧ + SPACE' commandBg='rgba(255, 255, 255, .2)'>
               <Button onClick={expandScreen}>
                 {isExpanded ? <CgMinimizeAlt /> : <AiOutlineExpandAlt />}
               </Button>
@@ -78,7 +78,7 @@ const Navbar = () => {
           </ListItem>
         ) : null}
         <ListItem>
-          <Tooltip label={<FormattedMessage id="toggle_task_activity" />}>
+          <Tooltip label={<FormattedMessage id='toggle_task_activity' />}>
             <Button onClick={toggleTaskActivityVisibility}>
               <MdOutlineHistoryToggleOff />
             </Button>

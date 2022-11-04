@@ -10,15 +10,15 @@ const Footer = (): JSX.Element => {
 
   return (
     <HStack
-      w="90%"
-      mx="auto"
-      h="80px"
-      justifyContent="space-between"
-      borderTop="1px"
+      w='90%'
+      mx='auto'
+      h='80px'
+      justifyContent='space-between'
+      borderTop='1px'
       borderColor={borderTopColor}
     >
       <CreateProject />
-      <Tooltip label={<FormattedMessage id="notifications" />}>
+      <Tooltip label={<FormattedMessage id='notifications' />}>
         <Button>
           <IoNotificationsOutline />
         </Button>

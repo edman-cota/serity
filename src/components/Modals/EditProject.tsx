@@ -54,35 +54,35 @@ const EditProject = ({ name, id, emoji }: Props) => {
   return (
     <>
       <MenuItem icon={<FiEdit />} onClick={onOpen}>
-        <FormattedMessage id="edit" />
+        <FormattedMessage id='edit' />
       </MenuItem>
 
       <DarkMode>
-        <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom">
+        <Modal onClose={onClose} isOpen={isOpen} motionPreset='slideInBottom'>
           <ModalOverlay />
-          <ModalContent maxW="450px" minH="360px">
-            <ModalHeader fontSize="17px" color="white">
-              <FormattedMessage id="edit_project" />
+          <ModalContent maxW='450px' minH='360px'>
+            <ModalHeader fontSize='17px' color='white'>
+              <FormattedMessage id='edit_project' />
             </ModalHeader>
 
             <ModalBody>
               <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
-                <Input autoComplete="off" autoFocus {...register('name', { required: true })} />
+                <Input autoComplete='off' autoFocus {...register('name', { required: true })} />
               </form>
               <EmojiPicker />
             </ModalBody>
-            <ModalFooter justifyContent="space-between">
+            <ModalFooter justifyContent='space-between'>
               <Button
-                w="100px"
+                w='100px'
                 onClick={() => {
                   onClose()
                   resetField('name')
                 }}
               >
-                <FormattedMessage id="cancel" />
+                <FormattedMessage id='cancel' />
               </Button>
-              <Button type="submit" variant="submit">
-                <FormattedMessage id="save" />
+              <Button type='submit' variant='submit'>
+                <FormattedMessage id='save' />
               </Button>
             </ModalFooter>
           </ModalContent>

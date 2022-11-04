@@ -24,20 +24,20 @@ const SortItem = () => {
 
   return (
     <Menu autoSelect={false}>
-      <MenuButton as={Button} variant="ghost">
-        {sortedBy === 'custom' ? <VscFilter /> : <VscFilterFilled color="#00B8D9" />}
+      <MenuButton as={Button} variant='ghost'>
+        {sortedBy === 'custom' ? <VscFilter /> : <VscFilterFilled color='#00B8D9' />}
       </MenuButton>
       <MenuList>
         {filters.map((filter, index) => {
           const Icon = icons[index]
           return (
             <MenuItem key={filter} icon={<Icon />} onClick={() => updateSortedBy(filter)}>
-              <Text display="flex" justifyContent="space-between" alignItems="center">
-                <Text as="span" pl="6px" fontSize="14px">
+              <Text display='flex' justifyContent='space-between' alignItems='center'>
+                <Text as='span' pl='6px' fontSize='14px'>
                   <FormattedMessage id={filter} />
                 </Text>
                 {sortedBy === filter ? (
-                  <Text as="span">
+                  <Text as='span'>
                     <FiCheck />
                   </Text>
                 ) : null}

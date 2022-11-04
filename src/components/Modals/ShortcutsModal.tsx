@@ -23,41 +23,41 @@ const ShortcutsModal = () => {
 
   return (
     <>
-      <Tooltip label="Shortcuts menu" command="Ctrl + ," commandBg="rgba(255, 255, 255, .2)">
+      <Tooltip label='Shortcuts menu' command='Ctrl + ,' commandBg='rgba(255, 255, 255, .2)'>
         <Button onClick={onOpen}>
           <FaRegKeyboard />
         </Button>
       </Tooltip>
 
-      <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom">
+      <Modal onClose={onClose} isOpen={isOpen} motionPreset='slideInBottom'>
         <ModalOverlay />
-        <ModalContent maxW="750px" h="82%">
+        <ModalContent maxW='750px' h='82%'>
           <ModalHeader>
-            <FormattedMessage id="keyboard_shortcuts" />
+            <FormattedMessage id='keyboard_shortcuts' />
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Heading>
-              <FormattedMessage id="general" />
+              <FormattedMessage id='general' />
             </Heading>
             <List>
               <br />
               <ShortcutItem
-                description={<FormattedMessage id="see_all_keyboard_shortcuts" />}
-                commandOne="Ctrl"
-                commandTwo=","
+                description={<FormattedMessage id='see_all_keyboard_shortcuts' />}
+                commandOne='Ctrl'
+                commandTwo=','
               />
               <br />
               <ShortcutItem
-                description={<FormattedMessage id="toggle_sidebar" />}
-                commandOne="Ctrl"
-                commandTwo="B"
+                description={<FormattedMessage id='toggle_sidebar' />}
+                commandOne='Ctrl'
+                commandTwo='B'
               />
               <br />
               <ShortcutItem
-                description={<FormattedMessage id="open_search" />}
-                commandOne="Ctrl"
-                commandTwo="K"
+                description={<FormattedMessage id='open_search' />}
+                commandOne='Ctrl'
+                commandTwo='K'
               />
             </List>
           </ModalBody>
@@ -75,32 +75,32 @@ interface Props {
 
 const ShortcutItem = ({ description, commandOne, commandTwo }: Props) => {
   return (
-    <ListItem display="flex" justifyContent="space-between" alignItems="center">
+    <ListItem display='flex' justifyContent='space-between' alignItems='center'>
       <Text>{description}</Text>
-      <Flex alignItems="center">
+      <Flex alignItems='center'>
         <Text
-          w="60px"
-          display="flex"
-          mr="6px"
-          padding="2px 10px"
-          justifyContent="center"
-          borderColor="white"
-          alignItems="center"
-          border="1px"
-          borderRadius="base"
+          w='60px'
+          display='flex'
+          mr='6px'
+          padding='2px 10px'
+          justifyContent='center'
+          borderColor='white'
+          alignItems='center'
+          border='1px'
+          borderRadius='base'
         >
           {commandOne}
         </Text>
         <Text>+</Text>
         <Text
-          w="32px"
-          display="flex"
-          ml="6px"
-          padding="2px 10px"
-          justifyContent="center"
-          borderColor="white"
-          border="1px"
-          borderRadius="base"
+          w='32px'
+          display='flex'
+          ml='6px'
+          padding='2px 10px'
+          justifyContent='center'
+          borderColor='white'
+          border='1px'
+          borderRadius='base'
         >
           {commandTwo}
         </Text>

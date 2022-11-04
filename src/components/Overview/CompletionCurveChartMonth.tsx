@@ -185,28 +185,28 @@ const CompletionCurveChartMonth = (): JSX.Element => {
   // #8F979F
   return (
     <>
-      <ChartTitle title="Recent Completion Curve" />
+      <ChartTitle title='Recent Completion Curve' />
       <AreaChart
         height={160}
         margins={0}
         data={data}
         xAxis={
           <LinearXAxis
-            type="category"
-            orientation="horizontal"
-            position="end"
+            type='category'
+            orientation='horizontal'
+            position='end'
             axisLine={null}
             tickSeries={
               <LinearXAxisTickSeries
                 line={null}
-                label={<LinearXAxisTickLabel padding={8} fontSize={12} position="end" />}
+                label={<LinearXAxisTickLabel padding={8} fontSize={12} position='end' />}
               />
             }
           />
         }
         yAxis={
           <LinearYAxis
-            type="value"
+            type='value'
             axisLine={null}
             scale={4}
             scaled={false}
@@ -220,7 +220,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
         }
         series={
           <AreaSeries
-            interpolation="smooth"
+            interpolation='smooth'
             line={<Line strokeWidth={2} />}
             symbols={<PointSeries show={true} />}
             area={
@@ -228,9 +228,9 @@ const CompletionCurveChartMonth = (): JSX.Element => {
                 gradient={
                   <Gradient
                     stops={[
-                      <GradientStop offset="0%" stopOpacity={0} />,
-                      <GradientStop offset="70%" stopOpacity={0.5} />,
-                      <GradientStop offset="95%" stopOpacity={1} />,
+                      <GradientStop offset='0%' stopOpacity={0} />,
+                      <GradientStop offset='70%' stopOpacity={0.5} />,
+                      <GradientStop offset='95%' stopOpacity={1} />,
                     ]}
                   />
                 }
@@ -239,7 +239,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
           />
         }
         gridlines={
-          <GridlineSeries line={<Gridline direction="y" strokeColor="#444444" strokeWidth={1} />} />
+          <GridlineSeries line={<Gridline direction='y' strokeColor='#444444' strokeWidth={1} />} />
         }
       />
     </>

@@ -12,10 +12,10 @@ interface Props {
 const Footer: React.FC<Props> = (props) => {
   return (
     <LightMode>
-      <Flex w="440px" px="25px">
-        <Text color="blackAlpha.800">
+      <Flex w='440px' px='25px'>
+        <Text color='blackAlpha.800'>
           <FormattedMessage id={props.textId} />
-          <Link color="#0071dc" as={RouterLink} to={`/${props.whereTo}`}>
+          <Link color='#0071dc' as={RouterLink} to={`/${props.whereTo}`}>
             {' '}
             <FormattedMessage id={props.whereTo} />
           </Link>

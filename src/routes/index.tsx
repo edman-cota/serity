@@ -25,25 +25,25 @@ const Routing = ({ currentLocale, handleChange }: Props): JSX.Element => {
 
   return (
     <Routes location={location} key={location.pathname}>
-      <Route path="/" element={<Home />} />
-      <Route path="login/" element={<Login />} />
-      <Route path="register/" element={<Register />} />
-      <Route path="onboarding/" element={<Onboarding />} />
+      <Route path='/' element={<Home />} />
+      <Route path='login/' element={<Login />} />
+      <Route path='register/' element={<Register />} />
+      <Route path='onboarding/' element={<Onboarding />} />
 
-      <Route path="/faq/" element={<FAQ />} />
-      <Route path="/dev/" element={<Dev />} />
+      <Route path='/faq/' element={<FAQ />} />
+      <Route path='/dev/' element={<Dev />} />
 
-      <Route path="/:username/overview/" element={<Overview />} />
-      <Route path="/:username/updates/" element={<Updates />} />
-      <Route path="/:username/" element={<Web />}>
-        <Route path=":project" element={<MainPanel />} />
+      <Route path='/:username/overview/' element={<Overview />} />
+      <Route path='/:username/updates/' element={<Updates />} />
+      <Route path='/:username/' element={<Web />}>
+        <Route path=':project' element={<MainPanel />} />
       </Route>
 
       <Route
-        path="/:username/settings"
+        path='/:username/settings'
         element={<Settings currentLocale={currentLocale} handleChange={handleChange} />}
       >
-        <Route path="profile" element={<Profile />} />
+        <Route path='profile' element={<Profile />} />
       </Route>
     </Routes>
   )

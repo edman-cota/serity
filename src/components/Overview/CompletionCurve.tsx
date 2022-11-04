@@ -31,23 +31,23 @@ const CompletionCurve = (): JSX.Element => {
       mx={{ base: 'auto', xl: '15px' }}
       mt={{ base: '16px', xl: '20px' }}
       px={{ base: '15px', md: '25px', xl: '20px' }}
-      h="284px"
-      borderRadius="8px"
+      h='284px'
+      borderRadius='8px'
       bg={cardBackground}
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -40 }}
     >
-      <Tabs variant="unstyled" w="100%" h="100%" align="center" pt="20px">
+      <Tabs variant='unstyled' w='100%' h='100%' align='center' pt='20px'>
         <TabList>
           <Tab
-            bg="#1a202c"
-            fontSize="12px"
-            borderRadius="18px"
-            p="1px 17px"
-            lineHeight="24px"
-            minWidth="65px"
-            mr="8px"
+            bg='#1a202c'
+            fontSize='12px'
+            borderRadius='18px'
+            p='1px 17px'
+            lineHeight='24px'
+            minWidth='65px'
+            mr='8px'
             _selected={{
               color: '#4772fa',
               bg: 'rgba(71, 114, 250, .2)',
@@ -55,16 +55,16 @@ const CompletionCurve = (): JSX.Element => {
               alignItems: 'center',
             }}
           >
-            <FormattedMessage id="day" />
+            <FormattedMessage id='day' />
           </Tab>
           <Tab
-            bg="#1a202c"
-            py="1px 17px"
-            fontSize="12px"
-            borderRadius="18px"
-            lineHeight="24px"
-            minWidth="65px"
-            ml="8px"
+            bg='#1a202c'
+            py='1px 17px'
+            fontSize='12px'
+            borderRadius='18px'
+            lineHeight='24px'
+            minWidth='65px'
+            ml='8px'
             _selected={{
               color: '#4772fa',
               bg: 'rgba(71, 114, 250, .2)',
@@ -72,14 +72,14 @@ const CompletionCurve = (): JSX.Element => {
               alignItems: 'center',
             }}
           >
-            <FormattedMessage id="month" />
+            <FormattedMessage id='month' />
           </Tab>
         </TabList>
         <TabPanels>
-          <TabPanel px="4px">
+          <TabPanel px='4px'>
             <CompletionCurveChartDay />
           </TabPanel>
-          <TabPanel px="4px">
+          <TabPanel px='4px'>
             <CompletionCurveChartMonth />
           </TabPanel>
         </TabPanels>

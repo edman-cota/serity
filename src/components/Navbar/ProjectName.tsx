@@ -24,14 +24,14 @@ const ProjectName = () => {
   return (
     <Input
       value={title}
-      fontSize="18px"
-      p="0px"
-      border="0px"
+      fontSize='18px'
+      p='0px'
+      border='0px'
       spellCheck={false}
       maxLength={25}
       minLength={1}
       fontWeight={700}
-      placeholder="Give me a title"
+      placeholder='Give me a title'
       onChange={(e) => handleOnChange(e)}
       _focus={{ outline: 'none' }}
     />

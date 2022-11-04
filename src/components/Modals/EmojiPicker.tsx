@@ -28,25 +28,25 @@ const ChooseIconModal = () => {
   }
 
   return (
-    <Menu placement="bottom" isOpen={isOpen} onClose={onClose}>
-      <MenuButton as={Button} bg={buttonBg} w="100%" mt="20px" onClick={onOpen}>
-        <Text w="100%" display="flex" justifyContent="space-between">
-          <Text as="span">
-            <FormattedMessage id="choose_an_icon" />
+    <Menu placement='bottom' isOpen={isOpen} onClose={onClose}>
+      <MenuButton as={Button} bg={buttonBg} w='100%' mt='20px' onClick={onOpen}>
+        <Text w='100%' display='flex' justifyContent='space-between'>
+          <Text as='span'>
+            <FormattedMessage id='choose_an_icon' />
           </Text>
-          <Text as="span" display="flex" alignItems="center">
+          <Text as='span' display='flex' alignItems='center'>
             {emoji}
             <BiChevronRight />
           </Text>
         </Text>
       </MenuButton>
-      <MenuList padding="0" bg="transparent" border="none" boxShadow="none">
+      <MenuList padding='0' bg='transparent' border='none' boxShadow='none'>
         <Picker
           data={data}
-          theme="dark"
+          theme='dark'
           onEmojiSelect={handleOnEmojiSelect}
-          previewPosition="none"
-          skinTonePosition="none"
+          previewPosition='none'
+          skinTonePosition='none'
         />
       </MenuList>
     </Menu>

@@ -33,8 +33,7 @@ a {
 }
 
 .scale-up-center {
-  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
-    both;
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
@@ -85,8 +84,7 @@ a {
 .header-child {
   position: absolute;
   inset: -0.125rem -0.125rem -0.125rem -0.125rem;
-  transform: translate(0, 0) rotate(180deg) skewX(0) skewY(0) scaleX(1)
-    scaleY(1);
+  transform: translate(0, 0) rotate(180deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
   background: linear-gradient(
     90deg,
     #44ff9a -0.55%,
@@ -157,8 +155,7 @@ a {
             margin-left: calc(2rem * calc(1 - 0));
             display: flex;
             align-items: center;
-            box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
-              0 1px 2px 0 rgb(0 0 0 /0.05);
+            box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 /0.05);
           }
         }
       }

@@ -53,36 +53,36 @@ const AddTask = () => {
   return (
     <MotionFlex
       variants={scale}
-      initial="exit"
-      animate="enter"
-      exit="exit"
-      display="flex"
+      initial='exit'
+      animate='enter'
+      exit='exit'
+      display='flex'
       bg={background}
-      margin="10px auto"
-      px="10px"
-      w="95%"
-      maxWidth="880px"
-      borderRadius="base"
-      mb="40px"
+      margin='10px auto'
+      px='10px'
+      w='95%'
+      maxWidth='880px'
+      borderRadius='base'
+      mb='40px'
     >
       <MotionFlex
-        display="flex"
-        width="38px"
-        height="40px"
-        justifyContent="center"
-        alignItems="center"
+        display='flex'
+        width='38px'
+        height='40px'
+        justifyContent='center'
+        alignItems='center'
       >
-        <BiSquareRounded color="#a0aec0" fontSize={15} />
+        <BiSquareRounded color='#a0aec0' fontSize={15} />
       </MotionFlex>
       <ReactFocusLock>
         <Textarea
-          spellCheck="false"
-          autoComplete="off"
-          name="w3review"
+          spellCheck='false'
+          autoComplete='off'
+          name='w3review'
           rows={1}
           cols={200}
-          w="full"
-          border="none"
+          w='full'
+          border='none'
           h={`${height}px`}
           ref={areaRef}
           onChange={(e) => setTitle(e.target.value)}

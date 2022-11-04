@@ -38,44 +38,44 @@ const CreateProject = () => {
 
   return (
     <>
-      <Tooltip label={<FormattedMessage id="create_project" />}>
+      <Tooltip label={<FormattedMessage id='create_project' />}>
         <Button onClick={onOpen}>
           <AiOutlinePlus />
         </Button>
       </Tooltip>
 
-      <Modal isOpen={isOpen} onClose={onClose} motionPreset="slideInBottom">
+      <Modal isOpen={isOpen} onClose={onClose} motionPreset='slideInBottom'>
         <ModalOverlay />
-        <ModalContent maxW="450px" minH="360px">
-          <ModalHeader fontSize="17px">
-            <FormattedMessage id="create_project" />
+        <ModalContent maxW='450px' minH='360px'>
+          <ModalHeader fontSize='17px'>
+            <FormattedMessage id='create_project' />
           </ModalHeader>
 
           <ModalBody>
             <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
               <Input
                 autoFocus
-                autoComplete="off"
-                spellCheck="false"
-                placeholder="Give your new project a name"
+                autoComplete='off'
+                spellCheck='false'
+                placeholder='Give your new project a name'
                 {...register('name', { required: true })}
               />
             </form>
             <EmojiPicker />
           </ModalBody>
 
-          <ModalFooter justifyContent="space-between">
+          <ModalFooter justifyContent='space-between'>
             <Button
-              w="100px"
+              w='100px'
               onClick={() => {
                 onClose()
                 resetField('name')
               }}
             >
-              <FormattedMessage id="cancel" />
+              <FormattedMessage id='cancel' />
             </Button>
-            <Button type="submit" variant="submit">
-              <FormattedMessage id="create" />
+            <Button type='submit' variant='submit'>
+              <FormattedMessage id='create' />
             </Button>
           </ModalFooter>
         </ModalContent>

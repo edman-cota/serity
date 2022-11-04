@@ -4,7 +4,7 @@ import { IoNotificationsOutline } from 'react-icons/io5'
 
 const NotificationsItem = () => (
   <Button
-    bg="transparent"
+    bg='transparent'
     _hover={{ boxShadow: 'none' }}
     _focus={{ boxShadow: 'none' }}
     _active={{ background: 'transparent' }}

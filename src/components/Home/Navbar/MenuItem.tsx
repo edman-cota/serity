@@ -21,7 +21,7 @@ const MenuItem = ({ i }: { i: string }): JSX.Element => {
 
   return (
     <li style={{ color: 'black' }}>
-      <a href="#home" style={{ color: 'black' }}>
+      <a href='#home' style={{ color: 'black' }}>
         {i}
       </a>
     </li>

@@ -23,28 +23,28 @@ const DropdownProjectOptions = () => {
 
   return (
     <Menu>
-      <MenuButton as={Button} h="1.7rem">
+      <MenuButton as={Button} h='1.7rem'>
         <RiMoreLine size={20} />
       </MenuButton>
       <MenuList>
         <MenuItem>
-          <Text as="span" pr="10px">
+          <Text as='span' pr='10px'>
             <AiOutlineDelete />
           </Text>
-          <FormattedMessage id="card_style" />
+          <FormattedMessage id='card_style' />
         </MenuItem>
         <MenuItem>
-          <Text as="span" pr="10px">
+          <Text as='span' pr='10px'>
             <IoShareSocialOutline />
           </Text>
-          <FormattedMessage id="share" />
+          <FormattedMessage id='share' />
         </MenuItem>
         <MenuDivider />
         <MenuItem>
-          <Text as="span" pr="10px">
+          <Text as='span' pr='10px'>
             <AiOutlineDelete />
           </Text>
-          <FormattedMessage id="duplicate_project" />
+          <FormattedMessage id='duplicate_project' />
         </MenuItem>
         {/* <MenuItem onClick={() => handleShowCompletedTasks()}>
           <Text as="span" pr="10px">
@@ -62,10 +62,10 @@ const DropdownProjectOptions = () => {
         </MenuItem> */}
         <MenuDivider />
         <MenuItem>
-          <Text as="span" pr="10px">
+          <Text as='span' pr='10px'>
             <AiOutlineDelete />
           </Text>
-          <FormattedMessage id="delete_project" />
+          <FormattedMessage id='delete_project' />
         </MenuItem>
       </MenuList>
     </Menu>

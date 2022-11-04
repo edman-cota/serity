@@ -16,74 +16,74 @@ import './FAQ.scss'
 
 const FAQ = (): JSX.Element => {
   return (
-    <Flex direction="column" bg="white" w="100%">
+    <Flex direction='column' bg='white' w='100%'>
       <Navbar />
-      <Flex className="faq-container">
-        <Flex my={15} mx="auto" textAlign="center">
-          <Text fontSize={25} fontWeight="600" color="#02172f" px="2rem">
+      <Flex className='faq-container'>
+        <Flex my={15} mx='auto' textAlign='center'>
+          <Text fontSize={25} fontWeight='600' color='#02172f' px='2rem'>
             Frequently Asked Questions
           </Text>
         </Flex>
-        <Flex className="accordion-container">
-          <Accordion allowToggle w="100%">
-            <AccordionItem borderColor="gray">
+        <Flex className='accordion-container'>
+          <Accordion allowToggle w='100%'>
+            <AccordionItem borderColor='gray'>
               <h2>
-                <AccordionButton className="accordion-button">
-                  <Box flex="1" textAlign="left">
+                <AccordionButton className='accordion-button'>
+                  <Box flex='1' textAlign='left'>
                     What is Cota?
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel className="accordion-panel">
+              <AccordionPanel className='accordion-panel'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem borderColor="gray">
+            <AccordionItem borderColor='gray'>
               <h2>
-                <AccordionButton className="accordion-button">
-                  <Box flex="1" textAlign="left">
+                <AccordionButton className='accordion-button'>
+                  <Box flex='1' textAlign='left'>
                     Section 2 title
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel className="accordion-panel">
+              <AccordionPanel className='accordion-panel'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem borderColor="gray">
+            <AccordionItem borderColor='gray'>
               <h2>
-                <AccordionButton className="accordion-button">
-                  <Box flex="1" textAlign="left">
+                <AccordionButton className='accordion-button'>
+                  <Box flex='1' textAlign='left'>
                     Section 2 title
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel className="accordion-panel">
+              <AccordionPanel className='accordion-panel'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem borderColor="gray">
+            <AccordionItem borderColor='gray'>
               <h2>
-                <AccordionButton className="accordion-button">
-                  <Box flex="1" textAlign="left">
+                <AccordionButton className='accordion-button'>
+                  <Box flex='1' textAlign='left'>
                     How secure is Cota?
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel className="accordion-panel">
+              <AccordionPanel className='accordion-panel'>
                 At Cota, we take security and privacy seriously.
                 <br />
                 <br />
@@ -106,32 +106,32 @@ const FAQ = (): JSX.Element => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem borderColor="gray">
+            <AccordionItem borderColor='gray'>
               <h2>
-                <AccordionButton className="accordion-button">
-                  <Box flex="1" textAlign="left">
+                <AccordionButton className='accordion-button'>
+                  <Box flex='1' textAlign='left'>
                     Is Cota free?
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel className="accordion-panel">
+              <AccordionPanel className='accordion-panel'>
                 You can start using Cota for free without any strings attached. The Free plan does
                 have some limitations, however you can upgrade your subscription plan anytime you
                 want!.
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem borderColor="gray">
+            <AccordionItem borderColor='gray'>
               <h2>
-                <AccordionButton className="accordion-button">
-                  <Box flex="1" textAlign="left">
+                <AccordionButton className='accordion-button'>
+                  <Box flex='1' textAlign='left'>
                     How can I delete my Cota account?
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel className="accordion-panel">
+              <AccordionPanel className='accordion-panel'>
                 You can go to Account Settings and choose <b>Delete account.</b>
                 <br />
                 <br />

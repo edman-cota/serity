@@ -15,7 +15,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     semi: ['off', 'always'],
-    quotes: ['error', 'single'],
+    'jsx-quotes': ['error', 'prefer-single'],
     'react/react-in-jsx-scope': 'off',
     'react/boolean-prop-naming': ['error', { rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+' }],
     // 'object-curly-newline': [

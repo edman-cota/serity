@@ -49,56 +49,56 @@ const Content = ({ currentLocale, handleChange }: Props) => {
   }
 
   return (
-    <VStack w="100%" flex={1}>
-      <Flex direction="column" w="100%">
-        <Flex bgGradient="linear-gradient(to-r, #CC4194, #EF967A)" h="200px" position="relative">
-          <Button fontSize="20px">
+    <VStack w='100%' flex={1}>
+      <Flex direction='column' w='100%'>
+        <Flex bgGradient='linear-gradient(to-r, #CC4194, #EF967A)' h='200px' position='relative'>
+          <Button fontSize='20px'>
             <AiOutlineCamera />
           </Button>
-          <Flex position="absolute" top="125px" left="70px">
+          <Flex position='absolute' top='125px' left='70px'>
             {user && (
               <Avatar
-                w="120px"
-                h="120px"
+                w='120px'
+                h='120px'
                 src={user?.photoURL}
                 onClick={handleEditPicture}
-                cursor="pointer"
+                cursor='pointer'
               />
             )}
           </Flex>
         </Flex>
-        <Flex mt="30px" position="relative">
-          <Flex direction="column" ml="5px" justifyContent="center">
-            <input type="file" id="imageInput" hidden onChange={onChangeImage} />
+        <Flex mt='30px' position='relative'>
+          <Flex direction='column' ml='5px' justifyContent='center'>
+            <input type='file' id='imageInput' hidden onChange={onChangeImage} />
           </Flex>
         </Flex>
-        <Flex direction="column" w="80%" mx="auto">
-          <Flex direction="column" mt="30px">
+        <Flex direction='column' w='80%' mx='auto'>
+          <Flex direction='column' mt='30px'>
             <Text>
-              <FormattedMessage id="name" />
+              <FormattedMessage id='name' />
             </Text>
-            <FormattedMessage id="name" defaultMessage="Name">
+            <FormattedMessage id='name' defaultMessage='Name'>
               {(placeholder) => <Input placeholder={placeholder} value={user?.displayName} />}
             </FormattedMessage>
           </Flex>
-          <Flex direction="column" mt="30px">
+          <Flex direction='column' mt='30px'>
             <Text>
-              <FormattedMessage id="email" />
+              <FormattedMessage id='email' />
             </Text>
-            <FormattedMessage id="email" defaultMessage="Email">
+            <FormattedMessage id='email' defaultMessage='Email'>
               {(placeholder) => <Input placeholder={placeholder} value={user?.email} isReadOnly />}
             </FormattedMessage>
           </Flex>
-          <Flex direction="column" mt="30px">
+          <Flex direction='column' mt='30px'>
             <Text>
-              <FormattedMessage id="profession" />
+              <FormattedMessage id='profession' />
             </Text>
-            <FormattedMessage id="profession" defaultMessage="Profession">
+            <FormattedMessage id='profession' defaultMessage='Profession'>
               {(placeholder) => <Input placeholder={placeholder} />}
             </FormattedMessage>
           </Flex>
-          <Flex mt="30px">
-            <Select variant="filled" size="md" onChange={handleChange} value={currentLocale}>
+          <Flex mt='30px'>
+            <Select variant='filled' size='md' onChange={handleChange} value={currentLocale}>
               {languages.map(({ name, code }) => (
                 <option key={code} value={code} style={{ height: '50px' }}>
                   {name}

@@ -36,30 +36,30 @@ const DeleteProjectModal = ({ name, id }: Props) => {
   return (
     <>
       <MenuItem icon={<AiOutlineDelete />} onClick={onOpen}>
-        <FormattedMessage id="delete" />
+        <FormattedMessage id='delete' />
       </MenuItem>
 
-      <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="xl">
-        <ModalOverlay bg="#0e1525A0" />
+      <Modal onClose={onClose} isOpen={isOpen} motionPreset='slideInBottom' size='xl'>
+        <ModalOverlay bg='#0e1525A0' />
         <ModalContent
-          maxW="450px"
-          minH="260px"
-          bg="#1c2333"
-          boxShadow="inset 0 1px 0 0 rgb(255 255 255 / 5%)"
+          maxW='450px'
+          minH='260px'
+          bg='#1c2333'
+          boxShadow='inset 0 1px 0 0 rgb(255 255 255 / 5%)'
         >
           <ModalHeader
-            display="flex"
-            mt="4px"
-            mb="10px"
+            display='flex'
+            mt='4px'
+            mb='10px'
             fontWeight={500}
-            fontSize="20px"
-            color="white"
+            fontSize='20px'
+            color='white'
           >
             Delete poject
           </ModalHeader>
 
           <ModalBody>
-            <Flex w="100%" direction="column">
+            <Flex w='100%' direction='column'>
               <Flex>
                 <Text>
                   All tasks withing this project <b> {name}</b> will be delted. Confirm to delete
@@ -67,19 +67,19 @@ const DeleteProjectModal = ({ name, id }: Props) => {
                 </Text>
               </Flex>
 
-              <HStack mt="100px" justifyContent="space-between">
-                <Button variant="ghost" w="100px" onClick={() => onClose()}>
-                  <FormattedMessage id="cancel" />
+              <HStack mt='100px' justifyContent='space-between'>
+                <Button variant='ghost' w='100px' onClick={() => onClose()}>
+                  <FormattedMessage id='cancel' />
                 </Button>
                 <Button
-                  type="submit"
-                  variant="ghost"
-                  bg="#ff6666"
-                  w="100px"
+                  type='submit'
+                  variant='ghost'
+                  bg='#ff6666'
+                  w='100px'
                   onClick={handleDelete}
                   _hover={{ bg: '#ff6666' }}
                 >
-                  <FormattedMessage id="delete" />
+                  <FormattedMessage id='delete' />
                 </Button>
               </HStack>
             </Flex>

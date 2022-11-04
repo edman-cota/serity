@@ -16,7 +16,7 @@ interface Props {
 }
 
 const ProjectMore = ({ name, id, emoji }: Props) => (
-  <Menu autoSelect={false} placement="bottom">
+  <Menu autoSelect={false} placement='bottom'>
     <MenuButton as={Button}>
       <RiMoreLine size={20} />
     </MenuButton>
@@ -24,10 +24,10 @@ const ProjectMore = ({ name, id, emoji }: Props) => (
       <MenuItemEdit name={name} id={id} emoji={emoji} />
       <MembersMenuItem projectName={name} />
       <MenuItem icon={<AiOutlineShareAlt />}>
-        <FormattedMessage id="share" />
+        <FormattedMessage id='share' />
       </MenuItem>
       <MenuItem icon={<AiOutlineExport />}>
-        <FormattedMessage id="export" />
+        <FormattedMessage id='export' />
       </MenuItem>
 
       <DeleteProjectItemModal name={name} id={id} />

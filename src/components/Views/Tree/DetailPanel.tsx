@@ -36,11 +36,11 @@ const DetailPanel = () => {
         <VStack>
           <NavbarTreeTask />
           {isTaskActivityVisible ? (
-            <Flex px="16px" w="100%">
+            <Flex px='16px' w='100%'>
               <Timeline />
             </Flex>
           ) : (
-            <Flex w="100%" direction="column">
+            <Flex w='100%' direction='column'>
               <DetailTab />
             </Flex>
           )}

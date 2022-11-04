@@ -3,17 +3,17 @@ import { motion } from 'framer-motion'
 
 const Path = (props: any) => (
   <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke="hsl(0, 0%, 18%)"
-    strokeLinecap="round"
+    fill='transparent'
+    strokeWidth='3'
+    stroke='hsl(0, 0%, 18%)'
+    strokeLinecap='round'
     {...props}
   />
 )
 
 export const MenuToggle = ({ toggle }: { toggle: any }) => (
   <button onClick={toggle}>
-    <svg width="23" height="23" viewBox="0 0 23 23">
+    <svg width='23' height='23' viewBox='0 0 23 23'>
       <Path
         variants={{
           closed: { d: 'M 2 2.5 L 20 2.5' },
@@ -21,7 +21,7 @@ export const MenuToggle = ({ toggle }: { toggle: any }) => (
         }}
       />
       <Path
-        d="M 2 9.423 L 20 9.423"
+        d='M 2 9.423 L 20 9.423'
         variants={{
           closed: { opacity: 1 },
           open: { opacity: 0 },

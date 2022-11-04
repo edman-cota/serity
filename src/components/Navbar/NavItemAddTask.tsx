@@ -14,7 +14,7 @@ const NavItemAddTask = () => {
   }
 
   return (
-    <Tooltip label={<FormattedMessage id="create_new_task" />} openDelay={700}>
+    <Tooltip label={<FormattedMessage id='create_new_task' />} openDelay={700}>
       <Button onClick={showAddTaskFunction}>
         <HiOutlinePlus size={18} />
       </Button>

@@ -3,14 +3,14 @@ import '../../components/Home/home.scss'
 
 const Header = (): JSX.Element => {
   return (
-    <div className="parent-main">
-      <main className="main">
-        <div className="main-inside">
-          <div className="main-inside-inside">
-            <section className="section-main">
-              <section className="section-one">
-                <div className="section-one-div-one">
-                  <div className="section-one-tite">
+    <div className='parent-main'>
+      <main className='main'>
+        <div className='main-inside'>
+          <div className='main-inside-inside'>
+            <section className='section-main'>
+              <section className='section-one'>
+                <div className='section-one-div-one'>
+                  <div className='section-one-tite'>
                     <h1>
                       <span>Simple and clean</span>
                       <br />
