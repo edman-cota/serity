@@ -1,12 +1,13 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
 import { useEffect } from 'react'
-import { Flex, Text, Avatar, Input, Select, Button, VStack } from '@chakra-ui/react'
+import { Flex, Text, Input, Select, Button, VStack } from '@chakra-ui/react'
 import { FormattedMessage } from 'react-intl'
 import { AiOutlineCamera } from 'react-icons/ai'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { LOCALES } from '../../i18n/locales'
 import { auth, storage } from '../../firebase'
+import { UserAvatar } from './UserAvatar'
 
 interface Props {
   currentLocale: string
@@ -56,14 +57,8 @@ const Content = ({ currentLocale, handleChange }: Props) => {
             <AiOutlineCamera />
           </Button>
           <Flex position='absolute' top='125px' left='70px'>
-            {user && (
-              <Avatar
-                w='120px'
-                h='120px'
-                src={user?.photoURL}
-                onClick={handleEditPicture}
-                cursor='pointer'
-              />
+            {user && user.photoURL && (
+              <UserAvatar user={{ name: user.displayName, image: user.photoURL }} />
             )}
           </Flex>
         </Flex>
