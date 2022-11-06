@@ -1,25 +1,21 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable comma-dangle */
 import React from 'react'
-import { motion, useMotionValue, useTransform } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
-import { Tooltip, useToast, Text } from '@chakra-ui/react'
-// import { BiSquareRounded } from "react-icons/bi";
-// import { BsFillCheckSquareFill } from "react-icons/bs";
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useGetProject } from '../../hooks/useGetProject'
-import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
-import { setActiveIndex } from '../../features/counter/activeIndexSlice'
-import { auth } from '../../firebase'
+import { Tooltip, useToast, Text } from '@chakra-ui/react'
+import { motion, useMotionValue, useTransform } from 'framer-motion'
 
+import { auth } from '../../firebase'
+import type { RootState } from '../../store'
+import { Task } from '../../types/task.model'
+import { useGetProject } from '../../hooks/useGetProject'
+import { getPriorityColor } from '../../helpers/getPriorityColor'
+import { setActiveIndex } from '../../features/counter/activeIndexSlice'
 import { markStatusToCompleted } from '../../helpers/markStatusToCompleted'
 import { markStatusToUncomplete } from '../../helpers/markStatusToUncomplete'
-import { getPriorityColor } from '../../helpers/getPriorityColor'
-import { TaskProps } from '../../types/task.model'
-import type { RootState } from '../../store'
+import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
 
 interface Props {
-  task: TaskProps
+  task: Task
 }
 
 const RenderStatus = ({ task }: Props) => {
@@ -35,7 +31,7 @@ const RenderStatus = ({ task }: Props) => {
   const tickPath = useTransform(clicked ? x : x0, [10, 100], [0, 1])
   const tickPathDone = useTransform(x, [10, 100], [0, 1])
 
-  const markStatusAsComplete = (taskToUpdate: TaskProps) => {
+  const markStatusAsComplete = (taskToUpdate: Task) => {
     setTimeout(() => {
       const result = markStatusToCompleted(user, workingProject, project[0], taskToUpdate)
 
@@ -52,7 +48,7 @@ const RenderStatus = ({ task }: Props) => {
     }, 300)
   }
 
-  const markStatusAsUncomplete = (taskToUpdate: TaskProps) => {
+  const markStatusAsUncomplete = (taskToUpdate: Task) => {
     const result = markStatusToUncomplete(user, workingProject, project[0], taskToUpdate)
 
     if (result === 'success') {

@@ -1,5 +1,5 @@
 import database from '../firebase'
-import { ActivityType, Status } from '../enums/definitions'
+import { ActivityType, Status } from '../types/definitions'
 import { Project, ProjectBTO } from '../types/project.model'
 
 export function markStatusToUncomplete(

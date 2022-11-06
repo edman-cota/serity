@@ -1,15 +1,16 @@
-import { Flex, Text, useColorModeValue } from '@chakra-ui/react'
 import { useWindowSize } from 'react-use'
 import { useDispatch } from 'react-redux'
+import { Flex, Text, useColorModeValue } from '@chakra-ui/react'
+
+import { Task } from '../../types/task.model'
+import { setTask } from '../../features/counter/taskSlice'
 import { setActiveIndex } from '../../features/counter/activeIndexSlice'
 import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
-import { setTask } from '../../features/counter/taskSlice'
 import { setSidebarVisibility } from '../../features/counter/sidebarVisibilitySlice'
 import { setTaskActivityVisibility } from '../../features/counter/taskActivitySlice'
-import { TaskProps } from '../../types/task.model'
 
 interface Props {
-  task: TaskProps
+  task: Task
   index: number
 }
 

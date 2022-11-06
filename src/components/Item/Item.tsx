@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { Flex, HStack, ListItem, useColorModeValue } from '@chakra-ui/react'
-import RenderStatus from '../RenderStatus/RenderStatus'
-import ItemTitle from './ItemTitle'
-import ItemMenu from './ItemMenu'
+
 import './Item.scss'
-import { TaskProps } from '../../types/task.model'
+import ItemMenu from './ItemMenu'
+import ItemTitle from './ItemTitle'
 import type { RootState } from '../../store'
+import { Task } from '../../types/task.model'
+import RenderStatus from '../RenderStatus/RenderStatus'
 
 interface Props {
-  task: TaskProps
+  task: Task
   index: number
 }
 

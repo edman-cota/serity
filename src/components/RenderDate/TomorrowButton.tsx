@@ -5,7 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../firebase'
 import type { RootState } from '../../store'
-import { Status } from '../../enums/definitions'
+import { Status } from '../../types/definitions'
 import { isTomorrow } from '../../helpers/isTomorrow'
 import { setDueTomorrow } from '../../helpers/setDueTomorrow'
 

@@ -3,12 +3,12 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useSelector } from 'react-redux'
 import database, { auth } from '../firebase'
 import type { RootState } from '../store'
-import { TaskProps } from '../types/task.model'
+import { Task } from '../types/task.model'
 
 export const useGetTasks = () => {
   const [user] = useAuthState(auth)
-  const [completedTasks, setCompletedTasks] = useState<TaskProps[]>([])
-  const [tasks, setTasks] = useState<TaskProps[]>([])
+  const [completedTasks, setCompletedTasks] = useState<Task[]>([])
+  const [tasks, setTasks] = useState<Task[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const orderBy = useSelector((state: RootState) => state.orderBy.value)
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
@@ -19,8 +19,8 @@ export const useGetTasks = () => {
       .orderByChild(orderBy)
       .on('value', (snapshot) => {
         setIsLoading(true)
-        const taskList: TaskProps[] = []
-        const completedTask: TaskProps[] = []
+        const taskList: Task[] = []
+        const completedTask: Task[] = []
         snapshot.forEach((snap) => {
           if (snap.val().projectId === window.localStorage.getItem('working-project')) {
             if (snap.val().completed === 0) {

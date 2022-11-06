@@ -1,5 +1,5 @@
 import database from '../firebase'
-import { ActivityType, Status, DBRef } from '../enums/definitions'
+import { ActivityType, Status, DBRef } from '../types/definitions'
 import { Task } from '../types/task.model'
 
 export function changeTaskPriority(user: any, workingProject: any, task: Task, priority: number) {

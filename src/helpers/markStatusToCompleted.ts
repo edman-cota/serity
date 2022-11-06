@@ -1,4 +1,4 @@
-import { ActivityType, Status, DBRef } from '../enums/definitions'
+import { ActivityType, Status, DBRef } from '../types/definitions'
 import database from '../firebase'
 import { Project } from '../types/project.model'
 

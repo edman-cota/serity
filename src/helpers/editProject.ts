@@ -1,5 +1,5 @@
 import database from '../firebase'
-import { Status } from '../enums/definitions'
+import { Status } from '../types/definitions'
 
 export function editProject(name: string, user: any, emoji: any, id: string) {
   database

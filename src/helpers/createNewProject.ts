@@ -1,5 +1,5 @@
 import database from '../firebase'
-import { Status } from '../enums/definitions'
+import { Status } from '../types/definitions'
 import { ProjectProps } from '../types/project.model'
 
 export const createNewProject = (name: string, user: any, emoji: any) => {

@@ -12,7 +12,7 @@ import { changeTaskPriority } from '../../helpers/changeTaskPriority'
 import { priorities } from '../../helpers/priorities'
 import { colors } from '../../helpers/colors'
 import type { RootState } from '../../store'
-import { Status } from '../../enums/definitions'
+import { Status } from '../../types/definitions'
 
 const PriorityIcon = (props: any) => {
   const toast = useToast()

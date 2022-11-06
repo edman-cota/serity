@@ -17,7 +17,7 @@ import { useSelector } from 'react-redux'
 import { AiOutlinePlus } from 'react-icons/ai'
 import EmojiPicker from './EmojiPicker'
 import { createNewProject } from '../../helpers/createNewProject'
-import { Status } from '../../enums/definitions'
+import { Status } from '../../types/definitions'
 import { auth } from '../../firebase'
 import { RootState } from '../../store'
 

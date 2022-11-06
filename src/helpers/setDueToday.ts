@@ -1,4 +1,4 @@
-import { ActivityType, Status } from '../enums/definitions'
+import { ActivityType, Status } from '../types/definitions'
 import database from '../firebase'
 
 export function setDueToday(user: any, task: any, workingProject: any) {

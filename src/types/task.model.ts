@@ -1,4 +1,4 @@
-export interface TaskProps {
+export interface Task {
   id?: string
   content?: string
   completed?: number
