@@ -1,8 +1,7 @@
-import './home.scss'
-
-import Header from '../../containers/Header/Header'
-import Navbar from './Navbar/Navbar'
 import { Flex } from '@chakra-ui/react'
+
+import Navbar from './Navbar/Navbar'
+import Header from '../../containers/Header/Header'
 
 export const Main = (): JSX.Element => {
   return (

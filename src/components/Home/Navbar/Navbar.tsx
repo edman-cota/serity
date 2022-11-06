@@ -1,12 +1,12 @@
 /* eslint-disable no-useless-return */
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Button, ButtonGroup, Flex, Image, Link } from '@chakra-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { useNavigate, Link as RouterLink } from 'react-router-dom'
+
 import logo from '../../../assets/img/logo-white.svg'
 import { auth } from '../../../firebase'
-import '../home.scss'
 import { formatUsername } from '../../../helpers/formatter'
-import { Button } from '@chakra-ui/react'
 
 const Navbar = (): JSX.Element => {
   const navigate = useNavigate()
@@ -22,40 +22,56 @@ const Navbar = (): JSX.Element => {
   }, [user, loading])
 
   return (
-    <header style={{ background: 'rgb(255 255 255 / 0.15)' }}>
-      <div className='header-child-child'>
-        <div className='header-inside'>
-          <div className='header-inside-inside'>
-            <div className='header-logo'>
-              <a href='/'>
-                <img src={logo} alt='Serity logo' />
-              </a>
-              <a className='header-options' href='/pricing'>
-                Serity
-              </a>
-            </div>
-            <div className='header-login'>
-              <div className='header-login-inside'>
-                {user ? (
-                  <Button bg='white' onClick={navigateTo}>
-                    Go to Workspace
+    <Flex bg='rgb(255 255 255 / 0.15)'>
+      <Flex mx='auto' px='1.5rem' w='100%' borderBottom='1px' borderBottomColor='whiteAlpha.300'>
+        <Flex
+          justifyContent='space-between'
+          h='4rem'
+          alignItems='center'
+          maxW='80rem'
+          mx='auto'
+          px='2rem'
+          w='100%'
+        >
+          <Flex>
+            <Link as={RouterLink} to='/'>
+              <Image src={logo} alt='Serity logo' />
+            </Link>
+            <Link as={RouterLink} to='/' px={10}>
+              Serity
+            </Link>
+          </Flex>
+          <Flex>
+            <Flex>
+              {user ? (
+                <Button bg='white' px={10} color='black !important' onClick={navigateTo}>
+                  Go to Workspace
+                </Button>
+              ) : (
+                <ButtonGroup>
+                  <Button
+                    bg='whiteAlpha.200'
+                    px={10}
+                    color='white !important'
+                    onClick={() => navigate('/login')}
+                  >
+                    Login
                   </Button>
-                ) : (
-                  <>
-                    <Button bg='whiteAlpha.200' color='white' onClick={() => navigate('/login')}>
-                      Login
-                    </Button>
-                    <Button bg='white' onClick={() => navigate('/register')}>
-                      Register
-                    </Button>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+                  <Button
+                    bg='white'
+                    px={10}
+                    color='black !important'
+                    onClick={() => navigate('/register')}
+                  >
+                    Register
+                  </Button>
+                </ButtonGroup>
+              )}
+            </Flex>
+          </Flex>
+        </Flex>
+      </Flex>
+    </Flex>
   )
 }
 
