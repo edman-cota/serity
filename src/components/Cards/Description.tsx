@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import database, { auth } from '../../firebase'
-import { UPDATE_DESCRIPTION_ACTIVITY_TYPE } from '../../constants/index'
+import { ActivityType } from '../../types/definitions'
 import './DetailTab.scss'
 
 interface Props {
@@ -30,7 +30,7 @@ const Description = ({ description, title, id, projectId }: Props) => {
           projectId,
           createdBy: user?.uid,
           createdAt: new Date().toISOString(),
-          type: UPDATE_DESCRIPTION_ACTIVITY_TYPE,
+          type: ActivityType.UPDATE_DESCRIPTION_ACTIVITY_TYPE,
         })
       })
   }

@@ -1,12 +1,11 @@
-/* eslint-disable comma-dangle */
-import { Flex, useColorMode, VStack } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Flex, useColorMode, VStack } from '@chakra-ui/react'
 
 import DetailTab from '../../Cards/DetailTab'
-import NavbarTreeTask from './Navbar/Navbar'
+import NavbarTreeTask from '../Navbar'
 import Timeline from '../../Timeline/Timeline'
-import { useSplitSizes } from '../../../hooks/useSplitSizes'
+import { useSplitSizes } from '@hooks/useSplitSizes'
 import type { RootState } from '../../../store'
 
 const DetailPanel = () => {

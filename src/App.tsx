@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import Routing from '@routes/index'
 import { IntlProvider } from 'react-intl'
 import { ChakraProvider, Flex } from '@chakra-ui/react'
-import Routing from './routes/index'
 
-import theme from './theme/index'
-import { LOCALES } from './i18n/locales'
-import { messages } from './i18n/messages'
 import './App.css'
+import theme from '@theme/index'
+import { LOCALES } from '@i18n/locales'
+import { messages } from '@i18n/messages'
 
 const App = () => {
   function getInitialLocal() {

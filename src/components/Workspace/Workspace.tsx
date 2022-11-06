@@ -1,23 +1,20 @@
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/jsx-curly-newline */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable no-confusing-arrow */
-import React, { memo } from 'react'
-import { List, Text, ListItem, VStack, Flex } from '@chakra-ui/react'
+import { memo } from 'react'
 import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { setWorkingProject } from '../../features/counter/workingProjectSlice'
-import { useGetProjects } from '../../hooks/useGetProjects'
-import { auth } from '../../firebase'
-import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
-import { setActiveIndex } from '../../features/counter/activeIndexSlice'
-import { setShowAddTask } from '../../features/counter/showAddTaskSlice'
+import { List, Text, ListItem, VStack } from '@chakra-ui/react'
+
 import '../Sidebar/Sidebar.scss'
-import { formatUrl } from '../../helpers/formatter'
-import { formatUsername } from '../../helpers/formatter'
-import { Project } from '../../types/project.model'
 import Toolbar from './Toolbar'
+import { auth } from '../../firebase'
+import { formatUrl } from '@helpers/formatter'
+import { formatUsername } from '@helpers/formatter'
+import { Project } from '../../types/project.model'
+import { useGetProjects } from '@hooks/useGetProjects'
+import { setActiveIndex } from '@features/counter/activeIndexSlice'
+import { setShowAddTask } from '@features/counter/showAddTaskSlice'
+import { setWorkingProject } from '@features/counter/workingProjectSlice'
+import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 
 const Workspace = () => {
   const dispatch = useDispatch()

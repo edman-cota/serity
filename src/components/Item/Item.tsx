@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux'
 import { Flex, HStack, ListItem, useColorModeValue } from '@chakra-ui/react'
 
-import './Item.scss'
 import ItemMenu from './ItemMenu'
 import ItemTitle from './ItemTitle'
 import type { RootState } from '../../store'
@@ -19,8 +18,9 @@ const Item = ({ task, index }: Props) => {
 
   return (
     <ListItem
-      className={`tree-row${index === activeIndex ? ' selected' : ''}`}
+      className={`tree-row`}
       borderRadius='base'
+      bg={index === activeIndex ? '#1f2733' : 'transparent'}
       cursor='pointer'
       _hover={{ background: hover }}
       role='group'

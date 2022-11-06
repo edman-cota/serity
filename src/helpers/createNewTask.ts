@@ -1,6 +1,6 @@
 import database from '../firebase'
-import { ADD_TASK_ACTIVITY_TYPE } from '../constants'
 import { Project } from '../types/project.model'
+import { ActivityType } from '../types/definitions'
 
 export function createNewTask(user: any, title: string, project: Project) {
   const workingProjectId = window.localStorage.getItem('working-project')
@@ -37,7 +37,7 @@ export function createNewTask(user: any, title: string, project: Project) {
         projectId: workingProjectId,
         createdBy: user?.uid,
         createdAt: new Date().toISOString(),
-        type: ADD_TASK_ACTIVITY_TYPE,
+        type: ActivityType.ADD_TASK_ACTIVITY_TYPE,
       })
     })
 }

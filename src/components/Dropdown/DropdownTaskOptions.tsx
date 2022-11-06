@@ -1,5 +1,4 @@
 /* eslint-disable comma-dangle */
-import React from 'react'
 import { Button, Menu, MenuList, MenuItem, MenuButton, useToast } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'
 import { CopyIcon } from '@chakra-ui/icons'
@@ -9,7 +8,7 @@ import { FormattedMessage } from 'react-intl'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useGetTask } from '../../hooks/useGetTask'
 import { auth } from '../../firebase'
-import { SUCCESS, ERROR, TOAST } from '../../constants'
+import { Status } from '../../types/definitions'
 import { useGetProject } from '../../hooks/useGetProject'
 import { duplicateTask } from '../../helpers/duplicateTask'
 import { deleteSingleTask } from '../../helpers/deleteSingleTask'
@@ -29,17 +28,17 @@ const DropdownTaskOptions = () => {
   const handleDuplicateTask = () => {
     const status = duplicateTask(task?.at(0), project?.at(0), user)
 
-    if (status === SUCCESS) {
+    if (status === Status.SUCCESS) {
       toast({
         description: 'Success',
-        status: ERROR,
+        status: 'error',
         isClosable: true,
       })
     }
-    if (status === ERROR) {
+    if (status === Status.ERROR) {
       toast({
         description: 'Error',
-        status: ERROR,
+        status: 'error',
         isClosable: true,
       })
     }

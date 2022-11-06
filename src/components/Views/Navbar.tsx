@@ -1,22 +1,20 @@
-/* eslint-disable object-curly-newline */
-/* eslint-disable comma-dangle */
-import { Flex, List, ListItem, Button } from '@chakra-ui/react'
-import { Tooltip } from '@serity-ui/react'
-import { useDispatch, useSelector } from 'react-redux'
-import { FiChevronsRight } from 'react-icons/fi'
-import { MdOutlineHistoryToggleOff } from 'react-icons/md'
-import { CgMinimizeAlt } from 'react-icons/cg'
-import { AiOutlineExpandAlt } from 'react-icons/ai'
-import { HiOutlineChevronDown, HiOutlineChevronUp } from 'react-icons/hi'
 import { useWindowSize } from 'react-use'
+import { Tooltip } from '@serity-ui/react'
 import { FormattedMessage } from 'react-intl'
+import { CgMinimizeAlt } from 'react-icons/cg'
+import { FiChevronsRight } from 'react-icons/fi'
+import { AiOutlineExpandAlt } from 'react-icons/ai'
+import { useDispatch, useSelector } from 'react-redux'
+import { MdOutlineHistoryToggleOff } from 'react-icons/md'
+import { Flex, List, ListItem, Button } from '@chakra-ui/react'
+import { HiOutlineChevronDown, HiOutlineChevronUp } from 'react-icons/hi'
 
-import { setSelectedTaskId } from '../../../../features/counter/selectedTaskIdSlice'
-import { setActiveIndex } from '../../../../features/counter/activeIndexSlice'
-import DropdownTaskOptions from '../../../Dropdown/DropdownTaskOptions'
-import { setTaskActivityVisibility } from '../../../../features/counter/taskActivitySlice'
-import { setIsExpanded } from '../../../../features/counter/expandedSlice'
-import type { RootState } from '../../../../store'
+import type { RootState } from '../../store'
+import { setIsExpanded } from '@features/counter/expandedSlice'
+import { setActiveIndex } from '@features/counter/activeIndexSlice'
+import DropdownTaskOptions from '../Dropdown/DropdownTaskOptions'
+import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
+import { setTaskActivityVisibility } from '@features/counter/taskActivitySlice'
 
 const Navbar = () => {
   const { width } = useWindowSize()

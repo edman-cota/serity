@@ -1,8 +1,3 @@
-/* eslint-disable no-empty */
-/* eslint-disable no-restricted-exports */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable no-var */
-/* eslint-disable import/no-mutable-exports */
 import firebase from 'firebase'
 import 'firebase/storage'
 

@@ -1,5 +1,5 @@
-import { Button, Flex, Text } from '@chakra-ui/react'
 import { FormattedMessage } from 'react-intl'
+import { Button, Flex, Text } from '@chakra-ui/react'
 import { HiOutlineChevronDown } from 'react-icons/hi'
 
 interface Props {

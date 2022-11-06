@@ -4,7 +4,7 @@ import Content from './Content'
 
 interface Props {
   currentLocale: string
-  handleChange: () => void
+  handleChange: (e: any) => void
 }
 
 const Settings = ({ currentLocale, handleChange }: Props) => (

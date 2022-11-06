@@ -11,7 +11,7 @@ import { UserAvatar } from './UserAvatar'
 
 interface Props {
   currentLocale: string
-  handleChange: () => void
+  handleChange: (e: any) => void
 }
 
 const Content = ({ currentLocale, handleChange }: Props) => {
