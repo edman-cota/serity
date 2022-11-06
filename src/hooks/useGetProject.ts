@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
-import type { RootState } from '../store'
+import { RootState } from 'src/store'
 import database, { auth } from '../firebase'
 import { Project } from '../types/project.model'
 

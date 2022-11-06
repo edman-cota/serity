@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
 import { Input } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import type { RootState } from '../../store'
+
+import { RootState } from 'src/store'
 import database, { auth } from '../../firebase'
 
 const ProjectName = () => {

@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
+
+import { RootState } from 'src/store'
 import database, { auth } from '../firebase'
-import type { RootState } from '../store'
 
 export const useGetTask = () => {
   const [user] = useAuthState(auth)

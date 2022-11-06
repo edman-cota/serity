@@ -7,14 +7,14 @@ import {
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react'
-import { FormattedMessage } from 'react-intl'
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
-import { useSelector, useDispatch } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
 import { BiChevronRight } from 'react-icons/bi'
+import { useSelector, useDispatch } from 'react-redux'
 
-import type { RootState } from '../../store'
-import { setEmoji } from '../../features/counter/emojiSlice'
+import { RootState } from 'src/store'
+import { setEmoji } from '@features/counter/emojiSlice'
 
 const ChooseIconModal = () => {
   const dispatch = useDispatch()

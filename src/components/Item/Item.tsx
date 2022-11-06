@@ -3,7 +3,7 @@ import { Flex, HStack, ListItem, useColorModeValue } from '@chakra-ui/react'
 
 import ItemMenu from './ItemMenu'
 import ItemTitle from './ItemTitle'
-import type { RootState } from '../../store'
+import { RootState } from 'src/store'
 import { Task } from '../../types/task.model'
 import RenderStatus from '../RenderStatus/RenderStatus'
 

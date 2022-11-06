@@ -12,16 +12,17 @@ import {
   DarkMode,
   ModalFooter,
 } from '@chakra-ui/react'
+import { FiEdit } from 'react-icons/fi'
+import { useForm } from 'react-hook-form'
 import { FormattedMessage } from 'react-intl'
 import { useSelector, useDispatch } from 'react-redux'
-import { useForm } from 'react-hook-form'
-import { FiEdit } from 'react-icons/fi'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import EmojiPicker from './EmojiPicker'
+
 import { auth } from '../../firebase'
-import type { RootState } from '../../store'
-import { setEmoji } from '../../features/counter/emojiSlice'
-import { editProject } from '../../helpers/editProject'
+import { RootState } from 'src/store'
+import EmojiPicker from './EmojiPicker'
+import { editProject } from '@helpers/editProject'
+import { setEmoji } from '@features/counter/emojiSlice'
 
 interface Props {
   name: string

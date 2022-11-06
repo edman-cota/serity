@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import InputTaskTitle from '../Item/InputTaskTitle'
 import QuickOptions from '../RenderDate/QuickOptions'
 import Description from './Description'
-import type { RootState } from '../../store'
+import { RootState } from 'src/store'
 
 const DetailTab = () => {
   const task = useSelector((state: RootState) => state.task.value)

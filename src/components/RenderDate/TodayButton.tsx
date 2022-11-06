@@ -4,10 +4,10 @@ import { FormattedMessage } from 'react-intl'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../firebase'
-import type { RootState } from '../../store'
+import { RootState } from 'src/store'
+import { isToday } from '@helpers/isToday'
 import { Status } from '../../types/definitions'
-import { setDueToday } from '../../helpers/setDueToday'
-import { isToday } from '../../helpers/isToday'
+import { setDueToday } from '@helpers/setDueToday'
 
 interface Props {
   onClose: any

@@ -11,7 +11,7 @@ import { useGetProject } from '../../hooks/useGetProject'
 import { setShowAddTask } from '../../features/counter/showAddTaskSlice'
 import { scale } from './item.transition'
 import { createNewTask } from '../../helpers/createNewTask'
-import { RootState } from '../../store'
+import { RootState } from 'src/store'
 
 const MotionFlex = chakra(motion.div, {
   /**

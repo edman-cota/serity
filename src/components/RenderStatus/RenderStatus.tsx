@@ -5,14 +5,14 @@ import { Tooltip, useToast, Text } from '@chakra-ui/react'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 
 import { auth } from '../../firebase'
-import type { RootState } from '../../store'
+import { RootState } from 'src/store'
 import { Task } from '../../types/task.model'
-import { useGetProject } from '../../hooks/useGetProject'
-import { getPriorityColor } from '../../helpers/getPriorityColor'
-import { setActiveIndex } from '../../features/counter/activeIndexSlice'
-import { markStatusToCompleted } from '../../helpers/markStatusToCompleted'
-import { markStatusToUncomplete } from '../../helpers/markStatusToUncomplete'
-import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
+import { useGetProject } from '@hooks/useGetProject'
+import { getPriorityColor } from '@helpers/getPriorityColor'
+import { setActiveIndex } from '@features/counter/activeIndexSlice'
+import { markStatusToCompleted } from '@helpers/markStatusToCompleted'
+import { markStatusToUncomplete } from '@helpers/markStatusToUncomplete'
+import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 
 interface Props {
   task: Task

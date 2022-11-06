@@ -9,7 +9,7 @@ import { MdOutlineHistoryToggleOff } from 'react-icons/md'
 import { Flex, List, ListItem, Button } from '@chakra-ui/react'
 import { HiOutlineChevronDown, HiOutlineChevronUp } from 'react-icons/hi'
 
-import type { RootState } from '../../store'
+import { RootState } from 'src/store'
 import { setIsExpanded } from '@features/counter/expandedSlice'
 import { setActiveIndex } from '@features/counter/activeIndexSlice'
 import DropdownTaskOptions from '../Dropdown/DropdownTaskOptions'

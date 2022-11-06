@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux'
 import { useColorModeValue, VStack } from '@chakra-ui/react'
+
 import Footer from './Footer'
 import Header from './Header'
-import type { RootState } from '../../store'
+import { RootState } from 'src/store'
 import Workspace from '../Workspace/Workspace'
 
 const Sidebar = () => {

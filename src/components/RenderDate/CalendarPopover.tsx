@@ -9,20 +9,20 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react'
-import { useSelector } from 'react-redux'
 import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css' // more from DetailTab.scss
+import { useSelector } from 'react-redux'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../firebase'
 import TopOptions from './TopOptions'
-import 'react-calendar/dist/Calendar.css' // more from DetailTab.scss
-import type { RootState } from '../../store'
+import { RootState } from 'src/store'
 import RenderDateText from './RenderDateText'
-import { isToday } from '../../helpers/isToday'
+import { isToday } from '@helpers/isToday'
+import { isSameDay } from '@helpers/isSameDay'
+import { isTomorrow } from '@helpers/isTomorrow'
+import { setDueDate } from '@helpers/setDueDate'
 import CalendarIcon from '../Icons/CalendarIcon'
-import { isSameDay } from '../../helpers/isSameDay'
-import { isTomorrow } from '../../helpers/isTomorrow'
-import { setDueDate } from '../../helpers/setDueDate'
 
 interface Props {
   task: any

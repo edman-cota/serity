@@ -2,9 +2,9 @@ import { Flex } from '@chakra-ui/react'
 import { HotKeys } from 'react-hotkeys'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { RootState } from 'src/store'
 import TreeTask from './DetailPanel'
 import { Outlet } from 'react-router-dom'
-import type { RootState } from '../../../store'
 import { setSidebarVisibility } from '@features/counter/sidebarVisibilitySlice'
 
 const Tree = () => {

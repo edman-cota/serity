@@ -2,11 +2,11 @@ import { useSelector } from 'react-redux'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Flex, useColorMode, VStack } from '@chakra-ui/react'
 
-import DetailTab from '../../Cards/DetailTab'
+import { RootState } from 'src/store'
 import NavbarTreeTask from '../Navbar'
+import DetailTab from '../../Cards/DetailTab'
 import Timeline from '../../Timeline/Timeline'
 import { useSplitSizes } from '@hooks/useSplitSizes'
-import type { RootState } from '../../../store'
 
 const DetailPanel = () => {
   const { colorMode } = useColorMode()

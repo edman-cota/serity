@@ -1,18 +1,17 @@
 /* eslint-disable comma-dangle */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import { Button, Text, useToast, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { BsFlag } from 'react-icons/bs'
-import RenderPriority from './RenderPriority'
+
 import { auth } from '../../firebase'
-import { changeTaskPriority } from '../../helpers/changeTaskPriority'
-import { priorities } from '../../helpers/priorities'
-import { colors } from '../../helpers/colors'
-import type { RootState } from '../../store'
+import { RootState } from 'src/store'
+import { colors } from '@helpers/colors'
+import RenderPriority from './RenderPriority'
+import { priorities } from '@helpers/priorities'
 import { Status } from '../../types/definitions'
+import { changeTaskPriority } from '@helpers/changeTaskPriority'
 
 const PriorityIcon = (props: any) => {
   const toast = useToast()

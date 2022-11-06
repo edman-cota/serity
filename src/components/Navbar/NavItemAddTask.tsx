@@ -1,9 +1,10 @@
+import { FormattedMessage } from 'react-intl'
+import { HiOutlinePlus } from 'react-icons/hi'
 import { Button, Tooltip } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
-import { HiOutlinePlus } from 'react-icons/hi'
-import { FormattedMessage } from 'react-intl'
-import type { RootState } from '../../store'
-import { setShowAddTask } from '../../features/counter/showAddTaskSlice'
+
+import { RootState } from 'src/store'
+import { setShowAddTask } from '@features/counter/showAddTaskSlice'
 
 const NavItemAddTask = () => {
   const dispatch = useDispatch()

@@ -9,17 +9,18 @@ import {
   Input,
   ModalFooter,
 } from '@chakra-ui/react'
-import { Tooltip } from '@serity-ui/react'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { FormattedMessage } from 'react-intl'
 import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux'
+import { Tooltip } from '@serity-ui/react'
+import { FormattedMessage } from 'react-intl'
 import { AiOutlinePlus } from 'react-icons/ai'
-import EmojiPicker from './EmojiPicker'
-import { createNewProject } from '../../helpers/createNewProject'
-import { Status } from '../../types/definitions'
+import { useAuthState } from 'react-firebase-hooks/auth'
+
 import { auth } from '../../firebase'
-import { RootState } from '../../store'
+import { RootState } from 'src/store'
+import EmojiPicker from './EmojiPicker'
+import { createNewProject } from '@helpers/createNewProject'
+import { Status } from '../../types/definitions'
 
 const CreateProject = () => {
   const [user] = useAuthState(auth)

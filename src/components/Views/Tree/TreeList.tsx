@@ -2,9 +2,9 @@ import { useSelector } from 'react-redux'
 import { VStack, List } from '@chakra-ui/react'
 
 import Item from '../../Item/Item'
+import { RootState } from 'src/store'
 import ListHeader from './ListHeader'
 import AddTask from '../../Item/AddTask'
-import type { RootState } from '../../../store'
 import { useGetTasks } from '@hooks/useGetTasks'
 import LoadingScreen from '../../LoadingScreen/LoadingScreen'
 
