@@ -1,7 +1,9 @@
 import { ActivityType, Status } from '../types/definitions'
 import database from '../firebase'
+import { Task } from 'src/types/task.model'
+import { ProjectBTO } from 'src/types/project.model'
 
-export function setDueToday(user: any, task: any, workingProject: any) {
+export function setDueToday(user: any, task: Task, workingProject: ProjectBTO) {
   database
     .ref(`${user?.uid}/tasks/${task.id}`)
     .update({ due: new Date().toISOString() })

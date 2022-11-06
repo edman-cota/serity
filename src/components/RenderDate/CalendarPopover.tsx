@@ -17,8 +17,8 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../firebase'
 import TopOptions from './TopOptions'
 import { RootState } from 'src/store'
-import RenderDateText from './RenderDateText'
 import { isToday } from '@helpers/isToday'
+import RenderDateText from './RenderDateText'
 import { isSameDay } from '@helpers/isSameDay'
 import { isTomorrow } from '@helpers/isTomorrow'
 import { setDueDate } from '@helpers/setDueDate'
@@ -49,7 +49,7 @@ const CalendarPopover = ({ task }: Props) => {
       return
     }
 
-    if (isSameDay(task?.due, new Date(e).toISOString())) {
+    if (isSameDay(task.due, new Date(e).toISOString())) {
       return
     }
 

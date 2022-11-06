@@ -5,12 +5,13 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../firebase'
 import { RootState } from 'src/store'
+import { Task } from 'src/types/task.model'
 import { Status } from '../../types/definitions'
 import { removeDueDate } from '@helpers/removeDueDate'
 
 interface Props {
-  onClose: any
-  task: any
+  onClose: () => void
+  task: Task
 }
 
 const RemoveButton = ({ onClose, task }: Props) => {
@@ -18,11 +19,6 @@ const RemoveButton = ({ onClose, task }: Props) => {
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   const handleRemoveDueDate = () => {
-    if (task.due === undefined) {
-      onClose()
-      return
-    }
-
     const status = removeDueDate(user, task, workingProject)
     if (status === Status.SUCCESS) onClose()
   }

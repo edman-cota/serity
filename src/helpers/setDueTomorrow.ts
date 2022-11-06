@@ -1,7 +1,9 @@
-import { ActivityType, Status } from '../types/definitions'
 import database from '../firebase'
+import { Task } from 'src/types/task.model'
+import { ProjectBTO } from 'src/types/project.model'
+import { ActivityType, Status } from '../types/definitions'
 
-export function setDueTomorrow(user: any, task: any, workingProject: any) {
+export function setDueTomorrow(user: any, task: Task, workingProject: ProjectBTO) {
   const now = new Date()
   const tomorrow = new Date(now.setDate(now.getDate() + 1)).toString()
 

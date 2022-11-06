@@ -5,25 +5,20 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../firebase'
 import { RootState } from 'src/store'
-import { isToday } from '@helpers/isToday'
+import { Task } from 'src/types/task.model'
 import { Status } from '../../types/definitions'
 import { setDueToday } from '@helpers/setDueToday'
 
 interface Props {
-  onClose: any
-  dueDate: string
-  task: any
+  task: Task
+  onClose: () => void
 }
 
-const TodayButton = ({ onClose, dueDate, task }: Props) => {
+const TodayButton = ({ onClose, task }: Props) => {
   const [user] = useAuthState(auth)
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   const handleSetToday = () => {
-    if (isToday(dueDate)) {
-      onClose()
-      return
-    }
     const status = setDueToday(user, task, workingProject)
     if (status === Status.SUCCESS) onClose()
   }

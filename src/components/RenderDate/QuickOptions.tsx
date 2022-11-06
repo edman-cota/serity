@@ -1,4 +1,3 @@
-import React from 'react'
 import { Flex, HStack } from '@chakra-ui/react'
 
 import PriorityIcon from '../RenderPriority/PriorityIcon'

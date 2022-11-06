@@ -1,4 +1,3 @@
-import React from 'react'
 import moment from 'moment'
 import { Text } from '@chakra-ui/react'
 import { FormattedMessage, FormattedDate } from 'react-intl'

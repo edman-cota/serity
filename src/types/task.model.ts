@@ -1,5 +1,6 @@
 export interface Task {
   id?: string
+  due?: string
   content?: string
   completed?: number
   createdAt?: string
