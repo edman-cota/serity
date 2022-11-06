@@ -1,7 +1,8 @@
 import database from '../firebase'
 import { ADD_TASK_ACTIVITY_TYPE } from '../constants'
+import { Project } from '../types/project.model'
 
-export function createNewTask(user: any, title: string, project: any) {
+export function createNewTask(user: any, title: string, project: Project) {
   const workingProjectId = window.localStorage.getItem('working-project')
 
   const cardRef = database.ref(`${user?.uid}/tasks`)
@@ -17,25 +18,13 @@ export function createNewTask(user: any, title: string, project: any) {
       createdAt: new Date().toISOString(),
     })
     .then(() => {
-      // Close add task Textarea
+      database
+        .ref(`${user?.uid}/projects/${workingProjectId}`)
+        .update({ activeCount: project.activeCount + 1 })
 
       database
         .ref(`${user?.uid}/projects/${workingProjectId}`)
-        .update({ activeCount: project?.[0].activeCount + 1 })
-
-      database
-        .ref(`${user?.uid}/projects/${workingProjectId}`)
-        .update({ taskCount: project?.[0].taskCount + 1 })
-
-      // Add new created to To-do column
-      const columnRef = database.ref(`${user?.uid}/columns/-Mw4Wwi2BZCRdtMv-U5u/taskIds`)
-      columnRef.transaction((currentArray) => {
-        if (currentArray === null) {
-          return { 0: newCardRef.key }
-        }
-        currentArray.push(newCardRef.key)
-        return currentArray
-      })
+        .update({ taskCount: project.taskCount + 1 })
 
       // Add task to activity database
       const activityRef = database.ref(`${user?.uid}/activities`)

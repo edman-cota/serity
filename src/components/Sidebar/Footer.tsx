@@ -1,5 +1,5 @@
-import React from 'react'
-import { Button, HStack, Tooltip, useColorModeValue } from '@chakra-ui/react'
+import { Button, HStack, useColorModeValue } from '@chakra-ui/react'
+import { Tooltip } from '@serity-ui/react'
 import CreateProject from '../Modals/CreateProject'
 import SettingsMenu from '../Menus/SettingsMenu'
 import { IoNotificationsOutline } from 'react-icons/io5'

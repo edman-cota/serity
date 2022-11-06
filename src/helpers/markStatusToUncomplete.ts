@@ -1,9 +1,13 @@
-import { ActivityType } from '../enums/definitions'
 import database from '../firebase'
+import { ActivityType, Status } from '../enums/definitions'
+import { Project, ProjectBTO } from '../types/project.model'
 
-export function markStatusToUncomplete(user: any, workingProject: any, project: any, task: any) {
-  const status = { success: 'success', error: 'error' }
-
+export function markStatusToUncomplete(
+  user: any,
+  workingProject: ProjectBTO,
+  project: Project,
+  task: any,
+) {
   database
     .ref(`${user?.uid}/tasks/`)
     .child(task.id)
@@ -11,7 +15,7 @@ export function markStatusToUncomplete(user: any, workingProject: any, project: 
     .then(() => {
       // Add 1 from the total of active tasks
       database.ref(`${user?.uid}/projects/${workingProject.id}`).update({
-        activeCount: project?.[0].activeCount + 1,
+        activeCount: project.activeCount + 1,
       })
 
       // Save the current operation activity
@@ -28,8 +32,8 @@ export function markStatusToUncomplete(user: any, workingProject: any, project: 
           createdAt: new Date().toISOString(),
           type: ActivityType.REOPEN_TASK_ACTIVITY_TYPE,
         })
-        .catch(() => status.error)
+        .catch(() => Status.ERROR)
     })
 
-  return status.success
+  return Status.SUCCESS
 }

@@ -1,5 +1,5 @@
 /* eslint-disable object-curly-newline */
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useColorModeValue, Textarea, chakra, shouldForwardProp } from '@chakra-ui/react'
 import { motion, isValidMotionProp } from 'framer-motion'
 import ReactFocusLock from 'react-focus-lock'
@@ -41,7 +41,7 @@ const AddTask = () => {
       }
 
       dispatch(setShowAddTask(!showAddTask))
-      createNewTask(user, title, project)
+      createNewTask(user, title, project[0])
     }
   }
 

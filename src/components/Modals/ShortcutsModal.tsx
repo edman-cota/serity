@@ -14,7 +14,7 @@ import {
   List,
   ListItem,
 } from '@chakra-ui/react'
-import { Tooltip } from 'serity-ui'
+import { Tooltip } from '@serity-ui/react'
 import { FormattedMessage } from 'react-intl'
 import { FaRegKeyboard } from 'react-icons/fa'
 

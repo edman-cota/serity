@@ -16,7 +16,7 @@ import { setShowAddTask } from '../../features/counter/showAddTaskSlice'
 import '../Sidebar/Sidebar.scss'
 import { formatUrl } from '../../helpers/formatter'
 import { formatUsername } from '../../helpers/formatter'
-import { ProjectProps } from '../../types/project.model'
+import { Project } from '../../types/project.model'
 import Toolbar from './Toolbar'
 
 const Workspace = () => {
@@ -26,7 +26,7 @@ const Workspace = () => {
 
   const username = formatUsername(user?.email)
 
-  const navigateTo = (project: ProjectProps) => {
+  const navigateTo = (project: Project) => {
     // Guarda localmente
     dispatch(setWorkingProject(project))
     localStorage.setItem('project', project?.name)

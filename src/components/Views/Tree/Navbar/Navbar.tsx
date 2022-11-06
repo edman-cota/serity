@@ -1,7 +1,7 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
 import { Flex, List, ListItem, Button } from '@chakra-ui/react'
-import { Tooltip } from 'serity-ui'
+import { Tooltip } from '@serity-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FiChevronsRight } from 'react-icons/fi'
 import { MdOutlineHistoryToggleOff } from 'react-icons/md'

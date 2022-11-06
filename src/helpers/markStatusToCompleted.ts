@@ -1,7 +1,8 @@
 import { ActivityType, Status, DBRef } from '../enums/definitions'
 import database from '../firebase'
+import { Project } from '../types/project.model'
 
-export function markStatusToCompleted(user: any, workingProject: any, project: any, task: any) {
+export function markStatusToCompleted(user: any, workingProject: any, project: Project, task: any) {
   database
     .ref(`${user?.uid}/${DBRef.Tasks}/`)
     .child(task.id)
@@ -9,7 +10,7 @@ export function markStatusToCompleted(user: any, workingProject: any, project: a
     .then(() => {
       // SUBSTRACT 1 from the total active tasks
       database.ref(`${user?.uid}/${DBRef.Projects}/${workingProject.id}`).update({
-        activeCount: project?.[0].activeCount - 1,
+        activeCount: project.activeCount - 1,
       })
 
       // Save the current operation activity

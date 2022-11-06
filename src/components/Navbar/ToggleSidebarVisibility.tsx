@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/react'
-import { Tooltip } from 'serity-ui'
+import { Tooltip } from '@serity-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BsLayoutSidebarReverse, BsLayoutSidebar } from 'react-icons/bs'
 import { FormattedMessage } from 'react-intl'

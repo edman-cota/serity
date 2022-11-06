@@ -32,10 +32,13 @@ const RenderStatus = ({ task }: Props) => {
   const [clicked, setClicked] = React.useState(false)
   const x = useMotionValue(100)
   const x0 = useMotionValue(0)
+  const tickPath = useTransform(clicked ? x : x0, [10, 100], [0, 1])
+  const tickPathDone = useTransform(x, [10, 100], [0, 1])
 
   const markStatusAsComplete = (taskToUpdate: TaskProps) => {
     setTimeout(() => {
-      const result = markStatusToCompleted(user, workingProject, project, taskToUpdate)
+      const result = markStatusToCompleted(user, workingProject, project[0], taskToUpdate)
+
       if (result === 'success') {
         // close task detail sidebar
         dispatch(setSelectedTaskId(''))
@@ -49,11 +52,8 @@ const RenderStatus = ({ task }: Props) => {
     }, 300)
   }
 
-  const tickPath = useTransform(clicked ? x : x0, [10, 100], [0, 1])
-  const tickPathDone = useTransform(x, [10, 100], [0, 1])
-
   const markStatusAsUncomplete = (taskToUpdate: TaskProps) => {
-    const result = markStatusToUncomplete(user, workingProject, project, taskToUpdate)
+    const result = markStatusToUncomplete(user, workingProject, project[0], taskToUpdate)
 
     if (result === 'success') {
       toast({

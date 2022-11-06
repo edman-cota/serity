@@ -1,6 +1,3 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable operator-linebreak */
 import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useSelector } from 'react-redux'
@@ -34,15 +31,6 @@ export const useGetTasks = () => {
             }
           }
         })
-
-        // setCompletedTasks(completedTask);
-        // setCompletedTasks(
-        //   completedTask.sort(
-        //     (a, b) =>
-        //       new Date(b.completedAt).getTime() -
-        //       new Date(a.completedAt).getTime()
-        //   )
-        // );
         setTasks(taskList)
         setCompletedTasks(completedTask)
         setIsLoading(false)

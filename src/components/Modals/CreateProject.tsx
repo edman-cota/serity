@@ -9,7 +9,7 @@ import {
   Input,
   ModalFooter,
 } from '@chakra-ui/react'
-import { Tooltip } from 'serity-ui'
+import { Tooltip } from '@serity-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { FormattedMessage } from 'react-intl'
 import { useForm } from 'react-hook-form'

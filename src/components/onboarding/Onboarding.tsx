@@ -1,7 +1,7 @@
 import './style.scss'
 import { Flex, Heading, Image, VStack, useColorMode } from '@chakra-ui/react'
 import Logo from '../../assets/img/logo.svg'
-import { Tooltip } from 'serity-ui'
+import { Tooltip } from '@serity-ui/react'
 
 const Onboarding = () => {
   const { toggleColorMode } = useColorMode()

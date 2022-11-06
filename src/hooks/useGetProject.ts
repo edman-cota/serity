@@ -1,9 +1,12 @@
-/* eslint-disable import/prefer-default-export */
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import database, { auth } from '../firebase'
+
 import type { RootState } from '../store'
+import database, { auth } from '../firebase'
+import { Project } from '../types/project.model'
+
+type ProjectProps = Omit<Project, 'createdAt' | 'createdBy' | 'id' | 'name'>
 
 export const useGetProject = () => {
   const [user] = useAuthState(auth)
@@ -12,7 +15,7 @@ export const useGetProject = () => {
 
   useEffect(() => {
     database.ref(`${user?.uid}/projects`).on('value', (snapshot) => {
-      const taskList: any[] = []
+      const taskList: ProjectProps[] = []
       snapshot.forEach((snap) => {
         if (snap.val().id === workingProject.id) {
           taskList.push(snap.val())
