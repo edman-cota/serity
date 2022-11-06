@@ -1,8 +1,9 @@
 import { Flex } from '@chakra-ui/react'
-import useGetAllActivities from '../../hooks/useGetAllActivities'
-import LoadingScreen from '../LoadingScreen/LoadingScreen'
-import TimelineHeader from './TimelineHeader'
+
 import TimelineBody from './TimelineBody'
+import TimelineHeader from './TimelineHeader'
+import LoadingScreen from '../LoadingScreen/LoadingScreen'
+import useGetAllActivities from '@hooks/useGetAllActivities'
 
 const Activities = () => {
   const { activities, isLoading } = useGetAllActivities()

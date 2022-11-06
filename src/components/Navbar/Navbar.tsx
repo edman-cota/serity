@@ -1,19 +1,19 @@
 import { useEffect, memo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Flex, List, ListItem } from '@chakra-ui/react'
-import { useNavigate, useParams } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import ToggleSidebarVisibility from './ToggleSidebarVisibility'
-import NavItemAddTask from './NavItemAddTask'
-import ProjectName from './ProjectName'
+
 import { auth } from '../../firebase'
-import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
-import ShortcutsModal from '../Modals/ShortcutsModal'
+import ProjectName from './ProjectName'
+import NavItemAddTask from './NavItemAddTask'
 import SearchModal from '../Modals/SearchModal'
+import ShortcutsModal from '../Modals/ShortcutsModal'
+import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
+import ToggleSidebarVisibility from './ToggleSidebarVisibility'
 
 const Navbar = () => {
   const navigate = useNavigate()
   const [user, loading] = useAuthState(auth)
-  const { project } = useParams()
 
   useEffect(() => {
     if (loading) return
@@ -23,17 +23,21 @@ const Navbar = () => {
   return (
     <Flex w='100%' mt='20px'>
       <Flex w='95%' mx='auto' maxW='950px'>
-        <Flex flex='1' gap='20px'>
-          <ToggleSidebarVisibility />
-          <ProjectName />
+        <Flex flex='1'>
+          <List display='flex' gap='20px'>
+            <ListItem>
+              <ToggleSidebarVisibility />
+            </ListItem>
+            <ListItem>
+              <ProjectName />
+            </ListItem>
+          </List>
         </Flex>
         <Flex flex='1' justifyContent='flex-end'>
           <List display='flex' gap='20px'>
-            {project !== 'today' ? (
-              <ListItem>
-                <NavItemAddTask />
-              </ListItem>
-            ) : null}
+            <ListItem>
+              <NavItemAddTask />
+            </ListItem>
             <ListItem>
               <ShortcutsModal />
             </ListItem>

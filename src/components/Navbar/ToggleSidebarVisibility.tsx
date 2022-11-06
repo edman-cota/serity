@@ -22,7 +22,7 @@ const ToggleSidebarVisibility = () => {
       commandBg='rgba(255, 255, 255, .2)'
     >
       <Button onClick={toggleSidebarVisibility}>
-        <BsLayoutSidebar size={18} />
+        <BsLayoutSidebar size={16} />
       </Button>
     </Tooltip>
   )

@@ -10,13 +10,11 @@ const NavItemAddTask = () => {
   const dispatch = useDispatch()
   const showAddTask = useSelector((state: RootState) => state.showAddTask.value)
 
-  const showAddTaskFunction = () => {
-    dispatch(setShowAddTask(!showAddTask))
-  }
+  const handleShowAddTask = () => dispatch(setShowAddTask(!showAddTask))
 
   return (
     <Tooltip label={<FormattedMessage id='create_new_task' />} openDelay={700}>
-      <Button onClick={showAddTaskFunction}>
+      <Button onClick={handleShowAddTask}>
         <HiOutlinePlus size={18} />
       </Button>
     </Tooltip>

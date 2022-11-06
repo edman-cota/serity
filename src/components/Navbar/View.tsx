@@ -1,4 +1,3 @@
-import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
 import { HiViewBoards } from 'react-icons/hi'
@@ -6,7 +5,7 @@ import { FiChevronDown } from 'react-icons/fi'
 import { VscListSelection } from 'react-icons/vsc'
 import { BsFillCalendarMinusFill } from 'react-icons/bs'
 
-const View = ({ view }: { view: string }) => {
+const View = ({ view }: { view: string | null }) => {
   switch (view) {
     case 'tree':
       return (

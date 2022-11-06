@@ -4,6 +4,7 @@ import CreateProject from '../Modals/CreateProject'
 import SettingsMenu from '../Menus/SettingsMenu'
 import { IoNotificationsOutline } from 'react-icons/io5'
 import { FormattedMessage } from 'react-intl'
+import NotificationsButton from '@components/Navbar/NotificationsButton'
 
 const Footer = (): JSX.Element => {
   const borderTopColor = useColorModeValue('gray.300', 'gray.500')
@@ -18,11 +19,9 @@ const Footer = (): JSX.Element => {
       borderColor={borderTopColor}
     >
       <CreateProject />
-      <Tooltip label={<FormattedMessage id='notifications' />}>
-        <Button>
-          <IoNotificationsOutline />
-        </Button>
-      </Tooltip>
+
+      <NotificationsButton />
+
       <SettingsMenu />
     </HStack>
   )

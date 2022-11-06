@@ -1,5 +1,4 @@
 /* eslint-disable object-curly-newline */
-import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Menu, MenuButton, MenuList, MenuItem, Text, Button, DarkMode } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'
@@ -11,10 +10,11 @@ import { IoChevronDownOutline } from 'react-icons/io5'
 import { HiViewBoards } from 'react-icons/hi'
 import { FiCheck } from 'react-icons/fi'
 
-import View from './View.tsx'
-import { auth } from '../../firebase.ts'
-import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice.ts'
-import { setActiveIndex } from '../../features/counter/activeIndexSlice.ts'
+import View from './View'
+import { auth } from '../../firebase'
+import { formatUsername } from '@helpers/formatter'
+import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
+import { setActiveIndex } from '@features/counter/activeIndexSlice'
 
 const ViewsItem = () => {
   const dispatch = useDispatch()
@@ -22,7 +22,7 @@ const ViewsItem = () => {
   const [searchParams] = useSearchParams()
   const [user] = useAuthState(auth)
 
-  const username = user?.email.split('@')[0]
+  const username = formatUsername(user?.email)
 
   const views = ['tree', 'kanban', 'calendar']
   const icons = {
@@ -35,11 +35,11 @@ const ViewsItem = () => {
    *Clean the current screen global variables
    *Save new view in local storage
    */
-  const clearActiveTask = (view) => {
+  const clearActiveTask = (view: string) => {
     localStorage.setItem('view', view)
 
     dispatch(setSelectedTaskId(''))
-    dispatch(setActiveIndex(''))
+    dispatch(setActiveIndex(-1))
   }
 
   return (
