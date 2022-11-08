@@ -19,7 +19,7 @@
     "@emoji-mart/react": "^1.0.1",
     "@emotion/styled": "^11.10.4",
     "@reduxjs/toolkit": "^1.8.0",
-    "@serity-ui/react": "^0.1.4",
+    "@serity-ui/react": "^0.1.6",
     "@types/node": "^17.0.18",
     "@vitejs/plugin-react": "^2.2.0",
     "emoji-mart": "^5.2.2",
