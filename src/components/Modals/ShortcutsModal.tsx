@@ -23,7 +23,7 @@ const ShortcutsModal = () => {
 
   return (
     <>
-      <Tooltip label='Shortcuts menu' command='Ctrl + ,' commandBg='rgba(255, 255, 255, .2)'>
+      <Tooltip label='Shortcuts menu' command='Ctrl + ,'>
         <Button onClick={onOpen}>
           <FaRegKeyboard />
         </Button>
