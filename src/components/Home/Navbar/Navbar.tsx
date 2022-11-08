@@ -37,14 +37,21 @@ const Navbar = (): JSX.Element => {
             <Link as={RouterLink} to='/'>
               <Image src={logo} alt='Serity logo' />
             </Link>
-            <Link as={RouterLink} to='/' px={10}>
+            <Link as={RouterLink} to='/' px={10} _hover={{ textDecor: 'none' }}>
               Serity
             </Link>
           </Flex>
           <Flex>
             <Flex>
               {user ? (
-                <Button bg='white' px={10} color='black !important' onClick={navigateTo}>
+                <Button
+                  bg='white'
+                  px={10}
+                  color='black !important'
+                  _hover={{ bg: 'whiteAlpha.900' }}
+                  _active={{ bg: 'whiteAlpha.900' }}
+                  onClick={navigateTo}
+                >
                   Go to Workspace
                 </Button>
               ) : (
@@ -61,6 +68,8 @@ const Navbar = (): JSX.Element => {
                     bg='white'
                     px={10}
                     color='black !important'
+                    _hover={{ bg: 'whiteAlpha.900' }}
+                    _active={{ bg: 'whiteAlpha.900' }}
                     onClick={() => navigate('/register')}
                   >
                     Register
