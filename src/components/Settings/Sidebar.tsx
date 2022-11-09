@@ -9,7 +9,6 @@ const Sidebar = (): JSX.Element => {
         <SidebarItem to='profile' textId='profile' />
         <SidebarItem to='notifications' textId='notifications' />
         <SidebarItem to='subscription' textId='subscriptions' />
-        <ShortcutsModal />
       </VStack>
     </Flex>
   )

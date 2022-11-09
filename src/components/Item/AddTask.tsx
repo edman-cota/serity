@@ -78,6 +78,7 @@ const AddTask = () => {
         <Textarea
           spellCheck='false'
           autoComplete='off'
+          variant='custom'
           name='w3review'
           rows={1}
           cols={200}

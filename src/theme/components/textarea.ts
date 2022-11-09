@@ -1,6 +1,8 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 
-const baseStyle = defineStyle({
+const baseStyle = defineStyle({})
+
+const custom = defineStyle({
   fontWeight: 400,
   bg: 'transparent',
   height: 'auto',
@@ -29,4 +31,4 @@ const baseStyle = defineStyle({
   },
 })
 
-export const textareaTheme = defineStyleConfig({ baseStyle })
+export const textareaTheme = defineStyleConfig({ baseStyle, variants: { custom } })

@@ -1,7 +1,17 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
 import { useEffect } from 'react'
-import { Flex, Text, Input, Select, Button, VStack } from '@chakra-ui/react'
+import {
+  Flex,
+  Text,
+  Input,
+  Select,
+  Button,
+  VStack,
+  FormControl,
+  FormLabel,
+  Textarea,
+} from '@chakra-ui/react'
 import { FormattedMessage } from 'react-intl'
 import { AiOutlineCamera } from 'react-icons/ai'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -85,12 +95,10 @@ const Content = ({ currentLocale, handleChange }: Props) => {
             </FormattedMessage>
           </Flex>
           <Flex direction='column' mt='30px'>
-            <Text>
-              <FormattedMessage id='profession' />
-            </Text>
-            <FormattedMessage id='profession' defaultMessage='Profession'>
-              {(placeholder) => <Input placeholder={placeholder} />}
-            </FormattedMessage>
+            <FormControl>
+              <FormLabel>Bio</FormLabel>
+              <Textarea variant='custom' />
+            </FormControl>
           </Flex>
           <Flex mt='30px'>
             <Select variant='filled' size='md' onChange={handleChange} value={currentLocale}>
