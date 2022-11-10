@@ -1,4 +1,5 @@
 import { useEffect, memo } from 'react'
+import { useWindowSize } from 'react-use'
 import { useNavigate } from 'react-router-dom'
 import { Flex, List, ListItem } from '@chakra-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -13,6 +14,7 @@ import ToggleSidebarVisibility from './ToggleSidebarVisibility'
 
 const Navbar = () => {
   const navigate = useNavigate()
+  const { width } = useWindowSize()
   const [user, loading] = useAuthState(auth)
 
   useEffect(() => {
@@ -38,9 +40,11 @@ const Navbar = () => {
             <ListItem>
               <NavItemAddTask />
             </ListItem>
-            <ListItem>
-              <ShortcutsModal />
-            </ListItem>
+            {width >= 768 ? (
+              <ListItem>
+                <ShortcutsModal />
+              </ListItem>
+            ) : null}
             <ListItem>
               <SearchModal />
             </ListItem>
