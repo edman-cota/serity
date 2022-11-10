@@ -26,7 +26,7 @@ const Navbar = () => {
     <Flex w='100%' mt='20px'>
       <Flex w='95%' mx='auto' maxW='950px'>
         <Flex flex='1'>
-          <List display='flex' gap='20px'>
+          <List display='flex' gap={{ base: '10px', md: '20px' }}>
             <ListItem>
               <ToggleSidebarVisibility />
             </ListItem>
@@ -36,7 +36,7 @@ const Navbar = () => {
           </List>
         </Flex>
         <Flex flex='1' justifyContent='flex-end'>
-          <List display='flex' gap='20px'>
+          <List display='flex' gap={{ base: '5px', md: '20px' }}>
             <ListItem>
               <NavItemAddTask />
             </ListItem>
