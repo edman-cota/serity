@@ -77,17 +77,17 @@ const ShortcutItem = ({ description, commandOne, commandTwo }: Props) => {
   return (
     <ListItem display='flex' justifyContent='space-between' alignItems='center'>
       <Text>{description}</Text>
-      <Flex alignItems='center'>
+      <Flex alignItems='center' gap='6px'>
         <Text
           w='60px'
           display='flex'
-          mr='6px'
-          padding='2px 10px'
+          py='2px'
+          fontSize='sm'
           justifyContent='center'
-          borderColor='white'
           alignItems='center'
-          border='1px'
-          borderRadius='base'
+          borderRadius='md'
+          color='gray.300'
+          bg='#2D3748'
         >
           {commandOne}
         </Text>
@@ -95,12 +95,11 @@ const ShortcutItem = ({ description, commandOne, commandTwo }: Props) => {
         <Text
           w='32px'
           display='flex'
-          ml='6px'
-          padding='2px 10px'
+          py='2px'
           justifyContent='center'
-          borderColor='white'
-          border='1px'
-          borderRadius='base'
+          borderRadius='md'
+          color='gray.300'
+          bg='#2D3748'
         >
           {commandTwo}
         </Text>
