@@ -31,25 +31,11 @@ interface Props {
 }
 
 const InviteMembersModal = ({ projectName }: Props) => {
-  const form = useRef()
-  const [user] = useAuthState(auth)
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
   // eslint-disable-next-line no-unused-vars
   const [value, setValue] = useState('https://replit.com/join/ptgjboqhtb-edmancota')
   const [linked, setLinked] = useState(false)
-
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-
-  //   emailjs.sendForm(
-  //     "service_pgr3jze",
-  //     "template_2pc1qq7",
-  //     form.current,
-  //     "85wU6JGUyhHS_Jnu-"
-  //   );
-  //   form.current.reset();
-  // };
 
   return (
     <>
@@ -74,11 +60,7 @@ const InviteMembersModal = ({ projectName }: Props) => {
 
             <ModalBody p='0px'>
               <Flex w='100%' direction='column'>
-                <form
-                  // ref={form}
-                  // onSubmit={sendEmail}
-                  style={{ display: 'flex', gap: '10px', width: '100%' }}
-                >
+                <form style={{ display: 'flex', gap: '10px', width: '100%' }}>
                   <Input
                     autoComplete='off'
                     borderRadius='base'
@@ -108,7 +90,8 @@ const InviteMembersModal = ({ projectName }: Props) => {
               {linked ? (
                 <HStack w='100%'>
                   <Input
-                    value={value}
+                    // value={value}
+                    // readOnly
                     fontWeight={400}
                     borderRadius='base'
                     h='35px'

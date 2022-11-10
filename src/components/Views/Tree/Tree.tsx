@@ -3,7 +3,7 @@ import { HotKeys } from 'react-hotkeys'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { RootState } from 'src/store'
-import TreeTask from './DetailPanel'
+import DetailPanel from './DetailPanel'
 import { Outlet } from 'react-router-dom'
 import { setSidebarVisibility } from '@features/counter/sidebarVisibilitySlice'
 
@@ -34,7 +34,7 @@ const Tree = () => {
     >
       <Flex w='100%'>
         <Outlet />
-        <TreeTask />
+        <DetailPanel />
       </Flex>
     </HotKeys>
   )

@@ -12,6 +12,7 @@ import emojiReducer from './features/counter/emojiSlice'
 import workingProjectReducer from './features/counter/workingProjectSlice'
 import taskActivityReducer from './features/counter/taskActivitySlice'
 import expandedSliceReducer from './features/counter/expandedSlice'
+import onToggleSliceReducer from '@features/counter/onToggleSlice'
 
 export const store = configureStore({
   reducer: {
@@ -27,6 +28,7 @@ export const store = configureStore({
     workingProject: workingProjectReducer,
     isTaskActivityVisible: taskActivityReducer,
     isExpanded: expandedSliceReducer,
+    isOpen: onToggleSliceReducer,
   },
 })
 

@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux'
-import { AnimatePresence, motion } from 'framer-motion'
-import { Flex, useColorMode, VStack } from '@chakra-ui/react'
+import { Flex, Slide, useColorMode, VStack } from '@chakra-ui/react'
 
 import { RootState } from 'src/store'
 import NavbarTreeTask from '../Navbar'
@@ -13,39 +12,34 @@ const DetailPanel = () => {
   const task = useSelector((state: RootState) => state.task.value)
   const selectedTaskId = useSelector((state: RootState) => state.selectedTaskId.value)
   const isTaskActivityVisible = useSelector((state: RootState) => state.isTaskActivityVisible.value)
+  const isOpen = useSelector((state: RootState) => state.isOpen.value)
 
   const { sizes, paneDisplay } = useSplitSizes()
 
   const styles = {
-    flexDirection: 'column',
     height: '100vh',
-    display: selectedTaskId !== '' ? paneDisplay.at(1) : paneDisplay.at(0),
-    width: selectedTaskId !== '' ? `${sizes.at(1)}%` : '0%',
+    position: 'relative',
+    display: isOpen ? paneDisplay.at(1) : paneDisplay.at(0),
+    width: isOpen ? `${sizes.at(1)}%` : '0%',
     backgroundColor: colorMode === 'dark' ? 'var(--gray-700)' : '#FFFFFF',
     borderLeft: colorMode === 'dark' ? 'none' : '1px solid rgba(0, 0, 0, 0.08)',
   }
 
   return (
-    <AnimatePresence exitBeforeEnter>
-      <motion.div
-        initial={{ opacity: 0, scale: 1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        style={styles}
-      >
-        <VStack>
-          <NavbarTreeTask />
-          {isTaskActivityVisible ? (
-            <Flex px='16px' w='100%'>
-              <Timeline />
-            </Flex>
-          ) : (
-            <Flex w='100%' direction='column'>
-              <DetailTab />
-            </Flex>
-          )}
-        </VStack>
-      </motion.div>
-    </AnimatePresence>
+    <Slide in={isOpen} unmountOnExit style={styles}>
+      <VStack w='100%'>
+        <NavbarTreeTask />
+        {isTaskActivityVisible ? (
+          <Flex px='16px' w='100%'>
+            <Timeline />
+          </Flex>
+        ) : (
+          <Flex w='100%' direction='column'>
+            <DetailTab />
+          </Flex>
+        )}
+      </VStack>
+    </Slide>
   )
 }
 

@@ -10,23 +10,26 @@ import { Flex, List, ListItem, Button } from '@chakra-ui/react'
 import { HiOutlineChevronDown, HiOutlineChevronUp } from 'react-icons/hi'
 
 import { RootState } from 'src/store'
+import { setIsOpen } from '@features/counter/onToggleSlice'
 import { setIsExpanded } from '@features/counter/expandedSlice'
-import { setActiveIndex } from '@features/counter/activeIndexSlice'
 import DropdownTaskOptions from '../Dropdown/DropdownTaskOptions'
+import { setActiveIndex } from '@features/counter/activeIndexSlice'
 import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 import { setTaskActivityVisibility } from '@features/counter/taskActivitySlice'
 
 const Navbar = () => {
   const { width } = useWindowSize()
   const dispatch = useDispatch()
-  const isTaskActivityVisible = useSelector((state: RootState) => state.isTaskActivityVisible.value)
+  const isOpen = useSelector((state: RootState) => state.isOpen.value)
   const isExpanded = useSelector((state: RootState) => state.isExpanded.value)
+  const isTaskActivityVisible = useSelector((state: RootState) => state.isTaskActivityVisible.value)
   const label = isExpanded ? <FormattedMessage id='contract' /> : <FormattedMessage id='expand' />
 
   const closeView = () => {
     dispatch(setSelectedTaskId(''))
     dispatch(setActiveIndex(-1))
     dispatch(setIsExpanded(false))
+    dispatch(setIsOpen(!isOpen))
   }
 
   const expandScreen = () => {

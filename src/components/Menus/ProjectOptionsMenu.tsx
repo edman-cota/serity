@@ -18,8 +18,8 @@ const ProjectMore = ({ name, id, emoji }: Props) => {
   const { width } = useWindowSize()
 
   return (
-    <Menu autoSelect={false} placement='bottom'>
-      <MenuButton as={Button}>
+    <Menu autoSelect={false} isLazy placement='bottom'>
+      <MenuButton as={Button} transition='all 0.2s'>
         {width >= 768 ? <RiMoreLine size={20} /> : <RiMore2Line size={20} />}
       </MenuButton>
       <MenuList>

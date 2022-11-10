@@ -8,7 +8,6 @@ const Content = () => {
   const isSidebarOpen = useSelector((state: RootState) => state.isSidebarOpen.value)
 
   const margin = isSidebarOpen ? '300px' : '0px'
-
   return (
     <Flex flex={1} ml={margin}>
       <Tree />
