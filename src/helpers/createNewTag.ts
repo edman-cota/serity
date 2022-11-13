@@ -6,9 +6,9 @@ export function createNewTag(user: any, project: any, tag: any, selectedTaskId: 
   newTagRef
     .set({
       id: newTagRef.key,
-      label: tag['label'],
-      value: tag['value'],
-      color: tag['color'],
+      label: tag.label,
+      value: tag.value,
+      color: tag.color,
       project: project.id,
       global: true,
       createdAt: new Date().toISOString(),
@@ -25,4 +25,6 @@ export function createNewTag(user: any, project: any, tag: any, selectedTaskId: 
         return currentArray
       })
     })
+
+  // TODO add activity for tag creation
 }

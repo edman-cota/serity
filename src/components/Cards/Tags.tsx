@@ -1,4 +1,11 @@
-import { StylesConfig, components, DropdownIndicatorProps, InputActionMeta } from 'react-select'
+import {
+  StylesConfig,
+  components,
+  DropdownIndicatorProps,
+  InputActionMeta,
+  MultiValue,
+  ActionMeta,
+} from 'react-select'
 import CreatableSelect from 'react-select/creatable'
 import { colourOptions, ColourOption } from './data'
 import { AiOutlinePlus } from 'react-icons/ai'
@@ -9,6 +16,7 @@ import { useGetProject } from '@hooks/useGetProject'
 import { useGetTaskTags } from '@hooks/useGetTaskTags'
 import { useSelector } from 'react-redux'
 import { RootState } from 'src/store'
+import { removeTagFromTask } from '@helpers/removeTagFromTask'
 
 const DropdownIndicator = (props: DropdownIndicatorProps<ColourOption, true>) => {
   return (
@@ -80,15 +88,16 @@ const Tags = () => {
   const { project } = useGetProject()
   const selectedTaskId = useSelector((state: RootState) => state.selectedTaskId.value)
 
-  const handleOnChange = (inputValue: string, { action, prevInputValue }: InputActionMeta) => {
-    const lastValue: any = Object.values(inputValue).pop()
-
-    if (action === 'select-option') {
-      createNewTag(user, project[0], lastValue, selectedTaskId)
+  const handleOnChange = (
+    newValue: MultiValue<ColourOption>,
+    actionMeta: ActionMeta<ColourOption>,
+  ) => {
+    if (actionMeta.action === 'select-option') {
+      // createNewTag(user, project[0], actionMeta.option, selectedTaskId)
     }
 
-    if (action === 'remove-value') {
-      console.log(action)
+    if (actionMeta.action === 'remove-value') {
+      // removeTagFromTask(user, actionMeta.removedValue, selectedTaskId)
     }
   }
 
@@ -96,8 +105,8 @@ const Tags = () => {
     <CreatableSelect
       isMulti
       components={{ DropdownIndicator }}
-      defaultValue={colourOptions[0]}
-      options={colourOptions}
+      // defaultValue={colourOptions[0]}
+      options={tags}
       isClearable={false}
       placeholder='Add tag'
       styles={colourStyles}
@@ -107,3 +116,4 @@ const Tags = () => {
 }
 
 export default Tags
+// inpgress hendacmente
