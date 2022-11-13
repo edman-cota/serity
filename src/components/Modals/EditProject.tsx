@@ -52,21 +52,23 @@ const EditProject = ({ name, id, emoji }: Props) => {
     }
   }
 
+  console.log(isOpen)
+
   return (
     <>
-      <MenuItem icon={<FiEdit />} onClick={onOpen}>
+      <MenuItem as={Button} icon={<FiEdit />} onClick={onOpen}>
         <FormattedMessage id='edit' />
       </MenuItem>
 
       <DarkMode>
-        <Modal onClose={onClose} isOpen={isOpen} motionPreset='slideInBottom'>
+        <Modal isOpen={isOpen} onClose={onClose} motionPreset='slideInBottom'>
           <ModalOverlay />
           <ModalContent maxW='450px' minH='360px'>
             <ModalHeader fontSize='17px' color='white'>
               <FormattedMessage id='edit_project' />
             </ModalHeader>
 
-            <ModalBody>
+            {/* <ModalBody>
               <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
                 <Input autoComplete='off' autoFocus {...register('name', { required: true })} />
               </form>
@@ -85,7 +87,7 @@ const EditProject = ({ name, id, emoji }: Props) => {
               <Button type='submit' variant='submit'>
                 <FormattedMessage id='save' />
               </Button>
-            </ModalFooter>
+            </ModalFooter> */}
           </ModalContent>
         </Modal>
       </DarkMode>

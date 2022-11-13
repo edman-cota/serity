@@ -5,21 +5,24 @@ import InputTaskTitle from '../Item/InputTaskTitle'
 import QuickOptions from '../RenderDate/QuickOptions'
 import Description from './Description'
 import { RootState } from 'src/store'
+import Tags from './Tags'
 
 const DetailTab = () => {
   const task = useSelector((state: RootState) => state.task.value)
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   return (
-    <VStack h='100%' px='20px'>
+    <VStack h='100%' px='20px' justifyContent='start'>
       <InputTaskTitle content={task.content} id={task.id} projectId={workingProject.id} />
-      <br />
-      <Description
+      {/* <br /> */}
+      {/* <Description
         description={task.description}
         title={task.content}
         id={task.id}
         projectId={workingProject.id}
-      />
+      /> */}
+      {/* <br /> */}
+      <Tags />
       <br />
       <QuickOptions task={task} />
     </VStack>

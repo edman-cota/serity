@@ -1,6 +1,6 @@
 import database from '../firebase'
 import { Status } from '../types/definitions'
-import { ProjectProps } from '../types/project.model'
+import { Project } from '../types/project.model'
 
 export const createNewProject = (name: string, user: any, emoji: any) => {
   const currentDate = new Date()
@@ -10,7 +10,7 @@ export const createNewProject = (name: string, user: any, emoji: any) => {
   const newProjectRef = projectRef.push()
 
   if (newProjectRef.key !== null && user?.uid !== undefined) {
-    const project: ProjectProps = {
+    const project: Project = {
       id: newProjectRef.key,
       name: name.trim(),
       emoji: emoji,

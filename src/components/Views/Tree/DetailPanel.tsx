@@ -9,8 +9,6 @@ import { useSplitSizes } from '@hooks/useSplitSizes'
 
 const DetailPanel = () => {
   const { colorMode } = useColorMode()
-  const task = useSelector((state: RootState) => state.task.value)
-  const selectedTaskId = useSelector((state: RootState) => state.selectedTaskId.value)
   const isTaskActivityVisible = useSelector((state: RootState) => state.isTaskActivityVisible.value)
   const isOpen = useSelector((state: RootState) => state.isOpen.value)
 
@@ -18,7 +16,7 @@ const DetailPanel = () => {
 
   const styles = {
     height: '100vh',
-    position: 'relative',
+    position: 'static',
     display: isOpen ? paneDisplay.at(1) : paneDisplay.at(0),
     width: isOpen ? `${sizes.at(1)}%` : '0%',
     backgroundColor: colorMode === 'dark' ? 'var(--gray-700)' : '#FFFFFF',

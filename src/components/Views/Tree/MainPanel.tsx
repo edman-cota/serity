@@ -7,10 +7,10 @@ import Navbar from '../../Navbar/Navbar'
 import { useSplitSizes } from '@hooks/useSplitSizes'
 
 const MainPanel = () => {
+  const isOpen = useSelector((state: RootState) => state.isOpen.value)
   const { sizes, paneDisplay } = useSplitSizes()
-  const selectedTaskId = useSelector((state: RootState) => state.selectedTaskId.value)
-  const display = selectedTaskId !== '' ? paneDisplay.at(0) : paneDisplay.at(1)
-  const widths = selectedTaskId !== '' ? `${sizes.at(0)}%` : '100%'
+  const display = isOpen ? paneDisplay.at(0) : paneDisplay.at(1)
+  const widths = isOpen ? `${sizes.at(0)}%` : '100%'
 
   return (
     <VStack w={widths} display={display}>

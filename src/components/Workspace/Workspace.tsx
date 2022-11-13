@@ -11,6 +11,7 @@ import { formatUrl } from '@helpers/formatter'
 import { formatUsername } from '@helpers/formatter'
 import { Project } from '../../types/project.model'
 import { useGetProjects } from '@hooks/useGetProjects'
+import { setIsOpen } from '@features/counter/onToggleSlice'
 import { setActiveIndex } from '@features/counter/activeIndexSlice'
 import { setShowAddTask } from '@features/counter/showAddTaskSlice'
 import { setWorkingProject } from '@features/counter/workingProjectSlice'
@@ -32,6 +33,7 @@ const Workspace = () => {
     dispatch(setSelectedTaskId(''))
     dispatch(setActiveIndex(-1))
     dispatch(setShowAddTask(false))
+    dispatch(setIsOpen(false))
   }
 
   return (
