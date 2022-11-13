@@ -13,9 +13,9 @@ export const colourOptions: readonly ColourOption[] = [
   { value: 'bug', label: 'Bug', color: '#FF8B00' },
   { value: 'wont do', label: 'Wont do', color: '#253858' },
   { value: 'completed', label: 'Completed', color: '#0052CC' },
+  { value: 'feature', label: 'Feature', color: '#36B37E' },
   // { value: 'red', label: 'Red', color: '#FF5630' },
-  // { value: 'yellow', label: 'Yellow', color: '#FFC400' },
-  // { value: 'green', label: 'Green', color: '#36B37E' },
+  // { value: 'green', label: 'Green', color: '#FFC400' },
   // { value: 'silver', label: 'Silver', color: '#666666' },
 ]
 

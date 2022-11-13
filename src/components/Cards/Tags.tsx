@@ -5,8 +5,9 @@ import {
   InputActionMeta,
   MultiValue,
   ActionMeta,
+  OptionProps,
 } from 'react-select'
-import CreatableSelect from 'react-select/creatable'
+import Select from 'react-select'
 import { colourOptions, ColourOption } from './data'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { createNewTag } from '@helpers/createNewTag'
@@ -23,6 +24,14 @@ const DropdownIndicator = (props: DropdownIndicatorProps<ColourOption, true>) =>
     <components.DropdownIndicator {...props}>
       <AiOutlinePlus color='white' />
     </components.DropdownIndicator>
+  )
+}
+
+const Option = (props: OptionProps<ColourOption>) => {
+  return (
+    <div style={{ width: '100%' }}>
+      <components.Option {...props} />
+    </div>
   )
 }
 
@@ -48,11 +57,23 @@ const colourStyles: StylesConfig<ColourOption, true> = {
     return {
       ...styles,
       backgroundColor: data.color,
+      width: 'max-content',
+      borderRadius: '4px',
+      padding: '4px 30px',
+      margin: '10px 30px',
+      ':hover': {
+        cursor: 'pointer',
+      },
     }
   },
   multiValue: (styles, { data }) => ({
     ...styles,
     backgroundColor: data.color,
+    borderRadius: '4px',
+    marginRight: '4px',
+    ':hover': {
+      cursor: 'pointer',
+    },
   }),
   multiValueLabel: (styles) => ({
     ...styles,
@@ -68,6 +89,7 @@ const colourStyles: StylesConfig<ColourOption, true> = {
   menu: (provided) => ({
     ...provided,
     backgroundColor: 'black',
+    width: 'max-content',
   }),
   indicatorSeparator: (styles) => ({
     ...styles,
@@ -102,9 +124,10 @@ const Tags = () => {
   }
 
   return (
-    <CreatableSelect
+    <Select
       isMulti
-      components={{ DropdownIndicator }}
+      closeMenuOnSelect={false}
+      components={{ DropdownIndicator, Option }}
       // defaultValue={colourOptions[0]}
       options={tags}
       isClearable={false}
