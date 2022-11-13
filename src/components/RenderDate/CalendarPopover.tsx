@@ -10,10 +10,11 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css' // more from DetailTab.scss
+import 'react-calendar/dist/Calendar.css' // more from ReactCalendar.scss
 import { useSelector } from 'react-redux'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
+import './ReactCalendar.scss'
 import { auth } from '../../firebase'
 import TopOptions from './TopOptions'
 import { RootState } from 'src/store'
