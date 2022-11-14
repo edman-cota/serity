@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { useColorModeValue, VStack } from '@chakra-ui/react'
+import { Slide, useColorModeValue, VStack } from '@chakra-ui/react'
 
 import Footer from './Footer'
 import Header from './Header'
@@ -14,18 +14,18 @@ const Sidebar = () => {
   const sidebarBackground = useColorModeValue('gray.100', 'gray.700')
 
   return (
-    <VStack
-      w='300px'
-      h='100vh'
-      pos='fixed'
-      top={0}
-      left={0}
-      background={sidebarBackground}
-      style={{ display }}
+    <Slide
+      in={isSidebarOpen}
+      unmountOnExit
+      position='static'
+      direction='left'
+      style={{ width: '300px' }}
     >
-      <Header />
-      <Workspace />
-    </VStack>
+      <VStack w='300px' h='100vh' pos='fixed' background={sidebarBackground}>
+        <Header />
+        <Workspace />
+      </VStack>
+    </Slide>
   )
 }
 
