@@ -80,7 +80,9 @@ const MoveToMenuItemModal = () => {
             <br />
             <Select placeholder='Select an existing project' onChange={handleOnChange}>
               {projects.map((project) => (
-                <option value={project.id}>{project.name}</option>
+                <option key={project.id} value={project.id}>
+                  {project.name}
+                </option>
               ))}
             </Select>
           </ModalBody>

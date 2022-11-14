@@ -55,7 +55,7 @@ const CreateTagModal = () => {
         <ModalOverlay />
         <ModalContent maxW='450px' minH='300px'>
           <ModalHeader fontSize='17px'>
-            <FormattedMessage id='Add tag' />
+            <FormattedMessage id='add_tag' />
           </ModalHeader>
 
           <ModalBody>

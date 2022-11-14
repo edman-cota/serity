@@ -31,6 +31,7 @@ export const messages = {
     workspace: 'WORKSPACE',
     create_project: 'Create project',
     create_tag: 'Create tag',
+    add_tag: 'Add tag',
     create: 'Create',
     cancel: 'Cancel',
     copy: 'Copy',
@@ -109,7 +110,7 @@ export const messages = {
     invite: 'Invitar',
     generate_a_join_link: 'Generate a join link',
     transfer: 'Transfer',
-    transfer_task: 'Transferir task',
+    transfer_task: 'Transfer task',
 
     // Modals -> Keyboard Shortcuts
     keyboard_shortcuts: 'Keyboard Shortcuts',
@@ -148,6 +149,7 @@ export const messages = {
     workspace: 'ESPACIO DE TRABAJO',
     create_project: 'Crear proyecto',
     create_tag: 'Crear etiqueta',
+    add_tag: 'Agregar etiqueta',
     create: 'Crear',
     cancel: 'Cancelar',
     copy: 'Copiar',
@@ -228,7 +230,7 @@ export const messages = {
     invite: 'Invitar',
     generate_a_join_link: 'Generar un enlace de unión',
     transfer: 'Transferir',
-    transfer_task: 'Transferrir tarea',
+    transfer_task: 'Transferir tarea',
     // Modals -> Keyboard Shortcuts
     keyboard_shortcuts: 'Atajos de teclado',
     general: 'General',
