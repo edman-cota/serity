@@ -39,6 +39,7 @@ const CreateTagModal = () => {
     if (status === Status.SUCCESS) {
       onClose()
       resetField('name')
+      setColor('#f44336')
     }
   }
 
