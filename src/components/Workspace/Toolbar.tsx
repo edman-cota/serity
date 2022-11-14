@@ -4,6 +4,7 @@ import { Button, Flex, Text } from '@chakra-ui/react'
 import { setIsListOpen } from '@features/counter/onToggleListsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'src/store'
+import CreateProjectModalTrigger from '@components/Modals/CreateProject'
 
 interface Props {
   title: string
@@ -29,9 +30,7 @@ const Toolbar = ({ title }: Props) => {
         </Text>
       </Flex>
       <Flex alignItems='center' visibility='hidden' _groupHover={{ visibility: 'visible' }}>
-        <Button h='2rem' w='2rem' p='0px'>
-          <AiOutlinePlus />
-        </Button>
+        <CreateProjectModalTrigger />
         <Button h='2rem' w='2rem' p='0px' onClick={() => dispatch(setIsListOpen(!isListOpen))}>
           {isListOpen ? <HiOutlineChevronDown /> : <HiOutlineChevronLeft />}
         </Button>

@@ -10,7 +10,7 @@ import {
 import Select from 'react-select'
 import { colourOptions, ColourOption } from './data'
 import { AiOutlinePlus } from 'react-icons/ai'
-import { createNewTag } from '@helpers/createNewTag'
+import { addTagToTask } from '@helpers/addTagToTask'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import database, { auth } from '../../firebase'
 import { useGetProject } from '@hooks/useGetProject'
@@ -115,7 +115,7 @@ const Tags = () => {
     actionMeta: ActionMeta<ColourOption>,
   ) => {
     if (actionMeta.action === 'select-option') {
-      // createNewTag(user, project[0], actionMeta.option, selectedTaskId)
+      // addTagToTask(user, project[0], actionMeta.option, selectedTaskId)
     }
 
     if (actionMeta.action === 'remove-value') {

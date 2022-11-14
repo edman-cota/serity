@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { HiOutlineChevronDown, HiOutlineChevronLeft } from 'react-icons/hi'
 
 import { RootState } from 'src/store'
-import { setIsListOpen } from '@features/counter/onToggleListsSlice'
+import CreateTagModalTrigger from '@components/Modals/CreateTagModal'
 import { setIsTagOpen } from '@features/counter/onToggleTagsSlice'
 
 const TagsToolbar = () => {
@@ -27,9 +27,7 @@ const TagsToolbar = () => {
         </Text>
       </Flex>
       <Flex alignItems='center' visibility='hidden' _groupHover={{ visibility: 'visible' }}>
-        <Button h='2rem' w='2rem' p='0px'>
-          <AiOutlinePlus />
-        </Button>
+        <CreateTagModalTrigger />
         <Button h='2rem' w='2rem' p='0px' onClick={() => dispatch(setIsTagOpen(!isTagOpen))}>
           {isTagOpen ? <HiOutlineChevronDown /> : <HiOutlineChevronLeft />}
         </Button>

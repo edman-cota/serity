@@ -16,7 +16,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from 'src/store'
 import { setEmoji } from '@features/counter/emojiSlice'
 
-const ChooseIconModal = () => {
+const EmojiPicker = () => {
   const dispatch = useDispatch()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const emoji = useSelector((state: RootState) => state.emoji.value)
@@ -53,4 +53,4 @@ const ChooseIconModal = () => {
   )
 }
 
-export default ChooseIconModal
+export default EmojiPicker

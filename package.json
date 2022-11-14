@@ -29,6 +29,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-calendar": "^3.9.0",
+    "react-color": "^2.19.3",
     "react-copy-to-clipboard": "^5.0.4",
     "react-datepicker": "^4.4.0",
     "react-dom": "^18.0.0",
@@ -53,6 +54,7 @@
   "devDependencies": {
     "@types/react": "^18.0.21",
     "@types/react-calendar": "^3.5.3",
+    "@types/react-color": "^3.0.6",
     "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-dom": "^18.0.6",
     "@types/react-redux": "^7.1.22",

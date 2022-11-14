@@ -20,7 +20,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../firebase'
 import { RootState } from 'src/store'
-import EmojiPicker from './EmojiPicker'
+import EmojiPicker from '../Menus/EmojiPicker'
 import { editProject } from '@helpers/editProject'
 import { setEmoji } from '@features/counter/emojiSlice'
 

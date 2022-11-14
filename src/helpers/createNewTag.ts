@@ -1,30 +1,21 @@
 import database from '../firebase'
+import { Status } from '../types/definitions'
 
-export function createNewTag(user: any, project: any, tag: any, selectedTaskId: string) {
+export function createNewTag(user: any, tag: any, color: string) {
   const tagRef = database.ref(`${user?.uid}/tags`)
   const newTagRef = tagRef.push()
   newTagRef
     .set({
       id: newTagRef.key,
-      label: tag.label,
-      value: tag.value,
-      color: tag.color,
-      project: project.id,
+      label: tag,
+      value: tag.toLowerCase(),
+      color: color,
+      project: '',
       global: true,
       createdAt: new Date().toISOString(),
       createdBy: user?.uid,
     })
-    .then(() => {
-      // Append the new tag to the task that will belongs to
-      const newRef = database.ref(`${user?.uid}/tasks/${selectedTaskId}/tags`)
-      newRef.transaction((currentArray) => {
-        if (currentArray === null) {
-          return { 0: newTagRef.key }
-        }
-        currentArray.push(newTagRef.key)
-        return currentArray
-      })
-    })
-
-  // TODO add activity for tag creation
+    .then(() => Status.SUCCESS)
+    .catch(() => Status.ERROR)
+  return Status.SUCCESS
 }

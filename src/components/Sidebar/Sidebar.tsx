@@ -25,7 +25,6 @@ const Sidebar = () => {
     >
       <Header />
       <Workspace />
-      <Footer />
     </VStack>
   )
 }

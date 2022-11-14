@@ -8,28 +8,33 @@ import {
   Button,
   Input,
   ModalFooter,
+  Text,
+  Flex,
 } from '@chakra-ui/react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useSelector } from 'react-redux'
 import { Tooltip } from '@serity-ui/react'
 import { FormattedMessage } from 'react-intl'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../firebase'
-import { RootState } from 'src/store'
-import EmojiPicker from '../Menus/EmojiPicker'
-import { createNewProject } from '@helpers/createNewProject'
 import { Status } from '../../types/definitions'
+import ColorPicker from '@components/Menus/ColorPicker'
+import { createNewTag } from '@helpers/createNewTag'
 
-const CreateProject = () => {
+const CreateTagModal = () => {
   const [user] = useAuthState(auth)
+  const [color, setColor] = useState('#f44336')
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { register, resetField, handleSubmit } = useForm({ mode: 'onChange' })
-  const emoji = useSelector((state: RootState) => state.emoji.value)
+
+  const handleChildProps = (color: string) => {
+    setColor(color)
+  }
 
   const onSubmit = (data: any) => {
-    const status = createNewProject(data.name, user, emoji)
+    const status = createNewTag(user, data.name, color)
 
     if (status === Status.SUCCESS) {
       onClose()
@@ -39,7 +44,7 @@ const CreateProject = () => {
 
   return (
     <>
-      <Tooltip label={<FormattedMessage id='create_project' />}>
+      <Tooltip label={<FormattedMessage id='create_tag' />}>
         <Button onClick={onOpen} h='2rem' w='2rem' p='0px'>
           <AiOutlinePlus />
         </Button>
@@ -47,9 +52,9 @@ const CreateProject = () => {
 
       <Modal isOpen={isOpen} onClose={onClose} motionPreset='slideInBottom'>
         <ModalOverlay />
-        <ModalContent maxW='450px' minH='360px'>
+        <ModalContent maxW='450px' minH='300px'>
           <ModalHeader fontSize='17px'>
-            <FormattedMessage id='create_project' />
+            <FormattedMessage id='Add tag' />
           </ModalHeader>
 
           <ModalBody>
@@ -58,11 +63,14 @@ const CreateProject = () => {
                 autoFocus
                 autoComplete='off'
                 spellCheck='false'
-                placeholder='Give your new project a name'
+                placeholder='Name'
                 {...register('name', { required: true })}
               />
             </form>
-            <EmojiPicker />
+            <Flex mt='30px'>
+              <Text pr='20px'>Color</Text>
+              <ColorPicker propsToParent={handleChildProps} />
+            </Flex>
           </ModalBody>
 
           <ModalFooter justifyContent='space-between'>
@@ -85,4 +93,4 @@ const CreateProject = () => {
   )
 }
 
-export default CreateProject
+export default CreateTagModal
