@@ -17,11 +17,15 @@ import { setShowAddTask } from '@features/counter/showAddTaskSlice'
 import { setWorkingProject } from '@features/counter/workingProjectSlice'
 import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 import { RootState } from 'src/store'
+import { useGetTaskTags } from '@hooks/useGetTaskTags'
+import TagsToolbar from './TagsToolbar'
 
 const Workspace = () => {
   const dispatch = useDispatch()
   const [user] = useAuthState(auth)
+  const { tags } = useGetTaskTags()
   const { projects } = useGetProjects()
+  const isTagOpen = useSelector((state: RootState) => state.isTagOpen.value)
   const isListOpen = useSelector((state: RootState) => state.isListOpen.value)
 
   const username = formatUsername(user?.email)
@@ -41,7 +45,7 @@ const Workspace = () => {
   return (
     <VStack w='100%' h='calc(100vh - 160px)' pt='30px'>
       <VStack alignItems='center' position='relative' w='100%'>
-        <Toolbar />
+        <Toolbar title='Projects' />
         <Collapse in={isListOpen} animateOpacity style={{ width: '100%' }}>
           <nav>
             <List w='90%' mx='auto'>
@@ -58,6 +62,25 @@ const Workspace = () => {
                     <Text onClick={() => navigateTo(project)} className='sidebar-item-project'>
                       {project?.name}
                     </Text>
+                  </NavLink>
+                </ListItem>
+              ))}
+            </List>
+          </nav>
+        </Collapse>
+        <TagsToolbar />
+        <Collapse in={isTagOpen} animateOpacity style={{ width: '100%' }}>
+          <nav>
+            <List w='90%' mx='auto'>
+              {tags?.map((tag) => (
+                <ListItem key={tag.id} color='hsla(0,0%,100%,.87)'>
+                  <NavLink
+                    key={tag.id}
+                    to={`/${username}/${formatUrl(tag?.label)}`}
+                    className={({ isActive }) => (isActive ? 'i-active' : 'i-link')}
+                  >
+                    <Text w='15px' h='13px' mx='10px' bg={tag?.color} borderRadius='full'></Text>
+                    <Text className='sidebar-item-project'>{tag?.label}</Text>
                   </NavLink>
                 </ListItem>
               ))}

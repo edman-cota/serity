@@ -1,6 +1,5 @@
 .sidebar-item {
   width: 100%;
-  height: 38px;
   padding: 0px 16px;
   cursor: pointer;
   display: flex;
@@ -9,11 +8,12 @@
 }
 
 .i-active {
-  background-color: #1a202c !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
   color: white !important;
   cursor: pointer;
   display: flex;
   width: 100%;
+  border-radius: 0.375rem !important;
   border-radius: 4px 0px 0px 4px;
   align-items: center;
   padding-left: 10px;
@@ -46,7 +46,8 @@
   padding-left: 10px;
 
   &:hover {
-    background-color: #1a202c !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 0.375rem !important;
     .menu-botton-more-icon {
       display: flex !important;
       transition: '4s';
@@ -58,7 +59,7 @@
 }
 
 .sidebar-item-project {
-  height: 38px;
+  height: 36px;
   width: 100%;
   display: flex;
   border-radius: 6px;
@@ -68,24 +69,6 @@
   position: relative;
   font-size: 15px;
   color: hsla(0, 0%, 100%, 0.87) !important;
-}
-
-.sidebar-item-nav {
-  height: 38px;
-  width: 100%;
-  display: flex;
-  border-radius: 6px;
-  align-items: center;
-  padding: 0px 16px;
-  position: relative;
-  font-size: 15px;
-
-  span {
-    position: absolute;
-    z-index: 1000;
-    right: 10px;
-    cursor: pointer;
-  }
 }
 
 .active-task-count {

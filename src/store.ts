@@ -14,6 +14,7 @@ import taskActivityReducer from './features/counter/taskActivitySlice'
 import expandedSliceReducer from './features/counter/expandedSlice'
 import onToggleSliceReducer from '@features/counter/onToggleSlice'
 import onToggleListsReducer from '@features/counter/onToggleListsSlice'
+import onToggleTagsReducer from '@features/counter/onToggleTagsSlice'
 
 export const store = configureStore({
   reducer: {
@@ -31,6 +32,7 @@ export const store = configureStore({
     isExpanded: expandedSliceReducer,
     isOpen: onToggleSliceReducer,
     isListOpen: onToggleListsReducer,
+    isTagOpen: onToggleTagsReducer,
   },
 })
 

@@ -1,17 +1,15 @@
 import { AiOutlinePlus } from 'react-icons/ai'
-import { HiOutlineChevronDown, HiOutlineChevronLeft } from 'react-icons/hi'
 import { Button, Flex, Text } from '@chakra-ui/react'
-import { setIsListOpen } from '@features/counter/onToggleListsSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { HiOutlineChevronDown, HiOutlineChevronLeft } from 'react-icons/hi'
+
 import { RootState } from 'src/store'
+import { setIsListOpen } from '@features/counter/onToggleListsSlice'
+import { setIsTagOpen } from '@features/counter/onToggleTagsSlice'
 
-interface Props {
-  title: string
-}
-
-const Toolbar = ({ title }: Props) => {
+const TagsToolbar = () => {
   const dispatch = useDispatch()
-  const isListOpen = useSelector((state: RootState) => state.isListOpen.value)
+  const isTagOpen = useSelector((state: RootState) => state.isTagOpen.value)
 
   return (
     <Flex
@@ -25,19 +23,19 @@ const Toolbar = ({ title }: Props) => {
     >
       <Flex alignItems='center'>
         <Text color='rgba(255, 255, 255, 0.6)' fontSize='15px' fontWeight='medium'>
-          {title}
+          Tags
         </Text>
       </Flex>
       <Flex alignItems='center' visibility='hidden' _groupHover={{ visibility: 'visible' }}>
         <Button h='2rem' w='2rem' p='0px'>
           <AiOutlinePlus />
         </Button>
-        <Button h='2rem' w='2rem' p='0px' onClick={() => dispatch(setIsListOpen(!isListOpen))}>
-          {isListOpen ? <HiOutlineChevronDown /> : <HiOutlineChevronLeft />}
+        <Button h='2rem' w='2rem' p='0px' onClick={() => dispatch(setIsTagOpen(!isTagOpen))}>
+          {isTagOpen ? <HiOutlineChevronDown /> : <HiOutlineChevronLeft />}
         </Button>
       </Flex>
     </Flex>
   )
 }
 
-export default Toolbar
+export default TagsToolbar
