@@ -62,6 +62,9 @@ const Workspace = () => {
                     <Text onClick={() => navigateTo(project)} className='sidebar-item-project'>
                       {project?.name}
                     </Text>
+                    <Text color='#777' fontSize='12px' px='10px'>
+                      {project?.activeCount >= 1 ? project?.activeCount : null}
+                    </Text>
                   </NavLink>
                 </ListItem>
               ))}
