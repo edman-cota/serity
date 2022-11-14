@@ -108,6 +108,8 @@ export const messages = {
     // Modals
     invite: 'Invitar',
     generate_a_join_link: 'Generate a join link',
+    transfer: 'Transfer',
+    transfer_task: 'Transferir task',
 
     // Modals -> Keyboard Shortcuts
     keyboard_shortcuts: 'Keyboard Shortcuts',
@@ -225,7 +227,8 @@ export const messages = {
     // Modals
     invite: 'Invitar',
     generate_a_join_link: 'Generar un enlace de unión',
-
+    transfer: 'Transferir',
+    transfer_task: 'Transferrir tarea',
     // Modals -> Keyboard Shortcuts
     keyboard_shortcuts: 'Atajos de teclado',
     general: 'General',
