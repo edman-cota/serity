@@ -3,7 +3,6 @@ import Routing from '@routes/index'
 import { IntlProvider } from 'react-intl'
 import { ChakraProvider, Flex } from '@chakra-ui/react'
 
-import './App.css'
 import theme from '@theme/index'
 import { LOCALES } from '@i18n/locales'
 import { messages } from '@i18n/messages'

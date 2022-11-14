@@ -1,10 +1,12 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react'
 import PropTypes from 'prop-types'
 import { Flex, Text } from '@chakra-ui/react'
 import { BsCheck2 } from 'react-icons/bs'
 
-const Update = ({ data }) => (
+interface Props {
+  data: any
+}
+
+const Update = ({ data }: Props) => (
   <div className='timeline-item'>
     <Flex alignItems='center' w='100%'>
       <Text className='time' bg='#36B37E'>
@@ -19,7 +21,7 @@ const Update = ({ data }) => (
           </p>
           {data.isLatest ? <p className='latest'>LATEST</p> : null}
         </div>
-        {data.lessons.map((lesson) => (
+        {data.lessons.map((lesson: any) => (
           <p key={lesson.id} className='text'>
             -{lesson}
           </p>
@@ -28,13 +30,5 @@ const Update = ({ data }) => (
     </Flex>
   </div>
 )
-
-Update.propTypes = {
-  data: PropTypes.element,
-}
-
-Update.defaultProps = {
-  data: {},
-}
 
 export default Update

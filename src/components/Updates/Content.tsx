@@ -4,9 +4,10 @@ import updates from './data'
 import Update from './Update'
 import '../Timeline/Activities.scss'
 import '../Timeline/Activity.scss'
+import { RootState } from 'src/store'
 
 const Content = () => {
-  const isSidebarOpen = useSelector((state) => state.isSidebarOpen.value)
+  const isSidebarOpen = useSelector((state: RootState) => state.isSidebarOpen.value)
 
   const margin = isSidebarOpen ? '320px' : '0px'
 

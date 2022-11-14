@@ -1,5 +1,4 @@
 import {
-  Flex,
   Text,
   HStack,
   VStack,
@@ -9,8 +8,8 @@ import {
 } from '@chakra-ui/react'
 import { motion, AnimatePresence, isValidMotionProp } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
-import { useGetAchievement } from '../../hooks/useGetAchievement'
-import { calculatePercentage } from '../../helpers/calculatePercentage'
+import { useGetAchievement } from '@hooks/useGetAchievement'
+import { calculatePercentage } from '@helpers/calculatePercentage'
 
 const MotionFlex = chakra(motion.div, {
   /**
