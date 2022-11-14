@@ -23,6 +23,7 @@ import { useGetProjects } from '@hooks/useGetProjects'
 import { MdOutlineDriveFileMove } from 'react-icons/md'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useGetTask } from '@hooks/useGetTask'
+import { useGetProject } from '@hooks/useGetProject'
 import { setIsOpen } from '@features/counter/onToggleSlice'
 
 const MoveToMenuItemModal = () => {
@@ -31,29 +32,36 @@ const MoveToMenuItemModal = () => {
   const toast = useToast()
   const dispatch = useDispatch()
   const { projects } = useGetProjects()
-  const [newProject, setNewProject] = useState('')
+  const { project } = useGetProject()
+  const [newId, setNewId] = useState('')
+  const [newActive, setNewActive] = useState<number>(0)
+  const [newCount, setNewCount] = useState<number>(0)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const handleOnChange = (e: any) => {
-    setNewProject(e.target.value)
+    const [id, active, count] = e.target.value.split('|')
+    setNewId(id)
+    setNewActive(active)
+    setNewCount(count)
   }
 
   const handleOnClick = () => {
-    if (newProject === '') {
+    if (newId === '') {
       return
     }
-    const status = transferTask(user, task[0], newProject)
+    const status = transferTask(user, task[0], project[0], newId, newActive, newCount)
     if (status === 'success') {
       onClose()
       dispatch(setIsOpen(false))
-      setNewProject('')
+      setNewId('')
+      setNewActive(0)
+      setNewCount(0)
       toast({
         description: 'Task transferred successfully',
         status: 'success',
         variant: 'subtle',
       })
     }
-
     if (status === 'error') {
       toast({
         description: 'Failed to transfer task',
@@ -80,7 +88,10 @@ const MoveToMenuItemModal = () => {
             <br />
             <Select placeholder='Select an existing project' onChange={handleOnChange}>
               {projects.map((project) => (
-                <option key={project.id} value={project.id}>
+                <option
+                  key={project.id}
+                  value={`${project.id}|${project.activeCount}|${project.taskCount}`}
+                >
                   {project.name}
                 </option>
               ))}
@@ -94,7 +105,7 @@ const MoveToMenuItemModal = () => {
               type='submit'
               variant='submit'
               onClick={handleOnClick}
-              disabled={newProject === '' ? true : false}
+              disabled={newId === '' ? true : false}
             >
               <FormattedMessage id='transfer' />
             </Button>
