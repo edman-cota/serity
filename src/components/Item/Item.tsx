@@ -21,7 +21,7 @@ const Item = ({ task, index }: Props) => {
     <ListItem
       className={`tree-row`}
       borderRadius='base'
-      bg={index === activeIndex ? '#1f2733' : 'transparent'}
+      bg={index === activeIndex ? hover : 'transparent'}
       cursor='pointer'
       _hover={{ background: hover }}
       role='group'

@@ -18,6 +18,7 @@ import { useGetTaskTags } from '@hooks/useGetTaskTags'
 import { useSelector } from 'react-redux'
 import { RootState } from 'src/store'
 import { removeTagFromTask } from '@helpers/removeTagFromTask'
+import React from 'react'
 
 const DropdownIndicator = (props: DropdownIndicatorProps<ColourOption, true>) => {
   return (
@@ -42,7 +43,7 @@ const colourStyles: StylesConfig<ColourOption, true> = {
   }),
   control: (styles) => ({
     ...styles,
-    backgroundColor: '#1f2733',
+    backgroundColor: 'transparent',
     border: 'none',
     width: '100%',
     ':active': {
@@ -61,6 +62,8 @@ const colourStyles: StylesConfig<ColourOption, true> = {
       borderRadius: '4px',
       padding: '4px 30px',
       margin: '10px 30px',
+      color: 'white',
+
       ':hover': {
         cursor: 'pointer',
       },
