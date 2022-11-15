@@ -7,6 +7,7 @@ import { registerWithEmailAndPassword } from '../../firebase'
 import Header from '../Login/LoginHeader'
 import Footer from '../Login/Footer'
 import './index.scss'
+import React from 'react'
 
 const RegisterForm = () => {
   const {

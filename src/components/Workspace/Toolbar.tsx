@@ -1,6 +1,6 @@
 import { AiOutlinePlus } from 'react-icons/ai'
 import { HiOutlineChevronDown, HiOutlineChevronLeft } from 'react-icons/hi'
-import { Button, Flex, Text } from '@chakra-ui/react'
+import { Button, Flex, Text, useColorModeValue } from '@chakra-ui/react'
 import { setIsListOpen } from '@features/counter/onToggleListsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'src/store'
@@ -14,6 +14,8 @@ interface Props {
 const Toolbar = ({ title }: Props) => {
   const dispatch = useDispatch()
   const isListOpen = useSelector((state: RootState) => state.isListOpen.value)
+  const itemColor = useColorModeValue('rgba(0,0,0,0.56)', 'rgba(255, 255, 255, 0.6)')
+  const hoverBg = useColorModeValue('white', 'whiteAlpha.200')
 
   return (
     <Flex
@@ -23,10 +25,10 @@ const Toolbar = ({ title }: Props) => {
       py='4px'
       role='group'
       borderRadius='md'
-      _hover={{ bg: 'whiteAlpha.200' }}
+      _hover={{ bg: hoverBg }}
     >
       <Flex alignItems='center'>
-        <Text color='rgba(255, 255, 255, 0.6)' fontSize='15px' fontWeight='medium'>
+        <Text color={itemColor} fontSize='15px' fontWeight='medium'>
           {title}
         </Text>
       </Flex>

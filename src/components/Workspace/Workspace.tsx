@@ -1,10 +1,9 @@
-import { memo } from 'react'
+import React, { memo } from 'react'
+import { Link, List, Text, ListItem, VStack, Collapse, useColorModeValue } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink as RouterLink } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { List, Text, ListItem, VStack, Collapse } from '@chakra-ui/react'
 
-import '../Sidebar/Sidebar.scss'
 import Toolbar from './Toolbar'
 import { auth } from '../../firebase'
 import { formatUrl } from '@helpers/formatter'
@@ -30,6 +29,9 @@ const Workspace = () => {
 
   const username = formatUsername(user?.email)
 
+  const itemColor = useColorModeValue('#202020', 'hsla(0,0%,100%,.87)')
+  const hoverBg = useColorModeValue('white', 'whiteAlpha.200')
+
   const navigateTo = (project: Project) => {
     // Guarda localmente
     dispatch(setWorkingProject(project))
@@ -50,22 +52,40 @@ const Workspace = () => {
           <nav>
             <List w='90%' mx='auto'>
               {projects?.map((project) => (
-                <ListItem key={project.id} color='hsla(0,0%,100%,.87)'>
-                  <NavLink
+                <ListItem
+                  key={project.id}
+                  color={itemColor}
+                  borderRadius='md'
+                  _hover={{ bg: hoverBg }}
+                >
+                  <Link
+                    as={RouterLink}
                     key={project.id}
+                    display='flex'
+                    alignItems='center'
+                    pl='10px'
+                    style={{ textDecoration: 'none' }}
                     to={`/${username}/${formatUrl(project?.name)}`}
-                    className={({ isActive }) => (isActive ? 'i-active' : 'i-link')}
+                    _activeLink={{ bg: hoverBg, borderRadius: 'md' }}
                   >
                     <Text as='span' w='30px'>
                       {project?.emoji}
                     </Text>
-                    <Text onClick={() => navigateTo(project)} className='sidebar-item-project'>
+                    <Text
+                      onClick={() => navigateTo(project)}
+                      w='100%'
+                      h='36px'
+                      display='flex'
+                      alignItems='center'
+                      fontSize='15px'
+                      px='10px'
+                    >
                       {project?.name}
                     </Text>
                     <Text color='#777' fontSize='12px' px='10px'>
                       {project?.activeCount >= 1 ? project?.activeCount : null}
                     </Text>
-                  </NavLink>
+                  </Link>
                 </ListItem>
               ))}
             </List>
@@ -76,15 +96,30 @@ const Workspace = () => {
           <nav>
             <List w='90%' mx='auto'>
               {tags?.map((tag) => (
-                <ListItem key={tag.id} color='hsla(0,0%,100%,.87)'>
-                  <NavLink
+                <ListItem key={tag.id} color={itemColor} borderRadius='md' _hover={{ bg: hoverBg }}>
+                  <Link
+                    as={RouterLink}
                     key={tag.id}
+                    display='flex'
+                    alignItems='center'
+                    pl='10px'
+                    textDecoration='none'
+                    style={{ textDecoration: 'none' }}
                     to={`/${username}/${formatUrl(tag?.label)}`}
-                    className={({ isActive }) => (isActive ? 'i-active' : 'i-link')}
+                    _activeLink={{ bg: hoverBg, borderRadius: 'md' }}
                   >
                     <Text w='15px' h='13px' mx='10px' bg={tag?.color} borderRadius='full'></Text>
-                    <Text className='sidebar-item-project'>{tag?.label}</Text>
-                  </NavLink>
+                    <Text
+                      w='100%'
+                      h='36px'
+                      display='flex'
+                      alignItems='center'
+                      fontSize='15px'
+                      px='10px'
+                    >
+                      {tag?.label}
+                    </Text>
+                  </Link>
                 </ListItem>
               ))}
             </List>

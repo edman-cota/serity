@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { Flex, Text, Link, LightMode } from '@chakra-ui/react'
 import React from 'react'
+import { Flex, Text, Link, LightMode } from '@chakra-ui/react'
 import { FormattedMessage } from 'react-intl'
 import { Link as RouterLink } from 'react-router-dom'
 

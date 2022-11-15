@@ -1,4 +1,5 @@
 import { HStack, LightMode } from '@chakra-ui/react'
+import React from 'react'
 import RegisterForm from './RegisterForm'
 
 const Register = (): JSX.Element => (

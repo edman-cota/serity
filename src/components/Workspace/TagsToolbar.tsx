@@ -1,15 +1,18 @@
 import { AiOutlinePlus } from 'react-icons/ai'
-import { Button, Flex, Text } from '@chakra-ui/react'
+import { Button, Flex, Text, useColorModeValue } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { HiOutlineChevronDown, HiOutlineChevronLeft } from 'react-icons/hi'
 
 import { RootState } from 'src/store'
 import CreateTagModalTrigger from '@components/Modals/CreateTagModal'
 import { setIsTagOpen } from '@features/counter/onToggleTagsSlice'
+import React from 'react'
 
 const TagsToolbar = () => {
   const dispatch = useDispatch()
   const isTagOpen = useSelector((state: RootState) => state.isTagOpen.value)
+  const itemColor = useColorModeValue('rgba(0,0,0,0.56)', 'rgba(255, 255, 255, 0.6)')
+  const hoverBg = useColorModeValue('white', 'whiteAlpha.200')
 
   return (
     <Flex
@@ -19,10 +22,10 @@ const TagsToolbar = () => {
       py='4px'
       role='group'
       borderRadius='md'
-      _hover={{ bg: 'whiteAlpha.200' }}
+      _hover={{ bg: hoverBg }}
     >
       <Flex alignItems='center'>
-        <Text color='rgba(255, 255, 255, 0.6)' fontSize='15px' fontWeight='medium'>
+        <Text color={itemColor} fontSize='15px' fontWeight='medium'>
           Tags
         </Text>
       </Flex>
