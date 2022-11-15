@@ -59,11 +59,10 @@ const CalendarPopover = () => {
   return (
     <Popover closeOnBlur onClose={onClose} isOpen={isOpen}>
       <PopoverTrigger>
-        <Button onClick={onOpen}>
-          <Text as='span' pr='10px' lineHeight='20px'>
+        <Button onClick={onOpen} w='max-content' px='3rem'>
+          <Text as='span' px='12px'>
             <CalendarIcon due={task[0]?.due} />
           </Text>
-
           {task && task[0]?.due && <RenderDateText due={task[0]?.due} />}
         </Button>
       </PopoverTrigger>

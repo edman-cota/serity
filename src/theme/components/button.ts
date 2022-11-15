@@ -18,6 +18,9 @@ const baseStyle = defineStyle({
 
 const ghost = defineStyle({
   color: 'rgba(24, 29, 37, .6)',
+  h: '2rem',
+  w: '2rem',
+  p: '0px',
 
   _hover: {
     color: 'black',

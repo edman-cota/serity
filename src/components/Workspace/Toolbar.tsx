@@ -5,6 +5,7 @@ import { setIsListOpen } from '@features/counter/onToggleListsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'src/store'
 import CreateProjectModalTrigger from '@components/Modals/CreateProject'
+import React from 'react'
 
 interface Props {
   title: string

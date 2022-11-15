@@ -1,6 +1,7 @@
 import moment from 'moment'
 import { Text } from '@chakra-ui/react'
 import { FormattedMessage, FormattedDate } from 'react-intl'
+import React from 'react'
 
 // props = time in seconds
 const RenderDateText = ({ due }: { due: string }) => {
@@ -12,7 +13,7 @@ const RenderDateText = ({ due }: { due: string }) => {
   // BEFORE YESTERDAY
   if (todayDate - dateSaved > 86400000) {
     return (
-      <Text color='var(--yesterday)' fontSize='14px' fontWeight={400} pt='4px' visibility='visible'>
+      <Text color='var(--yesterday)' fontSize='14px' visibility='visible' px='10px'>
         <FormattedDate value={moment.unix(dueDate / 1000).toString()} month='short' day='2-digit' />
       </Text>
     )
@@ -21,7 +22,7 @@ const RenderDateText = ({ due }: { due: string }) => {
   // YESTERDAY
   if (todayDate - dateSaved === 86400000) {
     return (
-      <Text color='var(--yesterday)' fontSize='14px' fontWeight={400} visibility='visible'>
+      <Text color='var(--yesterday)' fontSize='14px' visibility='visible' pr='12px'>
         <FormattedMessage id='yesterday' />
       </Text>
     )
@@ -30,7 +31,7 @@ const RenderDateText = ({ due }: { due: string }) => {
   // TODAY
   if (todayDate === dateSaved) {
     return (
-      <Text fontSize='14px' visibility='visible' lineHeight='20px'>
+      <Text fontSize='14px' visibility='visible' pr='12px'>
         <FormattedMessage id='today' />
       </Text>
     )
@@ -39,7 +40,7 @@ const RenderDateText = ({ due }: { due: string }) => {
   // TOMORROW
   if (dateSaved - todayDate === 86400000) {
     return (
-      <Text color='var(--tomorrow)' fontSize='14px' fontWeight={400} visibility='visible'>
+      <Text color='var(--tomorrow)' fontSize='14px' visibility='visible' pr='12px'>
         <FormattedMessage id='tomorrow' />
       </Text>
     )
@@ -47,7 +48,7 @@ const RenderDateText = ({ due }: { due: string }) => {
 
   // AFTER TOMORROW
   return (
-    <Text color='var(--tomorrow)' fontSize='14px' fontWeight={400} visibility='visible'>
+    <Text color='var(--tomorrow)' fontSize='14px' visibility='visible' pr='12px'>
       <FormattedDate value={moment.unix(dueDate / 1000).toString()} month='short' day='2-digit' />
     </Text>
   )

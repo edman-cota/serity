@@ -5,11 +5,9 @@ import PriorityIcon from '../RenderPriority/PriorityIcon'
 import CalendarPopover from './CalendarPopover'
 
 const QuickOptions = () => (
-  <HStack w='100%'>
+  <HStack w='100%' gap='20px'>
     <CalendarPopover />
-    <Flex ml='20px'>
-      <PriorityIcon />
-    </Flex>
+    <PriorityIcon />
   </HStack>
 )
 

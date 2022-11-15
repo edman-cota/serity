@@ -11,6 +11,7 @@ import SearchModal from '../Modals/SearchModal'
 import ShortcutsModal from '../Modals/ShortcutsModal'
 import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
 import ToggleSidebarVisibility from './ToggleSidebarVisibility'
+import React from 'react'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -36,7 +37,7 @@ const Navbar = () => {
           </List>
         </Flex>
         <Flex flex='1' justifyContent='flex-end'>
-          <List display='flex' gap={{ base: '5px', md: '20px' }}>
+          <List display='flex' gap={{ base: '10px', md: '30px' }}>
             <ListItem>
               <NavItemAddTask />
             </ListItem>
