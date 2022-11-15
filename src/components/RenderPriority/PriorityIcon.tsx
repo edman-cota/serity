@@ -12,16 +12,19 @@ import RenderPriority from './RenderPriority'
 import { priorities } from '@helpers/priorities'
 import { Status } from '../../types/definitions'
 import { changeTaskPriority } from '@helpers/changeTaskPriority'
+import React from 'react'
+import { useGetTask } from '@hooks/useGetTask'
 
-const PriorityIcon = (props: any) => {
+const PriorityIcon = () => {
   const toast = useToast()
+  const { task } = useGetTask()
   const [user] = useAuthState(auth)
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   const updateTaskPriority = (priority: number) => {
-    if (priority === props.task?.priority) return
+    if (priority === task[0]?.priority) return
 
-    const result = changeTaskPriority(user, workingProject, props.task, priority)
+    const result = changeTaskPriority(user, workingProject, task[0], priority)
     if (result !== Status.SUCCESS) {
       toast({
         description: 'Failed to update priority',
@@ -34,7 +37,7 @@ const PriorityIcon = (props: any) => {
   return (
     <Menu autoSelect={false} placement='bottom' isLazy>
       <MenuButton as={Button}>
-        <RenderPriority priority={props.task?.priority} />
+        <RenderPriority priority={task[0]?.priority} />
       </MenuButton>
 
       <MenuList minW='150px'>

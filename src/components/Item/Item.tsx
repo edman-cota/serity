@@ -6,6 +6,7 @@ import ItemTitle from './ItemTitle'
 import { RootState } from 'src/store'
 import { Task } from '../../types/task.model'
 import RenderStatus from '../RenderStatus/RenderStatus'
+import React from 'react'
 
 interface Props {
   task: Task

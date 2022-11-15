@@ -16,10 +16,13 @@ import DropdownTaskOptions from '../Dropdown/DropdownTaskOptions'
 import { setActiveIndex } from '@features/counter/activeIndexSlice'
 import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 import { setTaskActivityVisibility } from '@features/counter/taskActivitySlice'
+import React from 'react'
+import { useGetTask } from '@hooks/useGetTask'
 
 const Navbar = () => {
-  const { width } = useWindowSize()
+  const { task } = useGetTask()
   const dispatch = useDispatch()
+  const { width } = useWindowSize()
   const isOpen = useSelector((state: RootState) => state.isOpen.value)
   const isExpanded = useSelector((state: RootState) => state.isExpanded.value)
   const isTaskActivityVisible = useSelector((state: RootState) => state.isTaskActivityVisible.value)
@@ -39,6 +42,8 @@ const Navbar = () => {
   const toggleTaskActivityVisibility = () => {
     dispatch(setTaskActivityVisibility(!isTaskActivityVisible))
   }
+
+  console.log('task: ', task)
 
   return (
     <Flex h='55px' w='100%' justifyContent='space-between' px='10px' my='10px' alignItems='center'>

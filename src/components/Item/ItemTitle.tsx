@@ -9,6 +9,7 @@ import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 import { setSidebarVisibility } from '@features/counter/sidebarVisibilitySlice'
 import { setTaskActivityVisibility } from '@features/counter/taskActivitySlice'
 import { setIsOpen } from '@features/counter/onToggleSlice'
+import React from 'react'
 
 interface Props {
   task: Task
@@ -33,12 +34,7 @@ const ItemTitle = ({ task, index }: Props) => {
   }
 
   return (
-    <Flex
-      flex={3}
-      h='100%'
-      alignItems='center'
-      onClick={() => onSelectItem(task.id || 'today', index)}
-    >
+    <Flex flex={3} h='100%' alignItems='center' onClick={() => onSelectItem(task.id, index)}>
       <Text className='text-item' color={color} fontSize='15px'>
         {task.content}
       </Text>

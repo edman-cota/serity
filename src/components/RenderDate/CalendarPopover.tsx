@@ -24,12 +24,10 @@ import { isSameDay } from '@helpers/isSameDay'
 import { isTomorrow } from '@helpers/isTomorrow'
 import { setDueDate } from '@helpers/setDueDate'
 import CalendarIcon from '../Icons/CalendarIcon'
+import { useGetTask } from '@hooks/useGetTask'
 
-interface Props {
-  task: any
-}
-
-const CalendarPopover = ({ task }: Props) => {
+const CalendarPopover = () => {
+  const { task } = useGetTask()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
   const [user] = useAuthState(auth)
@@ -38,19 +36,19 @@ const CalendarPopover = ({ task }: Props) => {
   const locale = localStorage.getItem('locale') || 'en-US'
 
   useEffect(() => {
-    setValue(task?.due && new Date(task?.due))
+    setValue(task[0]?.due && new Date(task[0]?.due))
   }, [task])
 
   const onChange = (e: any) => {
-    if (isToday(task?.due) && isToday(new Date(e).toISOString())) {
+    if (isToday(task[0]?.due) && isToday(new Date(e).toISOString())) {
       return
     }
 
-    if (isTomorrow(task?.due) && isTomorrow(new Date(e).toISOString())) {
+    if (isTomorrow(task[0]?.due) && isTomorrow(new Date(e).toISOString())) {
       return
     }
 
-    if (isSameDay(task.due, new Date(e).toISOString())) {
+    if (isSameDay(task[0]?.due, new Date(e).toISOString())) {
       return
     }
 
@@ -63,15 +61,15 @@ const CalendarPopover = ({ task }: Props) => {
       <PopoverTrigger>
         <Button onClick={onOpen}>
           <Text as='span' pr='10px' lineHeight='20px'>
-            <CalendarIcon due={task?.due} />
+            <CalendarIcon due={task[0]?.due} />
           </Text>
 
-          {task && task?.due && <RenderDateText due={task?.due} />}
+          {task && task[0]?.due && <RenderDateText due={task[0]?.due} />}
         </Button>
       </PopoverTrigger>
       <PopoverContent w='330px' bg='#0e1525' borderColor='#0e1525'>
         <PopoverBody p='0px' mx='auto'>
-          <TopOptions task={task} onClose={onClose} />
+          <TopOptions onClose={onClose} />
           <Flex>
             {task && (
               <Calendar

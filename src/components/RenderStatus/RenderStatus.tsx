@@ -13,6 +13,7 @@ import { setActiveIndex } from '@features/counter/activeIndexSlice'
 import { markStatusToCompleted } from '@helpers/markStatusToCompleted'
 import { markStatusToUncomplete } from '@helpers/markStatusToUncomplete'
 import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
+import { setIsOpen } from '@features/counter/onToggleSlice'
 
 interface Props {
   task: Task
@@ -38,11 +39,13 @@ const RenderStatus = ({ task }: Props) => {
       if (result === 'success') {
         // close task detail sidebar
         dispatch(setSelectedTaskId(''))
+        dispatch(setIsOpen(false))
         dispatch(setActiveIndex(-1))
 
         toast({
           description: 'Task completed successfully',
           status: 'success',
+          variant: 'subtle',
         })
       }
     }, 300)
