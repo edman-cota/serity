@@ -1,5 +1,5 @@
-import { Flex } from '@chakra-ui/react'
 import React from 'react'
+import { Flex } from '@chakra-ui/react'
 import RenderDateText from '../RenderDate/RenderDateText'
 
 const ItemMenu = ({ task }: { task: any }): JSX.Element => {

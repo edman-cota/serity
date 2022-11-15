@@ -1,24 +1,16 @@
 /* eslint-disable object-curly-newline */
-import { useRef, useState } from 'react'
-import { useColorModeValue, Textarea, chakra, shouldForwardProp } from '@chakra-ui/react'
-import { motion, isValidMotionProp } from 'framer-motion'
+import React, { useRef, useState } from 'react'
 import ReactFocusLock from 'react-focus-lock'
-import { useDispatch, useSelector } from 'react-redux'
 import { BiSquareRounded } from 'react-icons/bi'
+import { useDispatch, useSelector } from 'react-redux'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { auth } from '../../firebase'
-import { useGetProject } from '../../hooks/useGetProject'
-import { setShowAddTask } from '../../features/counter/showAddTaskSlice'
-import { scale } from './item.transition'
-import { createNewTask } from '../../helpers/createNewTask'
-import { RootState } from 'src/store'
+import { useColorModeValue, Textarea, Collapse, Flex } from '@chakra-ui/react'
 
-const MotionFlex = chakra(motion.div, {
-  /**
-   ** Allow motion props and non-chakra props to be forwarded.
-   */
-  shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
-})
+import { RootState } from 'src/store'
+import { auth } from '../../firebase'
+import { useGetProject } from '@hooks/useGetProject'
+import { createNewTask } from '@helpers/createNewTask'
+import { setShowAddTask } from '@features/counter/showAddTaskSlice'
 
 const AddTask = () => {
   const [user] = useAuthState(auth)
@@ -50,30 +42,24 @@ const AddTask = () => {
   }
 
   const background = useColorModeValue('var(--gray-100)', 'var(--gray-700)')
+
   return (
-    <MotionFlex
-      variants={scale}
-      initial='exit'
-      animate='enter'
-      exit='exit'
-      display='flex'
-      bg={background}
-      margin='10px auto'
-      px='10px'
-      w='95%'
-      maxWidth='880px'
-      borderRadius='base'
-      mb='40px'
+    <Collapse
+      in={showAddTask}
+      animateOpacity
+      style={{
+        width: '95%',
+        maxWidth: '880px',
+        display: 'flex',
+        borderRadius: '0.375rem',
+        margin: '10px auto',
+        padding: '0 10px',
+        background: background,
+      }}
     >
-      <MotionFlex
-        display='flex'
-        width='38px'
-        height='40px'
-        justifyContent='center'
-        alignItems='center'
-      >
+      <Flex width='38px' height='40px' justifyContent='center' alignItems='center'>
         <BiSquareRounded color='#a0aec0' fontSize={15} />
-      </MotionFlex>
+      </Flex>
       <ReactFocusLock>
         <Textarea
           spellCheck='false'
@@ -92,7 +78,7 @@ const AddTask = () => {
           onInput={handleOnInput}
         />
       </ReactFocusLock>
-    </MotionFlex>
+    </Collapse>
   )
 }
 

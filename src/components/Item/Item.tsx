@@ -15,16 +15,15 @@ interface Props {
 
 const Item = ({ task, index }: Props) => {
   const activeIndex = useSelector((state: RootState) => state.activeIndex.value)
-  const hover = useColorModeValue('gray.200', 'gray.700')
+  const hover = useColorModeValue('gray.200', 'whiteAlpha.200')
 
   return (
     <ListItem
-      className={`tree-row`}
-      borderRadius='base'
-      bg={index === activeIndex ? hover : 'transparent'}
-      cursor='pointer'
-      _hover={{ background: hover }}
       role='group'
+      cursor='pointer'
+      borderRadius='base'
+      _hover={{ background: hover }}
+      bg={index === activeIndex ? hover : 'transparent'}
     >
       <HStack h='40px'>
         <Flex px='8px'>

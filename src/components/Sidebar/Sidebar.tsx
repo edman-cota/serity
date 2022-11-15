@@ -1,7 +1,7 @@
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { Slide, useColorModeValue, VStack } from '@chakra-ui/react'
 
-import Footer from './Footer'
 import Header from './Header'
 import { RootState } from 'src/store'
 import Workspace from '../Workspace/Workspace'
