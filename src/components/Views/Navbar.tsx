@@ -43,8 +43,6 @@ const Navbar = () => {
     dispatch(setTaskActivityVisibility(!isTaskActivityVisible))
   }
 
-  console.log('task: ', task)
-
   return (
     <Flex h='55px' w='100%' justifyContent='space-between' px='10px' my='10px' alignItems='center'>
       <Flex>

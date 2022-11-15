@@ -52,33 +52,6 @@ ul {
   background: rgba(56, 139, 253, 0.4);
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  /* visibility: hidden; */
-  border-radius: 8px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-  /* width: 20px; */
-  /* visibility: visible; */
-}
-
 
 body {
   margin: 0;

@@ -12,6 +12,7 @@ import ShortcutsModal from '../Modals/ShortcutsModal'
 import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
 import ToggleSidebarVisibility from './ToggleSidebarVisibility'
 import React from 'react'
+import ColorModeSwitcher from './ColorModeSwitcher'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -47,7 +48,8 @@ const Navbar = () => {
               </ListItem>
             ) : null}
             <ListItem>
-              <SearchModal />
+              {/* <SearchModal /> */}
+              <ColorModeSwitcher />
             </ListItem>
             <ListItem>
               <ProjectOptionsMenu name='' id='' emoji='' />
