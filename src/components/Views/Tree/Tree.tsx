@@ -6,6 +6,7 @@ import { RootState } from 'src/store'
 import DetailPanel from './DetailPanel'
 import { Outlet } from 'react-router-dom'
 import { setSidebarVisibility } from '@features/counter/sidebarVisibilitySlice'
+import React from 'react'
 
 const Tree = () => {
   const dispatch = useDispatch()

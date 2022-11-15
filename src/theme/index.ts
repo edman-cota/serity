@@ -28,18 +28,18 @@ const theme = extendTheme({
         width: '10px',
       },
       '::-webkit-scrollbar-track': {
-        background: mode('white', 'transparent'),
+        background: mode('white', 'transparent')(props),
         borderRadius: '10px',
       },
       '::-webkit-scrollbar-thumb': {
-        background: mode('#ddd', 'rgba(255, 255, 255, 0.15)'),
+        background: mode('#ddd', 'rgba(255, 255, 255, 0.15)')(props),
         borderRadius: '8px',
         border: '2px',
         borderColor: 'transparent',
         backgroundClip: 'padding-box',
       },
       '::-webkit-scrollbar-thumb:hover': {
-        background: mode('#bbb', 'rgba(255, 255, 255, 0.3)'),
+        background: mode('#bbb', 'rgba(255, 255, 255, 0.3)')(props),
       },
     }),
   },

@@ -48,7 +48,6 @@ const Navbar = () => {
               </ListItem>
             ) : null}
             <ListItem>
-              {/* <SearchModal /> */}
               <ColorModeSwitcher />
             </ListItem>
             <ListItem>
