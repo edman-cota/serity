@@ -1,12 +1,13 @@
 /* eslint-disable no-useless-return */
 import { useEffect } from 'react'
-import { Button, ButtonGroup, Flex, Image, Link } from '@chakra-ui/react'
+import { Button, ButtonGroup, Flex, Image, Link, Text } from '@chakra-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useNavigate, Link as RouterLink } from 'react-router-dom'
 
 import logo from '../../../assets/img/logo-white.svg'
 import { auth } from '../../../firebase'
 import { formatUsername } from '../../../helpers/formatter'
+import React from 'react'
 
 const Navbar = (): JSX.Element => {
   const navigate = useNavigate()
@@ -46,33 +47,42 @@ const Navbar = (): JSX.Element => {
               {user ? (
                 <Button
                   bg='white'
-                  px={10}
+                  h='2.5rem'
+                  w='max-content'
                   color='black !important'
                   _hover={{ bg: 'whiteAlpha.900' }}
                   _active={{ bg: 'whiteAlpha.900' }}
                   onClick={navigateTo}
                 >
-                  Go to Workspace
+                  <Text as='span' px='20px'>
+                    Go to Workspace
+                  </Text>
                 </Button>
               ) : (
                 <ButtonGroup>
                   <Button
                     bg='whiteAlpha.200'
-                    px={10}
+                    h='2.5rem'
+                    w='max-content'
                     color='white !important'
                     onClick={() => navigate('/login')}
                   >
-                    Login
+                    <Text as='span' px='20px'>
+                      Login
+                    </Text>
                   </Button>
                   <Button
                     bg='white'
-                    px={10}
+                    h='2.5rem'
+                    w='max-content'
                     color='black !important'
                     _hover={{ bg: 'whiteAlpha.900' }}
                     _active={{ bg: 'whiteAlpha.900' }}
                     onClick={() => navigate('/register')}
                   >
-                    Register
+                    <Text as='span' px='20px'>
+                      Register
+                    </Text>
                   </Button>
                 </ButtonGroup>
               )}

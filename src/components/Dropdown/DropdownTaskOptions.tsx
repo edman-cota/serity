@@ -17,6 +17,7 @@ import { setActiveIndex } from '../../features/counter/activeIndexSlice'
 import CopyToClipboardMenuItem from './CopyToClipboardMenuItem'
 import MoveToMenuItemModal from '../Modals/MoveToMenuItemModal'
 import { setIsExpanded } from '../../features/counter/expandedSlice'
+import React from 'react'
 
 const DropdownTaskOptions = () => {
   const toast = useToast()
@@ -74,7 +75,7 @@ const DropdownTaskOptions = () => {
   return (
     <Menu autoSelect={false}>
       <MenuButton as={Button}>
-        <RiMoreLine size={20} />
+        <RiMoreLine size={20} style={{ margin: 'auto' }} />
       </MenuButton>
       <MenuList>
         <MenuItem icon={<CopyIcon />} onClick={() => handleDuplicateTask()}>

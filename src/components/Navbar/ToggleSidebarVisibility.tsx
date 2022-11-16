@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { RootState } from 'src/store'
 import { setSidebarVisibility } from '@features/counter/sidebarVisibilitySlice'
+import React from 'react'
 
 const ToggleSidebarVisibility = () => {
   const dispatch = useDispatch()
@@ -17,7 +18,7 @@ const ToggleSidebarVisibility = () => {
 
   return (
     <Tooltip label={<FormattedMessage id='toggle_sidebar' />} command='Ctrl + B'>
-      <Button onClick={toggleSidebarVisibility}>
+      <Button onClick={toggleSidebarVisibility} my='auto'>
         <BsLayoutSidebar size={16} />
       </Button>
     </Tooltip>

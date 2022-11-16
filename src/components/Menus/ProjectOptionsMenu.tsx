@@ -7,6 +7,7 @@ import DeleteProjectItemModal from '../Modals/DeleteProjectModal'
 import MembersMenuItem from '../Modals/InviteMembersModal'
 import MenuItemEdit from '../Modals/EditProject'
 import { useWindowSize } from 'react-use'
+import React from 'react'
 
 interface Props {
   name: string
@@ -21,7 +22,11 @@ const ProjectMore = ({ name, id, emoji }: Props) => {
   return (
     <Menu autoSelect={false} isLazy placement='bottom'>
       <MenuButton as={Button} transition='all 0.2s' onClick={onToggle}>
-        {width >= 768 ? <RiMoreLine size={20} /> : <RiMore2Line size={20} />}
+        {width >= 768 ? (
+          <RiMoreLine size={20} style={{ margin: 'auto' }} />
+        ) : (
+          <RiMore2Line size={20} style={{ margin: 'auto' }} />
+        )}
       </MenuButton>
       <MenuList>
         <MenuItemEdit name={name} id={id} emoji={emoji} />

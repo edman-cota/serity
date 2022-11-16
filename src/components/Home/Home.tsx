@@ -3,6 +3,7 @@ import { Flex } from '@chakra-ui/react'
 import Navbar from './Navbar/Navbar'
 import Header from '../../containers/Header/Header'
 import Features from './Features/Features'
+import React from 'react'
 
 export const Main = (): JSX.Element => {
   return (

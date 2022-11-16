@@ -26,10 +26,10 @@ const Navbar = () => {
 
   return (
     <Flex w='100%' mt='20px'>
-      <Flex w='95%' mx='auto' maxW='950px'>
+      <Flex w='95%' mx='auto' maxW='950px' transition='all 2s'>
         <Flex flex='1'>
           <List display='flex' gap={{ base: '10px', md: '20px' }}>
-            <ListItem>
+            <ListItem display='flex'>
               <ToggleSidebarVisibility />
             </ListItem>
             <ListItem>
@@ -38,7 +38,7 @@ const Navbar = () => {
           </List>
         </Flex>
         <Flex flex='1' justifyContent='flex-end'>
-          <List display='flex' gap={{ base: '10px', md: '30px' }}>
+          <List display='flex' alignItems='center' gap={{ base: '10px', md: '30px' }}>
             <ListItem>
               <NavItemAddTask />
             </ListItem>

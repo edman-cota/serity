@@ -45,6 +45,7 @@ const submit = defineStyle({
   color: 'white',
   background: '#2e85ec',
   w: '100px',
+  h: '2rem',
 
   _dark: {
     color: 'white',
