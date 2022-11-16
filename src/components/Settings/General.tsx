@@ -15,8 +15,8 @@ const General = ({ currentLocale, handleChange }: Props) => {
     { name: 'Spanish', code: LOCALES.SPANISH },
   ]
   return (
-    <VStack h='100%' w='100%' pt='100px' px='30px'>
-      <Flex direction='column' w='100%'>
+    <VStack h='100%' w='100%' py='60px'>
+      <Flex direction='column' w={{ base: '90%', md: '80%' }} mx='auto' maxWidth={880}>
         <Flex>
           <Text fontSize='20px' fontWeight='semibold'>
             General

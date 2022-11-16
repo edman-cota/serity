@@ -6,5 +6,5 @@ interface UserAvatarProps {
 }
 
 export function UserAvatar({ user }: UserAvatarProps) {
-  return <Avatar w='100px' h='100px' cursor='pointer' src={user.image} />
+  return <Avatar w='90px' h='90px' cursor='pointer' src={user.image} />
 }

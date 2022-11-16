@@ -1,4 +1,4 @@
-import { HStack } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import Sidebar from './Sidebar'
 import React from 'react'
 import PanelContent from './PanelContent'
@@ -16,7 +16,7 @@ const Settings = ({ currentLocale, handleChange }: Props) => {
   const { setting } = useParams()
 
   return (
-    <HStack h='100%' w='100%'>
+    <Flex h='100%' w='100%'>
       <Sidebar />
       <PanelContent>
         {setting === 'account' ? <Account /> : null}
@@ -25,7 +25,7 @@ const Settings = ({ currentLocale, handleChange }: Props) => {
         ) : null}
         {setting === 'theme' ? <Theme /> : null}
       </PanelContent>
-    </HStack>
+    </Flex>
   )
 }
 export default Settings

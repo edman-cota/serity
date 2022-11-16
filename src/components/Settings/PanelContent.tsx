@@ -6,7 +6,7 @@ function PanelContent(props: any) {
   const styles = useStyleConfig('PanelContent', { variant })
   // Pass the computed styles into the `__css` prop
   return (
-    <Box __css={styles} {...rest} w='100%' h='100vh' flex={1}>
+    <Box __css={styles} {...rest} w='100%' h='100%' flex={1}>
       {children}
     </Box>
   )

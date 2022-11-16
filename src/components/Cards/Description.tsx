@@ -1,8 +1,9 @@
+import React from 'react'
 import { Text } from '@chakra-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
+
 import database, { auth } from '../../firebase'
 import { ActivityType } from '../../types/definitions'
-import './DetailTab.scss'
 
 interface Props {
   description: string | undefined

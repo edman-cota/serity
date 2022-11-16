@@ -1,5 +1,5 @@
 import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react'
-import { NavLink as RouteLink } from 'react-router-dom'
+import { NavLink as RouteLink, useParams } from 'react-router-dom'
 import { FormattedMessage } from 'react-intl'
 import { useDispatch } from 'react-redux'
 import { Tooltip } from '@serity-ui/react'
@@ -14,7 +14,8 @@ import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
 import { setActiveIndex } from '../../features/counter/activeIndexSlice'
 import { setIsExpanded } from '../../features/counter/expandedSlice'
 import { formatUsername } from '../../helpers/formatter'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { setNavHistory } from '@features/counter/saveNavHistorySlice'
 
 interface NavProps {
   text: string
@@ -25,6 +26,11 @@ const SettingsMenu = () => {
   const dispatch = useDispatch()
   const [user] = useAuthState(auth)
   const username = formatUsername(user?.email)
+  const { project } = useParams()
+
+  useEffect(() => {
+    dispatch(setNavHistory(project || 'today'))
+  })
 
   const clearOpenTask = () => {
     dispatch(setSelectedTaskId(''))

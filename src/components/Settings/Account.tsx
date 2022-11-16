@@ -34,21 +34,21 @@ const Account = () => {
   }, [loading])
 
   return (
-    <VStack w='100%' flex={1}>
-      <Flex direction='column' w='100%' py='100px'>
-        <Flex w='80%' mx='auto' direction='column'>
+    <VStack w='100%' flex={1} py='60px'>
+      <Flex direction='column' w={{ base: '90%', md: '80%' }} mx='auto' maxWidth={880}>
+        <Flex direction='column' w='100%'>
           <Text py='10px'>Photo</Text>
 
           <Flex>
             {user && <UserAvatar user={{ name: user.displayName, image: user.photoURL }} />}
           </Flex>
         </Flex>
-        <Flex mt='30px' position='relative'>
+        <Flex mt='30px' w='100%'>
           <Flex direction='column' ml='5px' justifyContent='center'>
             <input type='file' id='imageInput' hidden onChange={onChangeImage} />
           </Flex>
         </Flex>
-        <Flex direction='column' w='80%' mx='auto'>
+        <Flex direction='column' w='100%'>
           <Flex direction='column'>
             <Text py='10px'>
               <FormattedMessage id='name' />
@@ -72,10 +72,10 @@ const Account = () => {
             </FormControl>
           </Flex>
         </Flex>
-        <Flex my='40px' h='1px' bg='whiteAlpha.200' w='80%' mx='auto'></Flex>
-        <Flex direction='column' w='80%' mx='auto'>
+        <Flex my='40px' h='1px' bg='whiteAlpha.200' w='100' />
+        <Flex direction='column' w='100%'>
           <Text lineHeight='2rem' fontWeight={500}>
-            Delete account
+            <FormattedMessage id='delete_account' />
           </Text>
           <Text fontSize='15px' mb='10px'>
             This will immediately delete all of your data including tasks, projects, and more. This
