@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 import {
   AreaChart,
@@ -185,7 +186,7 @@ const CompletionCurveChartMonth = (): JSX.Element => {
   // #8F979F
   return (
     <>
-      <ChartTitle title='Recent Completion Curve' />
+      <ChartTitle title='recent_completion_curve' />
       <AreaChart
         height={160}
         margins={0}

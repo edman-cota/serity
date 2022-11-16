@@ -36,7 +36,7 @@ const SettingsMenu = () => {
     <Menu autoSelect={false}>
       <Tooltip label={<FormattedMessage id='settings' />}>
         <MenuButton as={Button}>
-          <IoSettingsOutline />
+          <IoSettingsOutline style={{ margin: 'auto' }} />
         </MenuButton>
       </Tooltip>
       <MenuList>

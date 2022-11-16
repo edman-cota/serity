@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Text,
   HStack,
@@ -6,8 +7,9 @@ import {
   chakra,
   shouldForwardProp,
 } from '@chakra-ui/react'
-import { motion, AnimatePresence, isValidMotionProp } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
+import { motion, AnimatePresence, isValidMotionProp } from 'framer-motion'
+
 import { useGetAchievement } from '@hooks/useGetAchievement'
 import { calculatePercentage } from '@helpers/calculatePercentage'
 
@@ -43,7 +45,7 @@ const AchievementCard = () => {
             <small> %</small>
           </Text>
           <Text>
-            <FormattedMessage id='complete' />
+            <FormattedMessage id='completed' />
           </Text>
         </VStack>
         <HStack justifyContent='space-between' w='100%' h='30px'>

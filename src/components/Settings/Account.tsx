@@ -1,23 +1,12 @@
-/* eslint-disable object-curly-newline */
-/* eslint-disable comma-dangle */
 import { useEffect } from 'react'
-import {
-  Flex,
-  Text,
-  Input,
-  Select,
-  Button,
-  VStack,
-  FormControl,
-  FormLabel,
-  Textarea,
-} from '@chakra-ui/react'
-import { FormattedMessage } from 'react-intl'
-import { AiOutlineCamera } from 'react-icons/ai'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { auth, storage } from '../../firebase'
-import { UserAvatar } from './UserAvatar'
+import { Flex, Text, Input, VStack, FormControl, FormLabel, Textarea } from '@chakra-ui/react'
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
+import { useAuthState } from 'react-firebase-hooks/auth'
+
+import { UserAvatar } from './UserAvatar'
+import { auth, storage } from '../../firebase'
+import DeleteAccountModal from '@components/Modals/DeleteAccountModal'
 
 const Account = () => {
   const [user, loading] = useAuthState(auth)
@@ -44,22 +33,14 @@ const Account = () => {
     if (loading) return
   }, [loading])
 
-  const handleEditPicture = () => {
-    const fileInput = document.getElementById('imageInput')
-    fileInput?.click()
-  }
-
   return (
     <VStack w='100%' flex={1}>
-      <Flex direction='column' w='100%'>
-        <Flex bgGradient='linear-gradient(to-r, #CC4194, #EF967A)' h='200px' position='relative'>
-          <Button fontSize='20px'>
-            <AiOutlineCamera />
-          </Button>
-          <Flex position='absolute' top='125px' left='70px'>
-            {user && user.photoURL && (
-              <UserAvatar user={{ name: user.displayName, image: user.photoURL }} />
-            )}
+      <Flex direction='column' w='100%' py='100px'>
+        <Flex w='80%' mx='auto' direction='column'>
+          <Text py='10px'>Photo</Text>
+
+          <Flex>
+            {user && <UserAvatar user={{ name: user.displayName, image: user.photoURL }} />}
           </Flex>
         </Flex>
         <Flex mt='30px' position='relative'>
@@ -68,8 +49,8 @@ const Account = () => {
           </Flex>
         </Flex>
         <Flex direction='column' w='80%' mx='auto'>
-          <Flex direction='column' mt='30px'>
-            <Text>
+          <Flex direction='column'>
+            <Text py='10px'>
               <FormattedMessage id='name' />
             </Text>
             <FormattedMessage id='name' defaultMessage='Name'>
@@ -77,7 +58,7 @@ const Account = () => {
             </FormattedMessage>
           </Flex>
           <Flex direction='column' mt='30px'>
-            <Text>
+            <Text py='10px'>
               <FormattedMessage id='email' />
             </Text>
             <FormattedMessage id='email' defaultMessage='Email'>
@@ -87,9 +68,20 @@ const Account = () => {
           <Flex direction='column' mt='30px'>
             <FormControl>
               <FormLabel>Bio</FormLabel>
-              <Textarea variant='custom' />
+              <Textarea />
             </FormControl>
           </Flex>
+        </Flex>
+        <Flex my='40px' h='1px' bg='whiteAlpha.200' w='80%' mx='auto'></Flex>
+        <Flex direction='column' w='80%' mx='auto'>
+          <Text lineHeight='2rem' fontWeight={500}>
+            Delete account
+          </Text>
+          <Text fontSize='15px' mb='10px'>
+            This will immediately delete all of your data including tasks, projects, and more. This
+            can't be undone.{' '}
+          </Text>
+          <DeleteAccountModal />
         </Flex>
       </Flex>
     </VStack>

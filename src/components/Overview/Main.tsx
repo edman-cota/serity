@@ -1,3 +1,4 @@
+import React from 'react'
 import { Flex, VStack } from '@chakra-ui/react'
 
 import Toolbar from './Toolbar'

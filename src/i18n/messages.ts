@@ -92,6 +92,8 @@ export const messages = {
     appearance: 'Appearance',
     account: 'Account',
     language: 'Language',
+    theme: 'Theme',
+    delete_account: 'Delete account',
     //Excel
     username: 'Username',
     //Views
@@ -214,6 +216,8 @@ export const messages = {
     appearance: 'Apariencia',
     account: 'Cuenta',
     language: 'Idioma',
+    theme: 'Tema',
+    delete_account: 'Eliminar cuenta',
     // Excel
     username: 'Usuario',
     //Views

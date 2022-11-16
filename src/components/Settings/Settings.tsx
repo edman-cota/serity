@@ -14,11 +14,11 @@ interface Props {
 
 const Settings = ({ currentLocale, handleChange }: Props) => {
   const { setting } = useParams()
-  console.log(setting)
+
   return (
     <HStack h='100%' w='100%'>
       <Sidebar />
-      <PanelContent currentLocale={currentLocale} handleChange={handleChange}>
+      <PanelContent>
         {setting === 'account' ? <Account /> : null}
         {setting === 'general' ? (
           <General currentLocale={currentLocale} handleChange={handleChange} />

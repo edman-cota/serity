@@ -10,6 +10,11 @@ const Theme = () => {
           <FormattedMessage id='appearance' />
         </Text>
       </Flex>
+      <Flex w='100%' py='20px'>
+        <Text>
+          <FormattedMessage id='theme' />
+        </Text>
+      </Flex>
     </VStack>
   )
 }

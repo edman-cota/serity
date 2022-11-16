@@ -1,16 +1,15 @@
+import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 
 import Web from '@components/Web/Web'
 import Home from '@components/Home/Home'
 import Login from '@components/Login/Login'
-import Profile from '@components/Profile/Profile'
 import Updates from '@components/Updates/Updates'
 import Settings from '@components/Settings/Settings'
 import Register from '@components/Register/Register'
 import Overview from '@components/Overview/Overview'
 import MainPanel from '@components/Views/Tree/MainPanel'
 import Onboarding from '@components/onboarding/Onboarding'
-import React from 'react'
 import PanelContent from '@components/Settings/PanelContent'
 
 interface Props {
