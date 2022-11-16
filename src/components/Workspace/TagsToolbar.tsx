@@ -7,6 +7,7 @@ import { RootState } from 'src/store'
 import CreateTagModalTrigger from '@components/Modals/CreateTagModal'
 import { setIsTagOpen } from '@features/counter/onToggleTagsSlice'
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 const TagsToolbar = () => {
   const dispatch = useDispatch()
@@ -26,7 +27,7 @@ const TagsToolbar = () => {
     >
       <Flex alignItems='center'>
         <Text color={itemColor} fontSize='15px' fontWeight='medium'>
-          Tags
+          <FormattedMessage id='tags' />
         </Text>
       </Flex>
       <Flex alignItems='center' visibility='hidden' _groupHover={{ visibility: 'visible' }}>

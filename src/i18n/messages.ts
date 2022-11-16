@@ -14,6 +14,7 @@ export const messages = {
     // sidebar
     overview: 'Overview',
     projects: 'Projects',
+    tags: 'Tags',
     timeline: 'Timeline',
     settings: 'Settings',
     logout: 'Log out',
@@ -88,6 +89,9 @@ export const messages = {
     name: 'Name',
     email: 'Email',
     profession: 'Profession',
+    appearance: 'Appearance',
+    account: 'Account',
+    language: 'Language',
     //Excel
     username: 'Username',
     //Views
@@ -132,6 +136,7 @@ export const messages = {
     // sidebar
     overview: 'Visión general',
     projects: 'Proyectos',
+    tags: 'Etiquetas',
     timeline: 'Cronología',
     settings: 'Ajustes',
     logout: 'Cerrar sesión',
@@ -206,6 +211,9 @@ export const messages = {
     name: 'Nombre',
     email: 'Correo electrónico',
     profession: 'Profesión',
+    appearance: 'Apariencia',
+    account: 'Cuenta',
+    language: 'Idioma',
     // Excel
     username: 'Usuario',
     //Views

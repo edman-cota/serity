@@ -33,14 +33,14 @@ const DropdownTaskOptions = () => {
     if (status === Status.SUCCESS) {
       toast({
         description: 'Success',
-        status: 'error',
+        status: Status.SUCCESS,
         isClosable: true,
       })
     }
     if (status === Status.ERROR) {
       toast({
         description: 'Error',
-        status: 'error',
+        status: Status.ERROR,
         isClosable: true,
       })
     }

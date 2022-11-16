@@ -14,6 +14,7 @@ import { setSelectedTaskId } from '../../features/counter/selectedTaskIdSlice'
 import { setActiveIndex } from '../../features/counter/activeIndexSlice'
 import { setIsExpanded } from '../../features/counter/expandedSlice'
 import { formatUsername } from '../../helpers/formatter'
+import React from 'react'
 
 interface NavProps {
   text: string
@@ -39,7 +40,7 @@ const SettingsMenu = () => {
         </MenuButton>
       </Tooltip>
       <MenuList>
-        <RouteLink to={`/${username}/settings`}>
+        <RouteLink to={`/${username}/settings/account`}>
           <NavLink text='settings' icon={<IoSettingsOutline />} />
         </RouteLink>
         <RouteLink to='/dev/'>

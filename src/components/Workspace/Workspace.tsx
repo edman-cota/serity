@@ -47,7 +47,7 @@ const Workspace = () => {
   return (
     <VStack w='100%' h='calc(100vh - 160px)' pt='30px'>
       <VStack alignItems='center' position='relative' w='100%'>
-        <Toolbar title='Projects' />
+        <Toolbar />
         <Collapse in={isListOpen} animateOpacity style={{ width: '100%' }}>
           <nav>
             <List w='90%' mx='auto'>

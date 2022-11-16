@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 import Tree from '../Views/Tree/Tree'
 import { RootState } from 'src/store'
+import React from 'react'
 
 const Content = () => {
   const isSidebarOpen = useSelector((state: RootState) => state.isSidebarOpen.value)

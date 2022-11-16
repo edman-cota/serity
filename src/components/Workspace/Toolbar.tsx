@@ -1,17 +1,13 @@
-import { AiOutlinePlus } from 'react-icons/ai'
+import React from 'react'
 import { HiOutlineChevronDown, HiOutlineChevronLeft } from 'react-icons/hi'
 import { Button, Flex, Text, useColorModeValue } from '@chakra-ui/react'
 import { setIsListOpen } from '@features/counter/onToggleListsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'src/store'
 import CreateProjectModalTrigger from '@components/Modals/CreateProject'
-import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
-interface Props {
-  title: string
-}
-
-const Toolbar = ({ title }: Props) => {
+const Toolbar = () => {
   const dispatch = useDispatch()
   const isListOpen = useSelector((state: RootState) => state.isListOpen.value)
   const itemColor = useColorModeValue('rgba(0,0,0,0.56)', 'rgba(255, 255, 255, 0.6)')
@@ -29,7 +25,7 @@ const Toolbar = ({ title }: Props) => {
     >
       <Flex alignItems='center'>
         <Text color={itemColor} fontSize='15px' fontWeight='medium'>
-          {title}
+          <FormattedMessage id='projects' />
         </Text>
       </Flex>
       <Flex alignItems='center' visibility='hidden' _groupHover={{ visibility: 'visible' }}>

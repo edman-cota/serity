@@ -2,6 +2,7 @@ import { Flex } from '@chakra-ui/react'
 
 import Content from './Content'
 import Sidebar from '../Sidebar/Sidebar'
+import React from 'react'
 
 const Web = (): JSX.Element => {
   return (

@@ -15,22 +15,12 @@ import {
 import { FormattedMessage } from 'react-intl'
 import { AiOutlineCamera } from 'react-icons/ai'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { LOCALES } from '../../i18n/locales'
 import { auth, storage } from '../../firebase'
 import { UserAvatar } from './UserAvatar'
+import React from 'react'
 
-interface Props {
-  currentLocale: string
-  handleChange: (e: any) => void
-}
-
-const Content = ({ currentLocale, handleChange }: Props) => {
+const Account = () => {
   const [user, loading] = useAuthState(auth)
-
-  const languages = [
-    { name: 'English', code: LOCALES.ENGLISH },
-    { name: 'Spanish', code: LOCALES.SPANISH },
-  ]
 
   const onChangeImage = (e: any) => {
     if (e.target.files[0] == null) return
@@ -100,19 +90,10 @@ const Content = ({ currentLocale, handleChange }: Props) => {
               <Textarea variant='custom' />
             </FormControl>
           </Flex>
-          <Flex mt='30px'>
-            <Select variant='filled' size='md' onChange={handleChange} value={currentLocale}>
-              {languages.map(({ name, code }) => (
-                <option key={code} value={code} style={{ height: '50px' }}>
-                  {name}
-                </option>
-              ))}
-            </Select>
-          </Flex>
         </Flex>
       </Flex>
     </VStack>
   )
 }
 
-export default Content
+export default Account

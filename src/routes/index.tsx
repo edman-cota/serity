@@ -10,6 +10,8 @@ import Register from '@components/Register/Register'
 import Overview from '@components/Overview/Overview'
 import MainPanel from '@components/Views/Tree/MainPanel'
 import Onboarding from '@components/onboarding/Onboarding'
+import React from 'react'
+import PanelContent from '@components/Settings/PanelContent'
 
 interface Props {
   currentLocale: string
@@ -36,7 +38,7 @@ const Routing = ({ currentLocale, handleChange }: Props): JSX.Element => {
         path='/:username/settings'
         element={<Settings currentLocale={currentLocale} handleChange={handleChange} />}
       >
-        <Route path='profile' element={<Profile />} />
+        <Route path=':setting' element={<PanelContent />} />
       </Route>
     </Routes>
   )

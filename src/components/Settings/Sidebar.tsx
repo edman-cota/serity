@@ -1,15 +1,20 @@
-import { Flex, VStack } from '@chakra-ui/react'
+import React from 'react'
+import { BsPalette } from 'react-icons/bs'
+import { Flex, List, useColorModeValue, VStack } from '@chakra-ui/react'
+import { AiOutlineUser, AiOutlineSetting } from 'react-icons/ai'
+
 import SidebarItem from './SidebarItem'
-import ShortcutsModal from '../Modals/ShortcutsModal'
 
 const Sidebar = (): JSX.Element => {
+  const sidebarBackground = useColorModeValue('gray.100', 'gray.700')
+
   return (
-    <Flex w='300px'>
-      <VStack w='100%'>
-        <SidebarItem to='profile' textId='profile' />
-        <SidebarItem to='notifications' textId='notifications' />
-        <SidebarItem to='subscription' textId='subscriptions' />
-      </VStack>
+    <Flex w='300px' bg={sidebarBackground} h='100vh'>
+      <List w='90%' mx='auto' py='100px'>
+        <SidebarItem to='account' textId='account' icon={<AiOutlineUser />} />
+        <SidebarItem to='general' textId='general' icon={<AiOutlineSetting />} />
+        <SidebarItem to='theme' textId='appearance' icon={<BsPalette />} />
+      </List>
     </Flex>
   )
 }
