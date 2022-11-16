@@ -18,6 +18,7 @@ import CopyToClipboardMenuItem from './CopyToClipboardMenuItem'
 import MoveToMenuItemModal from '../Modals/MoveToMenuItemModal'
 import { setIsExpanded } from '../../features/counter/expandedSlice'
 import React from 'react'
+import { setIsOpen } from '@features/counter/onToggleSlice'
 
 const DropdownTaskOptions = () => {
   const toast = useToast()
@@ -46,30 +47,28 @@ const DropdownTaskOptions = () => {
   }
 
   const handleDeleteTask = () => {
-    dispatch(setSelectedTaskId(''))
-    dispatch(setActiveIndex(-1))
-    dispatch(setIsExpanded(false))
+    const status = deleteSingleTask(task?.at(0), project?.at(0), user)
 
-    // const status = deleteSingleTask(task?.at(0), project?.at(0), user);
-
-    // console.log(status);
-
-    // if (status === "success") {
-    //   toast({
-    //     description: "Task deleted successfully",
-    //     status: SUCCESS,
-    //     isClosable: true,
-    //     variant: "subtle",
-    //   });
-    // }
-    // if (status === "error") {
-    //   toast({
-    //     description: "Failed to delete task",
-    //     status: ERROR,
-    //     isClosable: true,
-    //     variant: "subtle",
-    //   });
-    // }
+    if (status === Status.SUCCESS) {
+      toast({
+        description: 'Task deleted successfully',
+        status: Status.SUCCESS,
+        isClosable: true,
+        variant: 'subtle',
+      })
+      dispatch(setSelectedTaskId(''))
+      dispatch(setActiveIndex(-1))
+      dispatch(setIsExpanded(false))
+      dispatch(setIsOpen(false))
+    }
+    if (status === Status.ERROR) {
+      toast({
+        description: 'Failed to delete task',
+        status: Status.ERROR,
+        isClosable: true,
+        variant: 'subtle',
+      })
+    }
   }
 
   return (
