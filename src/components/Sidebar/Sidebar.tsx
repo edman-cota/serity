@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { Slide, useColorModeValue, VStack } from '@chakra-ui/react'
 
 import { RootState } from 'src/store'
+import SmartFolders from '@components/SmartFolders/SmartFolders'
 import Workspace from '../Workspace/Workspace'
 
 const Sidebar = () => {
@@ -11,14 +12,9 @@ const Sidebar = () => {
   const sidebarBackground = useColorModeValue('gray.100', 'gray.700')
 
   return (
-    <Slide
-      in={isSidebarOpen}
-      unmountOnExit
-      position='static'
-      direction='left'
-      style={{ width: '300px' }}
-    >
+    <Slide in={isSidebarOpen} unmountOnExit direction='left' style={{ width: '300px' }}>
       <VStack w='300px' h='100vh' pos='fixed' background={sidebarBackground}>
+        <SmartFolders />
         <Workspace />
       </VStack>
     </Slide>

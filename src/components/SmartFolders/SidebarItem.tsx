@@ -16,10 +16,10 @@ import { setWorkingProject } from '@features/counter/workingProjectSlice'
 import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 
 interface Props {
-  project: Project
+  name: string
 }
 
-const SidebarItem = ({ project }: Props) => {
+const SidebarItem = ({ name }: Props) => {
   const dispatch = useDispatch()
   const [user] = useAuthState(auth)
 
@@ -52,22 +52,14 @@ const SidebarItem = ({ project }: Props) => {
         alignItems='center'
         pl='10px'
         style={{ textDecoration: 'none' }}
-        to={`/${username}/${formatUrl(project?.name)}`}
-        _activeLink={{ bg: hoverBg, borderRadius: 'md' }}
+        to={`/`}
+        // _activeLink={{ bg: hoverBg, borderRadius: 'md' }}
       >
         <Text as='span' w='30px'>
-          {project?.emoji}
+          |
         </Text>
-        <Text
-          onClick={() => navigateTo(project)}
-          w='100%'
-          h='36px'
-          display='flex'
-          alignItems='center'
-          fontSize='15px'
-          px='10px'
-        >
-          {project?.name}
+        <Text w='100%' h='36px' display='flex' alignItems='center' fontSize='15px' px='10px'>
+          {name}
         </Text>
         <Text
           color='#777'
@@ -77,7 +69,7 @@ const SidebarItem = ({ project }: Props) => {
           fontSize='12px'
           _groupHover={{ display: 'none' }}
         >
-          {project?.activeCount >= 1 ? project?.activeCount : null}
+          0
         </Text>
         <Button
           w='2rem'

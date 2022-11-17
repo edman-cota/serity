@@ -18,7 +18,7 @@ const Toolbar = () => {
     <Flex
       justifyContent='space-between'
       w='90%'
-      px='12px'
+      pl='12px'
       py='4px'
       role='group'
       borderRadius='md'

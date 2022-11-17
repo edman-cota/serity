@@ -17,7 +17,7 @@ const Workspace = () => {
   const isListOpen = useSelector((state: RootState) => state.isListOpen.value)
 
   return (
-    <VStack w='100%' h='calc(100vh - 160px)' pt='30px'>
+    <VStack w='100%' h='calc(100vh - 160px)'>
       <VStack w='100%'>
         <Toolbar />
         <Collapse in={isListOpen} animateOpacity style={{ width: '100%' }}>
