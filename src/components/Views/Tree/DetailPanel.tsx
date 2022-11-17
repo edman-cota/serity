@@ -6,6 +6,7 @@ import NavbarTreeTask from '../Navbar'
 import DetailTab from '../../Cards/DetailTab'
 import Timeline from '../../Timeline/Timeline'
 import { useSplitSizes } from '@hooks/useSplitSizes'
+import React from 'react'
 
 const DetailPanel = () => {
   const { colorMode } = useColorMode()

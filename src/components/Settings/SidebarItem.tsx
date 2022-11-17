@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Flex, Text, useColorModeValue, ListItem } from '@chakra-ui/react'
+import { Link, Text, useColorModeValue, ListItem } from '@chakra-ui/react'
 import { FormattedMessage } from 'react-intl'
 import { NavLink as RouterLink } from 'react-router-dom'
 

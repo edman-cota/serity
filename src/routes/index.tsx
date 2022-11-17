@@ -30,7 +30,7 @@ const Routing = ({ currentLocale, handleChange }: Props): JSX.Element => {
       <Route path='/:username/overview/' element={<Overview />} />
       <Route path='/:username/updates/' element={<Updates />} />
       <Route path='/:username/' element={<Web />}>
-        <Route path=':project' element={<MainPanel />} />
+        <Route path=':project' element={<PanelContent />} />
       </Route>
 
       <Route

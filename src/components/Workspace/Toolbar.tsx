@@ -1,23 +1,24 @@
 import React from 'react'
-import { HiOutlineChevronDown, HiOutlineChevronLeft } from 'react-icons/hi'
-import { Button, Flex, Text, useColorModeValue } from '@chakra-ui/react'
-import { setIsListOpen } from '@features/counter/onToggleListsSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from 'src/store'
-import CreateProjectModalTrigger from '@components/Modals/CreateProject'
 import { FormattedMessage } from 'react-intl'
+import { useDispatch, useSelector } from 'react-redux'
+import { Button, Flex, Text, useColorModeValue } from '@chakra-ui/react'
+import { HiOutlineChevronDown, HiOutlineChevronLeft } from 'react-icons/hi'
+
+import { RootState } from 'src/store'
+import { setIsListOpen } from '@features/counter/onToggleListsSlice'
+import CreateProjectModalTrigger from '@components/Modals/CreateProject'
 
 const Toolbar = () => {
   const dispatch = useDispatch()
   const isListOpen = useSelector((state: RootState) => state.isListOpen.value)
-  const itemColor = useColorModeValue('rgba(0,0,0,0.56)', 'rgba(255, 255, 255, 0.6)')
+  const itemColor = useColorModeValue('blackAlpha.600', 'whiteAlpha.700')
   const hoverBg = useColorModeValue('white', 'whiteAlpha.200')
 
   return (
     <Flex
       justifyContent='space-between'
       w='90%'
-      pl='12px'
+      px='12px'
       py='4px'
       role='group'
       borderRadius='md'

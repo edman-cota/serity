@@ -4,7 +4,7 @@ import { BiArrowBack } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { AiOutlineUser, AiOutlineSetting } from 'react-icons/ai'
-import { Button, Flex, List, useColorModeValue } from '@chakra-ui/react'
+import { Button, Flex, List, Slide, useColorModeValue } from '@chakra-ui/react'
 
 import { auth } from '../../firebase'
 import { RootState } from 'src/store'
@@ -16,6 +16,7 @@ const Sidebar = (): JSX.Element => {
   const navigate = useNavigate()
   const [user] = useAuthState(auth)
   const sidebarBackground = useColorModeValue('gray.100', 'gray.700')
+  const isSidebarOpen = useSelector((state: RootState) => state.isSidebarOpen.value)
   const savedNavHistory = useSelector((state: RootState) => state.saveNavHistory.value)
 
   const handleNavBack = () => {
@@ -28,7 +29,13 @@ const Sidebar = (): JSX.Element => {
   }
 
   return (
-    <Flex w='300px' bg={sidebarBackground} h='100vh' display={{ base: 'none', md: 'block' }}>
+    <Flex
+      w='300px'
+      pos='fixed'
+      bg={sidebarBackground}
+      h='100vh'
+      display={{ base: 'none', md: 'block' }}
+    >
       <Flex alignItems='center' px='10px' py='40px'>
         <Button mx='4px' onClick={handleNavBack}>
           <BiArrowBack />

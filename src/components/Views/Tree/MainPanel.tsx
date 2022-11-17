@@ -1,9 +1,10 @@
+import React from 'react'
 import { VStack } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 
 import TreeList from './TreeList'
 import { RootState } from 'src/store'
-import Navbar from '../../Navbar/Navbar'
+import Navbar from '@components/Navbar/Navbar'
 import { useSplitSizes } from '@hooks/useSplitSizes'
 
 const MainPanel = () => {

@@ -1,14 +1,17 @@
+import React from 'react'
 import { Flex } from '@chakra-ui/react'
 
-import Content from './Content'
-import Sidebar from '../Sidebar/Sidebar'
-import React from 'react'
+import Sidebar from '@components/Sidebar/Sidebar'
+import Tree from '@components/Views/Tree/Tree'
+import PanelContent from '@components/Settings/PanelContent'
 
 const Web = (): JSX.Element => {
   return (
     <Flex width='100%' height='100%'>
       <Sidebar />
-      <Content />
+      <PanelContent>
+        <Tree />
+      </PanelContent>
     </Flex>
   )
 }
