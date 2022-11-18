@@ -12,7 +12,6 @@ import ShortcutsModal from '../Modals/ShortcutsModal'
 import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
 import ToggleSidebarVisibility from './ToggleSidebarVisibility'
 import React from 'react'
-import ColorModeSwitcher from './ColorModeSwitcher'
 import SettingsMenu from '@components/Menus/SettingsMenu'
 
 const Navbar = () => {
@@ -50,9 +49,6 @@ const Navbar = () => {
             ) : null} */}
             <ListItem>
               <SettingsMenu />
-            </ListItem>
-            <ListItem>
-              <ColorModeSwitcher />
             </ListItem>
             <ListItem>
               <ProjectOptionsMenu name='' id='' emoji='' />

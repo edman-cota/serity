@@ -16,7 +16,7 @@ const Theme = () => {
             <FormattedMessage id='appearance' />
           </Text>
         </Flex>
-        <Flex w='100%' py='20px'>
+        <Flex w='100%' pb='10px' mt='25px'>
           <Text>
             <FormattedMessage id='theme' />
           </Text>
