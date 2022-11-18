@@ -17,9 +17,11 @@ import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 
 interface Props {
   name: string
+  to: string
+  icon: React.ReactElement
 }
 
-const SidebarItem = ({ name }: Props) => {
+const SidebarItem = ({ name, to, icon }: Props) => {
   const dispatch = useDispatch()
   const [user] = useAuthState(auth)
 
@@ -52,11 +54,11 @@ const SidebarItem = ({ name }: Props) => {
         alignItems='center'
         pl='10px'
         style={{ textDecoration: 'none' }}
-        to={`/`}
+        to={`/${username}/${to}`}
         // _activeLink={{ bg: hoverBg, borderRadius: 'md' }}
       >
         <Text as='span' w='30px'>
-          |
+          {icon}
         </Text>
         <Text w='100%' h='36px' display='flex' alignItems='center' fontSize='15px' px='10px'>
           {name}
@@ -68,9 +70,7 @@ const SidebarItem = ({ name }: Props) => {
           justifyContent='center'
           fontSize='12px'
           _groupHover={{ display: 'none' }}
-        >
-          0
-        </Text>
+        ></Text>
         <Button
           w='2rem'
           display='none'

@@ -1,0 +1,50 @@
+.custom-radio input {
+  display: none;
+}
+
+.radio-btn {
+  width: 170px;
+  height: 130px;
+  border: 2px solid transparent;
+  display: inline-block;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.radio-light {
+  background-color: #edf2f7;
+  margin-right: 10px;
+}
+
+.radio-dark {
+  background-color: #1f2733;
+}
+
+.radio-btn .div {
+  position: absolute;
+  top: 140px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.radio-btn .div > svg {
+  color: #2175e2;
+  transition: 0.2s;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.radio-btn .hobbies-icon {
+  position: absolute;
+}
+
+.custom-radio input:checked + .radio-btn {
+  border: 2px solid #2175e2;
+}
+
+.custom-radio input:checked + .radio-btn .div > svg {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}

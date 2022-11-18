@@ -26,17 +26,6 @@ const TreeList = () => {
             </List>
             {showAddTask ? <AddTask /> : null}
           </VStack>
-
-          {showCompleted && completedTasks.length > 0 ? (
-            <VStack w='100%' pb='40px'>
-              <ListHeader count={completedTasks.length} />
-              <List width='95%' m='auto' maxWidth={880}>
-                {completedTasks.map((data, index) => (
-                  <Item key={data.id} index={index} task={data} />
-                ))}
-              </List>
-            </VStack>
-          ) : null}
         </VStack>
       ) : (
         <LoadingScreen />

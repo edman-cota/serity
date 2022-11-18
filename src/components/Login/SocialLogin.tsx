@@ -6,6 +6,8 @@ import { Button, Flex, List, ListItem, Text } from '@chakra-ui/react'
 import { FormattedMessage } from 'react-intl'
 import { auth, signInWithGoogle } from '../../firebase'
 import { formatUsername } from '../../helpers/formatter'
+import { Github } from './GitHub'
+import { Google } from './Google'
 
 const SocialLogin = () => {
   const navigate = useNavigate()
@@ -27,18 +29,40 @@ const SocialLogin = () => {
       <List w='100%'>
         <ListItem>
           <Button
-            onClick={signInWithGoogle}
             px='42px'
             w='100%'
             border='1px'
+            justifyContent='flex-start'
+            bg='white'
+            padding='0 23px'
+            height='40px'
+            color='rgb(14, 18, 23)'
             borderColor='gray.200'
+            borderRadius='12px'
             _hover={{ bg: 'gray.200' }}
+            onClick={signInWithGoogle}
           >
-            <Text as='span'>
-              <FcGoogle fontSize='22px' />
-            </Text>
+            <Google />
             <Text as='span' pl='20px'>
               <FormattedMessage id='continue_with_google' />
+            </Text>
+          </Button>
+          <Button
+            mt='10px'
+            px='42px'
+            w='100%'
+            justifyContent='flex-start'
+            bg='rgb(45, 49, 58)'
+            padding='0 23px'
+            height='40px'
+            color='rgb(255, 255, 255)'
+            borderColor='gray.200'
+            borderRadius='12px'
+            _hover={{ bg: 'rgb(45, 49, 58)' }}
+          >
+            <Github />
+            <Text as='span' pl='20px'>
+              Login with GitHub
             </Text>
           </Button>
         </ListItem>
