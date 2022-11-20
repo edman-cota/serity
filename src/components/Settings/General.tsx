@@ -44,3 +44,5 @@ const General = ({ currentLocale, handleChange }: Props) => {
 }
 
 export default General
+
+// Global CSS cannot be imported from within node_modules
