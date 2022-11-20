@@ -23,6 +23,7 @@ import { RootState } from 'src/store'
 import EmojiPicker from '../Menus/EmojiPicker'
 import { editProject } from '@helpers/editProject'
 import { setEmoji } from '@features/counter/emojiSlice'
+import React from 'react'
 
 interface Props {
   name: string
@@ -51,8 +52,6 @@ const EditProject = ({ name, id, emoji }: Props) => {
       dispatch(setEmoji(''))
     }
   }
-
-  console.log(isOpen)
 
   return (
     <>

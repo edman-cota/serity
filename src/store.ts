@@ -16,6 +16,7 @@ import onToggleSliceReducer from '@features/counter/onToggleSlice'
 import onToggleListsReducer from '@features/counter/onToggleListsSlice'
 import onToggleTagsReducer from '@features/counter/onToggleTagsSlice'
 import saveNavHistoryReducer from '@features/counter/saveNavHistorySlice'
+import cardStyleReducer from '@features/counter/cardStyleSlice'
 
 export const store = configureStore({
   reducer: {
@@ -35,6 +36,7 @@ export const store = configureStore({
     isListOpen: onToggleListsReducer,
     isTagOpen: onToggleTagsReducer,
     saveNavHistory: saveNavHistoryReducer,
+    cardStyle: cardStyleReducer,
   },
 })
 

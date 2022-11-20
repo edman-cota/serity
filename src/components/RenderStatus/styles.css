@@ -1,0 +1,50 @@
+.cbx {
+ position: relative;
+ top: 1px;
+ width: 18px;
+ height: 18px;
+ border: 1px solid #c8ccd4;
+ transition: background 0.1s ease;
+ cursor: pointer;
+ display: block;
+}
+
+.cbx:after {
+ content: '';
+ position: absolute;
+ top: 2px;
+ left: 6px;
+ width: 5px;
+ height: 10px;
+ opacity: 0;
+ transform: rotate(45deg) scale(0);
+ border-right: 2px solid #fff;
+ border-bottom: 2px solid #fff;
+ transition: all 0.3s ease;
+ transition-delay: 0.15s;
+}
+
+.lbl {
+ margin-left: 5px;
+ vertical-align: middle;
+ cursor: pointer;
+}
+
+input:checked ~ .cbx {
+  border: 1px solid #2175e2;
+ background: #2175e2;
+}
+
+input:checked ~ .cbx:after {
+ opacity: 1;
+ transform: rotate(40deg) scale(1);
+}
+
+.control {
+ position: relative;
+}
+
+
+.hidden-xs-up {
+ display: none!important;
+}

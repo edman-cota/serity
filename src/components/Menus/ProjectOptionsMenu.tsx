@@ -1,13 +1,23 @@
-// eslint-disable-next-line object-curly-newline
-import { Menu, MenuList, MenuItem, MenuButton, Button, useDisclosure } from '@chakra-ui/react'
-import { RiMoreLine, RiMore2Line } from 'react-icons/ri'
-import { AiOutlineExport, AiOutlineShareAlt } from 'react-icons/ai'
-import { FormattedMessage } from 'react-intl'
-import DeleteProjectItemModal from '../Modals/DeleteProjectModal'
-import MembersMenuItem from '../Modals/InviteMembersModal'
-import MenuItemEdit from '../Modals/EditProject'
-import { useWindowSize } from 'react-use'
+import {
+  Menu,
+  MenuList,
+  MenuButton,
+  Button,
+  useDisclosure,
+  MenuOptionGroup,
+  MenuItemOption,
+  MenuDivider,
+} from '@chakra-ui/react'
 import React from 'react'
+import { useWindowSize } from 'react-use'
+import { useDispatch, useSelector } from 'react-redux'
+import { RiMoreLine, RiMore2Line } from 'react-icons/ri'
+
+import { RootState } from 'src/store'
+import MenuItemEdit from '../Modals/EditProject'
+import MembersMenuItem from '../Modals/InviteMembersModal'
+import { setCardStyle } from '@features/counter/cardStyleSlice'
+import DeleteProjectItemModal from '../Modals/DeleteProjectModal'
 
 interface Props {
   name: string
@@ -16,8 +26,14 @@ interface Props {
 }
 
 const ProjectMore = ({ name, id, emoji }: Props) => {
+  const dispatch = useDispatch()
   const { width } = useWindowSize()
-  const { isOpen, onToggle } = useDisclosure()
+  const { onToggle } = useDisclosure()
+  const cardStyle = useSelector((state: RootState) => state.cardStyle.value)
+
+  const handleOnSelect = (e: any) => {
+    dispatch(setCardStyle(e))
+  }
 
   return (
     <Menu autoSelect={false} isLazy placement='bottom'>
@@ -31,13 +47,17 @@ const ProjectMore = ({ name, id, emoji }: Props) => {
       <MenuList>
         <MenuItemEdit name={name} id={id} emoji={emoji} />
         <MembersMenuItem projectName={name} />
-        <MenuItem icon={<AiOutlineShareAlt />}>
-          <FormattedMessage id='share' />
-        </MenuItem>
-        <MenuItem icon={<AiOutlineExport />}>
-          <FormattedMessage id='export' />
-        </MenuItem>
-
+        <MenuDivider />
+        <MenuOptionGroup
+          defaultValue={cardStyle}
+          title='Card style'
+          type='radio'
+          onChange={(e) => handleOnSelect(e)}
+        >
+          <MenuItemOption value='checkbox'>Checkbox</MenuItemOption>
+          <MenuItemOption value='radio'>Radio</MenuItemOption>
+        </MenuOptionGroup>
+        <MenuDivider />
         <DeleteProjectItemModal name={name} id={id} />
       </MenuList>
     </Menu>
