@@ -1,6 +1,7 @@
 import React from 'react'
-import { Flex, Select, Text, VStack } from '@chakra-ui/react'
+import { Flex, Text, VStack } from '@chakra-ui/react'
 
+import Select, { SelectItem } from '@components/Select/Select'
 import { LOCALES } from '../../i18n/locales'
 import { FormattedMessage } from 'react-intl'
 
@@ -26,12 +27,15 @@ const General = ({ currentLocale, handleChange }: Props) => {
           <Text py='10px'>
             <FormattedMessage id='language' />
           </Text>
-          <Select variant='filled' size='md' onChange={handleChange} value={currentLocale}>
-            {languages.map(({ name, code }) => (
-              <option key={code} value={code} style={{ height: '50px' }}>
-                {name}
-              </option>
-            ))}
+          <Select>
+            <Select.Trigger value='English' placeholder='Select a language' />
+            <Select.Content>
+              {languages.map(({ name, code }) => (
+                <SelectItem key={code} value={name}>
+                  {name}
+                </SelectItem>
+              ))}
+            </Select.Content>
           </Select>
         </Flex>
       </Flex>

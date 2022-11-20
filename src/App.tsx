@@ -6,6 +6,7 @@ import { ChakraProvider, Flex } from '@chakra-ui/react'
 import theme from '@theme/index'
 import { LOCALES } from '@i18n/locales'
 import { messages } from '@i18n/messages'
+import React from 'react'
 
 const App = () => {
   function getInitialLocal() {
