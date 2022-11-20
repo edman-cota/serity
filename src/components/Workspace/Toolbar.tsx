@@ -7,9 +7,11 @@ import { HiOutlineChevronDown, HiOutlineChevronLeft } from 'react-icons/hi'
 import { RootState } from 'src/store'
 import { setIsListOpen } from '@features/counter/onToggleListsSlice'
 import CreateProjectModalTrigger from '@components/Modals/CreateProject'
+import { useWindowSize } from 'react-use'
 
 const Toolbar = () => {
   const dispatch = useDispatch()
+  const { width } = useWindowSize()
   const isListOpen = useSelector((state: RootState) => state.isListOpen.value)
   const itemColor = useColorModeValue('blackAlpha.600', 'whiteAlpha.700')
   const hoverBg = useColorModeValue('white', 'whiteAlpha.200')
@@ -29,7 +31,11 @@ const Toolbar = () => {
           <FormattedMessage id='projects' />
         </Text>
       </Flex>
-      <Flex alignItems='center' visibility='hidden' _groupHover={{ visibility: 'visible' }}>
+      <Flex
+        alignItems='center'
+        visibility={width < 768 ? 'visible' : 'hidden'}
+        _groupHover={{ visibility: 'visible' }}
+      >
         <CreateProjectModalTrigger />
         <Button h='2rem' w='2rem' p='0px' onClick={() => dispatch(setIsListOpen(!isListOpen))}>
           {isListOpen ? <HiOutlineChevronDown /> : <HiOutlineChevronLeft />}

@@ -19,14 +19,14 @@ const Item = ({ task, index }: Props) => {
 
   return (
     <ListItem
-      role='group'
+      // role='group'
       cursor='pointer'
       borderRadius='base'
       _hover={{ background: hover }}
       bg={index === activeIndex ? hover : 'transparent'}
     >
       <HStack h='40px'>
-        <Flex px='8px'>
+        <Flex px='8px' _groupActive={{ bg: 'rgba(255, 255, 255, 0.06)' }}>
           <RenderStatus task={task} />
         </Flex>
         <Flex flex={1} alignItems='center' height='100%'>

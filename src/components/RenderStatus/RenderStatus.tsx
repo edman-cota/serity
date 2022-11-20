@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { Tooltip, useToast, Text } from '@chakra-ui/react'
+import { Tooltip, useToast, Text, Button } from '@chakra-ui/react'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 
 import { auth } from '../../firebase'
@@ -33,44 +33,42 @@ const RenderStatus = ({ task }: Props) => {
   const tickPathDone = useTransform(x, [10, 100], [0, 1])
 
   const markStatusAsComplete = (taskToUpdate: Task) => {
-    setTimeout(() => {
-      const result = markStatusToCompleted(user, workingProject, project[0], taskToUpdate)
-
-      if (result === 'success') {
-        // close task detail sidebar
-        dispatch(setSelectedTaskId(''))
-        dispatch(setIsOpen(false))
-        dispatch(setActiveIndex(-1))
-
-        toast({
-          description: 'Task completed successfully',
-          status: 'success',
-          variant: 'subtle',
-        })
-      }
-    }, 300)
+    // setTimeout(() => {
+    //   const result = markStatusToCompleted(user, workingProject, project[0], taskToUpdate)
+    //   if (result === 'success') {
+    //     // close task detail sidebar
+    //     dispatch(setSelectedTaskId(''))
+    //     dispatch(setIsOpen(false))
+    //     dispatch(setActiveIndex(-1))
+    //     toast({
+    //       description: 'Task completed successfully',
+    //       status: 'success',
+    //       variant: 'subtle',
+    //     })
+    //   }
+    // }, 300)
   }
 
   const markStatusAsUncomplete = (taskToUpdate: Task) => {
-    const result = markStatusToUncomplete(user, workingProject, project[0], taskToUpdate)
-
-    if (result === 'success') {
-      toast({
-        description: 'Task restored successfully',
-        status: 'success',
-        variant: 'subtle',
-      })
-    }
+    // const result = markStatusToUncomplete(user, workingProject, project[0], taskToUpdate)
+    // if (result === 'success') {
+    //   toast({
+    //     description: 'Task restored successfully',
+    //     status: 'success',
+    //     variant: 'subtle',
+    //   })
+    // }
   }
 
   switch (task.completed) {
     case 0:
       return (
         <Tooltip label='Complete' openDelay={700}>
-          <Text as='span' w='20px' height='20px'>
+          <Button minW='24px' w='24px' height='24px' _hover={{ bg: 'transparent' }} role='parent'>
             <svg
-              width='100%'
-              height='100%'
+              width='20px'
+              height='20px'
+              z={999}
               viewBox='0 0 50 50'
               onClick={() => {
                 setClicked(true)
@@ -94,16 +92,16 @@ const RenderStatus = ({ task }: Props) => {
                 style={{ pathLength: tickPath }}
               />
             </svg>
-          </Text>
+          </Button>
         </Tooltip>
       )
     case 1:
       return (
         <Tooltip label='Completed'>
-          <Text as='span' w='20px' height='20px'>
+          <Button minW='24px' w='24px' height='24px' _hover={{ bg: 'transparent' }}>
             <svg
-              width='100%'
-              height='100%'
+              width='20px'
+              height='20px'
               viewBox='0 0 50 50'
               onClick={() => markStatusAsUncomplete(task)}
             >
@@ -123,7 +121,7 @@ const RenderStatus = ({ task }: Props) => {
                 style={{ pathLength: tickPathDone }}
               />
             </svg>
-          </Text>
+          </Button>
         </Tooltip>
       )
     default:

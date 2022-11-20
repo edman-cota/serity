@@ -24,9 +24,10 @@ export const useGetTasks = () => {
         const completedTask: Task[] = []
         snapshot.forEach((snap) => {
           if (snap.val().projectId === window.localStorage.getItem('working-project')) {
-            if (snap.val().completed === 0) {
-              taskList.push(snap.val())
-            }
+            taskList.push(snap.val())
+            // if (snap.val().completed === 0) {
+            //   taskList.push(snap.val())
+            // }
             if (snap.val().completed === 1) {
               completedTask.push(snap.val())
             }
