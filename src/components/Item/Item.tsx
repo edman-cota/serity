@@ -26,7 +26,7 @@ const Item = ({ task, index }: Props) => {
       bg={index === activeIndex ? hover : 'transparent'}
     >
       <HStack h='40px'>
-        <Flex px='8px'>
+        <Flex px='6px'>
           <RenderStatus task={task} />
         </Flex>
         <Flex flex={1} alignItems='center' height='100%'>

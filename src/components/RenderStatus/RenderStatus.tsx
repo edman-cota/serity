@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useToast } from '@chakra-ui/react'
+import { Button, useToast } from '@chakra-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 import './styles.css'
@@ -10,6 +10,7 @@ import { Task } from '../../types/task.model'
 import { useGetProject } from '@hooks/useGetProject'
 import { markStatusToCompleted } from '@helpers/markStatusToCompleted'
 import { markStatusToUncomplete } from '@helpers/markStatusToUncomplete'
+import { getPriorityColor } from '@helpers/getPriorityColor'
 
 const RenderStatus = ({ task }: { task: Task }) => {
   const toast = useToast()
@@ -44,21 +45,29 @@ const RenderStatus = ({ task }: { task: Task }) => {
   }
 
   return (
-    <div className='control'>
-      <input
-        readOnly
-        checked={task.completed ? true : false}
-        type='checkbox'
-        id={task.id}
-        className='hidden-xs-up'
-      />
-      <label
-        htmlFor={task.id}
-        style={{ borderRadius: borderRadius }}
-        className='cbx'
-        onClick={() => toggleStatus(task)}
-      />
-    </div>
+    <Button
+      display='flex'
+      justifyContent='center'
+      minW='20px'
+      _hover={{ bg: 'transparent' }}
+      _active={{ bg: 'transparent' }}
+    >
+      <div className='control'>
+        <input
+          readOnly
+          checked={task.completed ? true : false}
+          type='checkbox'
+          id={task.id}
+          className='hidden-xs-up'
+        />
+        <label
+          htmlFor={task.id}
+          style={{ borderRadius: borderRadius, borderColor: getPriorityColor(task.priority) }}
+          className='cbx'
+          onClick={() => toggleStatus(task)}
+        />
+      </div>
+    </Button>
   )
 }
 

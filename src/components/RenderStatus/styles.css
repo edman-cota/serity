@@ -1,9 +1,9 @@
 .cbx {
  position: relative;
  top: 1px;
- width: 18px;
- height: 18px;
- border: 1px solid #c8ccd4;
+ width: 17px;
+ height: 17px;
+ border: 1px solid;
  transition: background 0.1s ease;
  cursor: pointer;
  display: block;
@@ -31,8 +31,11 @@
 }
 
 input:checked ~ .cbx {
-  border: 1px solid #2175e2;
- background: #2175e2;
+  width: 18px;
+  height: 18px;
+  border: 1px solid transparent !important;
+  background: #2175e2;
+  border-image: none;
 }
 
 input:checked ~ .cbx:after {
