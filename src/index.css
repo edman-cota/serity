@@ -63,5 +63,45 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+
+
 }
 
+#main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #feac00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-box {
+  background-color: white;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 4;
+  backdrop-filter: blur(2rem);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.circle-1, .circle-2 {
+  background-color: white;
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+
+}
+
+.circle-1 {
+  top: 4%;
+  right: 2%;
+  background-color: #FE336F;
+}
+
+.circle-2 {
+  bottom: 4%;
+  left: 2%;
+}

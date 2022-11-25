@@ -4,7 +4,7 @@ import { Button, ButtonGroup, Flex, Image, Link, Text } from '@chakra-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useNavigate, Link as RouterLink } from 'react-router-dom'
 
-import logo from '../../../assets/img/logo-white.svg'
+import logo from '../../../assets/img/logo.svg'
 import { auth } from '../../../firebase'
 import { formatUsername } from '../../../helpers/formatter'
 import React from 'react'
@@ -23,8 +23,8 @@ const Navbar = (): JSX.Element => {
   }, [user, loading])
 
   return (
-    <Flex bg='rgb(255 255 255 / 0.15)'>
-      <Flex mx='auto' px='1.5rem' w='100%' borderBottom='1px' borderBottomColor='whiteAlpha.300'>
+    <Flex bg='transparent' zIndex='4'>
+      <Flex mx='auto' px='1.5rem' w='100%'>
         <Flex
           justifyContent='space-between'
           h='4rem'
