@@ -53,7 +53,7 @@ export const messages = {
     none: 'None',
     to: 'to',
     //Task detail
-    duplicate_task: 'Duplicate task',
+    duplicate: 'Duplicate',
     task_completed_successfully: 'Task completed successfully',
     delete: 'Delete',
     copy_link: 'Copy link',
@@ -177,7 +177,7 @@ export const messages = {
     none: 'Ninguna',
     to: 'a',
     //Task detail
-    duplicate_task: 'Duplicar tarea',
+    duplicate: 'Duplicar',
     task_completed_successfully: 'Tarea completada con éxito',
     delete: 'Eliminar',
     copy_link: 'Copiar enlace',

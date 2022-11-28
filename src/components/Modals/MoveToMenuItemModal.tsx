@@ -73,7 +73,7 @@ const MoveToMenuItemModal = () => {
 
   return (
     <>
-      <MenuItem icon={<MdOutlineDriveFileMove />} onClick={onOpen}>
+      <MenuItem onClick={onOpen}>
         <FormattedMessage id='move_to' />
       </MenuItem>
 

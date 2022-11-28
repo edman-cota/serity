@@ -77,12 +77,13 @@ const DropdownTaskOptions = () => {
         <RiMoreLine size={20} style={{ margin: 'auto' }} />
       </MenuButton>
       <MenuList>
-        <MenuItem icon={<CopyIcon />} onClick={() => handleDuplicateTask()}>
-          <FormattedMessage id='duplicate_task' />
+        <MenuItem onClick={() => handleDuplicateTask()}>
+          <FormattedMessage id='duplicate' />
         </MenuItem>
         <CopyToClipboardMenuItem />
         <MoveToMenuItemModal />
-        <MenuItem icon={<AiOutlineDelete />} onClick={() => handleDeleteTask()}>
+        <MenuItem>Print task</MenuItem>
+        <MenuItem onClick={() => handleDeleteTask()}>
           <FormattedMessage id='delete' />
         </MenuItem>
       </MenuList>

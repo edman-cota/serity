@@ -1,6 +1,5 @@
 import React from 'react'
 import { MenuItem } from '@chakra-ui/react'
-import { BsLink45Deg } from 'react-icons/bs'
 import { FormattedMessage } from 'react-intl'
 
 const CopyToClipboardMenuItem = () => {
@@ -16,7 +15,7 @@ const CopyToClipboardMenuItem = () => {
   }
 
   return (
-    <MenuItem icon={<BsLink45Deg />} onClick={() => copyToClipboard()}>
+    <MenuItem onClick={() => copyToClipboard()}>
       <FormattedMessage id='copy_link' />
     </MenuItem>
   )

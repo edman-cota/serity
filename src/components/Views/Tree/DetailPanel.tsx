@@ -12,21 +12,22 @@ const DetailPanel = () => {
   const { colorMode } = useColorMode()
   const isTaskActivityVisible = useSelector((state: RootState) => state.isTaskActivityVisible.value)
   const isOpen = useSelector((state: RootState) => state.isOpen.value)
+  const selectedTaskId = useSelector((state: RootState) => state.selectedTaskId.value)
 
   const { sizes, paneDisplay } = useSplitSizes()
 
   const styles = {
-    height: '100vh',
+    // height: '100vh',
     position: 'static',
-    display: isOpen ? paneDisplay.at(1) : paneDisplay.at(0),
-    width: isOpen ? `${sizes.at(1)}%` : '0%',
+    display: selectedTaskId !== '' ? paneDisplay.at(1) : paneDisplay.at(0),
+    width: selectedTaskId !== '' ? `${sizes.at(1)}%` : '0%',
     backgroundColor: colorMode === 'dark' ? 'var(--gray-700)' : '#FFFFFF',
     borderLeft: colorMode === 'dark' ? 'none' : '1px solid rgba(0, 0, 0, 0.08)',
   }
 
   return (
     <Slide in={isOpen} unmountOnExit style={styles}>
-      <VStack w='100%'>
+      <VStack w='100%' h='100vh'>
         <NavbarTreeTask />
         {isTaskActivityVisible ? (
           <Flex px='16px' w='100%'>
