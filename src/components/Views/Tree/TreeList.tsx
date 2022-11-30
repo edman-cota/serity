@@ -1,18 +1,21 @@
-import { useSelector } from 'react-redux'
-import { VStack, List } from '@chakra-ui/react'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { VStack, List, Text, Flex, Button, useColorModeValue } from '@chakra-ui/react'
 
 import Item from '../../Item/Item'
 import { RootState } from 'src/store'
-import ListHeader from './ListHeader'
 import AddTask from '../../Item/AddTask'
 import { useGetTasks } from '@hooks/useGetTasks'
 import LoadingScreen from '../../LoadingScreen/LoadingScreen'
-import React from 'react'
+import { setShowAddTask } from '@features/counter/showAddTaskSlice'
 
 const TreeList = () => {
-  const { tasks, completedTasks, isLoading } = useGetTasks()
+  const dispatch = useDispatch()
+  const { tasks, isLoading } = useGetTasks()
   const showAddTask = useSelector((state: RootState) => state.showAddTask.value)
-  const showCompleted = useSelector((state: RootState) => state.showCompleted.value)
+  const background = useColorModeValue('var(--gray-100)', 'var(--gray-700)')
+
+  const handleShow = () => dispatch(setShowAddTask(!showAddTask))
 
   return (
     <>
@@ -24,6 +27,24 @@ const TreeList = () => {
                 <Item key={data.id} index={index} task={data} />
               ))}
             </List>
+            {showAddTask ? null : (
+              <Flex w='95%' h='40px' m='10px auto' padding='0 10px' maxWidth={880} role='group'>
+                <Button
+                  onClick={handleShow}
+                  w='100%'
+                  bg={background}
+                  height='100%'
+                  visibility='hidden'
+                  border='none'
+                  borderRadius='0.375rem'
+                  _hover={{ background: background }}
+                  _active={{ background: background }}
+                  _groupHover={{ visibility: 'visible' }}
+                >
+                  + Add Task
+                </Button>
+              </Flex>
+            )}
             {showAddTask ? <AddTask /> : null}
           </VStack>
         </VStack>

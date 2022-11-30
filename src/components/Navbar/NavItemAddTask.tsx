@@ -1,3 +1,4 @@
+import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import { HiOutlinePlus } from 'react-icons/hi'
 import { Button, Tooltip } from '@chakra-ui/react'

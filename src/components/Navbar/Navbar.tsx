@@ -42,11 +42,6 @@ const Navbar = () => {
             <ListItem>
               <NavItemAddTask />
             </ListItem>
-            {/* {width >= 768 ? (
-              <ListItem>
-                <ShortcutsModal />
-              </ListItem>
-            ) : null} */}
             <ListItem>
               <SettingsMenu />
             </ListItem>
