@@ -6,7 +6,8 @@ import ActivityContent from './ActivityContent'
 import './Activities.scss'
 import Time from './Time'
 import Last from './Last'
-import { Activity as ActivityProps } from '../../types/activity.model'
+import { Activity as ActivityProps } from '../../models/Activity.model'
+import React from 'react'
 
 const Activity = ({
   username,

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import Activity from './Activity'
-import { Activity as ActivityProps } from '../../types/activity.model'
+import { Activity as ActivityProps } from '../../models/Activity.model'
 
 interface ActivitiesProps {
   activities: ActivityProps[]

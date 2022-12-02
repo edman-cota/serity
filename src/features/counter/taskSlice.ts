@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { Task } from '../../types/task.model'
+import { Task } from '../../models/task.model'
 
 export interface Props {
   value: Partial<Task>

@@ -1,5 +1,5 @@
 import database from '../firebase'
-import { Status } from '../types/definitions'
+import { Status } from '../models/definitions'
 
 export function transferTask(
   user: any,

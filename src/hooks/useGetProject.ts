@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { RootState } from 'src/store'
 import database, { auth } from '../firebase'
-import { Project } from '../types/project.model'
+import { Project } from '../models/project.model'
 
 type ProjectProps = Omit<Project, 'createdAt' | 'createdBy' | 'id' | 'name'>
 

@@ -1,6 +1,6 @@
-import { ActivityType, Status, DBRef } from '../types/definitions'
+import { ActivityType, Status, DBRef } from '../models/definitions'
 import database from '../firebase'
-import { Project } from '../types/project.model'
+import { Project } from '../models/project.model'
 
 export function markStatusToCompleted(user: any, workingProject: any, project: Project, task: any) {
   database

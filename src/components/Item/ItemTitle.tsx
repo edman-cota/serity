@@ -2,7 +2,7 @@ import { useWindowSize } from 'react-use'
 import { useDispatch } from 'react-redux'
 import { Flex, Text, useColorModeValue } from '@chakra-ui/react'
 
-import { Task } from '../../types/task.model'
+import { Task } from '../../models/task.model'
 import { setTask } from '@features/counter/taskSlice'
 import { setActiveIndex } from '@features/counter/activeIndexSlice'
 import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'

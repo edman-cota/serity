@@ -4,7 +4,7 @@ export interface Activity {
   /**
    * Id of the activity.
    */
-  id?: string
+  id: string
   /**
    * Due date of the activity. Depends on the activity type.
    */
@@ -16,11 +16,11 @@ export interface Activity {
   /**
    * The task id where the activity belings to.
    */
-  taskId?: string
+  taskId: string
   /**
    * Current user username that triggered the activity.
    */
-  username?: string
+  username: string
   /**
    * Current time when the activity was created at.
    */
@@ -28,11 +28,11 @@ export interface Activity {
   /**
    * Current user id who triggered the activity.
    */
-  createdBy?: string
+  createdBy: string
   /**
    * The project id where the task belongs to where the activity was created at.
    */
-  projectId?: string
+  projectId: string
   /**
    * The type of the activity.
    */

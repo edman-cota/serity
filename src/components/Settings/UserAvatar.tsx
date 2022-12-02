@@ -1,5 +1,5 @@
 import { Avatar } from '@chakra-ui/react'
-import { User } from '../../types/user.modal'
+import { User } from '../../models/user.modal'
 
 interface UserAvatarProps {
   user: Pick<User, 'image' | 'name'>

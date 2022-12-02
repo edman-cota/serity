@@ -1,5 +1,5 @@
 import database from '../firebase'
-import { Status, DBRef } from '../types/definitions'
+import { Status, DBRef } from '../models/definitions'
 
 export const deleteSingleTask = (task: any, project: any, user: any) => {
   database

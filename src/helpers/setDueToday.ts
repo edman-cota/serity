@@ -1,7 +1,7 @@
-import { ActivityType, Status } from '../types/definitions'
+import { ActivityType, Status } from '../models/definitions'
 import database from '../firebase'
-import { Task } from 'src/types/task.model'
-import { ProjectBTO } from 'src/types/project.model'
+import { Task } from 'src/models/task.model'
+import { ProjectBTO } from 'src/models/project.model'
 
 export function setDueToday(user: any, task: Task, workingProject: ProjectBTO) {
   database

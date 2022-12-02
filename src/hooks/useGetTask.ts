@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { RootState } from 'src/store'
 import database, { auth } from '../firebase'
-import { Task } from 'src/types/task.model'
+import { Task } from 'src/models/task.model'
 
 export const useGetTask = () => {
   const [user] = useAuthState(auth)

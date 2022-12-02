@@ -19,7 +19,7 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../firebase'
-import { Status } from '../../types/definitions'
+import { Status } from '../../models/definitions'
 import ColorPicker from '@components/Menus/ColorPicker'
 import { createNewTag } from '@helpers/createNewTag'
 

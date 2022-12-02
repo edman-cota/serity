@@ -1,5 +1,5 @@
 import database from '../firebase'
-import { ActivityType, Status } from '../types/definitions'
+import { ActivityType, Status } from '../models/definitions'
 
 export function removeDueDate(user: any, task: any, workingProject: any) {
   database

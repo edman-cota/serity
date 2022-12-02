@@ -1,4 +1,4 @@
-import { ActivityType } from '../types/definitions'
+import { ActivityType } from '../models/definitions'
 import database from '../firebase'
 
 export function duplicateTask(task: any, project: any, user: any) {

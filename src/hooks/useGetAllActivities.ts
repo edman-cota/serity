@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { RootState } from 'src/store'
 import database, { auth } from '../firebase'
-import { Activity } from '../types/activity.model'
+import { Activity } from '../models/Activity.model'
 
 const useGetActivities = () => {
   const [activities, setActivities] = useState<Activity[]>([])

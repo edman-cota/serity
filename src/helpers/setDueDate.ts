@@ -1,6 +1,6 @@
 import database from '../firebase'
-import { Status } from '../types/definitions'
-import { ActivityType } from '../types/definitions'
+import { Status } from '../models/definitions'
+import { ActivityType } from '../models/definitions'
 
 export function setDueDate(user: any, task: any, e: any, workingProject: any) {
   database

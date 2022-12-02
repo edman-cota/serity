@@ -1,6 +1,6 @@
 import database from '../firebase'
-import { Status } from '../types/definitions'
-import { Project } from '../types/project.model'
+import { Status } from '../models/definitions'
+import { Project } from '../models/project.model'
 
 export const createNewProject = (name: string, user: any, emoji: any) => {
   const currentDate = new Date()

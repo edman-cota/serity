@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link, Text, useColorModeValue, ListItem } from '@chakra-ui/react'
 
 import { auth } from '../../firebase'
-import { Tag } from 'src/types/tag.modal'
+import { Tag } from 'src/models/tag.modal'
 import { formatUrl } from '@helpers/formatter'
 import { formatUsername } from '@helpers/formatter'
 

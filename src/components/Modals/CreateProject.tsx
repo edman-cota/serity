@@ -20,7 +20,7 @@ import { auth } from '../../firebase'
 import { RootState } from 'src/store'
 import EmojiPicker from '../Menus/EmojiPicker'
 import { createNewProject } from '@helpers/createNewProject'
-import { Status } from '../../types/definitions'
+import { Status } from '../../models/definitions'
 
 const CreateProject = () => {
   const [user] = useAuthState(auth)

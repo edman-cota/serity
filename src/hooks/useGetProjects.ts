@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import database, { auth } from '../firebase'
-import { ProjectProps } from '../types/project.model'
+import { ProjectProps } from '../models/project.model'
 
 export const useGetProjects = () => {
   const [user] = useAuthState(auth)

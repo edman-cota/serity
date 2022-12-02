@@ -4,7 +4,7 @@ import { Flex, HStack, ListItem, useColorModeValue } from '@chakra-ui/react'
 import ItemMenu from './ItemMenu'
 import ItemTitle from './ItemTitle'
 import { RootState } from 'src/store'
-import { Task } from '../../types/task.model'
+import { Task } from '../../models/task.model'
 import RenderStatus from '../RenderStatus/RenderStatus'
 import React from 'react'
 

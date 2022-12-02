@@ -1,6 +1,6 @@
 import database from '../firebase'
-import { Project } from '../types/project.model'
-import { ActivityType } from '../types/definitions'
+import { Project } from '../models/project.model'
+import { ActivityType } from '../models/definitions'
 
 export function createNewTask(user: any, title: string, project: Project) {
   const workingProjectId = window.localStorage.getItem('working-project')

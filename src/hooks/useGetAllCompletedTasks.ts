@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import database, { auth } from '../firebase'
-import { Task } from '../types/task.model'
+import { Task } from '../models/task.model'
 
 export const useGetAllCompletedTasks = () => {
   const [user] = useAuthState(auth)

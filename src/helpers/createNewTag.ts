@@ -1,5 +1,5 @@
 import database from '../firebase'
-import { Status } from '../types/definitions'
+import { Status } from '../models/definitions'
 
 export function createNewTag(user: any, tag: any, color: string) {
   const tagRef = database.ref(`${user?.uid}/tags`)

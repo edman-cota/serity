@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { ProjectBTO } from '../../types/project.model'
+import { ProjectBTO } from '../../models/project.model'
 
 export interface Props {
   value: ProjectBTO

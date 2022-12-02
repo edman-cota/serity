@@ -8,7 +8,7 @@ import { Link, Text, useColorModeValue, ListItem, Button } from '@chakra-ui/reac
 import { auth } from '../../firebase'
 import { formatUrl } from '@helpers/formatter'
 import { formatUsername } from '@helpers/formatter'
-import { Project } from '../../types/project.model'
+import { Project } from '../../models/project.model'
 import { setIsOpen } from '@features/counter/onToggleSlice'
 import { setActiveIndex } from '@features/counter/activeIndexSlice'
 import { setShowAddTask } from '@features/counter/showAddTaskSlice'

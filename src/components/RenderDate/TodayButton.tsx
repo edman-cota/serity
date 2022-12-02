@@ -5,8 +5,8 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../firebase'
 import { RootState } from 'src/store'
-import { Task } from 'src/types/task.model'
-import { Status } from '../../types/definitions'
+import { Task } from 'src/models/task.model'
+import { Status } from '../../models/definitions'
 import { setDueToday } from '@helpers/setDueToday'
 
 interface Props {

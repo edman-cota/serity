@@ -1,7 +1,7 @@
 import { Textarea } from '@chakra-ui/react'
 import { useLayoutEffect, useRef, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { ActivityType } from '../../types/definitions'
+import { ActivityType } from '../../models/definitions'
 import database, { auth } from '../../firebase'
 
 interface Props {
