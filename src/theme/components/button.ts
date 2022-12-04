@@ -41,6 +41,11 @@ const solid = defineStyle({
   },
 })
 
+const link = defineStyle({
+  color: '#0071dc',
+  my: '20px',
+})
+
 const submit = defineStyle({
   color: 'white',
   background: '#2e85ec',
@@ -60,7 +65,7 @@ const submit = defineStyle({
 
 export const buttonTheme = defineStyleConfig({
   baseStyle,
-  variants: { ghost, solid, submit },
+  variants: { ghost, solid, link, submit },
   defaultProps: {
     variant: 'ghost',
   },

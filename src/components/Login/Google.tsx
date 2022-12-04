@@ -9,7 +9,7 @@ export const Google = () => {
       xmlns='http://www.w3.org/2000/svg'
       className='w-7 h-7 pointer-events-none socialIcon icon'
     >
-      <g fill='none' fill-rule='evenodd'>
+      <g fill='none' fillRule='evenodd'>
         <path
           d='M3.048 16.267A10.242 10.242 0 012 11.733c0-1.631.376-3.17 1.048-4.534L6.489 9.83a6.072 6.072 0 00-.303 1.903c0 .665.106 1.304.303 1.902l-3.441 2.632z'
           fill='#FBBC05'

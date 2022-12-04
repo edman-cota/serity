@@ -42,6 +42,8 @@ ul {
   --gray-100: #edf2f7;
   --gray-700: #1f2733;
 
+  --form-error-color: var(--chakra-colors-red-500);
+
   --gradient-bar: linear-gradient(103.22deg, #ae67fa -13.86%, #f49867 99.55%);
 }
 

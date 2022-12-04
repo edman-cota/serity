@@ -56,7 +56,8 @@
     "resolve-url-loader": "^5.0.0",
     "styled-components": "^5.3.6",
     "typescript": "^4.5.5",
-    "vite": "^3.2.2"
+    "vite": "^3.2.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.21",
