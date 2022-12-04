@@ -53,34 +53,29 @@ const LoginForm = () => {
             signInWithEmailAndPassword(values.email, values.password)
           }}
         >
-          {({ errors, touched }) => (
-            <Form>
-              <Field name='email' type='email' placeholder='Email address' />
-              {touched.email && errors.email && (
-                <ErrorMessage name='email' component='div' className={styles.fieldError} />
-              )}
+          <Form>
+            <Field name='email' type='email' placeholder='Email address' />
+            <ErrorMessage name='email' component='div' className={styles.fieldError} />
 
-              <Field name='password' type='password' placeholder='Password' />
-              {touched.password && errors.password && (
-                <ErrorMessage name='password' component='div' className={styles.fieldError} />
-              )}
-              <Flex justifyContent='space-between' my='15px'>
-                <Checkbox defaultChecked spacing='.75rem' color='blackAlpha.800'>
-                  <FormattedMessage id='remember_me' />
-                </Checkbox>
-                <Button variant='link'>
-                  <FormattedMessage id='forgot_password' />
-                </Button>
-              </Flex>
+            <Field name='password' type='password' placeholder='Password' />
+            <ErrorMessage name='password' component='div' className={styles.fieldError} />
 
-              <button className='cssbuttons-io-button' type='submit'>
-                <FormattedMessage id='login' />
-                <div className='icon'>
-                  <Arrow />
-                </div>
-              </button>
-            </Form>
-          )}
+            <Flex justifyContent='space-between' my='15px'>
+              <Checkbox defaultChecked spacing='.75rem' color='blackAlpha.800'>
+                <FormattedMessage id='remember_me' />
+              </Checkbox>
+              <Button variant='link'>
+                <FormattedMessage id='forgot_password' />
+              </Button>
+            </Flex>
+
+            <button className='cssbuttons-io-button' type='submit'>
+              <FormattedMessage id='login' />
+              <div className='icon'>
+                <Arrow />
+              </div>
+            </button>
+          </Form>
         </Formik>
       </VStack>
 

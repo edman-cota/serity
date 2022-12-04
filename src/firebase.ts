@@ -47,7 +47,9 @@ const registerWithEmailAndPassword = async (name: string, email: string, passwor
       authProvider: 'local',
       email,
     })
-  } catch (err) {}
+  } catch (err) {
+    return err.code
+  }
 }
 const sendPasswordResetEmail = async (email: string) => {
   try {
