@@ -3,6 +3,7 @@ import { Button, useColorModeValue, Heading, shouldForwardProp, chakra } from '@
 import { motion, isValidMotionProp } from 'framer-motion'
 import { AiOutlineClose } from 'react-icons/ai'
 import { FormattedMessage } from 'react-intl'
+import React from 'react'
 
 const MotionFlex = chakra(motion.div, {
   /**

@@ -4,6 +4,7 @@ import { HiViewBoards } from 'react-icons/hi'
 import { FiChevronDown } from 'react-icons/fi'
 import { VscListSelection } from 'react-icons/vsc'
 import { BsFillCalendarMinusFill } from 'react-icons/bs'
+import React from 'react'
 
 const View = ({ view }: { view: string | null }) => {
   switch (view) {
