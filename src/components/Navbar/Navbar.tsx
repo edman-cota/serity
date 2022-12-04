@@ -1,5 +1,4 @@
 import { useEffect, memo } from 'react'
-import { useWindowSize } from 'react-use'
 import { useNavigate } from 'react-router-dom'
 import { Flex, List, ListItem } from '@chakra-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -7,8 +6,6 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../firebase'
 import ProjectName from './ProjectName'
 import NavItemAddTask from './NavItemAddTask'
-import SearchModal from '../Modals/SearchModal'
-import ShortcutsModal from '../Modals/ShortcutsModal'
 import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
 import ToggleSidebarVisibility from './ToggleSidebarVisibility'
 import React from 'react'
@@ -16,7 +13,6 @@ import SettingsMenu from '@components/Menus/SettingsMenu'
 
 const Navbar = () => {
   const navigate = useNavigate()
-  const { width } = useWindowSize()
   const [user, loading] = useAuthState(auth)
 
   useEffect(() => {

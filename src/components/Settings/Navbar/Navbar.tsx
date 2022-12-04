@@ -1,6 +1,7 @@
-import { Flex, Button } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 import { GrClose } from 'react-icons/gr'
+import { useNavigate } from 'react-router-dom'
+import { Flex, Button } from '@chakra-ui/react'
 
 function Navbar() {
   const navigate = useNavigate()
