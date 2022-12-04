@@ -27,7 +27,7 @@ const Toolbar = () => {
       _hover={{ bg: hoverBg }}
     >
       <Flex alignItems='center'>
-        <Text color={itemColor} fontSize='15px' fontWeight='medium'>
+        <Text color={itemColor} fontSize='14px' fontWeight='medium'>
           <FormattedMessage id='projects' />
         </Text>
       </Flex>

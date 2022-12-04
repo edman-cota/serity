@@ -13,8 +13,8 @@ const Sidebar = () => {
 
   return (
     <Slide in={isSidebarOpen} unmountOnExit direction='left' style={{ width: '300px' }}>
-      <VStack w='300px' h='100vh' pos='fixed' background={sidebarBackground}>
-        <SmartFolders />
+      <VStack w='300px' h='100vh' pos='fixed' pt='50px' background={sidebarBackground}>
+        {/* <SmartFolders /> */}
         <Workspace />
       </VStack>
     </Slide>
