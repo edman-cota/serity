@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from 'src/store'
 import { Task } from '../models/task.model'
 import database, { auth } from '../firebase'
+import { isToday } from '@helpers/isToday'
 
 export const useGetTasks = () => {
   const [user] = useAuthState(auth)
@@ -24,13 +25,19 @@ export const useGetTasks = () => {
         const completedTask: Task[] = []
         snapshot.forEach((snap) => {
           if (snap.val().projectId === window.localStorage.getItem('working-project')) {
-            taskList.push(snap.val())
-            // if (snap.val().completed === 0) {
-            //   taskList.push(snap.val())
-            // }
-            if (snap.val().completed === 1) {
-              completedTask.push(snap.val())
+            if (snap.val().completed === 0) {
+              taskList.push(snap.val())
             }
+
+            if (snap.val().completed === 1) {
+              if (isToday(snap.val().completedAt)) {
+                taskList.push(snap.val())
+              }
+            }
+
+            // if (snap.val().completed === 1) {
+            //   completedTask.push(snap.val())
+            // }
           }
         })
         setTasks(taskList)

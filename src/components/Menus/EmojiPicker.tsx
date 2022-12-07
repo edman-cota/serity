@@ -15,6 +15,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { RootState } from 'src/store'
 import { setEmoji } from '@features/counter/emojiSlice'
+import React from 'react'
 
 const EmojiPicker = () => {
   const dispatch = useDispatch()
@@ -29,8 +30,8 @@ const EmojiPicker = () => {
 
   return (
     <Menu placement='bottom' isOpen={isOpen} onClose={onClose}>
-      <MenuButton as={Button} bg={buttonBg} w='100%' mt='20px' onClick={onOpen}>
-        <Text w='100%' display='flex' justifyContent='space-between'>
+      <MenuButton as={Button} bg={buttonBg} w='100%' h='2.5rem' mt='20px' onClick={onOpen}>
+        <Text w='95%' mx='auto' display='flex' justifyContent='space-between'>
           <Text as='span'>
             <FormattedMessage id='choose_an_icon' />
           </Text>
