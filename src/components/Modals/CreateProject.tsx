@@ -23,6 +23,7 @@ import { RootState } from 'src/store'
 import EmojiPicker from '../Menus/EmojiPicker'
 import { Status } from '../../models/definitions'
 import { createNewProject } from '@helpers/createNewProject'
+import CharacterLimit from '@components/CharacterLimit/CharacterLimit'
 
 const CreateProject = () => {
   const [user] = useAuthState(auth)
@@ -30,6 +31,7 @@ const CreateProject = () => {
   const emoji = useSelector((state: RootState) => state.emoji.value)
   const [characterCount, setCharacterCount] = useState(0)
   const [projectName, setProjectName] = useState('')
+  const maxLength = 40
 
   useEffect(() => {
     return () => {
@@ -71,17 +73,15 @@ const CreateProject = () => {
 
           <ModalBody>
             <form style={{ width: '100%' }} onSubmit={handleOnSubmit}>
-              <Flex justifyContent='flex-end' h='30px'>
-                {characterCount >= 30 ? (
-                  <Text color='red.500' fontSize='sm' py='6px'>
-                    <FormattedMessage id='character_limit' /> {characterCount}/40
-                  </Text>
-                ) : null}
-              </Flex>
+              <CharacterLimit
+                characterCount={characterCount}
+                maxLength={maxLength}
+                warningPoint={30}
+              />
               <Input
                 name='name'
                 autoFocus
-                maxLength={40}
+                maxLength={maxLength}
                 autoComplete='off'
                 spellCheck='false'
                 placeholder='Give your new project a name'
