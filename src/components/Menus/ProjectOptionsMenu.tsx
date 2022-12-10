@@ -36,8 +36,6 @@ const ProjectMore = ({ name, id, emoji }: Props) => {
     dispatch(setCardStyle(e))
   }
 
-  console.log(workingProject)
-
   return (
     <Menu autoSelect={false} placement='bottom'>
       <MenuButton as={Button} transition='all 0.2s'>

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { ClipLoader } from 'react-spinners'
 import { FormattedMessage } from 'react-intl'
 import { useNavigate } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -18,10 +19,15 @@ const LoginForm = () => {
   const navigate = useNavigate()
   const [user, loading] = useAuthState(auth)
   const project = window.localStorage.getItem('project') ?? 'today'
+  const [isLoading, setIsLoading] = useState(false)
 
   const signInWithEmailAndPassword = async (email: string, password: string) => {
+    setIsLoading(true)
     try {
-      await auth.signInWithEmailAndPassword(email, password)
+      const result = await auth.signInWithEmailAndPassword(email, password)
+      if (result.user?.uid) {
+        setIsLoading(false)
+      }
     } catch (error: any) {
       console.log(error.code)
     }
@@ -69,11 +75,23 @@ const LoginForm = () => {
               </Button>
             </Flex>
 
-            <button className='cssbuttons-io-button' type='submit'>
-              <FormattedMessage id='login' />
-              <div className='icon'>
-                <Arrow />
-              </div>
+            <button
+              className='cssbuttons-io-button'
+              type='submit'
+              style={{ pointerEvents: isLoading ? 'none' : 'auto' }}
+            >
+              {isLoading ? (
+                <Flex mx='auto' alignItems='center'>
+                  <ClipLoader color='#36d7b7' size={25} loading={isLoading} />
+                </Flex>
+              ) : (
+                <>
+                  <FormattedMessage id='login' />
+                  <div className='icon'>
+                    <Arrow />
+                  </div>
+                </>
+              )}
             </button>
           </Form>
         </Formik>

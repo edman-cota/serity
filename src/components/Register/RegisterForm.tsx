@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { ClipLoader } from 'react-spinners'
 import { FormattedMessage } from 'react-intl'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { VStack, Text, Flex, Link, Checkbox } from '@chakra-ui/react'
@@ -13,6 +14,8 @@ import { registerWithEmailAndPassword } from '../../firebase'
 import { registerSchema } from '../../validation/validators/registerSchema'
 
 const RegisterForm = () => {
+  const [isLoading, setIsLoading] = useState(false)
+
   return (
     <VStack h='100%' justifyContent='center' width='100%'>
       <Header />
@@ -28,7 +31,9 @@ const RegisterForm = () => {
           }}
           validationSchema={registerSchema}
           onSubmit={(values) => {
+            setIsLoading(true)
             registerWithEmailAndPassword(values.username, values.email, values.password)
+            setIsLoading(false)
           }}
         >
           <Form>
@@ -56,11 +61,23 @@ const RegisterForm = () => {
               </Checkbox>
             </Flex>
 
-            <button className='cssbuttons-io-button' type='submit'>
-              <FormattedMessage id='get_started' />
-              <div className='icon'>
-                <Arrow />
-              </div>
+            <button
+              className='cssbuttons-io-button'
+              type='submit'
+              style={{ pointerEvents: isLoading ? 'none' : 'auto' }}
+            >
+              {isLoading ? (
+                <Flex mx='auto' alignItems='center'>
+                  <ClipLoader color='#36d7b7' size={25} loading={isLoading} />
+                </Flex>
+              ) : (
+                <>
+                  <FormattedMessage id='get_started' />
+                  <div className='icon'>
+                    <Arrow />
+                  </div>
+                </>
+              )}
             </button>
           </Form>
         </Formik>
