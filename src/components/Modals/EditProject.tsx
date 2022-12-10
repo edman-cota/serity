@@ -36,7 +36,6 @@ const EditProject = ({ name, id, emoji }: Props) => {
   const dispatch = useDispatch()
 
   const savedEmoji = useSelector((state: RootState) => state.emoji.value)
-  // eslint-disable-next-line no-unused-vars
   const [title, setTitle] = useState(name)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { register, resetField, handleSubmit } = useForm({
@@ -67,7 +66,7 @@ const EditProject = ({ name, id, emoji }: Props) => {
               <FormattedMessage id='edit_project' />
             </ModalHeader>
 
-            {/* <ModalBody>
+            <ModalBody>
               <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
                 <Input autoComplete='off' autoFocus {...register('name', { required: true })} />
               </form>
@@ -86,7 +85,7 @@ const EditProject = ({ name, id, emoji }: Props) => {
               <Button type='submit' variant='submit'>
                 <FormattedMessage id='save' />
               </Button>
-            </ModalFooter> */}
+            </ModalFooter>
           </ModalContent>
         </Modal>
       </DarkMode>

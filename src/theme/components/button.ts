@@ -63,9 +63,20 @@ const submit = defineStyle({
   },
 })
 
+const remove = defineStyle({
+  w: '100px',
+  h: '2rem',
+  color: '#FFFFFF',
+  background: '#ff6666',
+
+  _hover: {
+    bg: '#ff6666',
+  },
+})
+
 export const buttonTheme = defineStyleConfig({
   baseStyle,
-  variants: { ghost, solid, link, submit },
+  variants: { ghost, solid, link, submit, remove },
   defaultProps: {
     variant: 'ghost',
   },

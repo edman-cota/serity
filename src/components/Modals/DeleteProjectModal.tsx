@@ -12,25 +12,36 @@ import {
   HStack,
   Text,
 } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
 import { FormattedMessage } from 'react-intl'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import database, { auth } from '../../firebase'
+import { formatUsername } from '@helpers/formatter'
 
 interface Props {
-  name: string
-  id: string
+  name: string | undefined
+  id: string | undefined
 }
 
 const DeleteProjectModal = ({ name, id }: Props) => {
+  const navigate = useNavigate()
   const [user] = useAuthState(auth)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  const username = formatUsername(user?.email)
+
   const handleDelete = () => {
-    database
-      .ref(`${user?.uid}/projects/${id}`)
-      .set(null)
-      .then(() => onClose())
+    if (name !== undefined && id !== undefined) {
+      database
+        .ref(`${user?.uid}/projects/${id}`)
+        .set(null)
+        .then(() => {
+          window.localStorage.setItem('project', 'Serity')
+          navigate(`/${username}/serity`)
+          onClose()
+        })
+    }
   }
 
   return (
@@ -39,30 +50,16 @@ const DeleteProjectModal = ({ name, id }: Props) => {
         <FormattedMessage id='delete' />
       </MenuItem>
 
-      <Modal onClose={onClose} isOpen={isOpen} motionPreset='slideInBottom' size='xl'>
-        <ModalOverlay bg='#0e1525A0' />
-        <ModalContent
-          maxW='450px'
-          minH='260px'
-          bg='#1c2333'
-          boxShadow='inset 0 1px 0 0 rgb(255 255 255 / 5%)'
-        >
-          <ModalHeader
-            display='flex'
-            mt='4px'
-            mb='10px'
-            fontWeight={500}
-            fontSize='20px'
-            color='white'
-          >
-            Delete poject
-          </ModalHeader>
+      <Modal isOpen={isOpen} onClose={onClose} motionPreset='slideInBottom'>
+        <ModalOverlay />
+        <ModalContent maxW='450px' minH='260px'>
+          <ModalHeader>Delete poject</ModalHeader>
 
           <ModalBody>
             <Flex w='100%' direction='column'>
               <Flex>
                 <Text>
-                  All tasks withing this project <b> {name}</b> will be delted. Confirm to delete
+                  All tasks within this project <b> {name}</b> will be deleted. Confirm to delete
                   project.
                 </Text>
               </Flex>
@@ -71,14 +68,7 @@ const DeleteProjectModal = ({ name, id }: Props) => {
                 <Button variant='ghost' w='100px' onClick={() => onClose()}>
                   <FormattedMessage id='cancel' />
                 </Button>
-                <Button
-                  type='submit'
-                  variant='ghost'
-                  bg='#ff6666'
-                  w='100px'
-                  onClick={handleDelete}
-                  _hover={{ bg: '#ff6666' }}
-                >
+                <Button variant='remove' onClick={handleDelete}>
                   <FormattedMessage id='delete' />
                 </Button>
               </HStack>

@@ -30,14 +30,17 @@ const ProjectMore = ({ name, id, emoji }: Props) => {
   const { width } = useWindowSize()
   const { onToggle } = useDisclosure()
   const cardStyle = useSelector((state: RootState) => state.cardStyle.value)
+  const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   const handleOnSelect = (e: any) => {
     dispatch(setCardStyle(e))
   }
 
+  console.log(workingProject)
+
   return (
-    <Menu autoSelect={false} isLazy placement='bottom'>
-      <MenuButton as={Button} transition='all 0.2s' onClick={onToggle}>
+    <Menu autoSelect={false} placement='bottom'>
+      <MenuButton as={Button} transition='all 0.2s'>
         {width >= 768 ? (
           <RiMoreLine size={20} style={{ margin: 'auto' }} />
         ) : (
@@ -58,7 +61,7 @@ const ProjectMore = ({ name, id, emoji }: Props) => {
           <MenuItemOption value='radio'>Radio</MenuItemOption>
         </MenuOptionGroup>
         <MenuDivider />
-        <DeleteProjectItemModal name={name} id={id} />
+        <DeleteProjectItemModal name={workingProject.name} id={workingProject.id} />
       </MenuList>
     </Menu>
   )

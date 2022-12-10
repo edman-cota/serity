@@ -20,7 +20,7 @@ import { setIsExpanded } from '../../features/counter/expandedSlice'
 import React from 'react'
 import { setIsOpen } from '@features/counter/onToggleSlice'
 
-const DropdownTaskOptions = () => {
+const TaskOptionsMenu = () => {
   const toast = useToast()
   const dispatch = useDispatch()
   const { task } = useGetTask()
@@ -91,4 +91,4 @@ const DropdownTaskOptions = () => {
   )
 }
 
-export default DropdownTaskOptions
+export default TaskOptionsMenu

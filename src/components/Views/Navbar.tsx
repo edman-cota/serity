@@ -13,7 +13,7 @@ import { HiOutlineChevronDown, HiOutlineChevronUp } from 'react-icons/hi'
 import { RootState } from 'src/store'
 import { setIsOpen } from '@features/counter/onToggleSlice'
 import { setIsExpanded } from '@features/counter/expandedSlice'
-import DropdownTaskOptions from '../Dropdown/DropdownTaskOptions'
+import TaskOptionsMenu from '../Dropdown/TaskOptionsMenu'
 import { setActiveIndex } from '@features/counter/activeIndexSlice'
 import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 import { setTaskActivityVisibility } from '@features/counter/taskActivitySlice'
@@ -108,7 +108,7 @@ const Navbar = () => {
           </Tooltip>
         </ListItem>
         <ListItem>
-          <DropdownTaskOptions />
+          <TaskOptionsMenu />
         </ListItem>
       </List>
     </Flex>
