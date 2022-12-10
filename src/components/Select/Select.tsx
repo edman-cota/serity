@@ -4,6 +4,8 @@ import { Container, Input, List, ListItem } from './Styled'
 interface Props {
   children: any
   value?: string
+  theme?: string
+  width?: number
 }
 
 interface TriggerProps {
@@ -11,35 +13,48 @@ interface TriggerProps {
   placeholder: string
 }
 
-const ThemeContext = createContext<any>('')
+const SelectContext = createContext<any>('')
 
-export default function Select({ children }: Props) {
+export default function Select({ children, theme = 'light', width = 200 }: Props) {
   const [toggle, setToggle] = useState(false)
-  const [theme, setTheme] = useState<string>('')
+  const [select, setSelect] = useState<string>('')
   return (
-    <ThemeContext.Provider value={{ theme, toggle, setTheme }}>
-      <Container className={` ${toggle ? 'active' : ''}`} onClick={() => setToggle(!toggle)}>
+    <SelectContext.Provider value={{ theme, width, select, toggle, setSelect }}>
+      <Container
+        theme={theme}
+        width={width}
+        className={` ${toggle ? 'active' : ''}`}
+        onClick={() => setToggle(!toggle)}
+      >
         {children}
       </Container>
-    </ThemeContext.Provider>
+    </SelectContext.Provider>
   )
 }
 
 Select.Trigger = function SelectTrigger({ value, placeholder }: TriggerProps) {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useContext(SelectContext)
   let valor = value
   if (theme !== '') {
     valor = theme
   }
-  return <Input type='text' placeholder={placeholder} value={valor} readOnly />
+  return <Input theme={theme} placeholder={placeholder} value={valor} readOnly />
 }
 
 Select.Content = function SelectContent({ children }: Props) {
-  const { toggle } = useContext(ThemeContext)
-  return <List className={` ${toggle ? 'active' : ''}`}>{children}</List>
+  const { theme, width, toggle } = useContext(SelectContext)
+  return (
+    <List theme={theme} width={width} className={` ${toggle ? 'active' : ''}`}>
+      {children}
+    </List>
+  )
 }
 
 export const SelectItem = ({ children, value }: Props) => {
-  const { setTheme } = useContext(ThemeContext)
-  return <ListItem onClick={() => setTheme(value)}>{children}</ListItem>
+  const { theme, setTheme } = useContext(SelectContext)
+  return (
+    <ListItem theme={theme} onClick={() => setTheme(value)}>
+      {children}
+    </ListItem>
+  )
 }

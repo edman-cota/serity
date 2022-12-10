@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Text, VStack } from '@chakra-ui/react'
+import { Flex, Text, VStack, useColorMode } from '@chakra-ui/react'
 
 import Select, { SelectItem } from '@components/Select/Select'
 import { LOCALES } from '../../i18n/locales'
@@ -11,6 +11,7 @@ interface Props {
 }
 
 const General = ({ currentLocale, handleChange }: Props) => {
+  const { colorMode } = useColorMode()
   const languages = [
     { name: 'English', code: LOCALES.ENGLISH },
     { name: 'Spanish', code: LOCALES.SPANISH },
@@ -27,7 +28,7 @@ const General = ({ currentLocale, handleChange }: Props) => {
           <Text py='10px'>
             <FormattedMessage id='language' />
           </Text>
-          <Select>
+          <Select theme={colorMode} width={300}>
             <Select.Trigger value='English' placeholder='Select a language' />
             <Select.Content>
               {languages.map(({ name, code }) => (

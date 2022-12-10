@@ -8,47 +8,50 @@ import {
   Button,
   Input,
   ModalFooter,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
   Text,
   Flex,
 } from '@chakra-ui/react'
-import { Formik, Field } from 'formik'
-import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 import { Tooltip } from '@serity-ui/react'
 import { FormattedMessage } from 'react-intl'
 import { AiOutlinePlus } from 'react-icons/ai'
+import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../firebase'
 import { RootState } from 'src/store'
 import EmojiPicker from '../Menus/EmojiPicker'
-import { createNewProject } from '@helpers/createNewProject'
 import { Status } from '../../models/definitions'
-import React, { useState } from 'react'
+import { createNewProject } from '@helpers/createNewProject'
 
 const CreateProject = () => {
   const [user] = useAuthState(auth)
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { register, resetField, handleSubmit } = useForm({ mode: 'onChange' })
   const emoji = useSelector((state: RootState) => state.emoji.value)
   const [characterCount, setCharacterCount] = useState(0)
   const [projectName, setProjectName] = useState('')
+
+  useEffect(() => {
+    return () => {
+      setProjectName('')
+      setCharacterCount(0)
+    }
+  }, [isOpen])
 
   const handleOnChange = (event: any) => {
     setCharacterCount(event.target.value.length)
     setProjectName(event.target.value)
   }
 
-  const onSubmit = (data: any) => {
-    const status = createNewProject(projectName, user, emoji)
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
 
-    if (status === Status.SUCCESS) {
-      onClose()
-      resetField('name')
+    if (projectName.trim() !== '') {
+      const status = createNewProject(projectName, user, emoji)
+      if (status === Status.SUCCESS) onClose()
     }
+
+    onClose()
   }
 
   return (
@@ -67,11 +70,11 @@ const CreateProject = () => {
           </ModalHeader>
 
           <ModalBody>
-            <form style={{ width: '100%' }}>
+            <form style={{ width: '100%' }} onSubmit={handleOnSubmit}>
               <Flex justifyContent='flex-end' h='30px'>
                 {characterCount >= 30 ? (
                   <Text color='red.500' fontSize='sm' py='6px'>
-                    Character limit: {characterCount}/40
+                    <FormattedMessage id='character_limit' /> {characterCount}/40
                   </Text>
                 ) : null}
               </Flex>
@@ -90,16 +93,10 @@ const CreateProject = () => {
           </ModalBody>
 
           <ModalFooter justifyContent='space-between'>
-            <Button
-              w='100px'
-              onClick={() => {
-                onClose()
-                resetField('name')
-              }}
-            >
+            <Button w='100px' onClick={() => onClose()}>
               <FormattedMessage id='cancel' />
             </Button>
-            <Button type='submit' variant='submit' onClick={onSubmit}>
+            <Button type='submit' variant='submit' onClick={handleOnSubmit}>
               <FormattedMessage id='create' />
             </Button>
           </ModalFooter>

@@ -125,6 +125,7 @@ export const messages = {
     general: 'General',
     open_search: 'Open Search',
     see_all_keyboard_shortcuts: 'See All Keyboard Shortcuts',
+    character_limit: 'Character limit:',
   },
   [LOCALES.SPANISH]: {
     // Login / Register
@@ -252,5 +253,6 @@ export const messages = {
     general: 'General',
     open_search: 'Abrir el buscador',
     see_all_keyboard_shortcuts: 'Ver todos los atajos de teclado',
+    character_limit: 'Límite de caracteres:',
   },
 }

@@ -28,7 +28,6 @@ export const useGetTasks = () => {
             if (snap.val().completed === 0) {
               taskList.push(snap.val())
             }
-            console.log(snap.val().completedAt)
 
             if (snap.val().completed === 1) {
               if (isToday(snap.val().completedAt)) {
