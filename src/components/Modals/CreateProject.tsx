@@ -8,8 +8,6 @@ import {
   Button,
   Input,
   ModalFooter,
-  Text,
-  Flex,
 } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import { Tooltip } from '@serity-ui/react'
@@ -24,14 +22,19 @@ import EmojiPicker from '../Menus/EmojiPicker'
 import { Status } from '../../models/definitions'
 import { createNewProject } from '@helpers/createNewProject'
 import CharacterLimit from '@components/CharacterLimit/CharacterLimit'
+import { useNavigate } from 'react-router-dom'
+import { formatUrl, formatUsername } from '@helpers/formatter'
 
 const CreateProject = () => {
+  const navigate = useNavigate()
   const [user] = useAuthState(auth)
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const emoji = useSelector((state: RootState) => state.emoji.value)
-  const [characterCount, setCharacterCount] = useState(0)
   const [projectName, setProjectName] = useState('')
+  const [characterCount, setCharacterCount] = useState(0)
+  const emoji = useSelector((state: RootState) => state.emoji.value)
+
   const maxLength = 40
+  const username = formatUsername(user?.email)
 
   useEffect(() => {
     return () => {
@@ -50,9 +53,12 @@ const CreateProject = () => {
 
     if (projectName.trim() !== '') {
       const status = createNewProject(projectName, user, emoji)
-      if (status === Status.SUCCESS) onClose()
+      if (status === Status.SUCCESS) {
+        window.localStorage.setItem('project', projectName)
+        navigate(`/${username}/${formatUrl(projectName)}`)
+        onClose()
+      }
     }
-
     onClose()
   }
 
