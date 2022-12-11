@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RiMoreLine, RiMore2Line } from 'react-icons/ri'
 
 import { RootState } from 'src/store'
-import MenuItemEdit from '../Modals/EditProject'
+import MenuItemEdit from '../Modals/EditProjectModal'
 import MembersMenuItem from '../Modals/InviteMembersModal'
 import { setCardStyle } from '@features/counter/cardStyleSlice'
 import DeleteProjectItemModal from '../Modals/DeleteProjectModal'
@@ -46,7 +46,11 @@ const ProjectMore = ({ name, id, emoji }: Props) => {
         )}
       </MenuButton>
       <MenuList>
-        <MenuItemEdit name={name} id={id} emoji={emoji} />
+        <MenuItemEdit
+          name={workingProject.name}
+          id={workingProject.id}
+          emoji={workingProject.emoji}
+        />
         <MembersMenuItem projectName={name} />
         <MenuDivider />
         <MenuOptionGroup

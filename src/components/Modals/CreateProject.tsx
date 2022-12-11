@@ -31,6 +31,8 @@ const CreateProject = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [projectName, setProjectName] = useState('')
   const [characterCount, setCharacterCount] = useState(0)
+  const [touched, setTouched] = useState(false)
+  const [hadInteraction, setHadInteraction] = useState(false)
   const emoji = useSelector((state: RootState) => state.emoji.value)
 
   const maxLength = 40
@@ -40,12 +42,15 @@ const CreateProject = () => {
     return () => {
       setProjectName('')
       setCharacterCount(0)
+      setTouched(false)
+      setHadInteraction(false)
     }
   }, [isOpen])
 
   const handleOnChange = (event: any) => {
     setCharacterCount(event.target.value.length)
     setProjectName(event.target.value)
+    setHadInteraction(true)
   }
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -83,6 +88,8 @@ const CreateProject = () => {
                 characterCount={characterCount}
                 maxLength={maxLength}
                 warningPoint={30}
+                touched={touched}
+                hadInteraction={hadInteraction}
               />
               <Input
                 name='name'
@@ -93,6 +100,7 @@ const CreateProject = () => {
                 placeholder='Give your new project a name'
                 value={projectName}
                 onChange={handleOnChange}
+                onBlur={() => setTouched(true)}
               />
             </form>
             <EmojiPicker />

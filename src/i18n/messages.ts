@@ -126,6 +126,7 @@ export const messages = {
     open_search: 'Open Search',
     see_all_keyboard_shortcuts: 'See All Keyboard Shortcuts',
     character_limit: 'Character limit:',
+    cant_be_blank: "Can't be blank",
   },
   [LOCALES.SPANISH]: {
     // Login / Register
@@ -254,5 +255,6 @@ export const messages = {
     open_search: 'Abrir el buscador',
     see_all_keyboard_shortcuts: 'Ver todos los atajos de teclado',
     character_limit: 'Límite de caracteres:',
+    cant_be_blank: 'No puede estar en blanco',
   },
 }
