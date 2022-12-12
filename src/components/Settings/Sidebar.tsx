@@ -31,7 +31,7 @@ const Sidebar = (): JSX.Element => {
   return (
     <Flex
       w='300px'
-      // pos='fixed'
+      pos='fixed'
       bg={sidebarBackground}
       h='100vh'
       display={{ base: 'none', md: 'block' }}

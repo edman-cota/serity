@@ -16,6 +16,7 @@ const General = ({ currentLocale, handleChange }: Props) => {
     { name: 'English', code: LOCALES.ENGLISH },
     { name: 'Spanish', code: LOCALES.SPANISH },
   ]
+
   return (
     <VStack h='100%' w='100%' py='60px'>
       <Flex direction='column' w={{ base: '90%', md: '80%' }} mx='auto' maxWidth={880}>
@@ -28,11 +29,11 @@ const General = ({ currentLocale, handleChange }: Props) => {
           <Text py='10px'>
             <FormattedMessage id='language' />
           </Text>
-          <Select theme={colorMode} width={300}>
-            <Select.Trigger value='English' placeholder='Select a language' />
+          <Select theme={colorMode} width={300} onValueChange={handleChange}>
+            <Select.Trigger value={currentLocale} placeholder='Select a language' />
             <Select.Content>
               {languages.map(({ name, code }) => (
-                <SelectItem key={code} value={name}>
+                <SelectItem key={code} value={code}>
                   {name}
                 </SelectItem>
               ))}
