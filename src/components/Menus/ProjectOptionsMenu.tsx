@@ -3,7 +3,6 @@ import {
   MenuList,
   MenuButton,
   Button,
-  useDisclosure,
   MenuOptionGroup,
   MenuItemOption,
   MenuDivider,
@@ -19,21 +18,16 @@ import MembersMenuItem from '../Modals/InviteMembersModal'
 import { setCardStyle } from '@features/counter/cardStyleSlice'
 import DeleteProjectItemModal from '../Modals/DeleteProjectModal'
 
-interface Props {
-  name: string
-  id: string
-  emoji: string
-}
-
-const ProjectMore = ({ name, id, emoji }: Props) => {
+const ProjectMore = () => {
   const dispatch = useDispatch()
   const { width } = useWindowSize()
-  const { onToggle } = useDisclosure()
   const cardStyle = useSelector((state: RootState) => state.cardStyle.value)
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
-  const handleOnSelect = (e: any) => {
-    dispatch(setCardStyle(e))
+  const handleOnSelect = (e: string | string[]) => {
+    if (typeof e === 'string') {
+      dispatch(setCardStyle(e))
+    }
   }
 
   return (
@@ -51,7 +45,7 @@ const ProjectMore = ({ name, id, emoji }: Props) => {
           id={workingProject.id}
           emoji={workingProject.emoji}
         />
-        <MembersMenuItem projectName={name} />
+        <MembersMenuItem projectName={workingProject.name} />
         <MenuDivider />
         <MenuOptionGroup
           defaultValue={cardStyle}

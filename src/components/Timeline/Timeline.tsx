@@ -6,7 +6,7 @@ import TimelineHeader from './TimelineHeader'
 import LoadingScreen from '../LoadingScreen/LoadingScreen'
 import useGetAllActivities from '@hooks/useGetAllActivities'
 
-const Activities = () => {
+const Timeline = () => {
   const { activities, isLoading } = useGetAllActivities()
 
   return (
@@ -17,4 +17,4 @@ const Activities = () => {
   )
 }
 
-export default Activities
+export default Timeline

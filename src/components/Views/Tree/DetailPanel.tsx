@@ -17,7 +17,6 @@ const DetailPanel = () => {
   const { sizes, paneDisplay } = useSplitSizes()
 
   const styles = {
-    // height: '100vh',
     position: 'static',
     display: selectedTaskId !== '' ? paneDisplay.at(1) : paneDisplay.at(0),
     width: selectedTaskId !== '' ? `${sizes.at(1)}%` : '0%',

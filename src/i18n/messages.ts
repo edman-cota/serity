@@ -83,7 +83,6 @@ export const messages = {
     toggle_sidebar: 'Toggle sidebar',
     create_new_task: 'Create new task · t',
     duplicate_project: 'Duplicate project',
-    delete_project: 'Delete project',
     show_completed: 'Show completed',
     hide_completed: 'Hide completed',
     card_style: 'Estilo de tarjeta',
@@ -119,6 +118,10 @@ export const messages = {
     generate_a_join_link: 'Generate a join link',
     transfer: 'Transfer',
     transfer_task: 'Transfer task',
+    // Modals -> Delete Project
+    delete_project: 'Delete project',
+    all_tasks_within_this_project: 'All tasks within this project',
+    will_be_deleted: 'will be deleted. Confirm to delete project.',
 
     // Modals -> Keyboard Shortcuts
     keyboard_shortcuts: 'Keyboard Shortcuts',
@@ -211,7 +214,6 @@ export const messages = {
     toggle_sidebar: 'Alternar barra lateral',
     create_new_task: 'Crear nueva tarea · t',
     duplicate_project: 'Duplicar proyecto',
-    delete_project: 'Eliminar proyecto',
     show_completed: 'Mostrar completadas',
     hide_completed: 'Ocultar completadas',
     card_style: 'Estilo de tarjeta',
@@ -249,6 +251,10 @@ export const messages = {
     generate_a_join_link: 'Generar un enlace de unión',
     transfer: 'Transferir',
     transfer_task: 'Transferir tarea',
+    // Modals -> Delete Project
+    delete_project: 'Eliminar proyecto',
+    all_tasks_within_this_project: 'Todas las tareas en este proyecto',
+    will_be_deleted: 'seran eliminados. Confirmar para eliminar.',
     // Modals -> Keyboard Shortcuts
     keyboard_shortcuts: 'Atajos de teclado',
     general: 'General',

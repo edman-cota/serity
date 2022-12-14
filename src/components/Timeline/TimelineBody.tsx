@@ -4,8 +4,10 @@ import Activity from './Activity'
 import { Activity as ActivityProps } from '../../models/Activity.model'
 
 interface ActivitiesProps {
-  activities: ActivityProps[]
+  activities: Omit<ActivityProps[], 'taskId' | 'createdBy' | 'projectId'>
 }
+
+type ActivityType = Omit<ActivityProps, 'taskId' | 'createdBy' | 'projectId'>
 
 const TimelineBody = ({ activities }: ActivitiesProps) => {
   return (
@@ -15,7 +17,7 @@ const TimelineBody = ({ activities }: ActivitiesProps) => {
           activities
             .slice(0)
             .reverse()
-            .map((data: ActivityProps) => (
+            .map((data: ActivityType) => (
               <Activity
                 key={data.id}
                 username={data.username}

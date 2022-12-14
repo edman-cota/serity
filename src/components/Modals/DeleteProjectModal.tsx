@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router-dom'
 import { FormattedMessage } from 'react-intl'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { useAuthState } from 'react-firebase-hooks/auth'
+
 import database, { auth } from '../../firebase'
 import { formatUsername } from '@helpers/formatter'
 
@@ -53,14 +54,16 @@ const DeleteProjectModal = ({ name, id }: Props) => {
       <Modal isOpen={isOpen} onClose={onClose} motionPreset='slideInBottom'>
         <ModalOverlay />
         <ModalContent maxW='450px' minH='260px'>
-          <ModalHeader>Delete poject</ModalHeader>
+          <ModalHeader>
+            <FormattedMessage id='delete_project' />
+          </ModalHeader>
 
           <ModalBody>
             <Flex w='100%' direction='column'>
               <Flex>
                 <Text>
-                  All tasks within this project <b> {name}</b> will be deleted. Confirm to delete
-                  project.
+                  <FormattedMessage id='all_tasks_within_this_project' /> <b> {name}</b>{' '}
+                  <FormattedMessage id='will_be_deleted' />
                 </Text>
               </Flex>
 

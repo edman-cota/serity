@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useRef } from 'react'
 import { Container, Input, List, ListItem } from './Styled'
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props {
   children: React.ReactNode
   style?: React.CSSProperties
   value?: string
@@ -54,9 +54,8 @@ Select.Content = function SelectContent({ children }: Props) {
 
 export const SelectItem = ({ children, value }: Props) => {
   const { theme, setSelect, onValueChange } = useContext(SelectContext)
-  const elementRef = useRef(null)
 
-  const handleOnClick = (e) => {
+  const handleOnClick = (e: any) => {
     if (typeof onValueChange === 'function') {
       onValueChange(value)
     }
@@ -64,7 +63,7 @@ export const SelectItem = ({ children, value }: Props) => {
   }
 
   return (
-    <ListItem ref={elementRef} theme={theme} onClick={(e) => handleOnClick(e)}>
+    <ListItem theme={theme} onClick={(e: React.MouseEvent<HTMLElement>) => handleOnClick(e)}>
       {children}
     </ListItem>
   )
