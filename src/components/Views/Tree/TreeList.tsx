@@ -8,6 +8,7 @@ import AddTask from '../../Item/AddTask'
 import { useGetTasks } from '@hooks/useGetTasks'
 import LoadingScreen from '../../LoadingScreen/LoadingScreen'
 import { setShowAddTask } from '@features/counter/showAddTaskSlice'
+import { FormattedMessage } from 'react-intl'
 
 const TreeList = () => {
   const dispatch = useDispatch()
@@ -34,6 +35,8 @@ const TreeList = () => {
                   w='100%'
                   bg={background}
                   height='100%'
+                  display='flex'
+                  alignItems='center'
                   visibility='hidden'
                   border='none'
                   borderRadius='0.375rem'
@@ -41,7 +44,7 @@ const TreeList = () => {
                   _active={{ background: background }}
                   _groupHover={{ visibility: 'visible' }}
                 >
-                  + Add Task
+                  + <FormattedMessage id='add_new_task' />
                 </Button>
               </Flex>
             )}

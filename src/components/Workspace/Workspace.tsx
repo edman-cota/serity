@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
-import { List, VStack, Collapse } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
-import Toolbar from './Toolbar'
-import { useGetProjects } from '@hooks/useGetProjects'
+import { List, VStack, Collapse } from '@chakra-ui/react'
 
+import Toolbar from './Toolbar'
 import { RootState } from 'src/store'
 import TagsToolbar from './TagsToolbar'
 import { useGetTaskTags } from '@hooks/useGetTaskTags'
+import { useGetProjects } from '@hooks/useGetProjects'
 import SidebarItem from '@components/Sidebar/SidebarItem'
 import TagSidebarItem from '@components/Sidebar/TagSidebarItem'
 

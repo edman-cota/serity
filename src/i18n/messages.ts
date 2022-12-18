@@ -25,6 +25,7 @@ export const messages = {
     statistics: 'Statistics',
     choose_an_icon: 'Choose an icon',
     edit_project: 'Edit project',
+
     //sidebar
     profile: 'Profile',
     notifications: 'Notifications',
@@ -82,19 +83,31 @@ export const messages = {
     // Navbar
     toggle_sidebar: 'Toggle sidebar',
     create_new_task: 'Create new task · t',
+    add_new_task: 'Add new task',
     duplicate_project: 'Duplicate project',
     show_completed: 'Show completed',
     hide_completed: 'Hide completed',
     card_style: 'Estilo de tarjeta',
     // Settings
+    photo: 'Photo',
     name: 'Name',
     email: 'Email',
     profession: 'Profession',
+    bio: 'Bio',
     appearance: 'Appearance',
+    light: 'Light',
+    dark: 'Dark',
     account: 'Account',
     language: 'Language',
     theme: 'Theme',
+    back_home: 'Back home',
     delete_account: 'Delete account',
+    this_will_immediately_delete_all:
+      "This will immediately delete all of your data including tasks, projects, and more. This can't be undone.",
+    deleting_your_account_is_permanent: 'Deleting your account is permanent.',
+    all_your_data_will_be_wiped_out: 'All your data will be wiped out immediately',
+    and_your_wont_be_able_to_get_it_back: "and you won't be able to get it back.",
+
     //Excel
     username: 'Username',
     //Views
@@ -213,19 +226,31 @@ export const messages = {
     // Navbar
     toggle_sidebar: 'Alternar barra lateral',
     create_new_task: 'Crear nueva tarea · t',
+    add_new_task: 'Crear nueva tarea',
     duplicate_project: 'Duplicar proyecto',
     show_completed: 'Mostrar completadas',
     hide_completed: 'Ocultar completadas',
     card_style: 'Estilo de tarjeta',
     // Settings
+    photo: 'Foto',
     name: 'Nombre',
     email: 'Correo electrónico',
     profession: 'Profesión',
+    bio: 'Bio',
     appearance: 'Apariencia',
+    light: 'Claro',
+    dark: 'Oscuro',
     account: 'Cuenta',
     language: 'Idioma',
     theme: 'Tema',
+    back_home: 'Regresar',
     delete_account: 'Eliminar cuenta',
+    this_will_immediately_delete_all:
+      'Esto eliminará inmediatamente todos sus datos, incluidas tareas, proyectos y más. Esto no se puede deshacer.',
+    deleting_your_account_is_permanent: 'Eliminar tu cuenta es permanente.',
+    all_your_data_will_be_wiped_out: 'Todos sus datos serán borrados inmediatamente',
+    and_your_wont_be_able_to_get_it_back: 'y no podrá recuperarlos.',
+
     // Excel
     username: 'Usuario',
     //Views

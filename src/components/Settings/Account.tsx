@@ -37,7 +37,9 @@ const Account = () => {
     <VStack w='100%' flex={1} py='60px'>
       <Flex direction='column' w={{ base: '90%', md: '80%' }} mx='auto' maxWidth={880}>
         <Flex direction='column' w='100%'>
-          <Text py='10px'>Photo</Text>
+          <Text py='10px'>
+            <FormattedMessage id='photo' />
+          </Text>
 
           <Flex>
             {user && <UserAvatar user={{ name: user.displayName, image: user.photoURL }} />}
@@ -67,7 +69,9 @@ const Account = () => {
           </Flex>
           <Flex direction='column' mt='30px'>
             <FormControl>
-              <FormLabel>Bio</FormLabel>
+              <FormLabel>
+                <FormattedMessage id='bio' />
+              </FormLabel>
               <Textarea />
             </FormControl>
           </Flex>
@@ -78,8 +82,7 @@ const Account = () => {
             <FormattedMessage id='delete_account' />
           </Text>
           <Text fontSize='15px' mb='10px'>
-            This will immediately delete all of your data including tasks, projects, and more. This
-            can't be undone.{' '}
+            <FormattedMessage id='this_will_immediately_delete_all' />
           </Text>
           <DeleteAccountModal />
         </Flex>

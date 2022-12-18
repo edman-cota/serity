@@ -28,7 +28,9 @@ const Theme = () => {
               <div className='hobbies-icon'>{/* <FaListAlt color='white' /> */}</div>
               <div className='div'>
                 <BsCheck2 />
-                <p>Light</p>
+                <p>
+                  <FormattedMessage id='light' />
+                </p>
               </div>
             </span>
           </label>
@@ -38,7 +40,9 @@ const Theme = () => {
               <div className='hobbies-icon'>{/* <FaListAlt color='black' /> */}</div>
               <div className='div'>
                 <BsCheck2 />
-                <p>Dark</p>
+                <p>
+                  <FormattedMessage id='dark' />
+                </p>
               </div>
             </span>
           </label>

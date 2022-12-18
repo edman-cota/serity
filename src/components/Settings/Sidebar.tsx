@@ -11,6 +11,7 @@ import { RootState } from 'src/store'
 import SidebarItem from './SidebarItem'
 import { useSelector } from 'react-redux'
 import { formatUsername } from '@helpers/formatter'
+import { FormattedMessage } from 'react-intl'
 
 const Sidebar = (): JSX.Element => {
   const navigate = useNavigate()
@@ -40,7 +41,7 @@ const Sidebar = (): JSX.Element => {
         <Button mx='4px' onClick={handleNavBack}>
           <BiArrowBack />
         </Button>
-        Back Home
+        <FormattedMessage id='back_home' />
       </Flex>
       <List w='90%' mx='auto'>
         <SidebarItem to='account' textId='account' icon={<AiOutlineUser />} />

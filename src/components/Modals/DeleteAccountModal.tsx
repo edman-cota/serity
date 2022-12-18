@@ -1,21 +1,16 @@
-/* eslint-disable arrow-body-style */
 import React from 'react'
 import {
   Modal,
-  MenuItem,
   ModalContent,
   ModalHeader,
   ModalOverlay,
   useDisclosure,
   ModalBody,
   Flex,
-  Select,
   ModalFooter,
   Button,
-  useToast,
   Text,
 } from '@chakra-ui/react'
-import { useState } from 'react'
 import { auth } from '../../firebase'
 import { FormattedMessage } from 'react-intl'
 import { useNavigate } from 'react-router-dom'
@@ -24,7 +19,6 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 const DeleteAccountModal = () => {
   const [user] = useAuthState(auth)
-  const [newId, setNewId] = useState('')
   const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
 
@@ -59,9 +53,11 @@ const DeleteAccountModal = () => {
           <ModalBody>
             <Flex>
               <Text fontSize='15px'>
-                Deleting your account is permanent.{' '}
-                <b>All your data will be wiped out immediately</b> and you won't be able to get it
-                back.
+                <FormattedMessage id='deleting_your_account_is_permanent' />{' '}
+                <b>
+                  <FormattedMessage id='all_your_data_will_be_wiped_out' />
+                </b>{' '}
+                <FormattedMessage id='and_your_wont_be_able_to_get_it_back' />
               </Text>
             </Flex>
           </ModalBody>

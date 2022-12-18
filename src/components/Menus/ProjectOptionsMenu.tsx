@@ -18,7 +18,7 @@ import MembersMenuItem from '../Modals/InviteMembersModal'
 import { setCardStyle } from '@features/counter/cardStyleSlice'
 import DeleteProjectItemModal from '../Modals/DeleteProjectModal'
 
-const ProjectMore = () => {
+const ProjectOptionsMenu = () => {
   const dispatch = useDispatch()
   const { width } = useWindowSize()
   const cardStyle = useSelector((state: RootState) => state.cardStyle.value)
@@ -63,4 +63,4 @@ const ProjectMore = () => {
   )
 }
 
-export default ProjectMore
+export default ProjectOptionsMenu
