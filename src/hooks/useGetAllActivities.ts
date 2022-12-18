@@ -4,10 +4,10 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { RootState } from 'src/store'
 import database, { auth } from '../firebase'
-import { Activity } from '../models/Activity.model'
+import { TimelineActivity } from '../models/Activity.model'
 
 const useGetActivities = () => {
-  const [activities, setActivities] = useState<Activity[]>([])
+  const [activities, setActivities] = useState<TimelineActivity[]>([])
   const [user] = useAuthState(auth)
   const [isLoading, setIsLoading] = useState(true)
   const task = useSelector((state: RootState) => state.task.value)
@@ -15,7 +15,7 @@ const useGetActivities = () => {
   useEffect(() => {
     database.ref(`${user?.uid}/activities`).on('value', (snapshot) => {
       setIsLoading(true)
-      const currentList: Activity[] = []
+      const currentList: TimelineActivity[] = []
       snapshot.forEach((snap) => {
         if (snap.val().taskId === task.id) {
           currentList.push(snap.val())

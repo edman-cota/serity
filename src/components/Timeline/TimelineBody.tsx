@@ -1,13 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Activity from './Activity'
-import { Activity as ActivityProps } from '../../models/Activity.model'
+import { TimelineActivity } from '../../models/Activity.model'
 
 interface ActivitiesProps {
-  activities: Omit<ActivityProps[], 'taskId' | 'createdBy' | 'projectId'>
+  activities: TimelineActivity[]
 }
-
-type ActivityType = Omit<ActivityProps, 'taskId' | 'createdBy' | 'projectId'>
 
 const TimelineBody = ({ activities }: ActivitiesProps) => {
   return (
@@ -17,9 +15,9 @@ const TimelineBody = ({ activities }: ActivitiesProps) => {
           activities
             .slice(0)
             .reverse()
-            .map((data: ActivityType) => (
+            .map((data) => (
               <Activity
-                key={data.id}
+                key={data.createdAt}
                 username={data.username}
                 content={data.content}
                 description={data.description}

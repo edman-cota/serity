@@ -1,13 +1,14 @@
+import React from 'react'
 import { Flex, Text } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+
+import Last from './Last'
 import Icon from './Icon'
+import Time from './Time'
+import './Activities.scss'
 import Verbose from './Verbose'
 import ActivityContent from './ActivityContent'
-import './Activities.scss'
-import Time from './Time'
-import Last from './Last'
-import { Activity as ActivityProps } from '../../models/Activity.model'
-import React from 'react'
+import { TimelineActivity } from '../../models/Activity.model'
 
 const Activity = ({
   username,
@@ -17,7 +18,7 @@ const Activity = ({
   priority,
   createdAt,
   due,
-}: ActivityProps): JSX.Element => {
+}: TimelineActivity): JSX.Element => {
   return (
     <motion.li className='timeline-item'>
       <Flex>

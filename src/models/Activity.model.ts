@@ -46,3 +46,5 @@ export interface Activity {
    */
   priority: PriorityType
 }
+
+export type TimelineActivity = Omit<Activity, 'id' | 'taskId' | 'createdBy' | 'projectId'>
