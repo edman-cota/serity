@@ -1,3 +1,4 @@
+import React from 'react'
 import { useWindowSize } from 'react-use'
 import { Tooltip } from '@serity-ui/react'
 import { FormattedMessage } from 'react-intl'
@@ -17,8 +18,6 @@ import TaskOptionsMenu from '../Dropdown/TaskOptionsMenu'
 import { setActiveIndex } from '@features/counter/activeIndexSlice'
 import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 import { setTaskActivityVisibility } from '@features/counter/taskActivitySlice'
-import React from 'react'
-import { useGetTask } from '@hooks/useGetTask'
 
 const Navbar = () => {
   const task = useSelector((state: RootState) => state.task.value)

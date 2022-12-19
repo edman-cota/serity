@@ -1,3 +1,4 @@
+import { StatusTaskActivity } from 'src/models/Activity.model'
 import database from '../firebase'
 import { ActivityType, Status } from '../models/definitions'
 import { Project, ProjectBTO } from '../models/project.model'
@@ -21,8 +22,9 @@ export function markStatusToUncomplete(
       // Save the current operation activity
       const activityRef = database.ref(`${user?.uid}/activities`)
       const newActivityRef = activityRef.push()
-      newActivityRef
-        .set({
+
+      if (newActivityRef.key !== null && workingProject.id !== undefined) {
+        const Activity: StatusTaskActivity = {
           id: newActivityRef.key,
           username: user?.displayName,
           content: task.content,
@@ -31,8 +33,10 @@ export function markStatusToUncomplete(
           createdBy: user?.uid,
           createdAt: new Date().toISOString(),
           type: ActivityType.REOPEN_TASK_ACTIVITY_TYPE,
-        })
-        .catch(() => Status.ERROR)
+        }
+
+        newActivityRef.set(Activity).catch(() => Status.ERROR)
+      }
     })
 
   return Status.SUCCESS

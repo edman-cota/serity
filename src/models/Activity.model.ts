@@ -48,3 +48,5 @@ export interface Activity {
 }
 
 export type TimelineActivity = Omit<Activity, 'id' | 'taskId' | 'createdBy' | 'projectId'>
+export type StatusTaskActivity = Omit<Activity, 'due' | 'description' | 'priority'>
+export type CreateTaskActivity = Omit<Activity, 'due' | 'description' | 'priority'>

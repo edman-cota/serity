@@ -33,16 +33,16 @@ const MoveToMenuItemModal = () => {
   const dispatch = useDispatch()
   const { projects } = useGetProjects()
   const { project } = useGetProject()
-  const [newId, setNewId] = useState('')
+  const [newId, setNewId] = useState<string>('')
   const [newActive, setNewActive] = useState<number>(0)
   const [newCount, setNewCount] = useState<number>(0)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const handleOnChange = (e: any) => {
-    const [id, active, count] = e.target.value.split('|')
+  const handleOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const [id, active, count] = event.target.value.split('|')
     setNewId(id)
-    setNewActive(active)
-    setNewCount(count)
+    setNewActive(Number(active))
+    setNewCount(Number(count))
   }
 
   const handleOnClick = () => {

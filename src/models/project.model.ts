@@ -57,3 +57,4 @@ export interface Project {
 }
 
 export interface ProjectBTO extends Partial<Project> {}
+export interface WorkingProject extends Partial<Project> {}

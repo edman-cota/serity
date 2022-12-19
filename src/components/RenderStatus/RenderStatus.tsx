@@ -18,7 +18,6 @@ const RenderStatus = ({ task }: { task: Task }) => {
   const { project } = useGetProject()
   const cardStyle = useSelector((state: RootState) => state.cardStyle.value)
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
-
   const borderRadius = cardStyle === 'checkbox' ? '3px' : '50px'
 
   const toggleStatus = (task: Task) => {

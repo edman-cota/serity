@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { ProjectBTO } from '../../models/project.model'
+import { WorkingProject } from '../../models/project.model'
 
 export interface Props {
-  value: ProjectBTO
+  value: WorkingProject
 }
 
 const initialState: Props = {
@@ -14,7 +14,7 @@ export const workingProjectSlice = createSlice({
   name: 'workingProject',
   initialState,
   reducers: {
-    setWorkingProject: (state, action: PayloadAction<ProjectBTO>) => {
+    setWorkingProject: (state, action: PayloadAction<WorkingProject>) => {
       state.value = action.payload
     },
   },

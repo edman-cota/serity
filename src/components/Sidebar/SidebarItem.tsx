@@ -40,7 +40,7 @@ const SidebarItem = ({ project }: Props) => {
     dispatch(setIsOpen(false))
   }
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
   }
 
