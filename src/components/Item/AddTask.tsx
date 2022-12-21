@@ -11,6 +11,7 @@ import { auth } from '../../firebase'
 import { useGetProject } from '@hooks/useGetProject'
 import { createNewTask } from '@helpers/createNewTask'
 import { setShowAddTask } from '@features/counter/showAddTaskSlice'
+import useAutosizeTextArea from '@hooks/useAutosizeTextArea'
 
 const AddTask = () => {
   const [user] = useAuthState(auth)
@@ -20,8 +21,10 @@ const AddTask = () => {
   const cardStyle = useSelector((state: RootState) => state.cardStyle.value)
   const showAddTask = useSelector((state: RootState) => state.showAddTask.value)
   const [height, setHeight] = useState(40)
-  const areaRef = useRef(null)
+  const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const borderRadius = cardStyle === 'checkbox' ? '3px' : '50px'
+
+  useAutosizeTextArea(textAreaRef.current, title)
 
   const handleKeyDown = (event: any) => {
     const keyCode = event.which || event.keyCode
@@ -37,10 +40,6 @@ const AddTask = () => {
       dispatch(setShowAddTask(!showAddTask))
       createNewTask(user, title, project[0])
     }
-  }
-
-  const handleOnInput = () => {
-    setHeight(areaRef.current.scrollHeight)
   }
 
   const background = useColorModeValue('var(--gray-100)', 'var(--gray-700)')
@@ -85,12 +84,10 @@ const AddTask = () => {
           w='full'
           fontSize='15px'
           border='none'
-          h={`${height}px`}
-          ref={areaRef}
+          ref={textAreaRef}
           onChange={(e) => setTitle(e.target.value)}
           onKeyDown={handleKeyDown}
           value={title}
-          onInput={handleOnInput}
         />
       </ReactFocusLock>
     </Collapse>
