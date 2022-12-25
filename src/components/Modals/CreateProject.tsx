@@ -8,6 +8,8 @@ import {
   Button,
   Input,
   ModalFooter,
+  Text,
+  Flex,
 } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import { Tooltip } from '@serity-ui/react'
@@ -24,6 +26,7 @@ import { createNewProject } from '@helpers/createNewProject'
 import CharacterLimit from '@components/CharacterLimit/CharacterLimit'
 import { useNavigate } from 'react-router-dom'
 import { formatUrl, formatUsername } from '@helpers/formatter'
+import { useGetProjects } from '@hooks/useGetProjects'
 
 const CreateProject = () => {
   const navigate = useNavigate()
@@ -34,6 +37,13 @@ const CreateProject = () => {
   const [touched, setTouched] = useState(false)
   const [hadInteraction, setHadInteraction] = useState(false)
   const emoji = useSelector((state: RootState) => state.emoji.value)
+  const [alreadyExist, setAlreadyExist] = useState(false)
+  const { projects } = useGetProjects()
+  const existingProjects: string[] = []
+
+  projects.map((project) => {
+    existingProjects.push(project.name)
+  })
 
   const maxLength = 40
   const username = formatUsername(user?.email)
@@ -44,6 +54,7 @@ const CreateProject = () => {
       setCharacterCount(0)
       setTouched(false)
       setHadInteraction(false)
+      setAlreadyExist(false)
     }
   }, [isOpen])
 
@@ -51,12 +62,17 @@ const CreateProject = () => {
     setCharacterCount(event.target.value.length)
     setProjectName(event.target.value)
     setHadInteraction(true)
+    if (existingProjects.includes(event.target.value)) {
+      setAlreadyExist(true)
+    } else {
+      setAlreadyExist(false)
+    }
   }
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    if (projectName.trim() !== '') {
+    if (projectName.trim() !== '' && !alreadyExist) {
       const status = createNewProject(projectName, user, emoji)
       if (status === Status.SUCCESS) {
         window.localStorage.setItem('project', projectName)
@@ -84,13 +100,22 @@ const CreateProject = () => {
 
           <ModalBody>
             <form style={{ width: '100%' }} onSubmit={handleOnSubmit}>
-              <CharacterLimit
-                characterCount={characterCount}
-                maxLength={maxLength}
-                warningPoint={30}
-                touched={touched}
-                hadInteraction={hadInteraction}
-              />
+              {alreadyExist && (
+                <Flex justifyContent='flex-end' h='30px'>
+                  <Text color='red.500' fontSize='sm' py='6px'>
+                    {projectName} already exist
+                  </Text>
+                </Flex>
+              )}
+              {!alreadyExist && (
+                <CharacterLimit
+                  characterCount={characterCount}
+                  maxLength={maxLength}
+                  warningPoint={30}
+                  touched={touched}
+                  hadInteraction={hadInteraction}
+                />
+              )}
               <Input
                 name='name'
                 autoFocus
