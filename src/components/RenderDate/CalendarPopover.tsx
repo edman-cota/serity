@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
   Popover,
   PopoverTrigger,
@@ -31,7 +31,8 @@ const CalendarPopover = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
   const [user] = useAuthState(auth)
-  const [value, setValue] = useState(null)
+  const [value, setValue] = useState<undefined | Date>()
+  const popoverRef = useRef<HTMLDivElement>(null)
 
   const locale = localStorage.getItem('locale') || 'en-US'
 
@@ -39,25 +40,43 @@ const CalendarPopover = () => {
     setValue(task[0]?.due && new Date(task[0]?.due))
   }, [task])
 
-  const onChange = (e: any) => {
-    if (isToday(task[0]?.due) && isToday(new Date(e).toISOString())) {
-      return
-    }
+  const onChange = (date: string | Date) => {
+    if (isToday(task[0]?.due) && isToday(new Date(date).toISOString())) return
 
-    if (isTomorrow(task[0]?.due) && isTomorrow(new Date(e).toISOString())) {
-      return
-    }
+    if (isTomorrow(task[0]?.due) && isTomorrow(new Date(date).toISOString())) return
 
-    if (isSameDay(task[0]?.due, new Date(e).toISOString())) {
-      return
-    }
+    if (isSameDay(task[0]?.due, new Date(date).toISOString())) return
 
-    const status = setDueDate(user, task, e, workingProject)
+    const status = setDueDate(user, task[0], date, workingProject)
     if (status === 'success') onClose()
   }
 
+  const isMouseOutBoundary = (event: MouseEvent) => {
+    if (popoverRef.current !== null) {
+      const elementBounds = popoverRef.current.getBoundingClientRect()
+      if (
+        event.clientX < elementBounds.left ||
+        event.clientX > elementBounds.right ||
+        event.clientY > elementBounds.bottom ||
+        event.clientY < elementBounds.top - 50
+      ) {
+        onClose()
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (isOpen) {
+      window.addEventListener('mousemove', isMouseOutBoundary)
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', isMouseOutBoundary)
+    }
+  }, [isOpen])
+
   return (
-    <Popover closeOnBlur onClose={onClose} isOpen={isOpen}>
+    <Popover onClose={onClose} isOpen={isOpen}>
       <PopoverTrigger>
         <Button onClick={onOpen} w='max-content' px='3rem'>
           <Text as='span' px='12px'>
@@ -66,7 +85,13 @@ const CalendarPopover = () => {
           {task && task[0]?.due && <RenderDateText due={task[0]?.due} />}
         </Button>
       </PopoverTrigger>
-      <PopoverContent w='330px' bg='#0e1525' borderColor='#0e1525'>
+      <PopoverContent
+        w='330px'
+        bg='#0e1525'
+        borderColor='#0e1525'
+        ref={popoverRef}
+        _focusVisible={{ outline: 'none', boxShadow: 'none' }}
+      >
         <PopoverBody p='0px' mx='auto'>
           <TopOptions onClose={onClose} />
           <Flex>

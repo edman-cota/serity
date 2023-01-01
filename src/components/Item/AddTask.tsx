@@ -36,7 +36,7 @@ const AddTask = () => {
 
     if (event.key === '/') {
       openSelectMenuHandler()
-      console.log('I got it')
+      console.log('I got it', event)
     }
 
     if (keyCode === 13 && !event.shiftKey) {
@@ -54,7 +54,7 @@ const AddTask = () => {
 
   const openSelectMenuHandler = () => {
     setSelectMenuIsOpen(true)
-    const { x: startX, y: startY } = getCaretCoordinates(true)
+    const { x: startX, y: startY } = getCaretCoordinates()
     console.log(startX, startY)
   }
 

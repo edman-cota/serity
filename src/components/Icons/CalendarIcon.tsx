@@ -2,41 +2,45 @@ import React from 'react'
 import { BsCalendar2 } from 'react-icons/bs'
 
 interface Props {
-  due: string
+  due: string | undefined
 }
 
 const CalendarIcon = ({ due }: Props) => {
-  let dueDate: number = new Date(due).getTime()
+  if (due !== undefined) {
+    let dueDate: number = new Date(due).getTime()
 
-  let todayDate = new Date().setHours(0, 0, 0, 0)
-  let dateSaved = new Date(dueDate).setHours(0, 0, 0, 0)
+    let todayDate = new Date().setHours(0, 0, 0, 0)
+    let dateSaved = new Date(dueDate).setHours(0, 0, 0, 0)
 
-  if (isNaN(dateSaved)) {
-    return <BsCalendar2 fontSize='14px' color='var(--none)' />
-  }
+    if (isNaN(dateSaved)) {
+      return <BsCalendar2 fontSize='14px' color='var(--none)' />
+    }
 
-  // BEFORE YESTERDAY
-  if (todayDate - dateSaved > 86400000) {
-    return <BsCalendar2 fontSize='14px' color='var(--yesterday)' />
-  }
+    // BEFORE YESTERDAY
+    if (todayDate - dateSaved > 86400000) {
+      return <BsCalendar2 fontSize='14px' color='var(--yesterday)' />
+    }
 
-  // YESTERDAY
-  if (todayDate - dateSaved === 86400000) {
-    return <BsCalendar2 fontSize='14px' color='var(--yesterday)' />
-  }
+    // YESTERDAY
+    if (todayDate - dateSaved === 86400000) {
+      return <BsCalendar2 fontSize='14px' color='var(--yesterday)' />
+    }
 
-  // TODAY
-  if (todayDate === dateSaved) {
-    return <BsCalendar2 fontSize='14px' />
-  }
+    // TODAY
+    if (todayDate === dateSaved) {
+      return <BsCalendar2 fontSize='14px' />
+    }
 
-  // TOMORROW
-  if (dateSaved - todayDate === 86400000) {
+    // TOMORROW
+    if (dateSaved - todayDate === 86400000) {
+      return <BsCalendar2 fontSize='14px' color='var(--tomorrow)' />
+    }
+
+    // AFTER TOMORROW
     return <BsCalendar2 fontSize='14px' color='var(--tomorrow)' />
   }
 
-  // AFTER TOMORROW
-  return <BsCalendar2 fontSize='14px' color='var(--tomorrow)' />
+  return <BsCalendar2 fontSize='14px' color='var(--none)' />
 }
 
 export default CalendarIcon

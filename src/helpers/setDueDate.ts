@@ -2,10 +2,10 @@ import database from '../firebase'
 import { Status } from '../models/definitions'
 import { ActivityType } from '../models/definitions'
 
-export function setDueDate(user: any, task: any, e: any, workingProject: any) {
+export function setDueDate(user: any, task: any, date: string | Date, workingProject: any) {
   database
     .ref(`${user?.uid}/tasks/${task?.id}`)
-    .update({ due: new Date(e).toISOString() })
+    .update({ due: new Date(date).toISOString() })
     .then(() => {
       const activityRef = database.ref(`${user?.uid}/activities`)
       const newActivityRef = activityRef.push()
@@ -13,7 +13,7 @@ export function setDueDate(user: any, task: any, e: any, workingProject: any) {
         id: newActivityRef.key,
         username: user?.displayName,
         content: task?.content,
-        due: new Date(e).toISOString(),
+        due: new Date(date).toISOString(),
         taskId: task?.id,
         projectId: workingProject.id,
         createdBy: user?.uid,
