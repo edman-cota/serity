@@ -9,6 +9,7 @@ import NavItemAddTask from './NavItemAddTask'
 import SettingsMenu from '@components/Menus/SettingsMenu'
 import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
 import ToggleSidebarVisibility from './ToggleSidebarVisibility'
+import SortSwitcher from './SortSwitcher'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -36,6 +37,9 @@ const Navbar = () => {
           <List display='flex' alignItems='center' gap={{ base: '10px', md: '30px' }}>
             <ListItem>
               <NavItemAddTask />
+            </ListItem>
+            <ListItem>
+              <SortSwitcher />
             </ListItem>
             <ListItem>
               <SettingsMenu />

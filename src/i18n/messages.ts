@@ -118,6 +118,8 @@ export const messages = {
     custom: 'Custom',
     priority: 'Priority',
     content: 'Content',
+    a_to_z: 'A to Z',
+    z_to_a: 'Z to A',
 
     // Overview
     recent_completion_curve: 'Recent Completion Curve',
@@ -261,6 +263,8 @@ export const messages = {
     custom: 'Custom',
     priority: 'Prioridad',
     content: 'Contenido',
+    a_to_z: 'A a Z',
+    z_to_a: 'Z a A',
 
     // Overview
     recent_completion_curve: 'Curva de terminación reciente',

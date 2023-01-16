@@ -6,6 +6,7 @@ import { HiOutlineCalendar } from 'react-icons/hi'
 import { BsCheck2 } from 'react-icons/bs'
 import { AiOutlineEdit } from 'react-icons/ai'
 import './Activities.scss'
+import React from 'react'
 
 interface IconProps {
   type: number

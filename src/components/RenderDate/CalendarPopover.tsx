@@ -65,15 +65,15 @@ const CalendarPopover = () => {
     }
   }
 
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('mousemove', isMouseOutBoundary)
-    }
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     window.addEventListener('mousemove', isMouseOutBoundary)
+  //   }
 
-    return () => {
-      window.removeEventListener('mousemove', isMouseOutBoundary)
-    }
-  }, [isOpen])
+  //   return () => {
+  //     window.removeEventListener('mousemove', isMouseOutBoundary)
+  //   }
+  // }, [isOpen])
 
   return (
     <Popover onClose={onClose} isOpen={isOpen}>
@@ -86,9 +86,11 @@ const CalendarPopover = () => {
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        w='330px'
-        bg='#0e1525'
-        borderColor='#0e1525'
+        w='320px'
+        // bg='#0e1525'
+        bg='#333F54'
+        // borderColor='#0e1525'
+        borderColor='#333F54'
         ref={popoverRef}
         _focusVisible={{ outline: 'none', boxShadow: 'none' }}
       >

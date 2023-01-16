@@ -13,12 +13,13 @@ interface Props {
   index: number
 }
 
-const Item = ({ task, index }: Props) => {
+const Item = ({ task, index, innerRef }: Props) => {
   const activeIndex = useSelector((state: RootState) => state.activeIndex.value)
   const hover = useColorModeValue('gray.200', 'whiteAlpha.200')
 
   return (
     <ListItem
+      ref={innerRef}
       role='group'
       cursor='pointer'
       borderRadius='base'
