@@ -48,3 +48,14 @@
   // background: $tertiary;
   border-radius: 0.5rem;
 }
+
+.contentEditable {
+  font-size: 18px;
+  font-weight: 600;
+  width: 100%;
+  outline: none;
+
+  :focus-visible {
+    outline: none !important;
+  }
+}

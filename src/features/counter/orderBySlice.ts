@@ -6,7 +6,7 @@ export interface OrderByState {
 }
 
 const initialState: OrderByState = {
-  value: 'custom',
+  value: 'a_to_z',
 }
 
 export const orderBySlice = createSlice({

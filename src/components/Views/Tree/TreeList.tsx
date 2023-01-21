@@ -43,8 +43,6 @@ const TreeList = () => {
     ...draggableStyle,
   })
 
-  console.log('Tasks: ', tasks)
-
   const onDragStart = useCallback((event: any) => {
     const draggedDOM = getDraggedDom(event.draggableId)
 

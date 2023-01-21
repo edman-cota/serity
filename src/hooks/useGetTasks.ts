@@ -6,6 +6,7 @@ import { RootState } from 'src/store'
 import { Task } from '../models/task.model'
 import database, { auth } from '../firebase'
 import { isToday } from '@helpers/isToday'
+import { sortTasks } from '@helpers/sortTasks'
 
 export const useGetTasks = () => {
   const [user] = useAuthState(auth)
@@ -16,35 +17,36 @@ export const useGetTasks = () => {
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   useEffect(() => {
-    database
-      .ref(`${user?.uid}/tasks`)
-      .orderByChild(orderBy)
-      .on('value', (snapshot) => {
-        setIsLoading(true)
-        const taskList: Task[] = []
-        const completedTask: Task[] = []
-        snapshot.forEach((snap) => {
-          if (snap.val().projectId === window.localStorage.getItem('working-project')) {
-            if (snap.val().completed === 0) {
+    database.ref(`${user?.uid}/tasks`).on('value', (snapshot) => {
+      setIsLoading(true)
+      const taskList: Task[] = []
+      const completedTask: Task[] = []
+      snapshot.forEach((snap) => {
+        if (snap.val().projectId === window.localStorage.getItem('working-project')) {
+          if (snap.val().completed === 0) {
+            taskList.push(snap.val())
+          }
+
+          if (snap.val().completed === 1) {
+            if (isToday(snap.val().completedAt)) {
               taskList.push(snap.val())
             }
-
-            if (snap.val().completed === 1) {
-              if (isToday(snap.val().completedAt)) {
-                taskList.push(snap.val())
-              }
-            }
-
-            // if (snap.val().completed === 1) {
-            //   completedTask.push(snap.val())
-            // }
           }
-        })
-        setTasks(taskList)
-        setCompletedTasks(completedTask)
-        setIsLoading(false)
+        }
       })
+      setTasks(taskList)
+      setCompletedTasks(completedTask)
+      setIsLoading(false)
+    })
   }, [user?.uid, workingProject.id, orderBy, isLoading])
+
+  // if (orderBy) {
+  //   if (orderBy === 'a_to_z') {
+  //     setTasks([...sortTasks(tasks, false)])
+  //   }
+  // }
+
+  // console.log('Sorted data: ', sortTasks(tasks, false))
 
   return { tasks, completedTasks, isLoading }
 }

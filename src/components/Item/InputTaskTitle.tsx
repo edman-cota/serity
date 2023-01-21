@@ -1,8 +1,10 @@
-import { Textarea } from '@chakra-ui/react'
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { ActivityType } from '../../models/definitions'
-import database, { auth } from '../../firebase'
+import { auth } from '../../firebase'
+import ContentEditable from 'react-contenteditable'
+import React from 'react'
+import styles from './styles.module.scss'
+import { updateTaskContent } from '@helpers/updateTaskContent'
 
 interface Props {
   content: string
@@ -12,52 +14,45 @@ interface Props {
 
 const InputTaskTitle = ({ content, id, projectId }: Props) => {
   const [user] = useAuthState(auth)
-  const areaRef = useRef<HTMLTextAreaElement>(null)
-  const [height, setHeight] = useState<number>(10)
+  const [html, setHtml] = useState('')
+
+  useEffect(() => {
+    setHtml(content)
+  }, [id])
+
+  const handleOnChange = (e: any) => {
+    setHtml(e.target.value)
+  }
 
   const handleKeyDown = (e: any) => {
     const keyCode = e.which || e.keyCode
 
     if (keyCode === 13) {
       e.preventDefault()
+      if (content !== e.target.innerHTML) {
+        if (id !== undefined && projectId !== undefined) {
+          updateTaskContent(user, id, projectId, e.target.innerHTML)
+        }
+      }
+    }
+  }
 
-      database
-        .ref(`${user?.uid}/tasks/${id}`)
-        .update({ content: e })
-        .then(() => {
-          const activityRef = database.ref(`${user?.uid}/activities`)
-          const newActivityRef = activityRef.push()
-          newActivityRef.set({
-            id: newActivityRef.key,
-            username: user?.displayName,
-            content: e,
-            taskId: id,
-            projectId,
-            createdBy: user?.uid,
-            createdAt: new Date().toISOString(),
-            type: ActivityType.RENAME_TASK_ACTIVITY_TYPE,
-          })
-        })
+  const handleOnBlur = (e: any) => {
+    const newContent = e.target.innerHTML
+    if (content !== newContent.trim()) {
+      if (id !== undefined && projectId !== undefined) {
+        updateTaskContent(user, id, projectId, newContent.trim())
+      }
     }
   }
 
   return (
-    <Textarea
-      spellCheck='false'
-      autoComplete='off'
-      value={content}
-      readOnly
-      variant='custom'
-      placeholder='Content should not be empty'
-      fontSize='18px'
-      px='4px'
-      ref={areaRef}
-      overflowY='hidden'
-      // h={`${height}px`}
-      // h={`${areaRef.current !== null ? areaRef.current.scrollHeight : 10}px`}
-      border='none'
-      fontWeight={600}
+    <ContentEditable
+      html={html}
+      className={styles.contentEditable}
       onKeyDown={handleKeyDown}
+      onChange={handleOnChange}
+      onBlur={handleOnBlur}
     />
   )
 }
