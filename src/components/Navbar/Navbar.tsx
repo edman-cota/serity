@@ -8,8 +8,8 @@ import ProjectName from './ProjectName'
 import NavItemAddTask from './NavItemAddTask'
 import SettingsMenu from '@components/Menus/SettingsMenu'
 import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
-import ToggleSidebarVisibility from './ToggleSidebarVisibility'
 import SortSwitcher from './SortSwitcher'
+import ProjectEmoji from './ProjectEmoji'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -26,7 +26,7 @@ const Navbar = () => {
         <Flex flex='1'>
           <List display='flex' gap={{ base: '10px', md: '20px' }}>
             <ListItem display='flex'>
-              <ToggleSidebarVisibility />
+              <ProjectEmoji user={user} />
             </ListItem>
             <ListItem>
               <ProjectName />
