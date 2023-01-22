@@ -20,7 +20,6 @@ interface Props {
 
 const ProjectEmoji = ({ user }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const emoji = useSelector((state: RootState) => state.emoji.value)
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
   const buttonBg = useColorModeValue('rgba(0, 0, 0, 0.01)', 'rgba(255, 255, 255, 0.06)')
 

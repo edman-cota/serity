@@ -33,7 +33,6 @@ const TreeList = () => {
   const handleShow = () => dispatch(setShowAddTask(!showAddTask))
 
   const getListStyle = () => ({
-    minHeight: '100px',
     position: 'relative',
   })
 

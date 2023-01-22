@@ -14,6 +14,10 @@ export interface Project {
    */
   columnsOrder?: string[]
   /**
+   * The workspace id where the project belongs to.
+   */
+  workspaceId: string
+  /**
    * Current time when the project was created at.
    */
   createdAt: string

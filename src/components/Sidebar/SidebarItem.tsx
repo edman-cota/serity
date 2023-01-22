@@ -17,9 +17,10 @@ import { setSelectedTaskId } from '@features/counter/selectedTaskIdSlice'
 
 interface Props {
   project: Project
+  type: string
 }
 
-const SidebarItem = ({ project }: Props) => {
+const SidebarItem = ({ project, type }: Props) => {
   const dispatch = useDispatch()
   const [user] = useAuthState(auth)
 
@@ -75,17 +76,18 @@ const SidebarItem = ({ project }: Props) => {
           display='flex'
           justifyContent='center'
           fontSize='12px'
-          _groupHover={{ display: 'none' }}
+          // _groupHover={{ display: 'none' }}
         >
           {project?.activeCount >= 1 ? project?.activeCount : null}
         </Text>
+
         <Button
           w='2rem'
           display='none'
           minWidth='1.91rem'
-          _groupHover={{
-            display: 'flex',
-          }}
+          // _groupHover={{
+          //   display: 'flex',
+          // }}
           onClick={handleClick}
         >
           <FiMoreHorizontal />

@@ -13,7 +13,7 @@ const TagsToolbar = () => {
   const dispatch = useDispatch()
   const { width } = useWindowSize()
   const isTagOpen = useSelector((state: RootState) => state.isTagOpen.value)
-  const itemColor = useColorModeValue('rgba(0,0,0,0.56)', 'rgba(255, 255, 255, 0.6)')
+  const itemColor = useColorModeValue('blackAlpha.600', 'rgb(147, 153, 159)')
   const hoverBg = useColorModeValue('white', 'whiteAlpha.200')
 
   return (
@@ -27,7 +27,7 @@ const TagsToolbar = () => {
       _hover={{ bg: hoverBg }}
     >
       <Flex alignItems='center'>
-        <Text color={itemColor} fontSize='14px' fontWeight='medium'>
+        <Text color={itemColor} fontSize='15px' fontWeight='medium'>
           <FormattedMessage id='tags' />
         </Text>
       </Flex>

@@ -11,6 +11,7 @@ import Overview from '@components/Overview/Overview'
 import MainPanel from '@components/Views/Tree/MainPanel'
 import Onboarding from '@components/onboarding/Onboarding'
 import PanelContent from '@components/Settings/PanelContent'
+import Workspace from '@components/Views/Workspace/Workspace'
 
 interface Props {
   currentLocale: string
@@ -26,6 +27,7 @@ const Routing = ({ currentLocale, handleChange }: Props): JSX.Element => {
       <Route path='login/' element={<Login />} />
       <Route path='register/' element={<Register />} />
       <Route path='onboarding/' element={<Onboarding />} />
+      <Route path='spaces/:workspace' element={<Workspace />} />
 
       <Route path='/:username/overview/' element={<Overview />} />
       <Route path='/:username/updates/' element={<Updates />} />

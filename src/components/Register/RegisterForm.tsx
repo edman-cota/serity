@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ClipLoader } from 'react-spinners'
 import { FormattedMessage } from 'react-intl'
+import { useNavigate } from 'react-router-dom'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { VStack, Text, Flex, Link, Checkbox } from '@chakra-ui/react'
 
@@ -14,6 +15,7 @@ import { registerWithEmailAndPassword } from '../../firebase'
 import { registerSchema } from '../../validation/validators/registerSchema'
 
 const RegisterForm = () => {
+  const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
 
   return (
@@ -34,6 +36,7 @@ const RegisterForm = () => {
             setIsLoading(true)
             registerWithEmailAndPassword(values.username, values.email, values.password)
             setIsLoading(false)
+            navigate('/onboarding')
           }}
         >
           <Form>
