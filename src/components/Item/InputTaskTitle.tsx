@@ -21,39 +21,14 @@ const InputTaskTitle = ({ content, id, projectId }: Props) => {
   }, [id])
 
   const handleOnChange = (e: any) => {
-    setHtml(e.target.value)
-  }
-
-  const handleKeyDown = (e: any) => {
-    const keyCode = e.which || e.keyCode
-
-    if (keyCode === 13) {
-      e.preventDefault()
-      if (content !== e.target.innerHTML) {
-        if (id !== undefined && projectId !== undefined) {
-          updateTaskContent(user, id, projectId, e.target.innerHTML)
-        }
-      }
-    }
-  }
-
-  const handleOnBlur = (e: any) => {
-    const newContent = e.target.innerHTML
-    if (content !== newContent.trim()) {
-      if (id !== undefined && projectId !== undefined) {
-        updateTaskContent(user, id, projectId, newContent.trim())
-      }
+    // setHtml(e.target.value)
+    if (id !== undefined && projectId !== undefined) {
+      updateTaskContent(user, id, projectId, e.target.value)
     }
   }
 
   return (
-    <ContentEditable
-      html={html}
-      className={styles.contentEditable}
-      onKeyDown={handleKeyDown}
-      onChange={handleOnChange}
-      onBlur={handleOnBlur}
-    />
+    <ContentEditable html={html} className={styles.contentEditable} onChange={handleOnChange} />
   )
 }
 

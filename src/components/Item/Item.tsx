@@ -13,20 +13,19 @@ interface Props {
   index: number
 }
 
-const Item = ({ task, index, innerRef }: Props) => {
+const Item = ({ task, index }: Props) => {
   const activeIndex = useSelector((state: RootState) => state.activeIndex.value)
   const hover = useColorModeValue('gray.200', 'whiteAlpha.200')
 
   return (
     <ListItem
-      ref={innerRef}
       role='group'
       cursor='pointer'
       borderRadius='base'
       _hover={{ background: hover }}
       bg={index === activeIndex ? hover : 'transparent'}
     >
-      <HStack h='40px'>
+      <HStack h='39px'>
         <Flex px='6px'>
           <RenderStatus task={task} />
         </Flex>

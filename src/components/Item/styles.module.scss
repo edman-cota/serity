@@ -59,3 +59,17 @@
     outline: none !important;
   }
 }
+
+.taskContentEditable {
+  font-size: 15px;
+  height: 100%;
+  width: 100%;
+  outline: none;
+  display: flex;
+  align-items: center;
+  cursor: text;
+
+  :focus-visible {
+    outline: none !important;
+  }
+}
