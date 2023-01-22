@@ -7,6 +7,7 @@ import { RootState } from 'src/store'
 import { Task } from '../../models/task.model'
 import RenderStatus from '../RenderStatus/RenderStatus'
 import React from 'react'
+import DragIndicator from './DragIndicator'
 
 interface Props {
   task: Task
@@ -20,13 +21,13 @@ const Item = ({ task, index }: Props) => {
   return (
     <ListItem
       role='group'
-      cursor='pointer'
       borderRadius='base'
       _hover={{ background: hover }}
       bg={index === activeIndex ? hover : 'transparent'}
     >
       <HStack h='39px'>
-        <Flex px='6px'>
+        <DragIndicator />
+        <Flex mx='0px'>
           <RenderStatus task={task} />
         </Flex>
         <Flex flex={1} alignItems='center' height='100%'>

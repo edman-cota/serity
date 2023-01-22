@@ -38,7 +38,7 @@ const TreeList = () => {
 
   const getItemStyle = (isDragging: any, draggableStyle: any) => ({
     position: 'relative',
-    backgroundColor: isDragging ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
+    backgroundColor: isDragging ? 'var(--gray-700)' : 'transparent',
     ...draggableStyle,
   })
 
@@ -135,8 +135,6 @@ const TreeList = () => {
                 )}
               </Droppable>
             </DragDropContext>
-
-            {/* <EditableBlock /> */}
 
             {showAddTask ? null : (
               <Flex w='95%' h='40px' m='10px auto' padding='0 10px' maxWidth={880} role='group'>

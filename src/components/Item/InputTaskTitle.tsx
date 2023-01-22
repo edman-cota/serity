@@ -14,14 +14,14 @@ interface Props {
 
 const InputTaskTitle = ({ content, id, projectId }: Props) => {
   const [user] = useAuthState(auth)
-  const [html, setHtml] = useState('')
+  const [html, setHtml] = useState(content)
 
   useEffect(() => {
     setHtml(content)
   }, [id])
 
   const handleOnChange = (e: any) => {
-    // setHtml(e.target.value)
+    setHtml(e.target.value)
     if (id !== undefined && projectId !== undefined) {
       updateTaskContent(user, id, projectId, e.target.value)
     }

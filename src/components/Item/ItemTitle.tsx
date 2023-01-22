@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Flex } from '@chakra-ui/react'
 import { useWindowSize } from 'react-use'
 import ContentEditable from 'react-contenteditable'
@@ -26,6 +26,7 @@ const ItemTitle = ({ task, index }: Props) => {
   const dispatch = useDispatch()
   const { width } = useWindowSize()
   const [user] = useAuthState(auth)
+  const [html, setHtml] = useState(task.content)
   const workingProject = useSelector((state: RootState) => state.workingProject.value)
 
   const onSelectItem = (id: string, itemIndex: number) => {
@@ -41,6 +42,7 @@ const ItemTitle = ({ task, index }: Props) => {
   }
 
   const handleOnChange = (e: any) => {
+    setHtml(e.target.value)
     if (workingProject.id !== undefined) {
       updateTaskContent(user, task.id, workingProject.id, e.target.value)
     }
@@ -49,7 +51,7 @@ const ItemTitle = ({ task, index }: Props) => {
   return (
     <Flex flex={3} h='100%' alignItems='center' onDoubleClick={() => onSelectItem(task.id, index)}>
       <ContentEditable
-        html={task.content}
+        html={html}
         className={styles.taskContentEditable}
         onChange={handleOnChange}
       />
