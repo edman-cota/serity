@@ -115,11 +115,12 @@ export const messages = {
     kanban: 'Kanban',
     calendar: 'Calendar',
     // filters
-    custom: 'Custom',
+    custom: 'Default',
     priority: 'Priority',
     content: 'Content',
     a_to_z: 'A to Z',
     z_to_a: 'Z to A',
+    due_date: 'Due date',
 
     // Overview
     recent_completion_curve: 'Recent Completion Curve',
@@ -265,6 +266,7 @@ export const messages = {
     content: 'Contenido',
     a_to_z: 'A a Z',
     z_to_a: 'Z a A',
+    due_date: 'Fecha límite',
 
     // Overview
     recent_completion_curve: 'Curva de terminación reciente',

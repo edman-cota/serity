@@ -1,9 +1,8 @@
 /* eslint-disable object-curly-newline */
 import { useDispatch } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
-import { HiViewBoards } from 'react-icons/hi'
-import { FiCheck, FiList } from 'react-icons/fi'
-import { BsFillCalendarMinusFill, BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs'
+import { FiCheck } from 'react-icons/fi'
+import { BsSortDownAlt, BsSortUp, BsFlag, BsCalendar2 } from 'react-icons/bs'
 import { VscFilter, VscFilterFilled } from 'react-icons/vsc'
 import { Menu, MenuButton, MenuList, MenuItem, Text, Button } from '@chakra-ui/react'
 
@@ -17,10 +16,10 @@ const SortSwitcher = () => {
   const [sortedBy, setSortedBy] = useState('custom')
 
   const filters = [
-    { icon: <FiList />, label: 'custom' },
-    { icon: <HiViewBoards />, label: 'priority' },
-    { icon: <BsSortDownAlt />, label: 'a_to_z' },
-    { icon: <BsSortUpAlt />, label: 'z_to_a' },
+    { icon: <BsSortDownAlt size='1.3em' />, label: 'a_to_z' },
+    { icon: <BsSortUp size='1.3em' />, label: 'z_to_a' },
+    { icon: <BsFlag />, label: 'priority' },
+    { icon: <BsCalendar2 />, label: 'due_date' },
   ]
 
   const updateSortedBy = (order: string) => {
@@ -29,7 +28,7 @@ const SortSwitcher = () => {
   }
 
   return (
-    <Menu autoSelect={false}>
+    <Menu autoSelect={false} placement='bottom'>
       <MenuButton as={Button}>
         {sortedBy === 'custom' ? (
           <VscFilter style={{ margin: 'auto' }} />
@@ -42,9 +41,12 @@ const SortSwitcher = () => {
           const { icon, label } = filter
 
           return (
-            <MenuItem key={label} icon={icon} onClick={() => updateSortedBy(label)}>
-              <Text display='flex' justifyContent='space-between' alignItems='center'>
-                <Text as='span' pl='6px' fontSize='14px'>
+            <MenuItem key={label} onClick={() => updateSortedBy(label)}>
+              <Text display='flex' justifyContent='space-between' alignItems='center' w='100%'>
+                <Text as='span' fontSize='14px' display='flex' alignItems='center'>
+                  <Text as='span' w='34px'>
+                    {icon}
+                  </Text>
                   <FormattedMessage id={label} />
                 </Text>
                 {sortedBy === label ? (
