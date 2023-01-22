@@ -4,7 +4,7 @@ import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
-import { UserAvatar } from './UserAvatar'
+import { UserAvatar } from '../Navbar/UserAvatar'
 import { auth, storage } from '../../firebase'
 import DeleteAccountModal from '@components/Modals/DeleteAccountModal'
 

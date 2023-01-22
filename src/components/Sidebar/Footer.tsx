@@ -1,7 +1,7 @@
 import { Button, HStack, useColorModeValue } from '@chakra-ui/react'
 import { Tooltip } from '@serity-ui/react'
 import CreateProject from '../Modals/CreateProject'
-import SettingsMenu from '../Menus/SettingsMenu'
+import SettingsMenu from '../Menus/UserAvatarMenu'
 import { IoNotificationsOutline } from 'react-icons/io5'
 import { FormattedMessage } from 'react-intl'
 import NotificationsButton from '@components/Navbar/NotificationsButton'

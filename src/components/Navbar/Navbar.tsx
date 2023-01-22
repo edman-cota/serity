@@ -6,7 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../firebase'
 import ProjectName from './ProjectName'
 import NavItemAddTask from './NavItemAddTask'
-import SettingsMenu from '@components/Menus/SettingsMenu'
+import UserAvatarMenu from '@components/Menus/UserAvatarMenu'
 import ProjectOptionsMenu from '../Menus/ProjectOptionsMenu'
 import SortSwitcher from './SortSwitcher'
 import ProjectEmoji from './ProjectEmoji'
@@ -42,10 +42,10 @@ const Navbar = () => {
               <SortSwitcher />
             </ListItem>
             <ListItem>
-              <SettingsMenu />
+              <ProjectOptionsMenu />
             </ListItem>
             <ListItem>
-              <ProjectOptionsMenu />
+              <UserAvatarMenu />
             </ListItem>
           </List>
         </Flex>

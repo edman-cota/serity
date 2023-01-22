@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../../../firebase'
 import WorkspaceMenu from '@components/Menus/WorskpaceMenu'
+import UserAvatarMenu from '@components/Menus/UserAvatarMenu'
 // import ProjectName from './ProjectName'
 // import NavItemAddTask from './NavItemAddTask'
 // import SettingsMenu from '@components/Menus/SettingsMenu'
@@ -45,6 +46,9 @@ const Navbar = () => {
             <ListItem>
               <ProjectOptionsMenu />
             </ListItem> */}
+            <ListItem>
+              <UserAvatarMenu />
+            </ListItem>
           </List>
         </Flex>
       </Flex>
