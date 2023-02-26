@@ -27,17 +27,17 @@ const Workspace = () => {
             ))}
           </List>
         </Collapse>
-        <TagsToolbar />
+        {/* <TagsToolbar />
         <Collapse in={isTagOpen} animateOpacity style={{ width: '100%' }}>
           <List w='90%' mx='auto'>
             {tags?.map((tag) => (
               <TagSidebarItem key={tag?.id} tag={tag} />
             ))}
           </List>
-        </Collapse>
+        </Collapse> */}
       </VStack>
     </VStack>
   )
 }
 
-export default memo(Workspace)
+export default Workspace

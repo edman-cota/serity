@@ -10,7 +10,7 @@ function PanelContent(props: any) {
   const styles = useStyleConfig('PanelContent', { variant })
   const isSidebarOpen = useSelector((state: RootState) => state.isSidebarOpen.value)
   const isOpen = useSelector((state: RootState) => state.isOpen.value)
-  const margin = isSidebarOpen ? '300px' : '0px'
+  const margin = isSidebarOpen ? '280px' : '0px'
   const widths = isOpen ? `${sizes.at(0)}%` : '100%'
   const display = isOpen ? paneDisplay.at(0) : paneDisplay.at(1)
 

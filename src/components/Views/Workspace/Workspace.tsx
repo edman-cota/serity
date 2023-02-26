@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Flex, List, VStack } from '@chakra-ui/react'
+import { Button, Flex, List, ListItem, VStack } from '@chakra-ui/react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import Navbar from './Navbar'
@@ -13,6 +13,7 @@ import { Status } from '../../../models/definitions'
 
 import { formatUrl, formatUsername } from '@helpers/formatter'
 import { useGetProjects } from '@hooks/useGetProjects'
+import ListItemProject from './ListItemProject'
 
 const Workspace = () => {
   const navigate = useNavigate()
@@ -36,16 +37,16 @@ const Workspace = () => {
           <SidebarItem project={project} type='simple' />
         </List>
       </Sidebar>
-      <PanelContent>
+      <PanelContent bg='#0E1525'>
         <VStack w='100%'>
           <Navbar />
           <Flex flexDirection='column' w='100%'>
-            <Button w='6rem' onClick={onCreateNewProject}>
-              New project
+            <Button w='6rem' onClick={onCreateNewProject} color='#57ABFF'>
+              +
             </Button>
-            <List w='100%'>
+            <List w='100%' px='100px'>
               {projects?.map((project) => (
-                <Link to={`/${username}/${formatUrl(project?.name)}`}>{project.name}</Link>
+                <ListItemProject project={project} />
               ))}
             </List>
           </Flex>

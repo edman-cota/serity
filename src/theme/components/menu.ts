@@ -13,8 +13,8 @@ const baseStyle = definePartsStyle({
   },
   item: {
     color: 'white',
-    height: '36px',
-    borderRadius: '6px',
+    height: '34px',
+    borderRadius: '4px',
     fontSize: '14px',
 
     _hover: {

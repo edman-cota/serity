@@ -44,9 +44,9 @@ const Navbar = () => {
             <ListItem>
               <ProjectOptionsMenu />
             </ListItem>
-            <ListItem>
+            {/* <ListItem>
               <UserAvatarMenu />
-            </ListItem>
+            </ListItem> */}
           </List>
         </Flex>
       </Flex>

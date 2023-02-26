@@ -26,6 +26,7 @@ const SidebarItem = ({ project, type }: Props) => {
 
   const itemColor = useColorModeValue('#202020', 'hsla(0,0%,100%,.87)')
   const hoverBg = useColorModeValue('white', 'whiteAlpha.200')
+  // const activeBg = useColorModeValue('white', '#004182')
 
   const username = formatUsername(user?.email)
 
@@ -62,10 +63,10 @@ const SidebarItem = ({ project, type }: Props) => {
         <Text
           onClick={() => navigateTo(project)}
           w='100%'
-          h='36px'
+          h='34px'
           display='flex'
           alignItems='center'
-          fontSize='15px'
+          fontSize='14px'
           px='10px'
         >
           {project?.name}

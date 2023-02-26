@@ -10,11 +10,12 @@ interface Props {
 
 const Sidebar = ({ children }: Props) => {
   const sidebarBackground = useColorModeValue('gray.100', 'gray.700')
+  // const sidebarBackground = useColorModeValue('gray.100', '#1C2333')
   const isSidebarOpen = useSelector((state: RootState) => state.isSidebarOpen.value)
 
   return (
-    <Slide in={isSidebarOpen} unmountOnExit direction='left' style={{ width: '300px' }}>
-      <VStack w='300px' h='100vh' pos='fixed' pt='50px' background={sidebarBackground}>
+    <Slide in={isSidebarOpen} unmountOnExit direction='left' style={{ width: '280px' }}>
+      <VStack w='280px' h='100vh' pos='fixed' pt='50px' background={sidebarBackground}>
         {children}
       </VStack>
     </Slide>

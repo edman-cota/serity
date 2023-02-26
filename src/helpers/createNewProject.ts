@@ -21,7 +21,7 @@ export const createNewProject = (name: string, user: any, emoji: any) => {
       members: [],
       columns: [],
       columnsOrder: [],
-      workspaceId: '-NMKb6NYnbOhaw4BisXM',
+      workspaceId: '-NMzA97uwLOoga9OOMZt',
       createdAt: timestamp.toString(),
       createdBy: user?.uid,
       showCompleted: false,
